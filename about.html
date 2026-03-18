@@ -36,10 +36,114 @@
         </div>
     </section>
 
-     
-     
+    <!-- card pro + desing -->
+
+    <section class="bg-gray-100 py-16">
+
+  <div class="max-w-6xl mx-auto px-4">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- CARD -->
+      <div class="card-solid rounded-2xl overflow-hidden relative h-full flex" style="--c:#f97316;">
+        
+        <!-- Inner -->
+        <div class=" card relative z-10 m-[2px] rounded-2xl p-6 bg-[#fef3f0] flex flex-col w-full h-full">
+
+          <span class=" flex justify-center items-center w-16 h-16 bg-linear-to-r from-blue-500 to-purple-500 rounded-xl mb-3"><i class=" text-3xl fa-solid fa-store text-white"></i></span>
+          <h3 class="text-xl font-bold mb-2">eCommerce Solution</h3>
+          
+          <p class="text-sm text-gray-700 flex-grow bangla-font">
+            দারাজ, ইভ্যালি, আলি-এক্সপ্রেস বা এ্যামাজনের মতো ফাংশনালিটির ই-কমার্স ওয়েবসাইট ডেভেলপমেন্ট নিয়ে কাজ করার জন্য আমাদের নিজস্ব ৩০ জন ডেভেলপার রয়েছে। দক্ষতা ও সততার সাথে আমরা সার্ভিস দিয়ে থাকি।
+          </p>
+
+        </div>
+      </div>
+
+      <!-- Duplicate others -->
+      <div class="card-solid rounded-2xl overflow-hidden relative h-full flex" style="--c:#3b82f6;">
+        <div class="relative z-10 m-[2px] rounded-2xl p-6 bg-[#eff6ff] flex flex-col w-full h-full">
+          <h3 class="text-xl font-bold mb-2">Web Development</h3>
+          <p class="text-sm text-gray-700 flex-grow">Content...</p>
+        </div>
+      </div>
+
+      <div class="card-solid rounded-2xl overflow-hidden relative h-full flex" style="--c:#eab308;">
+        <div class="relative z-10 m-[2px] rounded-2xl p-6 bg-[#fefce8] flex flex-col w-full h-full">
+          <h3 class="text-xl font-bold mb-2">JavaScript</h3>
+          <p class="text-sm text-gray-700 flex-grow">Content...</p>
+        </div>
+      </div>
+
+      <div class="card-solid rounded-2xl overflow-hidden relative h-full flex" style="--c:#06b6d4;">
+        <div class="relative z-10 m-[2px] rounded-2xl p-6 bg-[#ecfeff] flex flex-col w-full h-full">
+          <h3 class="text-xl font-bold mb-2">React</h3>
+          <p class="text-sm text-gray-700 flex-grow">Content...</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+.card-solid {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+
+.card-solid:hover{
+    /* background-color: #f97316; */
+    transform: scale(1.09);
+}
+
+/* Animated border */
+.card-solid::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150vmax;
+  height: 150vmax;
+
+  background: conic-gradient(
+    transparent 0deg,
+    var(--c) 20deg,
+    transparent 100deg
+  );
+
+  transform: translate(-50%, -50%);
+  animation: spinSolid 8s linear infinite;
+}
+
+/* Mask */
+.card-solid::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: inherit;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+@keyframes spinSolid {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+</style>
+
+
+   
+
     <!-- Team Section -->
-    <section class="team-section">
+    <!-- <section class="team-section">
         
         <span class=" flex justify-center text-4xl"><i class="fa-solid fa-users text-pink-600" ></i></span>
         <h2 class="text-4xl font-bold text-center bangla-font">
@@ -185,8 +289,128 @@
         </div>
 
 
+    </section> -->
+
+
+    <!-- Card desing  -->
+
+    <section class="bg-gray-100 py-16">
+
+        <div class="max-w-6xl mx-auto px-4">
+
+            <!-- Title -->
+            <h2 class="text-3xl font-bold text-center mb-12">
+                তুমি কী <span
+                    class="bg-gradient-to-r from-orange-400 to-purple-500 text-white px-4 py-1 rounded-full">শিখবে?</span>
+            </h2>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- CARD 1 -->
+                <div class="ph-card rounded-2xl overflow-hidden relative">
+                    <div class="relative z-10 bg-[#f5e9e4] m-[2px] rounded-2xl p-6">
+                        <h3 class="text-xl font-bold mb-2">eCommerce Solution</h3>
+                        <p class="text-sm text-gray-700 bangla-font">
+                            দারাজ, ইভ্যালি, আলি-এক্সপ্রেস বা এ্যামাজনের মতো ফাংশনালিটির ই-কমার্স ওয়েবসাইট ডেভেলপমেন্ট
+                            নিয়ে কাজ করার জন্য আমাদের নিজস্ব ৩০ জন ডেভেলপার রয়েছে। দক্ষতা ও সততার সাথে আমরা সার্ভিস দিয়ে
+                            থাকি।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="ph-card rounded-2xl overflow-hidden relative">
+                    <div class="relative z-10 bg-[#e4edf3] m-[2px] rounded-2xl p-6">
+                        <h3 class="text-xl font-bold mb-2">CSS</h3>
+                        <p class="text-sm text-gray-700">
+                            এখানে তোমার content বসাবে...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="ph-card rounded-2xl overflow-hidden relative">
+                    <div class="relative z-10 bg-[#f4f0d9] m-[2px] rounded-2xl p-6">
+                        <h3 class="text-xl font-bold mb-2">JavaScript</h3>
+                        <p class="text-sm text-gray-700">
+                            এখানে তোমার content বসাবে...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="ph-card rounded-2xl overflow-hidden relative">
+                    <div class="relative z-10 bg-[#e3f1f7] m-[2px] rounded-2xl p-6">
+                        <h3 class="text-xl font-bold mb-2">React</h3>
+                        <p class="text-sm text-gray-700">
+                            এখানে তোমার content বসাবে...
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
+    <style>
+        .ph-card {
+            position: relative;
+        }
+
+        /* Animated Border */
+        .ph-card::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150vmax;
+            height: 150vmax;
+
+            background: conic-gradient(from -30deg,
+                    #ffffff,
+                    #ffa205,
+                    #b41cdd,
+                    #ff5898,
+                    #ffffff);
+
+
+
+
+
+
+            transform: translate(-50%, -50%);
+            animation: rotateCard 10s linear infinite;
+        }
+
+        /* Inner mask (border only show) */
+        .ph-card::after {
+            content: "";
+            position: absolute;
+            inset: 2px;
+            background: inherit;
+            border-radius: 16px;
+            z-index: 1;
+        }
+
+        /* Animation */
+        @keyframes rotateCard {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Hover effect */
+        .ph-card:hover::before {
+            animation-duration: 2s;
+        }
+    </style>
 
 
 
