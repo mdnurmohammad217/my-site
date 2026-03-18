@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind Css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Bangla:ital@0;1&display=swap"
+        rel="stylesheet">
+    <!-- site Icon -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Site Ghor</title>
+
+    <style>
+        /* html, body {
+  height: 100%;
+} */
+
+.wrap {
+    margin: 90px 0px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  min-width: 200px;
+  min-height: 40px;
+  display: inline-flex;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #fff;
+  background: #01915f;
+background: linear-gradient(90deg, rgb(2, 164, 110) 0%, rgba(79,209,197,1) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  }
+
+.button::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(200px + 12px);
+  min-height: calc(40px + 12px);
+  /* border: 4px solid #00925c; */
+  box-shadow: 0 0 60px rgba(0, 197, 158, 0.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.button:hover, 
+.button:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.button:hover::before, 
+.button:focus::before {
+  opacity: 1;
+}
+
+.button::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 4px solid #00925c;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.button:hover::after, 
+.button:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+  }
+}
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+
+
+    <!-- Top Section -->
+    <section class="top-section">
+        <div class="bg-gradient-to-l from-[#053700] via-green-700 to-[#053700] py-16 px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="md:text-5xl text-4xl font-semibold mb-6 text-white">Pricing — E-commerce Plans</h2>
+                <p class="text-base text-slate-300 text-xl">Choose the perfect plan for your business needs</p>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="wrap">
+            <button class="button">Whatsapp</a>
+        </div>
+
+    </section>
+
+    <section class='flex items-center justify-center flex-col py-20 px-4 bg-white'>
+        <h1 class='font-medium text-4xl md:text-[52px] text-slate-800 text-center'>Flexible Pricing Plans</h1>
+        <p class='text-base/7 text-zinc-500 max-w-sm text-center mt-4'>Choose a plan that supports your business growth
+            and
+            digital goals.</p>
+        <div class='mt-6 flex bg-zinc-100 p-1.5 rounded-full'>
+            <button id="monthlyBtn" onclick="togglePricing(false)"
+                class='px-4 py-2 rounded-full text-xs cursor-pointer transition text-gray-600'>Monthly</button>
+            <button id="annuallyBtn" onclick="togglePricing(true)"
+                class='px-4 py-2 rounded-full text-xs cursor-pointer transition bg-zinc-800 hover:bg-zinc-900 text-white'>Annually</button>
+        </div>
+        <div class='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+
+            <div
+                class='border border-zinc-200 rounded-2xl p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1'>
+                <h1 class='font-medium text-3xl text-slate-800 mt-1'>Basic</h1>
+                <p class='text-sm text-zinc-500 mt-2'>For startups and small teams.</p>
+                <h1 class='font-medium text-5xl text-slate-800 mt-6'>$<span id="basicPrice">100</span></h1>
+                <button
+                    class='w-full border border-zinc-300/80 px-4 py-3 rounded-full cursor-pointer text-slate-600 text-sm mt-8 bg-zinc-100 hover:bg-zinc-200/70'>Get
+                    Started
+                </button>
+                <div class='w-full mt-8 space-y-2.5 pb-4'>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Essential site setup support
+                    </p>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Access to basic UI templates
+                    </p>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Email support for minor updates
+                    </p>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Access to basic components
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class='bg-gray-100 border border-zinc-200 rounded-2xl p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1'>
+                <h1 class='font-medium text-3xl text-slate-800 mt-1'>Pro</h1>
+                <p class='text-sm text-zinc-500 mt-2'>Perfect for growing businesses.</p>
+                <h1 class='font-medium text-5xl text-slate-800 mt-6'>$<span id="proPrice">300</span></h1>
+                <button
+                    class='bg-gray-800 hover:bg-gray-900 text-white w-full px-4 py-3 rounded-full cursor-pointer text-sm mt-8'>Get
+                    Started
+                </button>
+                <div class='w-full mt-8 space-y-2.5 pb-4'>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Custom web page design up to 5 pages
+                    </p>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Access to basic UI templates
+                    </p>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Email support for minor updates
+                    </p>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Access to basic components
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class='border border-zinc-200 rounded-2xl p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1'>
+                <h1 class='font-medium text-3xl text-slate-800 mt-1'>Enterprise</h1>
+                <p class='text-sm text-zinc-500 mt-2'>For scaling brands and teams.</p>
+                <h1 class='font-medium text-5xl text-slate-800 mt-6'>$<span id="enterprisePrice">500</span></h1>
+                <button
+                    class='w-full border border-zinc-300/80 px-4 py-3 rounded-full cursor-pointer text-slate-600 text-sm mt-8 bg-zinc-100 hover:bg-zinc-200/70'>Get
+                    Started
+                </button>
+                <div class='w-full mt-8 space-y-2.5 pb-4'>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Full website redesign & development
+                    </p>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Advanced analytics insights
+                    </p>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Ongoing dedicated support
+                    </p>
+                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
+                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
+                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
+                        </span>
+                        Access to basic UI templates
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <div id="footer"></div>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

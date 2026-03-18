@@ -1,0 +1,81 @@
+*{
+  font-family: "Poppins", sans-serif;;
+}
+
+.bangla-font {
+  font-family: "Tiro Bangla", serif;
+}
+
+
+@keyframes rotate {
+        100% {
+            transform: rotate(1turn);
+        }
+    }
+
+    .rainbow::before {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+        background-size: 50% 30%;
+        filter: blur(6px);
+        background-image: linear-gradient(#fff);
+        animation: rotate 4s linear infinite;
+    }
+
+
+    @keyframes marqueeScroll {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .marquee-inner {
+        animation: marqueeScroll 25s linear infinite;
+    }
+
+    .marquee-reverse {
+        animation-direction: reverse;
+    }
+
+
+
+
+
+
+
+
+
+
+    /* Glow Effect */
+.glow-btn {
+  position: relative;
+  background: #25D366;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.glow-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255,140,0,0.5) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+}
+
+/* Smooth animation */
+.glow-btn:hover {
+  transform: scale(1.08);
+  transition: 0.3s;
+}

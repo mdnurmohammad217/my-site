@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind Css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Bangla:ital@0;1&display=swap"
+        rel="stylesheet">
+    <!-- site Icon -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Site Ghor</title>
+</head>
+
+<body>
+    <div id="header"></div>
+
+
+    <!-- Top Section -->
+    <section class="top-section">
+        <div class="bg-gradient-to-l from-[#053700] via-green-700 to-[#053700] py-16 px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="md:text-5xl text-4xl font-semibold mb-6 text-white">SITE GHOR BLOG</h2>
+                <p class="text-base text-slate-300 bangla-font text-xl">ওয়েব ডেভেলপমেন্ট, ডিজিটাল মার্কেটিং এবং বিজনেস গ্রোথের সর্বশেষ টিপস ও ট্রিকস</p>
+
+                <div class="flex items-center border pl-4 gap-2 bg-white border-gray-500/30 h-[46px] rounded-full overflow-hidden max-w-md w-full mx-auto mt-2">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="#6B7280">
+                        <path
+                            d="M13 3C7.489 3 3 7.489 3 13s4.489 10 10 10a9.95 9.95 0 0 0 6.322-2.264l5.971 5.971a1 1 0 1 0 1.414-1.414l-5.97-5.97A9.95 9.95 0 0 0 23 13c0-5.511-4.489-10-10-10m0 2c4.43 0 8 3.57 8 8s-3.57 8-8 8-8-3.57-8-8 3.57-8 8-8" />
+                    </svg>
+
+                    <input type="text" class="w-full h-full outline-none text-sm text-gray-500">
+
+                    <button type="submit"
+                        class="bg-indigo-500 w-32 h-9 rounded-full text-sm text-white mr-[5px]">Search</button>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="max-w-5xl max-lg:max-w-4xl  max-sm:max-w-sm mx-auto p-4">
+          <div class="max-w-2xl mx-auto text-center">
+              <h2 class="text-slate-900 text-3xl md:text-4xl font-bold">Meet our team</h2>
+              <p class="text-slate-600 text-[15px] mt-4 leading-relaxed">Meet our team of professionals to serve you.</p>
+          </div>
+
+          <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-x-6 gap-y-20 text-center mt-24">
+              <div class="bg-gray-200 relative rounded-sm">
+                  <div class="w-32 h-32 rounded-full inline-block border border-gray-200 bg-gray-100 overflow-hidden -mt-14">
+                      <img src="https://readymadeui.com/team-1.webp" class="w-full h-full" />
+                  </div>
+
+                  <div class="py-4">
+                      <h4 class="text-slate-900 text-base font-semibold">John Doe</h4>
+                      <p class="text-slate-600 text-[13px] mt-1">Software Engineer</p>
+
+                      <div class="space-x-4 mt-4">
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 155.139 155.139">
+                                  <path
+                                      d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                                      data-original="#010002" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 512 512">
+                                  <path
+                                      d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                                      data-original="#03a9f4" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14px" class="fill-gray-800" viewBox="0 0 24 24">
+                                  <path
+                                      d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                                      data-original="#0077b5" />
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-gray-200 relative rounded-sm">
+                  <div class="w-32 h-32 rounded-full inline-block border border-gray-200 bg-gray-100 overflow-hidden -mt-14">
+                      <img src="https://readymadeui.com/team-2.webp" class="w-full h-full" />
+                  </div>
+
+                  <div class="py-4">
+                      <h4 class="text-slate-900 text-base font-semibold">Mark Adair</h4>
+                      <p class="text-slate-600 text-[13px] mt-1">Software Engineer</p>
+
+                      <div class="space-x-4 mt-4">
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 155.139 155.139">
+                                  <path
+                                      d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                                      data-original="#010002" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 512 512">
+                                  <path
+                                      d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                                      data-original="#03a9f4" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14px" class="fill-gray-800" viewBox="0 0 24 24">
+                                  <path
+                                      d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                                      data-original="#0077b5" />
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-gray-200 relative rounded-sm">
+                  <div class="w-32 h-32 rounded-full inline-block border border-gray-200 bg-gray-100 overflow-hidden -mt-14">
+                      <img src="https://readymadeui.com/team-3.webp" class="w-full h-full" />
+                  </div>
+
+                  <div class="py-4">
+                      <h4 class="text-slate-900 text-base font-semibold">Simon Konecki</h4>
+                      <p class="text-slate-600 text-[13px] mt-1">Web Designer</p>
+
+                      <div class="space-x-4 mt-4">
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 155.139 155.139">
+                                  <path
+                                      d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                                      data-original="#010002" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 512 512">
+                                  <path
+                                      d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                                      data-original="#03a9f4" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14px" class="fill-gray-800" viewBox="0 0 24 24">
+                                  <path
+                                      d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                                      data-original="#0077b5" />
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-gray-200 relative rounded-sm">
+                  <div class="w-32 h-32 rounded-full inline-block border border-gray-200 bg-gray-100 overflow-hidden -mt-14">
+                      <img src="https://readymadeui.com/team-4.webp" class="w-full h-full" />
+                  </div>
+
+                  <div class="py-4">
+                      <h4 class="text-slate-900 text-base font-semibold">Eleanor</h4>
+                      <p class="text-slate-600 text-[13px] mt-1">Web Designer</p>
+
+                      <div class="space-x-4 mt-4">
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 155.139 155.139">
+                                  <path
+                                      d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                                      data-original="#010002" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 512 512">
+                                  <path
+                                      d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                                      data-original="#03a9f4" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14px" class="fill-gray-800" viewBox="0 0 24 24">
+                                  <path
+                                      d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                                      data-original="#0077b5" />
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-gray-200 relative rounded-sm">
+                  <div class="w-32 h-32 rounded-full inline-block border border-gray-200 bg-gray-100 overflow-hidden -mt-14">
+                      <img src="https://readymadeui.com/team-5.webp" class="w-full h-full" />
+                  </div>
+
+                  <div class="py-4">
+                      <h4 class="text-slate-900 text-base font-semibold">Maria Rodriguez</h4>
+                      <p class="text-slate-600 text-[13px] mt-1">DevOps Engineer</p>
+
+                      <div class="space-x-4 mt-4">
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 155.139 155.139">
+                                  <path
+                                      d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                                      data-original="#010002" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 512 512">
+                                  <path
+                                      d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                                      data-original="#03a9f4" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14px" class="fill-gray-800" viewBox="0 0 24 24">
+                                  <path
+                                      d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                                      data-original="#0077b5" />
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-gray-200 relative rounded-sm">
+                  <div class="w-32 h-32 rounded-full inline-block border border-gray-200 bg-gray-100 overflow-hidden -mt-14">
+                      <img src="https://readymadeui.com/team-6.webp" class="w-full h-full" />
+                  </div>
+
+                  <div class="py-4">
+                      <h4 class="text-slate-900 text-base font-semibold">James Wilson</h4>
+                      <p class="text-slate-600 text-[13px] mt-1">Data Scientist</p>
+
+                      <div class="space-x-4 mt-4">
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 155.139 155.139">
+                                  <path
+                                      d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                                      data-original="#010002" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 512 512">
+                                  <path
+                                      d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                                      data-original="#03a9f4" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14px" class="fill-gray-800" viewBox="0 0 24 24">
+                                  <path
+                                      d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                                      data-original="#0077b5" />
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-gray-200 relative rounded-sm">
+                  <div class="w-32 h-32 rounded-full inline-block border border-gray-200 bg-gray-100 overflow-hidden -mt-14">
+                      <img src="https://readymadeui.com/team-1.webp" class="w-full h-full" />
+                  </div>
+
+                  <div class="py-4">
+                      <h4 class="text-slate-900 text-base font-semibold">Sophia Lee</h4>
+                      <p class="text-slate-600 text-[13px] mt-1">UI/UX Designer</p>
+
+                      <div class="space-x-4 mt-4">
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 155.139 155.139">
+                                  <path
+                                      d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                                      data-original="#010002" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 512 512">
+                                  <path
+                                      d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                                      data-original="#03a9f4" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14px" class="fill-gray-800" viewBox="0 0 24 24">
+                                  <path
+                                      d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                                      data-original="#0077b5" />
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-gray-200 relative rounded-sm">
+                  <div class="w-32 h-32 rounded-full inline-block border border-gray-200 bg-gray-100 overflow-hidden -mt-14">
+                      <img src="https://readymadeui.com/team-2.webp" class="w-full h-full" />
+                  </div>
+
+                  <div class="py-4">
+                      <h4 class="text-slate-900 text-base font-semibold">Sophia Lee</h4>
+                      <p class="text-slate-600 text-[13px] mt-1">UI/UX Designer</p>
+
+                      <div class="space-x-4 mt-4">
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 155.139 155.139">
+                                  <path
+                                      d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
+                                      data-original="#010002" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12px" class="fill-gray-800" viewBox="0 0 512 512">
+                                  <path
+                                      d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
+                                      data-original="#03a9f4" />
+                              </svg>
+                          </button>
+                          <button type="button"
+                              class="w-7 h-7 inline-flex items-center justify-center rounded-full border-0 outline-0 cursor-pointer  bg-gray-100 hover:bg-gray-200">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14px" class="fill-gray-800" viewBox="0 0 24 24">
+                                  <path
+                                      d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
+                                      data-original="#0077b5" />
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div> -->
+
+
+    <div class="bg-white p-4">
+        <div class="max-w-5xl max-lg:max-w-3xl max-md:max-w-md mx-auto">
+            <h2 class="text-3xl font-bold text-slate-900">LATEST BLOGS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                <div class="bg-purple-100 rounded-lg overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://readymadeui.com/images/food22.webp" alt="Blog Post 3"
+                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
+                        <div
+                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
+                            August 16, 2023</div>
+                    </div>
+                    <a href="javascript:void(0)" class="block p-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-slate-900 mb-2">The Future of Food and Tech</h3>
+                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">Explore how robotics and
+                                AI are revolutionizing fast food.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="bg-purple-100 rounded-lg overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://readymadeui.com/images/food11.webp" alt="Blog Post 3"
+                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
+                        <div
+                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
+                            August 16, 2023</div>
+                    </div>
+                    <a href="javascript:void(0)" class="block p-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Eating Clean, Feeling Great</h3>
+                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">Healthy eating doesn’t
+                                have to be boring. Discover delicious meals that boost your mood.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="bg-purple-100 rounded-lg overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://readymadeui.com/images/food.webp" alt="Blog Post 3"
+                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
+                        <div
+                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
+                            August 16, 2023</div>
+                    </div>
+                    <a href="javascript:void(0)" class="block p-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Pasta That Tells a Story</h3>
+                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">Dive into the world of
+                                bold flavors and cultural traditions.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="bg-purple-100 rounded-lg overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://readymadeui.com/images/food33.webp" alt="Blog Post 1"
+                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
+                        <div
+                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
+                            June 10, 2023</div>
+                    </div>
+                    <a href="javascript:void(0)" class="block p-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Food That Inspires</h3>
+                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">Bright meals, bold
+                                ideas—see how vibrant food presentation can spark imagination and joy.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="bg-purple-100 rounded-lg overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://readymadeui.com/images/food44.webp" alt="Blog Post 2"
+                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
+                        <div
+                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
+                            April 20, 2023</div>
+                    </div>
+                    <a href="javascript:void(0)" class="block p-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Energize Your Routine</h3>
+                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">Power your day with
+                                nourishing bowls packed with flavor and crunch.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="bg-purple-100 rounded-lg overflow-hidden group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://readymadeui.com/images/food55.webp" alt="Blog Post 3"
+                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
+                        <div
+                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
+                            August 16, 2023</div>
+                    </div>
+                    <a href="javascript:void(0)" class="block p-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Sweet Trends to Watch</h3>
+                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">From aesthetic plating to
+                                bite-sized delights, uncover what’s trending in the world of desserts and snacks.</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="footer"></div>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

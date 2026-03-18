@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Card</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body class="bg-gray-100 h-screen">
+
+    <div id="header"></div>
+
+
+
+    <section class="flex justify-center items-center bg-gray-100 py-16">
+
+        <div class="relative w-full max-w-6xl rounded-2xl overflow-hidden ph-border">
+
+            <!-- Content -->
+            <div class="relative z-10 bg-gray-100 m-[2px] rounded-2xl p-10 text-center">
+
+                <h2 class="text-2xl md:text-3xl font-bold mb-10 bangla-font">
+                    স্বপ্ন থেকে <span class="text-purple-500 bangla-font">সাফল্য</span>   — আমাদের অর্জনের গল্প
+                </h2>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+                    <div class="space-x-3">
+                        <div class="text-4xl mb-2"><i class="fa-regular fa-building"
+                                style="color: rgb(3, 93, 237);"></i></div>
+                        <h3 class="text-4xl font-bold text-blue-500">8+</h3>
+                        <p class="text-gray-600 bangla-font">বছরের অভিজ্ঞতা</p>
+                    </div>
+
+                    <div class="space-x-3">
+                        <div class="text-4xl mb-2"><i class="fa-solid fa-earth-americas" style="color: #b200a7"></i></div>
+                        <h3 class="text-4xl font-bold text-[#b200a7]">4200+</h3>
+                        <p class="text-gray-600 bangla-font">সফল ওয়েবসাইট
+
+                        </p>
+                    </div>
+
+                    <div class="space-x-3">
+                        <div class="text-4xl mb-2"><i class="fa-solid fa-headset" style="color: rgb(251, 146, 60);"></i></div>
+                        <h3 class="text-4xl font-bold text-orange-400">24/7</h3>
+                        <p class="text-gray-600 bangla-font">সাপোর্ট সেবা</p>
+                    </div>
+
+                    <div class="space-x-3">
+                        <div class="text-4xl mb-2"><i class="fa-solid fa-heart" style="color: rgb(187, 86, 234);"></i></div>
+                        <h3 class="text-4xl font-bold text-purple-500">100%</h3>
+                        <p class="text-gray-600 bangla-font">গ্রাহক সন্তুষ্টি
+
+</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <style>
+        .ph-border {
+            position: relative;
+        }
+
+        .ph-border::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150vmax;
+            height: 150vmax;
+
+            background: conic-gradient(from -31.62deg,
+                    #ffffff -43deg,
+                    #ffa205 20deg,
+                    #b41cdd 60deg,
+                    #ff5898 120deg,
+                    #ffffff 140deg,
+                    #ffffff 320deg,
+                    #ffa205 380deg);
+
+            transform: translate(-50%, -50%);
+            animation: phRotate 4s linear infinite;
+        }
+
+        /* IMPORTANT PART (border only visible) */
+        .ph-border::after {
+            content: "";
+            position: absolute;
+            inset: 2px;
+            background: #f3f4f6;
+            border-radius: 16px;
+            z-index: 1;
+        }
+
+        @keyframes phRotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+    </style>
+
+
+
+
+    <div id="footer"></div>
+    <script type="text/babel" src="main.js"></script>
+</body>
+
+</html>
