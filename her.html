@@ -276,6 +276,64 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </main>   
 
+
+
+
+<style>
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.rainbow {
+    position: relative;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.rainbow::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    
+    /* 🔥 gradient change */
+    background: conic-gradient(
+        from 0deg,
+        #00ffcc,
+        #00ccff,
+        #0066ff,
+        #00ffcc
+    );
+
+    animation: rotate 4s linear infinite;
+    opacity: 0.4; /* 👈 subtle effect */
+    filter: blur(20px); /* 👈 glow effect */
+}
+
+.rainbow::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: white; /* 👈 main bg white */
+    border-radius: 9999px;
+    z-index: -1;
+}
+</style>
+
+<div class="rainbow p-[2px] flex items-center justify-center">
+    <button class="px-8 py-3 text-sm font-medium text-black rounded-full bg-white">
+        Click Me
+    </button>
+</div>
+
+
+
+
 <!-- Digital Access -->
 
  <section class="bg-gray-100 py-16">

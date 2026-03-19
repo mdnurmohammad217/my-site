@@ -25,7 +25,7 @@
         background-repeat: no-repeat;
         background-size: 50% 30%;
         filter: blur(6px);
-        background-image: linear-gradient(#fff);
+        background-image: linear-gradient(#ff8502);
         animation: rotate 4s linear infinite;
     }
 
@@ -63,7 +63,6 @@
   background: #25D366;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
-
 .glow-btn::before {
   content: "";
   position: absolute;
@@ -73,7 +72,6 @@
   filter: blur(20px);
   z-index: -1;
 }
-
 /* Smooth animation */
 .glow-btn:hover {
   transform: scale(1.08);
