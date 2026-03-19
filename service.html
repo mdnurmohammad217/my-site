@@ -3,128 +3,234 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Profile Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- React -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Babel -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Bangla:ital@0;1&display=swap"
+        rel="stylesheet">
 
+    <!-- site Icon -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Site Ghor</title>
 </head>
 
-<body class="bg-gray-100 h-screen">
+<body>
 
     <div id="header"></div>
 
 
 
-    <section class="flex justify-center items-center bg-gray-100 py-16">
 
-        <div class="relative w-full max-w-6xl rounded-2xl overflow-hidden ph-border">
+<!-- GRID BACKGROUND -->
+<div class="min-h-screen py-16 px-6"
+     style="background-image: linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px); background-size: 40px 40px;">
 
-            <!-- Content -->
-            <div class="relative z-10 bg-gray-100 m-[2px] rounded-2xl p-10 text-center">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
 
-                <h2 class="text-2xl md:text-3xl font-bold mb-10 bangla-font">
-                    স্বপ্ন থেকে <span class="text-purple-500 bangla-font">সাফল্য</span>   — আমাদের অর্জনের গল্প
-                </h2>
+    <!-- CARD -->
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-green-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-green-500 text-white rounded-lg mb-4 text-xl">🛒</div>
+      <h3 class="font-semibold text-lg">Incomplete Order</h3>
+      <p class="text-gray-500 text-sm mt-2">ইনকমপ্লিট অর্ডার ডাটা, যা সেল বাড়াবে 10x</p>
+    </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-blue-500 text-white rounded-lg mb-4 text-xl">👤</div>
+      <h3 class="font-semibold text-lg">Fraud Checker</h3>
+      <p class="text-gray-500 text-sm mt-2">কোন কাস্টমার প্রোডাক্ট পাবার পর রিটার্ন করবে তা আগে থেকেই জানা যাবে</p>
+    </div>
 
-                    <div class="space-x-3">
-                        <div class="text-4xl mb-2"><i class="fa-regular fa-building"
-                                style="color: rgb(3, 93, 237);"></i></div>
-                        <h3 class="text-4xl font-bold text-blue-500">8+</h3>
-                        <p class="text-gray-600 bangla-font">বছরের অভিজ্ঞতা</p>
-                    </div>
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-pink-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-pink-500 text-white rounded-lg mb-4 text-xl">🚫</div>
+      <h3 class="font-semibold text-lg">IP Ban</h3>
+      <p class="text-gray-500 text-sm mt-2">ফ্রড কাস্টমারের আইপি ব্লক করার সুবিধা</p>
+    </div>
 
-                    <div class="space-x-3">
-                        <div class="text-4xl mb-2"><i class="fa-solid fa-earth-americas" style="color: #b200a7"></i></div>
-                        <h3 class="text-4xl font-bold text-[#b200a7]">4200+</h3>
-                        <p class="text-gray-600 bangla-font">সফল ওয়েবসাইট
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-purple-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-purple-500 text-white rounded-lg mb-4 text-xl">📄</div>
+      <h3 class="font-semibold text-lg">Landing Page</h3>
+      <p class="text-gray-500 text-sm mt-2">ই-কমার্স প্রোডাক্ট মার্কেটিং এর জন্য স্পেশাল ল্যান্ডিং পেজ</p>
+    </div>
 
-                        </p>
-                    </div>
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-orange-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-orange-500 text-white rounded-lg mb-4 text-xl">🚚</div>
+      <h3 class="font-semibold text-lg">Courier Entry</h3>
+      <p class="text-gray-500 text-sm mt-2">ডেলিভারি, পাথাও এবং রেডেক্স কুরিয়ার এক ক্লিক এন্ট্রি</p>
+    </div>
 
-                    <div class="space-x-3">
-                        <div class="text-4xl mb-2"><i class="fa-solid fa-headset" style="color: rgb(251, 146, 60);"></i></div>
-                        <h3 class="text-4xl font-bold text-orange-400">24/7</h3>
-                        <p class="text-gray-600 bangla-font">সাপোর্ট সেবা</p>
-                    </div>
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-green-600">
+      <div class="w-12 h-12 flex items-center justify-center bg-green-600 text-white rounded-lg mb-4 text-xl">🧮</div>
+      <h3 class="font-semibold text-lg">Amount Adjust</h3>
+      <p class="text-gray-500 text-sm mt-2">কুরিয়ার এডজাস্ট করে অর্ডার অ্যামাউন্ট পরিবর্তন করা যায়</p>
+    </div>
 
-                    <div class="space-x-3">
-                        <div class="text-4xl mb-2"><i class="fa-solid fa-heart" style="color: rgb(187, 86, 234);"></i></div>
-                        <h3 class="text-4xl font-bold text-purple-500">100%</h3>
-                        <p class="text-gray-600 bangla-font">গ্রাহক সন্তুষ্টি
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-cyan-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-cyan-500 text-white rounded-lg mb-4 text-xl">👣</div>
+      <h3 class="font-semibold text-lg">Foot Print</h3>
+      <p class="text-gray-500 text-sm mt-2">যারা ওয়েবসাইট ভিজিট করে তাদের ট্র্যাক করে পরে সেল বাড়ানো যায়</p>
+    </div>
 
-</p>
-                    </div>
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-indigo-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-indigo-500 text-white rounded-lg mb-4 text-xl">📋</div>
+      <h3 class="font-semibold text-lg">Order Management</h3>
+      <p class="text-gray-500 text-sm mt-2">অর্ডার সহজে ম্যানেজ করতে পারবেন</p>
+    </div>
 
-                </div>
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-emerald-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-emerald-500 text-white rounded-lg mb-4 text-xl">📈</div>
+      <h3 class="font-semibold text-lg">Pixel Setup</h3>
+      <p class="text-gray-500 text-sm mt-2">ফেসবুক পিক্সেল সেটআপ করে এড চালিয়ে সেল বাড়ান</p>
+    </div>
 
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-amber-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-amber-500 text-white rounded-lg mb-4 text-xl">📦</div>
+      <h3 class="font-semibold text-lg">Stock</h3>
+      <p class="text-gray-500 text-sm mt-2">স্টক ম্যানেজ করার সুবিধা থাকবে</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-red-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-red-500 text-white rounded-lg mb-4 text-xl">🧾</div>
+      <h3 class="font-semibold text-lg">Invoice</h3>
+      <p class="text-gray-500 text-sm mt-2">ইনভয়েস প্রিন্ট / ডাউনলোড</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-green-500">
+      <div class="w-12 h-12 flex items-center justify-center bg-green-500 text-white rounded-lg mb-4 text-xl">⭐</div>
+      <h3 class="font-semibold text-lg">Core Features</h3>
+      <p class="text-gray-500 text-sm mt-2">৪১+ ফিচার ইনবিল্ট থাকবে</p>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+<div class="max-w-[1200px] mx-auto py-4 px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+
+  <!-- LEFT CONTENT -->
+  <div>
+    <h1 class="text-4xl md:text-5xl font-bold leading-tight bangla-font text-orange-600">
+      <span class="text-orange-700 bangla-font">সুপারফাস্ট ই-কমার্স </span>  <br> ওয়েবসাইট ছাড়া  <br>
+      <span class="text-orange-500 bangla-font">অনলাইন বিজনেস অসম্পূর্ণ</span> <br>
+      
+    </h1>
+
+    <p class="mt-6 text-gray-600 text-lg bangla-font">
+      আজকের প্রতিযোগিতামূলক বাজারে টিকে থাকতে হলে দরকার একটি হাই-পারফরম্যান্স ওয়েবসাইট। আমরা এমন ওয়েবসাইট তৈরি করি, যা শুধু দ্রুত নয়—বরং কনভার্সন-ফোকাসড, ইউজার-ফ্রেন্ডলি এবং সেল বাড়ানোর জন্য অপ্টিমাইজড।
+    </p>
+
+    <button class="mt-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg shadow-lg hover:scale-105 transition">
+      Live Demo & Price →
+    </button>
+  </div>
+
+
+  <!-- RIGHT CARD -->
+  <div class="bg-gradient-to-br from-black to-purple-950 p-8 rounded-3xl shadow-2xl text-white">
+
+    <div class="flex justify-between mb-6 text-sm opacity-80">
+      <!-- <span class="bg-white/10 px-3 py-1 rounded-full">Commerce Core</span> -->
+      <button class="flex items-center justify-center gap-3 pl-4 pr-6 py-2 text-white rounded-full font-medium border border-blue-900  bg-purple-950/40 backdrop-blur">
+            <div class="relative flex size-3.5 items-center justify-center">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-[#23cd01] opacity-75 animate-ping duration-300"></span>
+                <span class="relative inline-flex size-2 rounded-full bg-[#00ff0d]"></span>
             </div>
+            <span class='text-xs'>eCommerce Core</span>
+        </button>
 
-        </div>
+      <button class="flex items-center justify-center gap-3 pl-4 pr-6 py-2 text-white rounded-full font-medium border border-blue-900  bg-purple-950/40 backdrop-blur">
+            <div class="relative flex size-3.5 items-center justify-center">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-[#ea02fb] opacity-75 animate-ping duration-300"></span>
+                <span class="relative inline-flex size-2 rounded-full bg-[#ea00ff]"></span>
+            </div>
+            <span class='text-xs'>Lightning stack</span>
+        </button>
+      
+    </div>
 
-    </section>
+    <!-- GRID -->
+    <div class="grid grid-cols-2 gap-5">
 
-    <style>
-        .ph-border {
-            position: relative;
-        }
+      <!-- ITEM -->
+      <div class="bg-white/5 p-6 rounded-xl text-center">
+        <div class="text-2xl mb-3"><i class="fa-solid fa-cart-shopping text-green-700"></i></div>
+        <p>E-commerce</p>
+      </div>
 
-        .ph-border::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 150vmax;
-            height: 150vmax;
+      <div class="bg-white/5 p-6 rounded-xl text-center">
+        <div class="text-2xl mb-3"><i class="fa-solid fa-rocket text-orange-500"></i></div>
+        <p>Super Fast</p>
+      </div>
 
-            background: conic-gradient(from -31.62deg,
-                    #ffffff -43deg,
-                    #ffa205 20deg,
-                    #b41cdd 60deg,
-                    #ff5898 120deg,
-                    #ffffff 140deg,
-                    #ffffff 320deg,
-                    #ffa205 380deg);
+      <div class="bg-white/5 p-6 rounded-xl text-center">
+        <div class="text-2xl mb-3"><i class="fa-solid fa-mobile-button text-blue-500"></i></div>
+        <p>Mobile Ready</p>
+      </div>
 
-            transform: translate(-50%, -50%);
-            animation: phRotate 4s linear infinite;
-        }
+      <div class="bg-white/5 p-6 rounded-xl text-center">
+        <div class="text-2xl mb-3"><i class="fa-solid fa-credit-card text-purple-600"></i></div>
+        <p>Payment Gateway</p>
+      </div>
 
-        /* IMPORTANT PART (border only visible) */
-        .ph-border::after {
-            content: "";
-            position: absolute;
-            inset: 2px;
-            background: #f3f4f6;
-            border-radius: 16px;
-            z-index: 1;
-        }
+    </div>
 
-        @keyframes phRotate {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
+    <!-- BOTTOM -->
+    <div class="flex justify-between mt-8 text-sm opacity-80">
+      <button class="flex items-center justify-center gap-3 pl-4 pr-6 py-2 text-white rounded-full font-medium border border-blue-900  bg-purple-950/40 backdrop-blur">
+            <div class="relative flex size-3.5 items-center justify-center">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-[#cd9701] opacity-75 animate-ping duration-300"></span>
+                <span class="relative inline-flex size-2 rounded-full bg-[#ffb300]"></span>
+            </div>
+            <span class='text-xs'>🔒 SSL & Security</span>
+        </button>
+      
+      <button class="flex items-center justify-center gap-3 pl-4 pr-6 py-2 text-white rounded-full font-medium border border-blue-900  bg-purple-950/40 backdrop-blur">
+            <div class="relative flex size-3.5 items-center justify-center">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-[#01ccff] opacity-75 animate-ping duration-300"></span>
+                <span class="relative inline-flex size-2 rounded-full bg-[#00aaff]"></span>
+            </div>
+            <span class='text-xs'>🔍 SEO Ready</span>
+        </button>
+    </div>
 
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
-    </style>
+    <p class="text-center text-xs mt-4 opacity-60">
+      Optimized for speed • Progressive features • Modern DX
+    </p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
 
 
 
 
     <div id="footer"></div>
-    <script type="text/babel" src="main.js"></script>
 </body>
 
 </html>
