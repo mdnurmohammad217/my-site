@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,12 +28,156 @@
     <title>Site Ghor</title>
 </head>
 
-
 <body>
-    <div id="header"></div>
+   
+
+    <header class="fixed top-0 left-0 w-full z-50">
+
+  <div class="max-w-7xl mx-auto px-4">
+
+    <div class="flex items-center justify-between py-4 px-6 mt-4 rounded-xl 
+                bg-white/50 backdrop-blur-xl border border-white/10">
+
+      <!-- Logo -->
+      <h1 class="text-black font-bold text-xl">Topper IT</h1>
+
+      <!-- Desktop -->
+      <nav class="hidden md:flex gap-6 text-black">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Services</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Hamburger -->
+      <button id="menuBtn" class="md:hidden relative w-8 h-8 flex flex-col justify-center items-center">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu"
+       class="fixed top-0 left-0 w-72 h-full bg-[#020617] text-white z-[9999] 
+       transform -translate-x-full transition-transform duration-500 ease-in-out p-6">
+
+    <h2 class="text-xl font-bold mb-8">Menu</h2>
+
+    <nav class="flex flex-col gap-6 text-lg">
+
+      <a href="#" class="mobile-link active">Home</a>
+
+      <!-- Submenu -->
+      <div>
+        <button class="submenu-btn w-full text-left">Services ⌄</button>
+        <div class="submenu hidden flex flex-col ml-4 mt-2 gap-2 text-sm">
+          <a href="#">Web Design</a>
+          <a href="#">SEO</a>
+        </div>
+      </div>
+
+      <a href="#" class="mobile-link">About</a>
+      <a href="#" class="mobile-link">Contact</a>
+
+    </nav>
+
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay"
+       class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden z-[9998]"></div>
+
+</header>
+
+<style>
+/* Hamburger */
+.line {
+  width: 22px;
+  height: 2px;
+  background: black;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+/* Animate to X */
+.active-menu .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.active-menu .line:nth-child(2) {
+  opacity: 0;
+}
+.active-menu .line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Active link */
+.mobile-link.active {
+  color: #22c55e;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("overlay");
+
+  let startX = 0;
+
+  // OPEN
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("-translate-x-full");
+    overlay.classList.remove("hidden");
+    menuBtn.classList.add("active-menu");
+  });
+
+  // CLOSE
+  function closeMenu() {
+    mobileMenu.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+    menuBtn.classList.remove("active-menu");
+  }
+
+  overlay.addEventListener("click", closeMenu);
+
+  // Swipe close (mobile)
+  mobileMenu.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  mobileMenu.addEventListener("touchmove", (e) => {
+    let currentX = e.touches[0].clientX;
+    if (currentX - startX < -50) {
+      closeMenu();
+    }
+  });
+
+  // Submenu toggle
+  document.querySelectorAll(".submenu-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.nextElementSibling.classList.toggle("hidden");
+    });
+  });
+
+  // Active link
+  document.querySelectorAll(".mobile-link").forEach(link => {
+    link.addEventListener("click", function () {
+      document.querySelectorAll(".mobile-link").forEach(l => l.classList.remove("active"));
+      this.classList.add("active");
+      closeMenu();
+    });
+  });
+
+});
+</script>
 
     
-<main class='bg-white text-white flex flex-col items-center bg-cover bg-center bg-no-repeat pb-10' style="background-image: url('images/hero-gradient-bg.png');">
+<main class='bg-black text-white flex flex-col items-center bg-cover bg-center bg-no-repeat pb-10' style="background-image: url('https://assets.prebuiltui.com/images/components/hero-section/hero-background-image.png');">
     <!-- <nav class="flex flex-col items-center w-full" >
         <div class="flex items-center justify-between p-4 md:px-16 lg:px-24 xl:px-32 md:py-4 w-full">
             <a href="https://prebuiltui.com">
@@ -84,13 +230,17 @@
         </button>
     </div>               
 
-    <h1 class="text-4xl md:text-[64px]/[82px] text-center max-w-4xl mt-5 bg-clip-text leading-tight px-4 bangla-font text-black">
-        দেশের সবচেয়ে <span class="text-4xl md:text-[64px]/[82px] text-center max-w-4xl mt-5 px-4 bangla-font ">এক্সপার্ট ই-কমার্স</span> 
+    <h1 class="text-4xl md:text-[64px]/[82px] text-center max-w-4xl mt-5 bg-clip-text leading-tight px-4 bangla-font">
+        দেশের সবচেয়ে <span class="text-4xl md:text-[64px]/[82px] text-center max-w-4xl mt-5 text-[#95E654] bg-clip-text leading-tight px-4 bangla-font">এক্সপার্ট ই-কমার্স</span> 
     </h1>
 
     <p class="text-2xl md:text-[45px]/[55px] text-center max-w-4xl mt-2 bg-clip-text leading-tight px-6 bangla-font">
         ই-কমার্স ওয়েবসাইট সুপারফাস্ট ও ফাংশনাল না হলে বিজনেস করা ইমপসিবল
     </p>
+
+    <!-- <p class="text-sm md:text-base text-gray-300 bg-clip-text text-center max-w-lg mt-4.5 px-4">
+        A flexible hero section designed to work across startups, Saas products, portfolios and landing pages.
+    </p> -->
 
     <div class='flex gap-3 mt-8'>
         <button class="px-6 py-2.5 rounded-md text-white text-sm cursor-pointer tracking-wider font-medium border-0 outline-0 bg-gradient-to-tr hover:bg-gradient-to-tl from-green-700 to-green-400 text-sm transition cursor-pointer group">
@@ -197,7 +347,6 @@
                     </div>
                 </div>
 
-              
                 <div class="card-solid rounded-2xl overflow-hidden relative h-full flex" style="--c:#0677d4;">
 
                     <!-- Inner -->
@@ -629,7 +778,7 @@
             আমাদের সাফল্যের পেছনের অসাধারণ মানুষগুলো
         </p>
 
-        <div class=" w-11/12 grid grid-cols-2 md:grid-cols-5 items-center justify-center gap-4 my-12 mx-auto">
+        <div class=" w-11/12 grid grid-cols-2 md:grid-cols-5 items-center justify-center gap-6 my-12 mx-auto">
 
             <div class="max-w-72 bg-black text-white rounded-2xl">
                 <div class="relative -mt-px overflow-hidden rounded-2xl">
@@ -855,7 +1004,7 @@
 
 </section>
 
-<!-- <script>
+<script>
     const menu = document.getElementById('menu');
     const openMenuBtn = document.getElementById('open-menu');
     const closeMenuBtn = document.getElementById('close-menu');
@@ -876,7 +1025,7 @@
     menuItems.forEach(item => {
         item.addEventListener('click', closeMenu);
     });
-</script>  -->
+</script> 
 
 
 
@@ -969,3 +1118,10 @@
     
 </body>
 </html>
+
+
+
+
+
+
+
