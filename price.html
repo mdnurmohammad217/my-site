@@ -123,153 +123,182 @@ content: '';
     <div id="header"></div>
 
 
-    <!-- Top Section -->
-    <section class="top-section">
-        <div class="bg-gradient-to-l from-[#053700] via-green-700 to-[#053700] py-16 px-6">
-            <div class="max-w-5xl mx-auto text-center">
-                <h2 class="md:text-5xl text-4xl font-semibold mb-6 text-white">Pricing — E-commerce Plans</h2>
-                <p class="text-base text-slate-300 text-xl">Choose the perfect plan for your business needs</p>
+ 
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<style>
+.bangla-font { font-family: 'Tiro Bangla', sans-serif; }
+
+/* 🔥 Parallax BG */
+.parallax {
+  background-image: linear-gradient(120deg,#0f172a,#1e3a8a);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* 🔥 Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* 🔥 Glow */
+.glow {
+  box-shadow: 0 0 20px rgba(16,185,129,0.6);
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  AOS.init({ duration: 1000, once: true });
+});
+</script>
+
+<!-- 🔥 HERO -->
+<section class="parallax text-white py-28 text-center relative overflow-hidden">
+
+  <h1 data-aos="fade-up" class="text-4xl md:text-5xl font-bold bangla-font mb-4">
+    ই-কমার্স ওয়েবসাইট সুপারফাস্ট ও ফাংশনাল না হলে বিজনেস করা ইমপসিবল
+  </h1>
+
+  <p data-aos="fade-up" class="max-w-2xl mx-auto text-gray-300 bangla-font">
+    কম খরচে বেশি সেল জেনারেট করতে এখনই নিজের ই-কমার্স ওয়েবসাইট বানান
+  </p>
+
+  <div class="mt-8">
+    <button class="bg-green-500 px-6 py-3 rounded-lg glow hover:scale-105 transition">
+      Live Demo & Price
+    </button>
+  </div>
+
+</section>
 
 
 
-            </div>
-        </div>
-    </section>
 
 
-    <section>
-        <div class="wrap">
-            <button class="button">Whatsapp</a>
-        </div>
 
-    </section>
 
-    <section class='flex items-center justify-center flex-col py-20 px-4 bg-white'>
-        <h1 class='font-medium text-4xl md:text-[52px] text-slate-800 text-center'>Flexible Pricing Plans</h1>
-        <p class='text-base/7 text-zinc-500 max-w-sm text-center mt-4'>Choose a plan that supports your business growth
-            and
-            digital goals.</p>
-        <div class='mt-6 flex bg-zinc-100 p-1.5 rounded-full'>
-            <button id="monthlyBtn" onclick="togglePricing(false)"
-                class='px-4 py-2 rounded-full text-xs cursor-pointer transition text-gray-600'>Monthly</button>
-            <button id="annuallyBtn" onclick="togglePricing(true)"
-                class='px-4 py-2 rounded-full text-xs cursor-pointer transition bg-zinc-800 hover:bg-zinc-900 text-white'>Annually</button>
-        </div>
-        <div class='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
 
-            <div
-                class='border border-zinc-200 rounded-2xl p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1'>
-                <h1 class='font-medium text-3xl text-slate-800 mt-1'>Basic</h1>
-                <p class='text-sm text-zinc-500 mt-2'>For startups and small teams.</p>
-                <h1 class='font-medium text-5xl text-slate-800 mt-6'>$<span id="basicPrice">100</span></h1>
-                <button
-                    class='w-full border border-zinc-300/80 px-4 py-3 rounded-full cursor-pointer text-slate-600 text-sm mt-8 bg-zinc-100 hover:bg-zinc-200/70'>Get
-                    Started
-                </button>
-                <div class='w-full mt-8 space-y-2.5 pb-4'>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Essential site setup support
-                    </p>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Access to basic UI templates
-                    </p>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Email support for minor updates
-                    </p>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Access to basic components
-                    </p>
-                </div>
-            </div>
 
-            <div
-                class='bg-gray-100 border border-zinc-200 rounded-2xl p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1'>
-                <h1 class='font-medium text-3xl text-slate-800 mt-1'>Pro</h1>
-                <p class='text-sm text-zinc-500 mt-2'>Perfect for growing businesses.</p>
-                <h1 class='font-medium text-5xl text-slate-800 mt-6'>$<span id="proPrice">300</span></h1>
-                <button
-                    class='bg-gray-800 hover:bg-gray-900 text-white w-full px-4 py-3 rounded-full cursor-pointer text-sm mt-8'>Get
-                    Started
-                </button>
-                <div class='w-full mt-8 space-y-2.5 pb-4'>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Custom web page design up to 5 pages
-                    </p>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Access to basic UI templates
-                    </p>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Email support for minor updates
-                    </p>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Access to basic components
-                    </p>
-                </div>
-            </div>
 
-            <div
-                class='border border-zinc-200 rounded-2xl p-6 flex flex-col items-start max-w-md transition duration-300 hover:-translate-y-1'>
-                <h1 class='font-medium text-3xl text-slate-800 mt-1'>Enterprise</h1>
-                <p class='text-sm text-zinc-500 mt-2'>For scaling brands and teams.</p>
-                <h1 class='font-medium text-5xl text-slate-800 mt-6'>$<span id="enterprisePrice">500</span></h1>
-                <button
-                    class='w-full border border-zinc-300/80 px-4 py-3 rounded-full cursor-pointer text-slate-600 text-sm mt-8 bg-zinc-100 hover:bg-zinc-200/70'>Get
-                    Started
-                </button>
-                <div class='w-full mt-8 space-y-2.5 pb-4'>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Full website redesign & development
-                    </p>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Advanced analytics insights
-                    </p>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Ongoing dedicated support
-                    </p>
-                    <p class='flex items-center gap-3 text-sm text-zinc-500'>
-                        <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                            <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                        </span>
-                        Access to basic UI templates
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
+
+
+
+
+
+
+
+
+<!-- 🔥 WHY CHOOSE US -->
+<section class="py-20 px-6 relative bg-gray-100 overflow-hidden">
+
+  <!-- 🔲 GRID BACKGROUND -->
+  <div class="absolute inset-0 -z-10 
+    [background-image:linear-gradient(#e5e7eb_1px,transparent_1px),linear-gradient(90deg,#e5e7eb_1px,transparent_1px)]
+    [background-size:40px_40px]"></div>
+
+  <!-- TOP BADGE -->
+  <div class="text-center mb-6">
+    <span class="bg-green-100 text-green-600 px-4 py-1 rounded-full text-sm font-medium">
+      ⭐ Trusted by 4200+ Projects
+    </span>
+  </div>
+
+  <!-- TITLE -->
+  <h2 class="text-3xl md:text-4xl font-bold text-center bangla-font mb-4">
+    কেন আমাদের থেকে ওয়েবসাইট নিবেন ?
+  </h2>
+
+  <p class="text-center text-gray-600 max-w-2xl mx-auto bangla-font mb-12">
+    বেশি সেল জেনারেট করতে পারে এমন ফাংশনাল ওয়েবসাইট ডিজাইন করে থাকে আমাদের টিম।
+  </p>
+
+  <!-- CARDS -->
+  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+    <!-- CARD 1 -->
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-green-500">
+      <div class="w-12 h-12 bg-green-500 text-white flex items-center justify-center rounded-lg mb-4">🔒</div>
+      <h3 class="font-semibold mb-2 bangla-font">বেশি সেল ও সিকিউরিটি</h3>
+      <p class="text-sm text-gray-600 bangla-font mb-3">
+        আমাদের তৈরি ওয়েবসাইট দ্রুত লোড হয় এবং সিকিউর থাকে।
+      </p>
+      <div class="flex gap-2 text-xs">
+        <span class="bg-green-100 text-green-600 px-2 py-1 rounded">Fast & SEO-Ready</span>
+        <span class="bg-green-100 text-green-600 px-2 py-1 rounded">SSL Secured</span>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+      <div class="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-lg mb-4">🎧</div>
+      <h3 class="font-semibold mb-2 bangla-font">২৪ ঘন্টা সাপোর্ট</h3>
+      <p class="text-sm text-gray-600 bangla-font mb-3">
+        আমাদের টিম সবসময় সাপোর্ট দিতে প্রস্তুত।
+      </p>
+      <div class="flex gap-2 text-xs">
+        <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded">Dedicated WA Group</span>
+        <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded">Priority Support</span>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-pink-500">
+      <div class="w-12 h-12 bg-pink-500 text-white flex items-center justify-center rounded-lg mb-4">🎁</div>
+      <h3 class="font-semibold mb-2 bangla-font">প্যাকেজ ভিত্তিক</h3>
+      <p class="text-sm text-gray-600 bangla-font mb-3">
+        বাজেট অনুযায়ী বিভিন্ন প্যাকেজে ওয়েবসাইট তৈরি।
+      </p>
+      <div class="flex gap-2 text-xs">
+        <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded">8 Packages</span>
+        <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded">Flexible Budget</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM FEATURES -->
+  <div class="grid md:grid-cols-4 gap-4 max-w-5xl mx-auto mt-10 text-sm">
+
+    <div class="bg-white rounded-lg px-4 py-3 shadow flex items-center gap-2">
+      <span class="text-green-500">✔</span> High Conversion UI/UX
+    </div>
+
+    <div class="bg-white rounded-lg px-4 py-3 shadow flex items-center gap-2">
+      <span class="text-blue-500">✔</span> Speed Optimized & SEO
+    </div>
+
+    <div class="bg-white rounded-lg px-4 py-3 shadow flex items-center gap-2">
+      <span class="text-purple-500">✔</span> Server-grade Security
+    </div>
+
+    <div class="bg-white rounded-lg px-4 py-3 shadow flex items-center gap-2">
+      <span class="text-pink-500">✔</span> Bangla-first CMS
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="text-center mt-10">
+    <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg shadow">
+      WhatsApp এ কথা বলুন
+    </button>
+
+    <p class="text-xs text-gray-500 mt-2 bangla-font">
+      ২৪/৭ সাপোর্ট – এখনই মেসেজ করুন
+    </p>
+  </div>
+
+</section>
 
 
 
