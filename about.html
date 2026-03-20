@@ -26,14 +26,70 @@
     <div id="header"></div>
 
     <!-- Top Section -->
-    <section class="top-section">
-        <div class="bg-gradient-to-l from-[#053700] via-green-700 to-[#053700] py-16 px-6">
-            <div class="max-w-5xl mx-auto text-center">
-                <h2 class="md:text-5xl text-4xl font-semibold mb-6 text-white">SITE GHOR ABOUT US</h2>
-                <p class="text-base text-slate-300 bangla-font text-xl">ওয়েব ডেভেলপমেন্ট, ডিজিটাল মার্কেটিং এবং বিজনেস
-                    গ্রোথের সর্বশেষ টিপস ও ট্রিকস</p>
-            </div>
-        </div>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap" rel="stylesheet">
+
+    <style>
+        .bangla-font {
+            font-family: 'Tiro Bangla', sans-serif;
+        }
+
+        /* 🔥 Animated Gradient */
+        .animated-bg {
+            background: linear-gradient(-45deg, #1e3a8a, #4f46e5, #0ea5e9, #1e40af);
+            background-size: 400% 400%;
+            animation: gradientMove 8s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* 🔥 Glow Button */
+        .glow-btn {
+            position: relative;
+        }
+
+        .glow-btn::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #00f5a0, #00d9f5, #00f5a0);
+            border-radius: 10px;
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0.7;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            AOS.init({ duration: 1000, once: true });
+        });
+    </script>
+
+    <!-- HERO -->
+    <section class="animated-bg text-white py-24 pt-28 text-center relative overflow-hidden">
+
+        <h1 data-aos="fade-up" class="text-4xl md:text-5xl font-bold mb-4">
+            SITE GHOR ABOUT - US
+        </h1>
+
+       
+
     </section>
 
 <!-- ceo + section  -->
@@ -122,7 +178,138 @@
 
 
 
+ <!-- আমাদের অর্জন -->
+<section class="flex justify-center items-center bg-white py-16">
 
+        <div class="relative w-full max-w-6xl rounded-2xl overflow-hidden ph-border m-2">
+
+            <!-- Content -->
+            <div class="relative z-5 bg-white m-[2px] rounded-2xl p-10 text-center">
+
+                <h2 class="text-2xl md:text-4xl font-bold mb-10 bangla-font">
+                    স্বপ্ন থেকে <span class="text-purple-500 bangla-font">সাফল্য</span> আমাদের অর্জনের গল্প
+                </h2>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+                    <div class="space-x-3">
+                        <div class="text-4xl mb-2"><i class="fa-regular fa-building"
+                                style="color: rgb(3, 93, 237);"></i></div>
+                        <h3 class="text-4xl font-bold text-blue-500">8+</h3>
+                        <p class="text-gray-600 bangla-font">বছরের অভিজ্ঞতা</p>
+                    </div>
+
+                    <div class="space-x-3">
+                        <div class="text-4xl mb-2"><i class="fa-solid fa-earth-americas" style="color: #b200a7"></i></div>
+                        <h3 class="text-4xl font-bold text-[#b200a7]">4200+</h3>
+                        <p class="text-gray-600 bangla-font">সফল ওয়েবসাইট
+
+                        </p>
+                    </div>
+
+                    <div class="space-x-3">
+                        <div class="text-4xl mb-2"><i class="fa-solid fa-headset" style="color: rgb(251, 146, 60);"></i></div>
+                        <h3 class="text-4xl font-bold text-orange-400">24/7</h3>
+                        <p class="text-gray-600 bangla-font">সাপোর্ট সেবা</p>
+                    </div>
+
+                    <div class="space-x-3">
+                        <div class="text-4xl mb-2"><i class="fa-solid fa-heart" style="color: rgb(187, 86, 234);"></i></div>
+                        <h3 class="text-4xl font-bold text-purple-500">100%</h3>
+                        <p class="text-gray-600 bangla-font">গ্রাহক সন্তুষ্টি </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <style>
+        .ph-border {
+            position: relative;
+        }
+
+        .ph-border::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150vmax;
+            height: 150vmax;
+
+            background: conic-gradient(from -31.62deg,
+                    #ffffff -43deg,
+                    #ffa205 20deg,
+                    #b41cdd 60deg,
+                    #ff5898 120deg,
+                    #ffffff 140deg,
+                    #ffffff 320deg,
+                    #ffa205 380deg);
+
+            transform: translate(-50%, -50%);
+            animation: phRotate 4s linear infinite;
+        }
+
+        /* IMPORTANT PART (border only visible) */
+        .ph-border::after {
+            content: "";
+            position: absolute;
+            inset: 2px;
+            background: #f3f4f6;
+            border-radius: 16px;
+            z-index: 1;
+        }
+
+        @keyframes phRotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+    </style>
+
+
+
+ <!-- WHY US -->
+    <section class="bg-gray-100 py-20 text-center px-6">
+
+        <h2 data-aos="fade-up" class="text-3xl font-bold bangla-font mb-12">
+            কেন আমাদের থেকে ল্যান্ডিং পেজ নিবেন ?
+        </h2>
+
+
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+            <div data-aos="zoom-in" class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                <div class="text-blue-500 text-3xl mb-4">🛡</div>
+                <h3 class="bangla-font font-semibold">বেশি সেল ও সিকিউরিটি</h3>
+                <p class="bangla-font text-gray-500 text-sm">আমরা বেশি সেল করতে পারে এমন সব ওয়েবসাইট ও ল্যান্ডিং পেজ
+                    ডিজাইন করি যা শতভাগ হ্যাকিং থেকে মুক্ত থাকে।</p>
+
+            </div>
+
+            <div data-aos="zoom-in" class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+                <div class="text-green-500 text-3xl mb-4">🎧</div>
+                <h3 class="bangla-font font-semibold">২৪ ঘন্টা সাপোর্ট</h3>
+                <p class="bangla-font text-gray-500 text-sm">ডেডিকেটেড হোয়াটসঅ্যাপ গ্রুপের মাধ্যমে সকাল থেকে মধ্য রাত
+                    পর্যন্ত আমাদের এক্সপার্ট টিম যেকোন সমস্যা সমাধান করে থাকেন।</p>
+            </div>
+
+            <div data-aos="zoom-in" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
+                <div class="text-purple-500 text-3xl mb-4">💰</div>
+                <h3 class="bangla-font font-semibold">প্যাকেজ ভিত্তিক</h3>
+                <p class="bangla-font text-gray-500 text-sm">আমাদের ৩৫০০ টাকা থেকে শুরু করে ১,২৫,০০০ টাকা পর্যন্ত ৮ টি
+                    প্যাকেজ রয়েছে। সামর্থ্য অনুযায়ী আপনার প্যাকেজ চয়েজ করতে পারবেন।</p>
+            </div>
+
+        </div>
+
+    </section>
 
 
     <!-- card pro + desing -->
@@ -307,6 +494,9 @@
             }
         }
     </style>
+
+
+
 
 
 <!-- Team Section -->
