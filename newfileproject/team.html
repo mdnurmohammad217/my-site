@@ -364,62 +364,79 @@
           </div>
       </div> -->
 
-<div class="max-w-[1200px] mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+<!-- Button -->
+<button onclick="openModal()" 
+class="bg-blue-500 text-white px-6 py-2 rounded cursor-pointer transition-all duration-300 hover:bg-green-600 hover:scale-105 bangla-font">
+  <i class="fa-regular fa-circle-play"></i>
+  সাইটের ফিচার দেখুন
+</button>
 
-    <!-- LEFT CONTENT -->
-    <div>
-        <h1 class="text-4xl font-bold mb-6 bangla-font">
-            ই-কমার্স ওয়েবসাইট
-        </h1>
+<!-- Modal -->
+<div id="videoModal" 
+class="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center opacity-0 invisible transition-all duration-300 z-50">
 
-        <p class="text-2xl mb-6 bangla-font">
-            ১ সেকেন্ডে লোড নিয়ে আপনার হাজারো প্রোডাক্ট থাকা ওয়েবসাইট
-        </p>
+  <!-- Modal Content -->
+  <div id="modalContent" 
+  class="relative w-[90%] md:w-[700px] transform scale-75 transition-all duration-300">
 
-        <ul class="space-y-3 mb-6">
-            <li class="flex text-xl items-center gap-2 bangla-font">
-                <span class="text-green-500">✔</span>
-                প্রতি মাসে ১ থেকে ১০ লক্ষ ভিজিটর হ্যান্ডেল
-            </li>
-            <li class="flex text-xl items-center gap-2 bangla-font">
-                <span class="text-green-500">✔</span>
-                আনলিমিটেড প্রোডাক্ট আপলোড
-            </li>
-            <li class="flex text-xl items-center gap-2 bangla-font">
-                <span class="text-green-500">✔</span>
-                ইজি চেকআউট প্রসেস - ১/২ ক্লিকের মধ্যে
-            </li>
-            <li class="flex text-xl items-center gap-2 bangla-font">
-                <span class="text-green-500">✔</span>
-                স্পিড অপটিমাইজড
-            </li>
-            <li class="flex text-xl items-center gap-2 bangla-font">
-                <span class="text-green-500">✔</span>
-                ফ্রেন্ডলি UI
-            </li>
-        </ul>
+    <!-- Close Button -->
+    <button onclick="closeModal()" 
+    class="absolute -top-10 right-0 text-white text-3xl hover:text-red-400 transition">
+      &times;
+    </button>
 
-        <a href="https://wa.link/lz8wge"
-           class="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition">
-            WhatsApp
-        </a>
-    </div>
+    <!-- Video -->
+    <iframe id="videoFrame" 
+    class="w-full h-[220px] md:h-[400px] rounded-lg shadow-lg"
+    src=""
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+    </iframe>
 
-
-    <!-- RIGHT IMAGE (HOVER SCROLL EFFECT) -->
-    <div class="relative w-full h-[600px] overflow-hidden rounded-xl border-4 border-[#FC8A34]">
-
-        <!-- IMAGE WRAPPER -->
-        <div class="absolute top-0 left-0 w-full transition-all duration-[4000ms] ease-linear hover:-translate-y-[60%]">
-
-            <img src="images/ecommerce-website.jpg"
-                 class="w-full block"
-                 alt="demo">
-
-        </div>
-    </div>
-
+  </div>
 </div>
+
+<!-- Script -->
+<script>
+  const modal = document.getElementById("videoModal");
+  const modalContent = document.getElementById("modalContent");
+  const frame = document.getElementById("videoFrame");
+
+  function openModal() {
+    modal.classList.remove("invisible", "opacity-0");
+    modal.classList.add("opacity-100");
+
+    modalContent.classList.remove("scale-75");
+    modalContent.classList.add("scale-100");
+
+    frame.src = "https://www.youtube.com/embed/QtDmKZna5h4?autoplay=1";
+  }
+
+  function closeModal() {
+    modal.classList.add("opacity-0");
+    modalContent.classList.add("scale-75");
+
+    setTimeout(() => {
+      modal.classList.add("invisible");
+      frame.src = "";
+    }, 300);
+  }
+
+  // বাইরে ক্লিক করলে close
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // ESC চাপলে close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
+</script>
 
 
 
