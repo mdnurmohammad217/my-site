@@ -364,116 +364,81 @@
           </div>
       </div> -->
 
+<!-- Button -->
+<button onclick="openModal()" 
+class="bg-blue-500 text-white px-6 py-2 rounded cursor-pointer transition-all duration-300 hover:bg-green-600 hover:scale-105 bangla-font">
+  <i class="fa-regular fa-circle-play"></i>
+  সাইটের ফিচার দেখুন
+</button>
 
-    <div class="bg-white p-4">
-        <div class="max-w-5xl max-lg:max-w-3xl max-md:max-w-md mx-auto">
-            <h2 class="text-3xl font-bold text-slate-900">LATEST BLOGS</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                <div class="bg-purple-100 rounded-lg overflow-hidden group">
-                    <div class="relative overflow-hidden">
-                        <img src="https://readymadeui.com/images/food22.webp" alt="Blog Post 3"
-                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
-                        <div
-                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
-                            August 16, 2023</div>
-                    </div>
-                    <a href="javascript:void(0)" class="block p-6">
-                        <div>
-                            <h3 class="text-lg font-semibold text-slate-900 mb-2">The Future of Food and Tech</h3>
-                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">Explore how robotics and
-                                AI are revolutionizing fast food.</p>
-                        </div>
-                    </a>
-                </div>
+<!-- Modal -->
+<div id="videoModal" 
+class="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center opacity-0 invisible transition-all duration-300 z-50">
 
-                <div class="bg-purple-100 rounded-lg overflow-hidden group">
-                    <div class="relative overflow-hidden">
-                        <img src="https://readymadeui.com/images/food11.webp" alt="Blog Post 3"
-                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
-                        <div
-                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
-                            August 16, 2023</div>
-                    </div>
-                    <a href="javascript:void(0)" class="block p-6">
-                        <div>
-                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Eating Clean, Feeling Great</h3>
-                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">Healthy eating doesn’t
-                                have to be boring. Discover delicious meals that boost your mood.</p>
-                        </div>
-                    </a>
-                </div>
+  <!-- Modal Content -->
+  <div id="modalContent" 
+  class="relative w-[90%] md:w-[700px] transform scale-75 transition-all duration-300">
 
-                <div class="bg-purple-100 rounded-lg overflow-hidden group">
-                    <div class="relative overflow-hidden">
-                        <img src="https://readymadeui.com/images/food.webp" alt="Blog Post 3"
-                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
-                        <div
-                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
-                            August 16, 2023</div>
-                    </div>
-                    <a href="javascript:void(0)" class="block p-6">
-                        <div>
-                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Pasta That Tells a Story</h3>
-                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">Dive into the world of
-                                bold flavors and cultural traditions.</p>
-                        </div>
-                    </a>
-                </div>
+    <!-- Close Button -->
+    <button onclick="closeModal()" 
+    class="absolute -top-10 right-0 text-white text-3xl hover:text-red-400 transition">
+      &times;
+    </button>
 
-                <div class="bg-purple-100 rounded-lg overflow-hidden group">
-                    <div class="relative overflow-hidden">
-                        <img src="https://readymadeui.com/images/food33.webp" alt="Blog Post 1"
-                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
-                        <div
-                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
-                            June 10, 2023</div>
-                    </div>
-                    <a href="javascript:void(0)" class="block p-6">
-                        <div>
-                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Food That Inspires</h3>
-                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">Bright meals, bold
-                                ideas—see how vibrant food presentation can spark imagination and joy.</p>
-                        </div>
-                    </a>
-                </div>
+    <!-- Video -->
+    <iframe id="videoFrame" 
+    class="w-full h-[220px] md:h-[400px] rounded-lg shadow-lg"
+    src=""
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+    </iframe>
 
-                <div class="bg-purple-100 rounded-lg overflow-hidden group">
-                    <div class="relative overflow-hidden">
-                        <img src="https://readymadeui.com/images/food44.webp" alt="Blog Post 2"
-                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
-                        <div
-                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
-                            April 20, 2023</div>
-                    </div>
-                    <a href="javascript:void(0)" class="block p-6">
-                        <div>
-                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Energize Your Routine</h3>
-                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">Power your day with
-                                nourishing bowls packed with flavor and crunch.</p>
-                        </div>
-                    </a>
-                </div>
+  </div>
+</div>
 
-                <div class="bg-purple-100 rounded-lg overflow-hidden group">
-                    <div class="relative overflow-hidden">
-                        <img src="https://readymadeui.com/images/food55.webp" alt="Blog Post 3"
-                            class="w-full h-60 object-cover group-hover:scale-125 transition-all duration-300" />
-                        <div
-                            class="px-4 py-2.5 text-white text-sm font-medium tracking-wider bg-pink-500 absolute bottom-0 right-0">
-                            August 16, 2023</div>
-                    </div>
-                    <a href="javascript:void(0)" class="block p-6">
-                        <div>
-                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Sweet Trends to Watch</h3>
-                            <p class="text-[15px] text-slate-600 leading-relaxed line-clamp-2">From aesthetic plating to
-                                bite-sized delights, uncover what’s trending in the world of desserts and snacks.</p>
-                        </div>
-                    </a>
-                </div>
+<!-- Script -->
+<script>
+  const modal = document.getElementById("videoModal");
+  const modalContent = document.getElementById("modalContent");
+  const frame = document.getElementById("videoFrame");
 
-            </div>
-        </div>
-    </div>
+  function openModal() {
+    modal.classList.remove("invisible", "opacity-0");
+    modal.classList.add("opacity-100");
+
+    modalContent.classList.remove("scale-75");
+    modalContent.classList.add("scale-100");
+
+    frame.src = "https://www.youtube.com/embed/QtDmKZna5h4?autoplay=1";
+  }
+
+  function closeModal() {
+    modal.classList.add("opacity-0");
+    modalContent.classList.add("scale-75");
+
+    setTimeout(() => {
+      modal.classList.add("invisible");
+      frame.src = "";
+    }, 300);
+  }
+
+  // বাইরে ক্লিক করলে close
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // ESC চাপলে close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
+</script>
+
+
 
 
 
@@ -481,6 +446,8 @@
 
     <div id="footer"></div>
     <script src="main.js"></script>
+
+
 
 </body>
 
