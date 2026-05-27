@@ -186,85 +186,105 @@
             </div>
 
             <!-- RIGHT CARD -->
-            <div class="bg-gradient-to-br from-black to-purple-950 p-4 md:p-8 rounded-3xl shadow-2xl text-white">
+            
 
-                <div class="flex justify-between mb-6 text-sm opacity-80">
-                    <!-- <span class="bg-white/10 px-3 py-1 rounded-full">Commerce Core</span> -->
-                    <button
-                        class="flex items-center justify-center gap-2 px-4 py-2 text-white rounded-full font-medium border border-blue-900  bg-purple-950/40 backdrop-blur cursor-pointer">
-                        <div class="relative flex size-3.5 items-center justify-center">
-                            <span
-                                class="absolute inline-flex h-full w-full rounded-full bg-[#23cd01] opacity-75 animate-ping duration-300"></span>
-                            <span class="relative inline-flex size-2 rounded-full bg-[#00ff0d]"></span>
+            <div class="relative order-1 lg:order-2">
+                <div
+                    class="rounded-3xl p-6 sm:p-8 text-white shadow-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-900/95 ring-1 ring-white/10 backdrop-blur [box-shadow:0_20px_60px_rgba(0,0,0,.35)] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_24px_80px_rgba(0,0,0,.45)]">
+
+                    <!-- subtle gradient border -->
+                    <div class="absolute inset-0 rounded-3xl pointer-events-none"
+                        style="mask: linear-gradient(#000,transparent .75rem);">
+                        <div
+                            class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-500/20 via-fuchsia-500/10 to-cyan-500/20 blur-xl">
                         </div>
-                        <span class='text-[12px]'>Commerce Core</span>
-                    </button>
+                    </div>
 
-                    <button
-                        class="flex items-center justify-center gap-2 px-4 py-2 text-white rounded-full font-medium border border-blue-900  bg-purple-950/40 backdrop-blur cursor-pointer">
-                        <div class="relative flex size-3.5 items-center justify-center">
-                            <span
-                                class="absolute inline-flex h-full w-full rounded-full bg-[#ea02fb] opacity-75 animate-ping duration-300"></span>
-                            <span class="relative inline-flex size-2 rounded-full bg-[#ea00ff]"></span>
+                    <!-- header / badge -->
+                    <div class="mb-6 flex items-center justify-between">
+                        <div
+                            class="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 ring-1 ring-white/10">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-xs tracking-wide text-white/90">Commerce Core</span>
                         </div>
-                        <span class='text-[12px]'>Lightning stack</span>
-                    </button>
+                        <span class="text-xs text-white/60">Lightning stack</span>
+                    </div>
 
+                    <!-- icon tiles -->
+                    <div class="grid grid-cols-2 gap-4 sm:gap-6">
+                        <!-- E-commerce -->
+                        <div
+                            class="group relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 p-4 sm:p-5 text-center transition hover:bg-white/7.5">
+                            <div
+                                class="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-xl bg-indigo-500/20 ring-1 ring-white/10">
+                                <i class="fas fa-shopping-cart text-xl text-indigo-300"></i>
+                            </div>
+                            <h3 class="font-semibold text-sm sm:text-base text-indigo-100">E-commerce</h3>
+                            <div
+                                class="pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full bg-indigo-400/10 blur-xl">
+                            </div>
+                        </div>
+
+                        <!-- Super Fast -->
+                        <div
+                            class="group relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 p-4 sm:p-5 text-center transition hover:bg-white/7.5">
+                            <div
+                                class="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-xl bg-emerald-500/20 ring-1 ring-white/10">
+                                <i class="fas fa-rocket text-xl text-emerald-300"></i>
+                            </div>
+                            <h3 class="font-semibold text-sm sm:text-base text-emerald-100">Super Fast</h3>
+                            <div
+                                class="pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full bg-emerald-400/10 blur-xl">
+                            </div>
+                        </div>
+
+                        <!-- Mobile Ready -->
+                        <div
+                            class="group relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 p-4 sm:p-5 text-center transition hover:bg-white/7.5">
+                            <div
+                                class="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-xl bg-fuchsia-500/20 ring-1 ring-white/10">
+                                <i class="fas fa-mobile-alt text-xl text-fuchsia-300"></i>
+                            </div>
+                            <h3 class="font-semibold text-sm sm:text-base text-fuchsia-100">Mobile Ready</h3>
+                            <div
+                                class="pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full bg-fuchsia-400/10 blur-xl">
+                            </div>
+                        </div>
+
+                        <!-- Payment Gateway -->
+                        <div
+                            class="group relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 p-4 sm:p-5 text-center transition hover:bg-white/7.5">
+                            <div
+                                class="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-xl bg-amber-500/20 ring-1 ring-white/10">
+                                <i class="fas fa-credit-card text-xl text-amber-300"></i>
+                            </div>
+                            <h3 class="font-semibold text-sm sm:text-base text-amber-100">Payment Gateway</h3>
+                            <div
+                                class="pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full bg-amber-400/10 blur-xl">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- divider -->
+                    <div
+                        class="mt-6 sm:mt-7 border-t border-white/10 pt-6 sm:pt-7 grid grid-cols-2 gap-3 text-xs sm:text-sm">
+                        <div
+                            class="flex items-center justify-center gap-2 rounded-xl bg-white/5 px-3 py-2 ring-1 ring-white/10">
+                            <i class="fas fa-shield-alt text-emerald-300"></i>
+                            <span class="text-white/90">SSL & Security</span>
+                        </div>
+                        <div
+                            class="flex items-center justify-center gap-2 rounded-xl bg-white/5 px-3 py-2 ring-1 ring-white/10">
+                            <i class="fas fa-search text-cyan-300"></i>
+                            <span class="text-white/90">SEO Ready</span>
+                        </div>
+                    </div>
+
+                    <!-- tiny footer note -->
+                    <p class="mt-4 text-center text-[11px] text-white/60">
+                        Optimized for speed • Progressive features • Modern DX
+                    </p>
                 </div>
-
-                <!-- GRID -->
-                <div class="grid grid-cols-2 gap-5">
-
-                    <!-- ITEM -->
-                    <div class="bg-white/5 p-6 rounded-xl text-center">
-                        <div class="text-xl mb-3"><i class="fa-solid fa-cart-shopping text-green-700"></i></div>
-                        <p class="text-sm">E-commerce</p>
-                    </div>
-
-                    <div class="bg-white/5 p-6 rounded-xl text-center">
-                        <div class="text-xl mb-3"><i class="fa-solid fa-rocket text-orange-500"></i></div>
-                        <p class="text-sm">Super Fast</p>
-                    </div>
-
-                    <div class="bg-white/5 p-6 rounded-xl text-center">
-                        <div class="text-xl mb-3"><i class="fa-solid fa-mobile-button text-blue-500"></i></div>
-                        <p class="text-sm">Mobile Ready</p>
-                    </div>
-
-                    <div class="bg-white/5 p-6 rounded-xl text-center">
-                        <div class="text-xl mb-3"><i class="fa-solid fa-credit-card text-purple-600"></i></div>
-                        <p class="text-sm">Payment Gateway</p>
-                    </div>
-
-                </div>
-
-                <!-- BOTTOM -->
-                <div class="flex justify-between mt-8 text-sm opacity-80">
-                    <button
-                        class="flex items-center justify-center gap-2 px-4 py-2 text-white rounded-full font-medium border border-blue-900  bg-purple-950/40 backdrop-blur cursor-pointer">
-                        <div class="relative flex size-3.5 items-center justify-center">
-                            <span
-                                class="absolute inline-flex h-full w-full rounded-full bg-[#cd9701] opacity-75 animate-ping duration-300"></span>
-                            <span class="relative inline-flex size-2 rounded-full bg-[#ffb300]"></span>
-                        </div>
-                        <span class='text-[12px]'>SSL & Security</span>
-                    </button>
-
-                    <button
-                        class="flex items-center justify-center gap-2 px-4 py-2 text-white rounded-full font-medium border border-blue-900  bg-purple-950/40 backdrop-blur cursor-pointer">
-                        <div class="relative flex size-3.5 items-center justify-center">
-                            <span
-                                class="absolute inline-flex h-full w-full rounded-full bg-[#01ccff] opacity-75 animate-ping duration-300"></span>
-                            <span class="relative inline-flex size-2 rounded-full bg-[#00aaff]"></span>
-                        </div>
-                        <span class='text-[12px]'>SEO Ready</span>
-                    </button>
-                </div>
-
-                <p class="text-center text-xs mt-4 opacity-60">
-                    Optimized for speed • Progressive features • Modern DX
-                </p>
-
             </div>
 
         </div>
@@ -714,9 +734,9 @@
         }
     </style>
 
-<!-- spacail Section -->
+    <!-- spacail Section -->
 
-  <section class="py-16 sm:py-20 lg:py-24 bg-gradient-to-r from-purple-50 to-blue-50 relative overflow-hidden">
+    <section class="py-16 sm:py-20 lg:py-24 bg-gradient-to-r from-purple-50 to-blue-50 relative overflow-hidden">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-12 sm:mb-16 relative z-10">
@@ -758,7 +778,8 @@
                     </div>
                     <h3 class="text-xl sm:text-2xl font-extrabold text-gray-800 mb-4 text-center">Easy to Edit</h3>
                     <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 text-center bangla-font">
-                        আপনি নিজের ওয়েবসাইটকে প্রয়োজন অনুযায়ী ইডিট করে নিতে পারবেন। আমরা শতভাগ ডায়নামিক ওয়েবসাইট তৈরী করি
+                        আপনি নিজের ওয়েবসাইটকে প্রয়োজন অনুযায়ী ইডিট করে নিতে পারবেন। আমরা শতভাগ ডায়নামিক ওয়েবসাইট তৈরী
+                        করি
                     </p>
                     <div class="text-center">
                         <a href="https://wa.link/n8qe02" target="_blank" rel="noopener"
@@ -1159,7 +1180,7 @@
     <div id="footer"></div>
     <script src="main.js"></script>
 
-    
+
 
 </body>
 
