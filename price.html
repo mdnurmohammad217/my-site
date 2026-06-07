@@ -2,132 +2,134 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Tailwind Css -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Bangla:ital@0;1&display=swap"
-        rel="stylesheet">
-    <!-- site Icon -->
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <title>Site Ghor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind Css -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- Font Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Bangla:ital@0;1&display=swap"
+    rel="stylesheet">
+  <!-- site Icon -->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <title>Site Ghor</title>
 
-    <style>
-        /* html, body {
+  <style>
+    /* html, body {
   height: 100%;
 } */
 
-.wrap {
-    margin: 90px 0px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .wrap {
+      margin: 90px 0px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.button {
-  min-width: 200px;
-  min-height: 40px;
-  display: inline-flex;
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 1.3px;
-  font-weight: 700;
-  color: #fff;
-  background: #01915f;
-background: linear-gradient(90deg, rgb(2, 164, 110) 0%, rgba(79,209,197,1) 100%);
-  border: none;
-  border-radius: 1000px;
-  box-shadow: 12px 12px 24px rgba(79,209,197,.64);
-  transition: all 0.3s ease-in-out 0s;
-  cursor: pointer;
-  outline: none;
-  position: relative;
-  padding: 10px;
-  }
+    .button {
+      min-width: 200px;
+      min-height: 40px;
+      display: inline-flex;
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 1.3px;
+      font-weight: 700;
+      color: #fff;
+      background: #01915f;
+      background: linear-gradient(90deg, rgb(2, 164, 110) 0%, rgba(79, 209, 197, 1) 100%);
+      border: none;
+      border-radius: 1000px;
+      box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
+      transition: all 0.3s ease-in-out 0s;
+      cursor: pointer;
+      outline: none;
+      position: relative;
+      padding: 10px;
+    }
 
-.button::before {
-content: '';
-  border-radius: 1000px;
-  min-width: calc(200px + 12px);
-  min-height: calc(40px + 12px);
-  /* border: 4px solid #00925c; */
-  box-shadow: 0 0 60px rgba(0, 197, 158, 0.64);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: all .3s ease-in-out 0s;
-}
+    .button::before {
+      content: '';
+      border-radius: 1000px;
+      min-width: calc(200px + 12px);
+      min-height: calc(40px + 12px);
+      /* border: 4px solid #00925c; */
+      box-shadow: 0 0 60px rgba(0, 197, 158, 0.64);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all .3s ease-in-out 0s;
+    }
 
-.button:hover, 
-.button:focus {
-  color: #313133;
-  transform: translateY(-6px);
-}
+    .button:hover,
+    .button:focus {
+      color: #313133;
+      transform: translateY(-6px);
+    }
 
-.button:hover::before, 
-.button:focus::before {
-  opacity: 1;
-}
+    .button:hover::before,
+    .button:focus::before {
+      opacity: 1;
+    }
 
-.button::after {
-  content: '';
-  width: 30px; height: 30px;
-  border-radius: 100%;
-  border: 4px solid #00925c;
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: ring 1.5s infinite;
-}
+    .button::after {
+      content: '';
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      border: 4px solid #00925c;
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: ring 1.5s infinite;
+    }
 
-.button:hover::after, 
-.button:focus::after {
-  animation: none;
-  display: none;
-}
+    .button:hover::after,
+    .button:focus::after {
+      animation: none;
+      display: none;
+    }
 
-@keyframes ring {
-  0% {
-    width: 30px;
-    height: 30px;
-    opacity: 1;
-  }
-  100% {
-    width: 150px;
-    height: 150px;
-    opacity: 0;
-  }
-}
-    </style>
+    @keyframes ring {
+      0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+      }
+
+      100% {
+        width: 150px;
+        height: 150px;
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div id="header"></div>
+  <div id="header"></div>
 
-<!-- Top Section -->
+  <!-- Top Section -->
 
-    <!-- <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script> -->
 
-    <!-- <style>
+  <!-- <style>
         .bangla-font {
             font-family: 'Tiro Bangla', sans-serif;
         }
@@ -176,8 +178,8 @@ content: '';
         });
     </script> -->
 
-    <!-- HERO -->
-    <!-- <section class="animated-bg text-white py-24 text-center relative overflow-hidden">
+  <!-- HERO -->
+  <!-- <section class="animated-bg text-white py-24 text-center relative overflow-hidden">
 
         <h1 class="text-4xl font-bold mb-4">Pricing — E-commerce Plans</h1>
   <p class="text-gray-300 mb-6">Choose the perfect plan for your business needs</p>
@@ -188,2386 +190,393 @@ content: '';
   </div>
 
     </section> -->
- 
 
 
 
+  <!-- HERO -->
+  <section class="bg-gradient-to-r from-[#0f172a] to-[#1e3a8a] text-white py-20 pt-28 text-center">
 
+    <h1 class="text-2xl md:text-4xl font-bold mb-4">Pricing — E-commerce Plans</h1>
+    <p class="text-gray-300 mb-6">Choose the perfect plan for your business needs</p>
 
-<style>
-  /* Custom styles that Tailwind can't handle */
-  .font-playfair { font-family: 'Playfair Display', serif; }
-  .font-dm { font-family: 'DM Sans', sans-serif; }
-
-  .card-glow::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    background: radial-gradient(circle at 30% 40%, var(--glow), transparent 65%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-  }
-  .card-glow:hover::after { opacity: 1; }
-
-  .top-line::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 20px; right: 20px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity: 0.4;
-    transition: opacity 0.3s;
-    border-radius: 999px;
-  }
-  .top-line:hover::before { opacity: 1; }
-
-  .gradient-title {
-    background: linear-gradient(135deg, #f0ece3 30%, #e8c96d 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gold-divider {
-    width: 60px; height: 2px;
-    background: linear-gradient(90deg, #c9a84c, transparent);
-    border-radius: 2px;
-  }
-
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fadeup { animation: fadeUp 0.6s ease both; }
-  .delay-1  { animation-delay: 0.05s; }
-  .delay-2  { animation-delay: 0.10s; }
-  .delay-3  { animation-delay: 0.15s; }
-  .delay-4  { animation-delay: 0.20s; }
-  .delay-5  { animation-delay: 0.25s; }
-  .delay-6  { animation-delay: 0.30s; }
-  .delay-7  { animation-delay: 0.35s; }
-  .delay-8  { animation-delay: 0.40s; }
-  .delay-9  { animation-delay: 0.45s; }
-  .delay-10 { animation-delay: 0.50s; }
-  .delay-11 { animation-delay: 0.55s; }
-  .delay-12 { animation-delay: 0.60s; }
-</style>
-
-<!-- ✅ ECOMMERCE FEATURES SECTION -->
-<section class="relative py-24 px-6 overflow-hidden bg-[#0b0c10] font-dm">
-
-  <!-- Grid BG -->
-  <div class="absolute inset-0 -z-10
-    [background-image:linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)]
-    [background-size:48px_48px]">
-  </div>
-
-  <!-- Ambient Blobs -->
-  <div class="blob -z-10 w-[500px] h-[500px] bg-[rgba(201,168,76,0.07)] -top-28 -left-36"></div>
-  <div class="blob -z-10 w-[400px] h-[400px] bg-[rgba(80,120,255,0.05)] bottom-0 -right-24"></div>
-  <div class="blob -z-10 w-[300px] h-[300px] bg-[rgba(201,168,76,0.04)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-
-  <!-- Header -->
-  <div class="relative z-10 text-center mb-16 animate-fadeup">
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 bg-[rgba(201,168,76,0.12)] border border-[rgba(201,168,76,0.3)] text-[#e8c96d] text-[11px] font-medium tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-5">
-      <i class="fa-solid fa-sparkles text-[9px]"></i> Exclusive Features
+    <div class="flex justify-center gap-4">
+      <button class="bg-blue-500 px-5 py-2 rounded">See Plans</button>
+      <button class="border border-white px-5 py-2 rounded"><a href="tel:01313133044">Talk to us</a></button>
     </div>
 
-    <!-- Title -->
-    <h2 class="font-playfair font-bold text-5xl md:text-6xl leading-tight tracking-tight gradient-title mb-4">
-      Special for You!
-    </h2>
+  </section>
 
-    <!-- Gold Divider -->
-    <div class="gold-divider mx-auto mb-5"></div>
-
-    <!-- Subtitle -->
-    <p class="text-[rgba(240,236,227,0.5)] text-base max-w-md mx-auto leading-relaxed">
-      আমাদের বিশেষ পরিষেবাসমূহ যা আপনার ব্যবসাকে দ্রুত এগিয়ে নেবে
-    </p>
-  </div>
-
-  <!-- Cards Grid -->
-  <div class="relative z-10 max-w-[1100px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-    <!-- Card 1 — Teal -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-1"
-      style="--accent:#2dd4bf; --glow:rgba(45,212,191,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">01</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(45,212,191,0.12)] border border-[rgba(45,212,191,0.2)] text-[#2dd4bf] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-cart-shopping"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Incomplete Order</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ইনকমপ্লিট অর্ডার ধরুন, যা সেলস বাড়াবে 10x গুণ দ্রুত।</p>
-    </div>
-
-    <!-- Card 2 — Blue -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-2"
-      style="--accent:#60a5fa; --glow:rgba(96,165,250,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">02</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(96,165,250,0.12)] border border-[rgba(96,165,250,0.2)] text-[#60a5fa] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-user-shield"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Fraud Checker</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ফ্রড কাস্টমার শনাক্ত করে স্বয়ংক্রিয়ভাবে ব্লক করা যায়।</p>
-    </div>
-
-    <!-- Card 3 — Pink -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-3"
-      style="--accent:#f472b6; --glow:rgba(244,114,182,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">03</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(244,114,182,0.12)] border border-[rgba(244,114,182,0.2)] text-[#f472b6] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-ban"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">IP Ban</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ফ্রড ইউজারের আইপি তাৎক্ষণিকভাবে ব্লক করুন।</p>
-    </div>
-
-    <!-- Card 4 — Green -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-4"
-      style="--accent:#4ade80; --glow:rgba(74,222,128,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">04</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(74,222,128,0.12)] border border-[rgba(74,222,128,0.2)] text-[#4ade80] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-calculator"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Amount Adjust</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">অর্ডারের টাকা সহজেই অ্যাডজাস্ট করুন।</p>
-    </div>
-
-    <!-- Card 5 — Purple -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-5"
-      style="--accent:#a78bfa; --glow:rgba(167,139,250,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">05</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(167,139,250,0.12)] border border-[rgba(167,139,250,0.2)] text-[#a78bfa] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-file-lines"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Landing Page</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">প্রোডাক্টের জন্য কাস্টম ল্যান্ডিং পেজ তৈরি করুন।</p>
-    </div>
-
-    <!-- Card 6 — Orange -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-6"
-      style="--accent:#fb923c; --glow:rgba(251,146,60,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">06</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(251,146,60,0.12)] border border-[rgba(251,146,60,0.2)] text-[#fb923c] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-truck-fast"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Courier Entry</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">কুরিয়ার এন্ট্রি ও পার্সেল ম্যানেজ সহজেই করুন।</p>
-    </div>
-
-    <!-- Card 7 — Cyan -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-7"
-      style="--accent:#22d3ee; --glow:rgba(34,211,238,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">07</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(34,211,238,0.12)] border border-[rgba(34,211,238,0.2)] text-[#22d3ee] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-shoe-prints"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Foot Print</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ইউজারের প্রতিটি অ্যাক্টিভিটি রিয়েল-টাইমে ট্র্যাক করুন।</p>
-    </div>
-
-    <!-- Card 8 — Indigo -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-8"
-      style="--accent:#818cf8; --glow:rgba(129,140,248,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">08</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(129,140,248,0.12)] border border-[rgba(129,140,248,0.2)] text-[#818cf8] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-list-check"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Order Management</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">সব অর্ডার এক জায়গায় সহজে ম্যানেজ করুন।</p>
-    </div>
-
-    <!-- Card 9 — Emerald -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-9"
-      style="--accent:#34d399; --glow:rgba(52,211,153,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">09</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(52,211,153,0.12)] border border-[rgba(52,211,153,0.2)] text-[#34d399] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-code"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Pixel Setup</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ফেসবুক ও গুগল পিক্সেল দ্রুত সেটআপ করুন।</p>
-    </div>
-
-    <!-- Card 10 — Amber -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-10"
-      style="--accent:#fbbf24; --glow:rgba(251,191,36,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">10</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(251,191,36,0.12)] border border-[rgba(251,191,36,0.2)] text-[#fbbf24] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-boxes-stacked"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Stock</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">স্টক ম্যানেজ করুন সহজে, কোনো ঝামেলা ছাড়াই।</p>
-    </div>
-
-    <!-- Card 11 — Red -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-11"
-      style="--accent:#f87171; --glow:rgba(248,113,113,0.08);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">11</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(248,113,113,0.12)] border border-[rgba(248,113,113,0.2)] text-[#f87171] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-file-invoice"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Invoice</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">প্রফেশনাল ইনভয়েস তৈরি করুন মুহূর্তেই।</p>
-    </div>
-
-    <!-- Card 12 — Gold -->
-    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
-      transition-all duration-300 ease-out cursor-default
-      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-      animate-fadeup delay-12"
-      style="--accent:#c9a84c; --glow:rgba(201,168,76,0.1);">
-      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">12</span>
-      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(201,168,76,0.12)] border border-[rgba(201,168,76,0.25)] text-[#c9a84c] text-lg mb-5
-        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-        <i class="fa-solid fa-star"></i>
-      </div>
-      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Core Features</h3>
-      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">১০+ ইনবিল্ট ফিচার একসাথে পাবেন এই প্ল্যাটফর্মে।</p>
-    </div>
-
-  </div>
-
-  <!-- CTA Button -->
-  <div class="relative z-10 flex justify-center mt-14">
-    <a href="https://wa.link/959hre" target="_blank"
-      class="inline-flex items-center gap-2.5 bg-gradient-to-br from-[#2db049] to-[#1a8c34]
-        text-white font-dm font-medium text-[15px] px-8 py-3.5 rounded-full
-        border border-white/15 tracking-wide
-        shadow-[0_4px_24px_rgba(45,176,73,0.35),inset_0_1px_0_rgba(255,255,255,0.15)]
-        transition-all duration-300
-        hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_8px_36px_rgba(45,176,73,0.5)]">
-      <i class="fa-brands fa-whatsapp text-lg"></i>
-      WhatsApp-এ যোগাযোগ করুন
-    </a>
-  </div>
-
-</section>
-
-
-
-
-<!-- ========================= -->
-<!-- PREMIUM LANDING PAGE DEMO -->
-<!-- ========================= -->
-
-<section class="relative py-24 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
-
-    <!-- Background Glow -->
-    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-emerald-400/20 blur-[150px] rounded-full -z-10"></div>
-
-    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-green-500/20 blur-[150px] rounded-full -z-10"></div>
+  <!-- PREMIUM PRICING SECTION -->
+  <section class="py-24 px-6 bg-gradient-to-b from-slate-50 via-white to-slate-100">
 
     <!-- Heading -->
-    <div class="text-center mb-16">
+    <div class="text-center mb-20">
 
-        <span
-            class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold text-sm">
-            🚀 Premium Landing Pages
+      <span
+        class="inline-flex items-center px-5 py-2 rounded-full bg-emerald-100 text-emerald-600 font-semibold text-sm">
+        💎 Pricing Plans
+      </span>
+
+      <h2 class="mt-6 text-5xl md:text-6xl font-black text-slate-900 bangla-font">
+
+        আপনার জন্য
+
+        <span class="bg-gradient-to-r from-emerald-500 to-green-600 bg-clip-text text-transparent bangla-font">সেরা
+          প্যাকেজ </span>
+
+      </h2>
+
+      <p class="mt-5 text-slate-500 text-lg max-w-3xl mx-auto bangla-font">
+        আপনার ব্যবসার প্রয়োজন অনুযায়ী সেরা ই-কমার্স প্যাকেজ নির্বাচন করুন।
+      </p>
+
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 items-center">
+
+      <!-- PLAN 1 -->
+      <div
+        class="group relative overflow-hidden rounded-[35px] bg-white border border-slate-200 p-8 shadow-[0_15px_60px_rgba(0,0,0,0.08)] hover:-translate-y-4 transition-all duration-700">
+
+        <div class="absolute top-0 left-0 h-1 w-full"></div>
+
+        <span class="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-600 font-semibold text-sm">
+          Basic
         </span>
 
-        <h2 class="mt-6 text-5xl md:text-6xl font-black tracking-tight text-slate-900 bangla-font">
-            ল্যান্ডিং পেজ
-            <span
-                class="bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 bg-clip-text text-transparent">
-                ডেমো
-            </span>
-        </h2>
+        <h3 class="mt-6 text-2xl font-bold text-slate-900 bangla-font">
+          ই-কমার্স প্লান-১
+        </h3>
 
-        <p class="mt-5 text-lg text-gray-600 max-w-2xl mx-auto bangla-font">
-            আপনার প্রোডাক্টের জন্য হাই কনভার্টিং, আধুনিক এবং প্রিমিয়াম ল্যান্ডিং পেজ।
-        </p>
+        <div class="mt-6">
+          <span class="text-5xl font-black text-slate-900 bangla-font">১৫,০০০</span>
+          <span class="text-slate-500 bangla-font"> টাকা</span>
+        </div>
 
-    </div>
+        <ul class="mt-8 space-y-4 text-slate-600 bangla-font">
+          <li class="bangla-font">✔️ ১ টি সিম্পল সুপারফাস্ট ই-কমার্স ওয়েবসাইট</li>
+          <li class="bangla-font">✔️ প্রোডাক্ট ম্যানেজমেন্ট</li>
+          <li class="bangla-font">✔️ ১০ টি প্রোডাক্ট হোস্টিং</li>
+          <li class="bangla-font">✔️ ৩ মাস টেকনিক্যাল সাপোর্ট</li>
+        </ul>
 
-    <!-- Demo Grid -->
-    <div class="w-11/12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div class="mt-8 flex flex-wrap gap-2">
+          <a href="#"
+            class="px-3 py-2 rounded-full bg-slate-100 text-slate-600 text-sm bangla-font hover:bg-green-600 hover:text-white transition-all duration-300">অর্গানিক
+            ফুড</a>
 
-        <!-- CARD -->
-        <div class="group relative">
+          <a href="#"
+            class="px-3 py-2 rounded-full bg-slate-100 text-slate-600 text-sm bangla-font hover:bg-green-600 hover:text-white transition-all duration-300">গ্যাজেট</a>
 
-            <div
-                class="absolute -inset-[1px] rounded-[28px] bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 opacity-0 group-hover:opacity-100 blur transition duration-500">
-            </div>
-
-            <div
-                class="relative h-[500px] overflow-hidden rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_10px_50px_rgba(0,0,0,0.08)]">
-
-                <!-- Shine -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition duration-1000 z-20">
-                </div>
-
-                <!-- Label -->
-                <div
-                    class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-semibold">
-                    Premium Demo
-                </div>
-
-                <!-- Image -->
-                <div
-                    class="absolute top-0 left-0 w-full transition-all duration-[4000ms] ease-linear group-hover:-translate-y-[70%]">
-
-                    <img src="images/landing4.jpg"
-                        class="w-full block group-hover:scale-105 transition duration-700"
-                        alt="Landing Page">
-
-                </div>
-
-            </div>
+          <a href="#"
+            class="px-3 py-2 rounded-full bg-slate-100 text-slate-600 text-sm bangla-font hover:bg-green-600 hover:text-white transition-all duration-300">ফ্যাশন</a>
 
         </div>
 
-        <!-- CARD -->
-        <div class="group relative">
+        <a href="https://wa.link/lz8wge"
+          class="mt-8 flex items-center justify-center h-14 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold">
+          <i class="fa-brands fa-whatsapp mr-2"></i>
+          WhatsApp
+        </a>
 
-            <div
-                class="absolute -inset-[1px] rounded-[28px] bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 opacity-0 group-hover:opacity-100 blur transition duration-500">
-            </div>
+      </div>
 
-            <div
-                class="relative h-[500px] overflow-hidden rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_10px_50px_rgba(0,0,0,0.08)]">
+      <!-- PLAN 2 FEATURED -->
+      <div
+        class="relative rounded-[40px] bg-gradient-to-b from-emerald-500 to-green-600 p-[2px] scale-105 shadow-[0_30px_100px_rgba(16,185,129,0.25)]">
 
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition duration-1000 z-20">
-                </div>
+        <div class="rounded-[38px] bg-white p-8 h-full relative">
 
-                <div
-                    class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-black/70 text-white text-xs font-semibold">
-                    Premium Demo
-                </div>
+          <div
+            class="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-2 rounded-full bg-black text-white text-xs font-bold">
+            🔥 MOST POPULAR
+          </div>
 
-                <div
-                    class="absolute top-0 left-0 w-full transition-all duration-[4000ms] ease-linear group-hover:-translate-y-[70%]">
+          <span class="inline-flex px-4 py-2 rounded-full bg-emerald-100 text-emerald-600 font-semibold text-sm">
+            Popular
+          </span>
 
-                    <img src="images/landing3.jpg"
-                        class="w-full block group-hover:scale-105 transition duration-700"
-                        alt="Landing Page">
+          <h3 class="mt-6 text-2xl font-bold text-slate-900 bangla-font">
+            ই-কমার্স প্লান-২
+          </h3>
 
-                </div>
+          <div class="mt-6">
+            <span class="text-6xl font-black text-emerald-600 bangla-font">২০,০০০</span>
+            <span class="text-slate-500 bangla-font"> টাকা</span>
+          </div>
 
-            </div>
+          <ul class="mt-8 space-y-4 text-slate-600 bangla-font">
+            <li class="bangla-font">✔️ ১ টি ফাংশনাল ওয়েবসাইট</li>
+            <li class="bangla-font">✔️ প্রোডাক্ট ম্যানেজমেন্ট</li>
+            <li class="bangla-font">✔️ ২০ টি প্রোডাক্ট</li>
+            <li class="bangla-font">✔️ ৬ মাস টেকনিক্যাল সাপোর্ট</li>
+          </ul>
+
+          <div class="mt-8 flex flex-wrap gap-2">
+            <a href="#"
+              class="px-3 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm bangla-font hover:bg-emerald-200 hover:text-emerald-800 transition-all duration-300">
+              গ্যাজেট
+            </a>
+
+            <a href="#"
+              class="px-3 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm bangla-font hover:bg-emerald-200 hover:text-emerald-800 transition-all duration-300">
+              ফ্যাশন
+            </a>
+
+            <a href="#"
+              class="px-3 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm bangla-font hover:bg-emerald-200 hover:text-emerald-800 transition-all duration-300">
+              অর্গানিক
+            </a>
+          </div>
+
+          <a href="https://wa.link/lz8wge"
+            class="mt-8 flex items-center justify-center h-14 rounded-2xl bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 text-white font-bold shadow-lg">
+            <i class="fa-brands fa-whatsapp mr-2"></i>
+            WhatsApp
+          </a>
 
         </div>
 
-        <!-- CARD -->
-        <div class="group relative">
-
-            <div
-                class="absolute -inset-[1px] rounded-[28px] bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 opacity-0 group-hover:opacity-100 blur transition duration-500">
-            </div>
-
-            <div
-                class="relative h-[500px] overflow-hidden rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_10px_50px_rgba(0,0,0,0.08)]">
-
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition duration-1000 z-20">
-                </div>
-
-                <div
-                    class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-black/70 text-white text-xs font-semibold">
-                    Premium Demo
-                </div>
-
-                <div
-                    class="absolute top-0 left-0 w-full transition-all duration-[4000ms] ease-linear group-hover:-translate-y-[70%]">
-
-                    <img src="images/landing1.jpg"
-                        class="w-full block group-hover:scale-105 transition duration-700"
-                        alt="Landing Page">
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- CARD -->
-        <div class="group relative">
-
-            <div
-                class="absolute -inset-[1px] rounded-[28px] bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 opacity-0 group-hover:opacity-100 blur transition duration-500">
-            </div>
-
-            <div
-                class="relative h-[500px] overflow-hidden rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_10px_50px_rgba(0,0,0,0.08)]">
-
-                <div
-                    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition duration-1000 z-20">
-                </div>
-
-                <div
-                    class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-black/70 text-white text-xs font-semibold">
-                    Premium Demo
-                </div>
-
-                <div
-                    class="absolute top-0 left-0 w-full transition-all duration-[4000ms] ease-linear group-hover:-translate-y-[70%]">
-
-                    <img src="images/landing5.jpg"
-                        class="w-full block group-hover:scale-105 transition duration-700"
-                        alt="Landing Page">
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- landing6, landing7, landing8, landing9 এর জন্য একই CARD copy-paste করে শুধু image src change করুন -->
-
-    </div>
-
-</section>
-
-   
-
-
-<!-- Google Fonts & FA — add to your <head> once -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<style>
-  .font-playfair { font-family: 'Playfair Display', serif; }
-  .font-dm       { font-family: 'DM Sans', sans-serif; }
-
-  .gold-divider {
-    width: 60px; height: 2px;
-    background: linear-gradient(90deg, #c9a84c, transparent);
-    border-radius: 2px;
-  }
-
-  .gradient-title {
-    background: linear-gradient(135deg, #f0ece3 30%, #e8c96d 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-  }
-
-  /* ── CARD ── */
-  .demo-card {
-    position: relative;
-    width: 100%;
-    height: 420px;
-    overflow: hidden;
-    border-radius: 18px;
-    border: 1px solid rgba(201,168,76,0.2);
-    background: #111217;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
-    transition: border-color 0.3s ease, box-shadow 0.35s ease, transform 0.35s ease;
-    cursor: pointer;
-  }
-  .demo-card:hover {
-    border-color: rgba(201,168,76,0.55);
-    box-shadow: 0 12px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.15);
-    transform: translateY(-4px);
-  }
-
-  /* ── SCROLLING IMAGE ── */
-  .demo-card .img-wrap {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    transition: transform 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  .demo-card:hover .img-wrap {
-    transform: translateY(-60%);
-  }
-  .demo-card .img-wrap img {
-    width: 100%;
-    display: block;
-  }
-
-  /* ── OVERLAY at bottom — always visible label ── */
-  .demo-card .card-label {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 28px 18px 16px;
-    background: linear-gradient(to top, rgba(10,10,14,0.95) 60%, transparent);
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: opacity 0.3s;
-  }
-  .demo-card:hover .card-label { opacity: 0.0; }
-
-  /* Scroll hint bar */
-  .scroll-hint {
-    position: absolute;
-    top: 12px; right: 12px;
-    z-index: 6;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.35);
-    color: #e8c96d;
-    font-size: 10px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 100px;
-    backdrop-filter: blur(6px);
-    transition: opacity 0.3s;
-  }
-  .demo-card:hover .scroll-hint { opacity: 0; }
-
-  /* Number badge */
-  .card-num {
-    position: absolute;
-    top: 12px; left: 14px;
-    z-index: 6;
-    font-family: 'Playfair Display', serif;
-    font-size: 12px;
-    color: rgba(255,255,255,0.18);
-    letter-spacing: 0.05em;
-    transition: opacity 0.3s;
-  }
-  .demo-card:hover .card-num { opacity: 0; }
-
-  /* Top accent line */
-  .demo-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 20px; right: 20px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
-    opacity: 0.5;
-    z-index: 7;
-    border-radius: 999px;
-  }
-
-  /* Badge */
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.3);
-    color: #e8c96d;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 100px;
-    margin-bottom: 20px;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .afu { animation: fadeUp 0.6s ease both; }
-  .d1 { animation-delay: 0.05s; } .d2 { animation-delay: 0.10s; }
-  .d3 { animation-delay: 0.15s; } .d4 { animation-delay: 0.20s; }
-  .d5 { animation-delay: 0.25s; } .d6 { animation-delay: 0.30s; }
-  .d7 { animation-delay: 0.35s; } .d8 { animation-delay: 0.40s; }
-</style>
-
-<!-- ═══════════════════════════════════════════ -->
-<!--         LANDING PAGE DEMO SECTION          -->
-<!-- ═══════════════════════════════════════════ -->
-<section class="relative py-24 px-6 overflow-hidden bg-[#0b0c10] font-dm">
-
-  <!-- Grid BG -->
-  <div class="absolute inset-0 -z-10
-    [background-image:linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)]
-    [background-size:48px_48px]">
-  </div>
-
-  <!-- Blobs -->
-  <div class="blob -z-10 w-[500px] h-[500px] bg-[rgba(201,168,76,0.07)] -top-28 -left-36"></div>
-  <div class="blob -z-10 w-[400px] h-[400px] bg-[rgba(100,80,255,0.05)] bottom-0 -right-24"></div>
-
-  <!-- ── HEADER ── -->
-  <div class="relative z-10 text-center mb-14 afu">
-    <div class="badge"><i class="fa-solid fa-display text-[9px]"></i> Live Preview</div>
-
-    <h2 class="font-playfair font-bold text-5xl md:text-6xl leading-tight tracking-tight gradient-title mb-4">
-      ল্যান্ডিং পেজ <span class="relative inline-block">
-        ডেমো
-        <span class="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-[#c9a84c] to-transparent rounded-full"></span>
-      </span>
-    </h2>
-
-    <div class="gold-divider mx-auto mb-5 mt-3"></div>
-
-    <p class="text-[rgba(240,236,227,0.45)] text-[15px] max-w-sm mx-auto leading-relaxed">
-      যেকোনো কার্ডে <span class="text-[#e8c96d] font-medium">hover</span> করুন — পুরো পেজ দেখুন
-    </p>
-  </div>
-
-  <!-- ── CARDS GRID ── -->
-  <div class="relative z-10 max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-    <!-- Card 1 -->
-    <div class="demo-card afu d1">
-      <span class="card-num">01</span>
-      <span class="scroll-hint"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap">
-        <img src="images/landing4.jpg" alt="Landing Demo 1">
       </div>
-      <div class="card-label">
-        <span class="text-[#f0ece3] text-[13px] font-medium">Demo — 01</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
 
-    <!-- Card 2 -->
-    <div class="demo-card afu d2">
-      <span class="card-num">02</span>
-      <span class="scroll-hint"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap">
-        <img src="images/landing3.jpg" alt="Landing Demo 2">
-      </div>
-      <div class="card-label">
-        <span class="text-[#f0ece3] text-[13px] font-medium">Demo — 02</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
+      <!-- PLAN 3 -->
+      <div
+        class="group relative overflow-hidden rounded-[35px] bg-white border border-slate-200 p-8 shadow-[0_15px_60px_rgba(0,0,0,0.08)] hover:-translate-y-4 transition-all duration-700">
 
-    <!-- Card 3 -->
-    <div class="demo-card afu d3">
-      <span class="card-num">03</span>
-      <span class="scroll-hint"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap">
-        <img src="images/landing1.jpg" alt="Landing Demo 3">
-      </div>
-      <div class="card-label">
-        <span class="text-[#f0ece3] text-[13px] font-medium">Demo — 03</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
+        <div class="absolute top-0 left-0 h-1 w-full"></div>
 
-    <!-- Card 4 -->
-    <div class="demo-card afu d4">
-      <span class="card-num">04</span>
-      <span class="scroll-hint"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap">
-        <img src="images/landing5.jpg" alt="Landing Demo 4">
-      </div>
-      <div class="card-label">
-        <span class="text-[#f0ece3] text-[13px] font-medium">Demo — 04</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="demo-card afu d5">
-      <span class="card-num">05</span>
-      <span class="scroll-hint"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap">
-        <img src="images/landing6.jpg" alt="Landing Demo 5">
-      </div>
-      <div class="card-label">
-        <span class="text-[#f0ece3] text-[13px] font-medium">Demo — 05</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="demo-card afu d6">
-      <span class="card-num">06</span>
-      <span class="scroll-hint"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap">
-        <img src="images/landing7.jpg" alt="Landing Demo 6">
-      </div>
-      <div class="card-label">
-        <span class="text-[#f0ece3] text-[13px] font-medium">Demo — 06</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 7 -->
-    <div class="demo-card afu d7">
-      <span class="card-num">07</span>
-      <span class="scroll-hint"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap">
-        <img src="images/landing8.jpg" alt="Landing Demo 7">
-      </div>
-      <div class="card-label">
-        <span class="text-[#f0ece3] text-[13px] font-medium">Demo — 07</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="demo-card afu d8">
-      <span class="card-num">08</span>
-      <span class="scroll-hint"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap">
-        <img src="images/landing9.jpg" alt="Landing Demo 8">
-      </div>
-      <div class="card-label">
-        <span class="text-[#f0ece3] text-[13px] font-medium">Demo — 08</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ── BOTTOM NOTE ── -->
-  <div class="relative z-10 text-center mt-12">
-    <p class="text-[rgba(240,236,227,0.3)] text-[13px] tracking-wide">
-      <i class="fa-solid fa-circle-info mr-1.5 text-[#c9a84c]/60"></i>
-      প্রতিটি ডিজাইন সম্পূর্ণ কাস্টমাইজযোগ্য
-    </p>
-  </div>
-
-</section>
-
-
-
-
-<!-- Add to <head> once -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<style>
-  .font-cormorant { font-family: 'Cormorant Garamond', serif; }
-  .font-outfit     { font-family: 'Outfit', sans-serif; }
-
-  /* Noise texture overlay */
-  .noise::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Card */
-  .demo-card {
-    position: relative;
-    width: 100%;
-    height: 420px;
-    overflow: hidden;
-    border-radius: 20px;
-    background: #fff;
-    border: 1px solid rgba(180, 145, 60, 0.2);
-    box-shadow:
-      0 2px 8px rgba(0,0,0,0.06),
-      0 8px 32px rgba(0,0,0,0.08),
-      inset 0 1px 0 rgba(255,255,255,0.9);
-    transition:
-      transform 0.35s cubic-bezier(.22,.9,.36,1),
-      box-shadow 0.35s ease,
-      border-color 0.3s ease;
-    cursor: pointer;
-  }
-  .demo-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(180,145,60,0.5);
-    box-shadow:
-      0 6px 20px rgba(180,145,60,0.12),
-      0 20px 60px rgba(0,0,0,0.14),
-      inset 0 1px 0 rgba(255,255,255,0.9);
-  }
-
-  /* Top shimmer line */
-  .demo-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 16px; right: 16px;
-    height: 1.5px;
-    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
-    opacity: 0;
-    z-index: 10;
-    border-radius: 999px;
-    transition: opacity 0.3s ease;
-  }
-  .demo-card:hover::before { opacity: 1; }
-
-  /* Corner ornament */
-  .demo-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; right: 0;
-    width: 60px; height: 60px;
-    background: radial-gradient(circle at 100% 100%, rgba(201,168,76,0.08), transparent 70%);
-    z-index: 2;
-    pointer-events: none;
-    transition: opacity 0.3s;
-  }
-
-  /* Scroll image */
-  .img-wrap {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    transition: transform 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  .demo-card:hover .img-wrap { transform: translateY(-60%); }
-  .img-wrap img { width: 100%; display: block; }
-
-  /* Bottom label */
-  .card-label {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 32px 16px 14px;
-    background: linear-gradient(to top, rgba(255,255,255,0.97) 55%, transparent);
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: opacity 0.4s ease;
-  }
-  .demo-card:hover .card-label { opacity: 0; }
-
-  /* Hover badge */
-  .hover-badge {
-    position: absolute;
-    top: 12px; right: 12px;
-    z-index: 8;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.35);
-    color: #a07830;
-    font-size: 10px;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 100px;
-    backdrop-filter: blur(4px);
-    transition: opacity 0.3s;
-  }
-  .demo-card:hover .hover-badge { opacity: 0; }
-
-  /* Card number */
-  .card-num {
-    position: absolute;
-    top: 13px; left: 14px;
-    z-index: 8;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    color: rgba(0,0,0,0.15);
-    letter-spacing: 0.06em;
-    transition: opacity 0.3s;
-  }
-  .demo-card:hover .card-num { opacity: 0; }
-
-  /* Section badge */
-  .sec-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.06));
-    border: 1px solid rgba(201,168,76,0.3);
-    color: #8a6820;
-    font-size: 11px;
-    font-weight: 500;
-    font-family: 'Outfit', sans-serif;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 6px 18px;
-    border-radius: 100px;
-    margin-bottom: 18px;
-  }
-
-  /* Gold divider */
-  .gold-divider {
-    width: 56px; height: 1.5px;
-    background: linear-gradient(90deg, #c9a84c, rgba(201,168,76,0.1));
-    border-radius: 2px;
-    margin: 0 auto;
-  }
-
-  /* Decorative dots pattern */
-  .dot-pattern {
-    background-image: radial-gradient(circle, rgba(201,168,76,0.18) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(22px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .afu { animation: fadeUp 0.65s ease both; }
-  .d0 { animation-delay: 0s; }
-  .d1 { animation-delay: 0.06s; } .d2 { animation-delay: 0.12s; }
-  .d3 { animation-delay: 0.18s; } .d4 { animation-delay: 0.24s; }
-  .d5 { animation-delay: 0.30s; } .d6 { animation-delay: 0.36s; }
-  .d7 { animation-delay: 0.42s; } .d8 { animation-delay: 0.48s; }
-</style>
-
-<!-- ══════════════════════════════════════════════ -->
-<!--        LANDING PAGE DEMO — LUXURY LIGHT       -->
-<!-- ══════════════════════════════════════════════ -->
-<section class="noise relative py-24 px-5 overflow-hidden bg-white font-outfit">
-
-  <!-- Subtle warm dot pattern — top left -->
-  <div class="dot-pattern absolute top-0 left-0 w-72 h-72 -z-10 opacity-60"></div>
-  <div class="dot-pattern absolute bottom-0 right-0 w-72 h-72 -z-10 opacity-40"></div>
-
-  <!-- Warm ambient glow -->
-  <div class="absolute top-[-80px] left-[-100px] w-[420px] h-[420px] rounded-full -z-10 opacity-40"
-    style="background: radial-gradient(circle, rgba(201,168,76,0.12), transparent 70%); filter: blur(60px);">
-  </div>
-  <div class="absolute bottom-[-60px] right-[-80px] w-[360px] h-[360px] rounded-full -z-10 opacity-30"
-    style="background: radial-gradient(circle, rgba(201,168,76,0.1), transparent 70%); filter: blur(60px);">
-  </div>
-
-  <!-- ── HEADER ── -->
-  <div class="relative z-10 text-center mb-14 afu d0">
-
-    <!-- Badge -->
-    <div class="sec-badge">
-      <i class="fa-solid fa-display text-[9px]"></i> Live Preview
-    </div>
-
-    <!-- Title -->
-    <h2 class="font-cormorant font-bold text-[clamp(38px,5vw,64px)] leading-[1.1] tracking-tight text-[#1a1410] mb-3">
-      ল্যান্ডিং পেজ
-      <span class="relative inline-block text-[#9a7228]">
-        ডেমো
-        <svg class="absolute -bottom-1 left-0 w-full" height="6" viewBox="0 0 100 6" preserveAspectRatio="none">
-          <path d="M0 5 Q50 0 100 5" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        </svg>
-      </span>
-    </h2>
-
-    <!-- Divider -->
-    <div class="gold-divider mt-5 mb-5"></div>
-
-    <!-- Subtitle -->
-    <p class="text-[#6b5a3a]/60 text-[15px] max-w-xs mx-auto leading-relaxed">
-      যেকোনো কার্ডে <span class="text-[#9a7228] font-medium">hover</span> করুন — পুরো পেজ দেখুন
-    </p>
-  </div>
-
-  <!-- ── CARDS GRID ── -->
-  <div class="relative z-10 max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-    <!-- Card 1 -->
-    <div class="demo-card afu d1">
-      <span class="card-num">01</span>
-      <span class="hover-badge"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap"><img src="images/landing4.jpg" alt="Landing Demo 1"></div>
-      <div class="card-label">
-        <span class="text-[#2a1f0e] text-[13px] font-medium font-outfit">Demo — 01</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="demo-card afu d2">
-      <span class="card-num">02</span>
-      <span class="hover-badge"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap"><img src="images/landing3.jpg" alt="Landing Demo 2"></div>
-      <div class="card-label">
-        <span class="text-[#2a1f0e] text-[13px] font-medium font-outfit">Demo — 02</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="demo-card afu d3">
-      <span class="card-num">03</span>
-      <span class="hover-badge"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap"><img src="images/landing1.jpg" alt="Landing Demo 3"></div>
-      <div class="card-label">
-        <span class="text-[#2a1f0e] text-[13px] font-medium font-outfit">Demo — 03</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="demo-card afu d4">
-      <span class="card-num">04</span>
-      <span class="hover-badge"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap"><img src="images/landing5.jpg" alt="Landing Demo 4"></div>
-      <div class="card-label">
-        <span class="text-[#2a1f0e] text-[13px] font-medium font-outfit">Demo — 04</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="demo-card afu d5">
-      <span class="card-num">05</span>
-      <span class="hover-badge"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap"><img src="images/landing6.jpg" alt="Landing Demo 5"></div>
-      <div class="card-label">
-        <span class="text-[#2a1f0e] text-[13px] font-medium font-outfit">Demo — 05</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="demo-card afu d6">
-      <span class="card-num">06</span>
-      <span class="hover-badge"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap"><img src="images/landing7.jpg" alt="Landing Demo 6"></div>
-      <div class="card-label">
-        <span class="text-[#2a1f0e] text-[13px] font-medium font-outfit">Demo — 06</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 7 -->
-    <div class="demo-card afu d7">
-      <span class="card-num">07</span>
-      <span class="hover-badge"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap"><img src="images/landing8.jpg" alt="Landing Demo 7"></div>
-      <div class="card-label">
-        <span class="text-[#2a1f0e] text-[13px] font-medium font-outfit">Demo — 07</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="demo-card afu d8">
-      <span class="card-num">08</span>
-      <span class="hover-badge"><i class="fa-solid fa-arrow-up mr-1 text-[8px]"></i> Hover</span>
-      <div class="img-wrap"><img src="images/landing9.jpg" alt="Landing Demo 8"></div>
-      <div class="card-label">
-        <span class="text-[#2a1f0e] text-[13px] font-medium font-outfit">Demo — 08</span>
-        <i class="fa-solid fa-arrow-up-right-from-square text-[#c9a84c] text-xs"></i>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ── FOOTER NOTE ── -->
-  <div class="relative z-10 text-center mt-12">
-    <p class="text-[#6b5a3a]/40 text-[13px] tracking-wide font-outfit">
-      <i class="fa-solid fa-circle-check mr-1.5 text-[#c9a84c]/50"></i>
-      প্রতিটি ডিজাইন সম্পূর্ণ কাস্টমাইজযোগ্য
-    </p>
-  </div>
-
-</section>
-
-
-
-
-<!-- Premium Landing Page Showcase -->
-<section class="relative py-24 bg-black overflow-hidden">
-
-    <!-- Background Glow -->
-    <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-emerald-500/20 blur-[180px] rounded-full"></div>
-    <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-green-500/20 blur-[180px] rounded-full"></div>
-
-    <!-- Heading -->
-    <div class="text-center mb-20 relative z-10">
-
-        <span
-            class="inline-flex items-center px-5 py-2 rounded-full bg-white/5 border border-white/10 text-emerald-400 font-semibold">
-            🚀 Premium Collection
+        <span class="inline-flex px-4 py-2 rounded-full bg-purple-100 text-purple-600 font-semibold text-sm">
+          Advanced
         </span>
 
-        <h2
-            class="mt-6 text-5xl md:text-7xl font-black text-white bangla-font">
-            ল্যান্ডিং পেজ
-            <span class="text-emerald-400">
-                Showcase
-            </span>
-        </h2>
+        <h3 class="mt-6 text-2xl font-bold text-slate-900 bangla-font">
+          ই-কমার্স প্লান-৩
+        </h3>
 
-        <p
-            class="mt-5 text-gray-400 text-lg max-w-3xl mx-auto bangla-font">
-            আমাদের তৈরি হাই-কনভার্টিং এবং আধুনিক ল্যান্ডিং পেজ ডেমো দেখুন।
-        </p>
-
-    </div>
-
-    <!-- Grid -->
-    <div class="w-11/12 max-w-[1700px] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 relative z-10">
-
-        <!-- CARD 1 -->
-        <div class="group relative">
-
-            <div
-                class="absolute -inset-[2px] rounded-[32px] bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700">
-            </div>
-
-            <div
-                class="relative h-[550px] overflow-hidden rounded-[32px] bg-slate-900 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.5)] group-hover:-translate-y-3 transition-all duration-700">
-
-                <div
-                    class="absolute top-5 left-5 z-20 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
-                    Premium Design
-                </div>
-
-                <div
-                    class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[78%]">
-
-                    <img src="images/landing4.jpg" class="w-full block" alt="Landing">
-
-                </div>
-
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent">
-                </div>
-
-                <div
-                    class="absolute bottom-0 left-0 right-0 p-6 backdrop-blur-xl bg-black/40">
-
-                    <h3 class="text-white text-xl font-bold">
-                        Landing Page 01
-                    </h3>
-
-                    <p class="text-gray-400 text-sm mt-1">
-                        High Converting Design
-                    </p>
-
-                </div>
-
-            </div>
-
+        <div class="mt-6">
+          <span class="text-5xl font-black text-slate-900">৩০,০০০</span>
+          <span class="text-slate-500 bangla-font"> টাকা</span>
         </div>
 
-        <!-- CARD 2 -->
-        <div class="group relative">
+        <ul class="mt-8 space-y-4 text-slate-600 bangla-font">
+          <li class="bangla-font">✔️ ফাংশনাল ওয়েবসাইট</li>
+          <li class="bangla-font">✔️ ফুল কাস্টম ডিজাইন</li>
+          <li class="bangla-font">✔️ আনলিমিটেড প্রোডাক্ট</li>
+          <li class="bangla-font">✔️ ১২ মাস সাপোর্ট</li>
+        </ul>
 
-            <div
-                class="absolute -inset-[2px] rounded-[32px] bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700">
-            </div>
+        <div class="mt-8 flex flex-wrap gap-2">
+          <a href="#"
+            class="px-3 py-2 rounded-full bg-purple-100 text-purple-700 text-sm bangla-font hover:bg-purple-200 hover:text-purple-800 transition-all duration-300">
+            ফ্যাশন
+          </a>
 
-            <div
-                class="relative h-[550px] overflow-hidden rounded-[32px] bg-slate-900 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.5)] group-hover:-translate-y-3 transition-all duration-700">
+          <a href="#"
+            class="px-3 py-2 rounded-full bg-purple-100 text-purple-700 text-sm bangla-font hover:bg-purple-200 hover:text-purple-800 transition-all duration-300">
+            গ্যাজেট
+          </a>
 
-                <div
-                    class="absolute top-5 left-5 z-20 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-semibold">
-                    Best Seller
-                </div>
-
-                <div
-                    class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[78%]">
-
-                    <img src="images/landing3.jpg" class="w-full block" alt="Landing">
-
-                </div>
-
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent">
-                </div>
-
-                <div
-                    class="absolute bottom-0 left-0 right-0 p-6 backdrop-blur-xl bg-black/40">
-
-                    <h3 class="text-white text-xl font-bold">
-                        Landing Page 02
-                    </h3>
-
-                    <p class="text-gray-400 text-sm mt-1">
-                        Ecommerce Focused
-                    </p>
-
-                </div>
-
-            </div>
-
+          <a href="#"
+            class="px-3 py-2 rounded-full bg-purple-100 text-purple-700 text-sm bangla-font hover:bg-purple-200 hover:text-purple-800 transition-all duration-300">
+            অর্গানিক
+          </a>
         </div>
 
-        <!-- CARD 3 -->
-        <div class="group relative">
+        <a href="https://wa.link/lz8wge"
+          class="mt-8 flex items-center justify-center h-14 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold">
+          <i class="fa-brands fa-whatsapp mr-2"></i>
+          WhatsApp
+        </a>
 
-            <div
-                class="absolute -inset-[2px] rounded-[32px] bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700">
-            </div>
-
-            <div
-                class="relative h-[550px] overflow-hidden rounded-[32px] bg-slate-900 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.5)] group-hover:-translate-y-3 transition-all duration-700">
-
-                <div
-                    class="absolute top-5 left-5 z-20 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-400 text-xs font-semibold">
-                    Modern UI
-                </div>
-
-                <div
-                    class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[78%]">
-
-                    <img src="images/landing1.jpg" class="w-full block" alt="Landing">
-
-                </div>
-
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent">
-                </div>
-
-                <div
-                    class="absolute bottom-0 left-0 right-0 p-6 backdrop-blur-xl bg-black/40">
-
-                    <h3 class="text-white text-xl font-bold">
-                        Landing Page 03
-                    </h3>
-
-                    <p class="text-gray-400 text-sm mt-1">
-                        Premium Layout
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="group relative">
-
-            <div
-                class="absolute -inset-[2px] rounded-[32px] bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700">
-            </div>
-
-            <div
-                class="relative h-[550px] overflow-hidden rounded-[32px] bg-slate-900 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.5)] group-hover:-translate-y-3 transition-all duration-700">
-
-                <div
-                    class="absolute top-5 left-5 z-20 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-400 text-xs font-semibold">
-                    Trending
-                </div>
-
-                <div
-                    class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[78%]">
-
-                    <img src="images/landing5.jpg" class="w-full block" alt="Landing">
-
-                </div>
-
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent">
-                </div>
-
-                <div
-                    class="absolute bottom-0 left-0 right-0 p-6 backdrop-blur-xl bg-black/40">
-
-                    <h3 class="text-white text-xl font-bold">
-                        Landing Page 04
-                    </h3>
-
-                    <p class="text-gray-400 text-sm mt-1">
-                        Conversion Optimized
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-
-
-<style>
-/* ── VARIABLES ── */
-:root {
-  --gold:        #B8963E;
-  --gold-light:  #D4AF6A;
-  --gold-dim:    rgba(184,150,62,0.12);
-  --ink:         #1C1810;
-  --ink-soft:    rgba(28,24,16,0.45);
-  --cream:       #FDFCF9;
-}
-
-.lp-section * { box-sizing: border-box; }
-.lp-section { font-family: 'Jost', sans-serif; }
-.f-italiana  { font-family: 'Italiana', serif; }
-
-/* ──────────────────────────────
-   SECTION BACKGROUND
-────────────────────────────── */
-.lp-section {
-  position: relative;
-  padding: 100px 24px 90px;
-  background: #fff;
-  overflow: hidden;
-}
-
-/* Fine crosshatch — architectural feel */
-.lp-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(184,150,62,0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184,150,62,0.055) 1px, transparent 1px);
-  background-size: 32px 32px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Warm radial vignette */
-.lp-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,175,106,0.08) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ── HEADER ── */
-.lp-header {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.lp-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-.lp-eyebrow span {
-  display: block;
-  width: 28px;
-  height: 1px;
-  background: var(--gold-light);
-}
-
-.lp-title {
-  font-family: 'Italiana', serif;
-  font-size: clamp(44px, 6vw, 76px);
-  line-height: 1.05;
-  color: var(--ink);
-  letter-spacing: 0.01em;
-  margin-bottom: 6px;
-}
-.lp-title em {
-  font-style: italic;
-  color: var(--gold);
-  position: relative;
-}
-
-.lp-rule {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 18px auto 20px;
-}
-.lp-rule::before,
-.lp-rule::after {
-  content: '';
-  flex: 1;
-  max-width: 64px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold-light));
-}
-.lp-rule::after { transform: scaleX(-1); }
-.lp-rule i { color: var(--gold); font-size: 8px; }
-
-.lp-sub {
-  font-size: 14px;
-  color: var(--ink-soft);
-  letter-spacing: 0.03em;
-}
-
-/* ──────────────────────────────
-   GRID
-────────────────────────────── */
-.lp-grid {
-  position: relative;
-  z-index: 2;
-  max-width: 1180px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-@media (max-width: 1024px) { .lp-grid { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 580px)  { .lp-grid { grid-template-columns: 1fr; } }
-
-/* ──────────────────────────────
-   CARD  — THE STAR
-────────────────────────────── */
-.lp-card {
-  position: relative;
-  height: 440px;
-  border-radius: 4px;
-  overflow: hidden;
-  background: #f5f2ec;
-  cursor: pointer;
-
-  /* Layered shadow = depth */
-  box-shadow:
-    0 1px 2px rgba(0,0,0,0.04),
-    0 4px 12px rgba(0,0,0,0.07),
-    0 0 0 1px rgba(184,150,62,0.15);
-
-  transition:
-    box-shadow 0.4s ease,
-    transform   0.4s cubic-bezier(.22,.9,.36,1);
-}
-
-.lp-card:hover {
-  transform: translateY(-8px) scale(1.012);
-  box-shadow:
-    0 2px 4px rgba(0,0,0,0.04),
-    0 16px 48px rgba(0,0,0,0.13),
-    0 0 0 1.5px rgba(184,150,62,0.5);
-}
-
-/* ── Scrolling image ── */
-.lp-card .img-track {
-  position: absolute;
-  inset-inline: 0;
-  top: 0;
-  width: 100%;
-  transition: transform 3.2s cubic-bezier(0.33, 1, 0.68, 1);
-  will-change: transform;
-}
-.lp-card:hover .img-track { transform: translateY(-58%); }
-.lp-card .img-track img   { width: 100%; display: block; }
-
-/* ── GLASS OVERLAY — bottom info panel ── */
-.lp-card .info {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 20px 18px 18px;
-  background: linear-gradient(
-    to top,
-    rgba(252,250,245,0.97) 0%,
-    rgba(252,250,245,0.6)  38%,
-    transparent            65%
-  );
-  z-index: 4;
-  transition: opacity 0.45s ease;
-}
-.lp-card:hover .info { opacity: 0; }
-
-.info-num {
-  font-family: 'Italiana', serif;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--gold);
-  margin-bottom: 4px;
-}
-.info-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: 0.04em;
-}
-
-/* ── HOVER OVERLAY — full reveal ── */
-.lp-card .reveal {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  opacity: 0;
-  background: rgba(28,24,16,0.45);
-  backdrop-filter: blur(1px);
-  transition: opacity 0.4s ease;
-}
-.lp-card:hover .reveal { opacity: 1; }
-
-.reveal-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(255,255,255,0.92);
-  border: 1px solid rgba(184,150,62,0.4);
-  color: var(--ink);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 8px 18px;
-  border-radius: 2px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-.reveal-pill i { color: var(--gold); font-size: 9px; }
-
-.reveal-sub {
-  font-size: 11px;
-  color: rgba(255,255,255,0.7);
-  letter-spacing: 0.1em;
-}
-
-/* ── Top gold bar ── */
-.lp-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--gold-light) 40%, var(--gold) 60%, transparent 100%);
-  z-index: 6;
-  opacity: 0;
-  transform: scaleX(0.5);
-  transition: opacity 0.35s ease, transform 0.5s ease;
-}
-.lp-card:hover::before {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-/* ── Corner mark ── */
-.lp-card .corner {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  z-index: 7;
-  width: 22px;
-  height: 22px;
-  opacity: 0;
-  transition: opacity 0.35s ease, transform 0.35s ease;
-  transform: translate(4px, 4px);
-}
-.lp-card:hover .corner {
-  opacity: 1;
-  transform: translate(0,0);
-}
-.corner svg { width: 100%; height: 100%; }
-
-/* ──────────────────────────────
-   FOOTER NOTE
-────────────────────────────── */
-.lp-footnote {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  margin-top: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-.lp-footnote span {
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-.lp-footnote .line {
-  flex: 1;
-  max-width: 80px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(184,150,62,0.25));
-}
-.lp-footnote .line.r { transform: scaleX(-1); }
-
-/* ── ENTRY ANIMATION ── */
-@keyframes riseUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.lp-header { animation: riseUp 0.7s ease both; }
-.lp-card {
-  animation: riseUp 0.6s ease both;
-}
-.lp-card:nth-child(1) { animation-delay: 0.05s; }
-.lp-card:nth-child(2) { animation-delay: 0.12s; }
-.lp-card:nth-child(3) { animation-delay: 0.19s; }
-.lp-card:nth-child(4) { animation-delay: 0.26s; }
-.lp-card:nth-child(5) { animation-delay: 0.33s; }
-.lp-card:nth-child(6) { animation-delay: 0.40s; }
-.lp-card:nth-child(7) { animation-delay: 0.47s; }
-.lp-card:nth-child(8) { animation-delay: 0.54s; }
-</style>
-<!--         LANDING PAGE DEMO  ·  LUXURY LIGHT        -->
-<section class="lp-section">
-
-  <!-- ── HEADER ── -->
-  <header class="lp-header">
-    <div class="lp-eyebrow">
-      <span></span> Live Preview <span></span>
-    </div>
-    <h2 class="lp-title bangla-font">
-      ল্যান্ডিং পেজ <em class="bangla-font">ডেমো</em>
-    </h2>
-    <div class="lp-rule"><i class="fa-solid fa-diamond"></i></div>
-    <!-- <p class="lp-sub">কার্ডে hover করুন — পুরো পেজ দেখুন</p> -->
-  </header>
-
-
-  <div class="w-full max-w-[1700px] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
-
-    <!-- DEMO 01 -->
-    <div class="group relative">
-
-        <!-- Glow -->
-        <div class="absolute -inset-3  blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-
-        <!-- Card -->
-        <div class="relative bg-white/5 backdrop-blur-2xl border border-[#B8963E] rounded-[40px] overflow-hidden shadow-[0_30px_120px_rgba(0,0,0,0.6)] hover:-translate-y-5 transition-all duration-700">
-
-            <!-- Header -->
-            <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
-
-                <div class="flex gap-2">
-                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
-                </div>
-
-                <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold">
-                    New
-                </span>
-
-            </div>
-
-            <!-- Image -->
-            <div class="relative h-[500px] overflow-hidden">
-
-                <div class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[80%]">
-                    <img src="images/landing4.jpg" class="w-full" alt="">
-                </div>
-
-            </div>
-
-            <!-- Footer -->
-            <div class="absolute bottom-0 left-0 right-0 p-5 bg-white/20 backdrop-blur-xl">
-
-                <h3 class="text-black font-bold text-lg">
-                    Landing Page Demo
-                </h3>
-
-                <p class="text-gray-400 text-sm mt-1">
-                    Premium Product Design
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- DEMO 02 -->
-<div class="group relative">
-
-    <div class="absolute -inset-3 blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-
-    <div class="relative bg-white/5 backdrop-blur-2xl border border-[#B8963E] rounded-[40px] overflow-hidden shadow-[0_30px_120px_rgba(0,0,0,0.6)] hover:-translate-y-5 transition-all duration-700">
-
-        <div class="flex items-center justify-between px-5 py-4 border-b border-[#B8963E]">
-            <div class="flex gap-2">
-                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-            </div>
-
-            <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-semibold">
-                Best Seller
-            </span>
-        </div>
-
-        <div class="relative h-[500px] overflow-hidden">
-            <div class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[80%]">
-                <img src="images/landing3.jpg" class="w-full" alt="">
-            </div>
-        </div>
-
-        <div class="absolute bottom-0 left-0 right-0 p-5 bg-white/20 backdrop-blur-xl">
-            <h3 class="text-black font-bold text-lg">Landing Page Demo</h3>
-            <p class="text-gray-500 text-sm mt-1">Best Selling Layout</p>
-        </div>
-
-    </div>
-
-</div>
-
-<!-- DEMO 03 -->
-<div class="group relative">
-
-    <div class="absolute -inset-3 blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-
-    <div class="relative bg-white/5 backdrop-blur-2xl border border-[#B8963E] rounded-[40px] overflow-hidden shadow-[0_30px_120px_rgba(0,0,0,0.6)] hover:-translate-y-5 transition-all duration-700">
-
-        <div class="flex items-center justify-between px-5 py-4 border-b border-[#B8963E]">
-            <div class="flex gap-2">
-                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-            </div>
-
-            <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-semibold">
-                Popular
-            </span>
-        </div>
-
-        <div class="relative h-[500px] overflow-hidden">
-            <div class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[80%]">
-                <img src="images/landing1.jpg" class="w-full" alt="">
-            </div>
-        </div>
-
-        <div class="absolute bottom-0 left-0 right-0 p-5 bg-white/20 backdrop-blur-xl">
-            <h3 class="text-black font-bold text-lg">Landing Page Demo</h3>
-            <p class="text-gray-500 text-sm mt-1">Modern Ecommerce Design</p>
-        </div>
-
-    </div>
-
-</div>
-
-<!-- DEMO 04 -->
-<div class="group relative">
-
-    <div class="absolute -inset-3 blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-
-    <div class="relative bg-white/5 backdrop-blur-2xl border border-[#B8963E] rounded-[40px] overflow-hidden shadow-[0_30px_120px_rgba(0,0,0,0.6)] hover:-translate-y-5 transition-all duration-700">
-
-        <div class="flex items-center justify-between px-5 py-4 border-b border-[#B8963E]">
-            <div class="flex gap-2">
-                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-            </div>
-
-            <span class="px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-semibold">
-                Trending
-            </span>
-        </div>
-
-        <div class="relative h-[500px] overflow-hidden">
-            <div class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[80%]">
-                <img src="images/landing5.jpg" class="w-full" alt="">
-            </div>
-        </div>
-
-        <div class="absolute bottom-0 left-0 right-0 p-5 bg-white/20 backdrop-blur-xl">
-            <h3 class="text-black font-bold text-lg">Landing Page Demo</h3>
-            <p class="text-gray-500 text-sm mt-1">Premium Marketing Design</p>
-        </div>
-
-    </div>
-
-</div>
-
-<!-- DEMO 05 -->
-<div class="group relative">
-    <div class="relative bg-white/5 backdrop-blur-2xl border border-[#B8963E] rounded-[40px] overflow-hidden shadow-[0_30px_120px_rgba(0,0,0,0.6)] hover:-translate-y-5 transition-all duration-700">
-
-        <div class="flex items-center justify-between px-5 py-4 border-b border-[#B8963E]">
-            <div class="flex gap-2">
-                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-            </div>
-
-            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold">
-                New
-            </span>
-        </div>
-
-        <div class="relative h-[500px] overflow-hidden">
-            <div class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[80%]">
-                <img src="images/landing6.jpg" class="w-full" alt="">
-            </div>
-        </div>
-
-        <div class="absolute bottom-0 left-0 right-0 p-5 bg-white/20 backdrop-blur-xl">
-            <h3 class="text-black font-bold text-lg">Landing Page Demo</h3>
-            <p class="text-gray-500 text-sm mt-1">High Conversion UI</p>
-        </div>
-
-    </div>
-</div>
-
-<!-- DEMO 06 -->
-<div class="group relative">
-    <div class="relative bg-white/5 backdrop-blur-2xl border border-[#B8963E] rounded-[40px] overflow-hidden shadow-[0_30px_120px_rgba(0,0,0,0.6)] hover:-translate-y-5 transition-all duration-700">
-
-        <div class="flex items-center justify-between px-5 py-4 border-b border-[#B8963E]">
-            <div class="flex gap-2">
-                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-            </div>
-
-            <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-semibold">
-                Hot
-            </span>
-        </div>
-
-        <div class="relative h-[500px] overflow-hidden">
-            <div class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[80%]">
-                <img src="images/landing7.jpg" class="w-full" alt="">
-            </div>
-        </div>
-
-        <div class="absolute bottom-0 left-0 right-0 p-5 bg-white/20 backdrop-blur-xl">
-            <h3 class="text-black font-bold text-lg">Landing Page Demo</h3>
-            <p class="text-gray-500 text-sm mt-1">Professional Design</p>
-        </div>
-
-    </div>
-</div>
-
-<!-- DEMO 07 -->
-<div class="group relative">
-    <div class="relative bg-white/5 backdrop-blur-2xl border border-[#B8963E] rounded-[40px] overflow-hidden shadow-[0_30px_120px_rgba(0,0,0,0.6)] hover:-translate-y-5 transition-all duration-700">
-
-        <div class="flex items-center justify-between px-5 py-4 border-b border-[#B8963E]">
-            <div class="flex gap-2">
-                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-            </div>
-
-            <span class="px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 text-xs font-semibold">
-                Premium
-            </span>
-        </div>
-
-        <div class="relative h-[500px] overflow-hidden">
-            <div class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[80%]">
-                <img src="images/landing8.jpg" class="w-full" alt="">
-            </div>
-        </div>
-
-        <div class="absolute bottom-0 left-0 right-0 p-5 bg-white/20 backdrop-blur-xl">
-            <h3 class="text-black font-bold text-lg">Landing Page Demo</h3>
-            <p class="text-gray-500 text-sm mt-1">Creative Landing Page</p>
-        </div>
-
-    </div>
-</div>
-
-<!-- DEMO 08 -->
-<div class="group relative">
-    <div class="relative bg-white/5 backdrop-blur-2xl border border-[#B8963E] rounded-[40px] overflow-hidden shadow-[0_30px_120px_rgba(0,0,0,0.6)] hover:-translate-y-5 transition-all duration-700">
-
-        <div class="flex items-center justify-between px-5 py-4 border-b border-[#B8963E]">
-            <div class="flex gap-2">
-                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-            </div>
-
-            <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-semibold">
-                Featured
-            </span>
-        </div>
-
-        <div class="relative h-[500px] overflow-hidden">
-            <div class="absolute top-0 left-0 w-full transition-all duration-[6000ms] ease-linear group-hover:-translate-y-[80%]">
-                <img src="images/landing9.jpg" class="w-full" alt="">
-            </div>
-        </div>
-
-        <div class="absolute bottom-0 left-0 right-0 p-5 bg-white/20 backdrop-blur-xl">
-            <h3 class="text-black font-bold text-lg">Landing Page Demo</h3>
-            <p class="text-gray-500 text-sm mt-1">Luxury Product Showcase</p>
-        </div>
-
-    </div>
-</div>
-
-</div>
-
-
-
-  <!-- ── FOOTNOTE ── -->
-  <div class="lp-footnote">
-    <div class="line"></div>
-    <span>প্রতিটি ডিজাইন কাস্টমাইজযোগ্য</span>
-    <div class="line r"></div>
-  </div>
-
-</section>
-
-
-
-
-
-
-
-
-
-<style>
-/* premium shadow */
-.card {
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-</style>
-
-
-<!-- HERO -->
-<section class="bg-gradient-to-r from-[#0f172a] to-[#1e3a8a] text-white py-20 pt-28 text-center">
-
-  <h1 class="text-2xl md:text-4xl font-bold mb-4">Pricing — E-commerce Plans</h1>
-  <p class="text-gray-300 mb-6">Choose the perfect plan for your business needs</p>
-
-  <div class="flex justify-center gap-4">
-    <button class="bg-blue-500 px-5 py-2 rounded">See Plans</button>
-    <button class="border border-white px-5 py-2 rounded"><a href="tel:01313133044">Talk to us</a></button>
-  </div>
-
-</section>
-
-
-<!-- PRICING -->
-<section class="bg-gray-100 py-16 px-6">
-
-  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-
-    <!-- PLAN 1 -->
-    <div class="bg-white rounded-xl p-6 shadow border-t-4 border-blue-500 transition-all hover:scale-105 cursor-pointer">
-
-      <div class="flex justify-between items-center mb-3">
-        <h3 class="bangla-font font-semibold text-lg">ই-কমার্স প্লান-১</h3>
-        <span class="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full">Basic</span>
       </div>
 
-      <h2 class="text-blue-600 text-2xl font-bold mb-4 bangla-font">১৫,০০০ টাকা</h2>
+    </div>
 
-      <ul class="bangla-font text-md text-gray-600 space-y-2 mb-4">
-        <li class="bangla-font">✔️ ১ টি সিম্পল সুপারফাস্ট ই-কমার্স ওয়েবসাইট</li>
-        <li class="bangla-font">✔️ প্রোডাক্ট ম্যানেজমেন্ট</li>
-        <li class="bangla-font">✔️ ১০ টি প্রোডাক্ট হোস্টিং</li>
-        <li class="bangla-font">✔️ ৩ মাস টেকনিক্যাল সাপোর্ট</li>
-      </ul>
+  </section>
 
-      <p class="font-semibold mb-2 text-sm">Live Demos:</p>
+  <!-- PDF DOWNLOAD -->
+  <section class="py-16 bg-white text-center">
 
-      <div class="flex flex-wrap gap-2 mb-4 text-xs">
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">অর্গানিক ফুড</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">গ্যাজেট</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">ফ্যাশন</span>
-      </div>
+    <div class="max-w-3xl mx-auto bg-gray-100 p-6 rounded-xl shadow">
 
-      <a href="https://wa.link/lz8wge" target="_blank"
-        class="block text-center bg-green-500 text-white py-2 rounded">
-        WhatsApp
+      <h3 class="bangla-font mb-4 font-semibold"> আমাদের ওয়েব সাইটের ফিচার লিস্ট</h3>
+      <a href="images/Key Future.pdf" download="">
+        <button
+          class="bg-red-500 text-white px-6 py-2 rounded cursor-pointer transition-all hover:bg-green-600 hover:scale-105">
+          <i class="fa-solid fa-arrow-down"></i>
+          Download Now
+        </button>
       </a>
 
-    </div>
+      <!-- Button -->
+      <button onclick="openModal()"
+        class="bg-blue-500 text-white px-6 py-2 rounded cursor-pointer transition-all duration-300 hover:bg-green-600 hover:scale-105 bangla-font">
+        <i class="fa-regular fa-circle-play"></i>
+        সাইটের ফিচার দেখুন
+      </button>
 
-    <!-- PLAN 2 -->
-    <div class="bg-white rounded-xl p-6 shadow border-t-4 border-green-500 transition-all hover:scale-105 cursor-pointer">
+      <!-- Modal -->
+      <div id="videoModal"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center opacity-0 invisible transition-all duration-300 z-50">
 
-      <div class="flex justify-between items-center mb-3">
-        <h3 class="bangla-font font-semibold text-lg">ই-কমার্স প্লান-২</h3>
-        <span class="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full">Popular</span>
+        <!-- Modal Content -->
+        <div id="modalContent" class="relative w-[90%] md:w-[700px] transform scale-75 transition-all duration-300">
+
+          <!-- Close Button -->
+          <button onclick="closeModal()"
+            class="absolute -top-10 right-0 text-white text-3xl hover:text-red-400 transition">
+            &times;
+          </button>
+
+          <!-- Video -->
+          <iframe id="videoFrame" class="w-full h-[220px] md:h-[400px] rounded-lg shadow-lg" src="" frameborder="0"
+            allow="autoplay; encrypted-media" allowfullscreen>
+          </iframe>
+
+        </div>
       </div>
 
-      <h2 class="text-green-600 text-2xl font-bold mb-4 bangla-font">২০,০০০ টাকা</h2>
+      <!-- Script -->
+      <script>
+        const modal = document.getElementById("videoModal");
+        const modalContent = document.getElementById("modalContent");
+        const frame = document.getElementById("videoFrame");
 
-      <ul class="bangla-font text-md text-gray-600 space-y-2 mb-4">
-        <li class="bangla-font">✔️ ১ টি ফাংশনাল ওয়েবসাইট</li>
-        <li class="bangla-font">✔️ প্রোডাক্ট ম্যানেজমেন্ট</li>
-        <li class="bangla-font">✔️ ২০ টি প্রোডাক্ট</li>
-        <li class="bangla-font">✔️ ৬ মাস টেকনিক্যাল সাপোর্ট</li>
-      </ul>
+        function openModal() {
+          modal.classList.remove("invisible", "opacity-0");
+          modal.classList.add("opacity-100");
 
-      <p class="font-semibold mb-2 text-sm">Live Demos:</p>
+          modalContent.classList.remove("scale-75");
+          modalContent.classList.add("scale-100");
 
-      <div class="flex flex-wrap gap-2 mb-4 text-xs">
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">গ্যাজেট</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">ফ্যাশন</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">অর্গানিক</span>
-      </div>
+          frame.src = "https://www.youtube.com/embed/QtDmKZna5h4?autoplay=1";
+        }
 
-      <a href="https://wa.link/lz8wge" target="_blank"
-        class="block text-center bg-green-500 text-white py-2 rounded">
-        WhatsApp
-      </a>
+        function closeModal() {
+          modal.classList.add("opacity-0");
+          modalContent.classList.add("scale-75");
 
-    </div>
+          setTimeout(() => {
+            modal.classList.add("invisible");
+            frame.src = "";
+          }, 300);
+        }
 
-    <!-- PLAN 3 -->
-    <div class="bg-white rounded-xl p-6 shadow border-t-4 border-purple-500 transition-all hover:scale-105 cursor-pointer">
+        // বাইরে ক্লিক করলে close
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
 
-      <div class="flex justify-between items-center mb-3">
-        <h3 class="bangla-font font-semibold text-lg">ই-কমার্স প্লান-৩</h3>
-        <span class="bg-purple-100 text-purple-600 text-xs px-3 py-1 rounded-full">Advanced</span>
-      </div>
-
-      <h2 class="text-purple-600 text-2xl font-bold mb-4 bangla-font">৩০,০০০ টাকা</h2>
-
-      <ul class="bangla-font text-md text-gray-600 space-y-2 mb-4">
-        <li class="bangla-font">✔️ ফাংশনাল ওয়েবসাইট</li>
-        <li class="bangla-font">✔️ ফুল কাস্টম ডিজাইন</li>
-        <li class="bangla-font">✔️ আনলিমিটেড প্রোডাক্ট</li>
-        <li class="bangla-font">✔️ ১২ মাস সাপোর্ট</li>
-      </ul>
-
-      <p class="font-semibold mb-2 text-sm">Live Demos:</p>
-
-      <div class="flex flex-wrap gap-2 mb-4 text-xs">
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">ফ্যাশন</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">গ্যাজেট</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">অর্গানিক</span>
-      </div>
-
-      <a href="https://wa.link/lz8wge" target="_blank"
-        class="block text-center bg-green-500 text-white py-2 rounded">
-        WhatsApp
-      </a>
-
-    </div>
-
-    <!-- PLAN 1 -->
-    <!-- <div class="bg-white rounded-xl p-6 shadow border-t-4 border-blue-500 transition-all hover:scale-105 cursor-pointer">
-
-      <div class="flex justify-between items-center mb-3">
-        <h3 class="bangla-font font-semibold text-lg">ই-কমার্স প্লান-১</h3>
-        <span class="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full">Basic</span>
-      </div>
-
-      <h2 class="text-blue-600 text-2xl font-bold mb-4 bangla-font">১৫,০০০ টাকা</h2>
-
-      <ul class="bangla-font text-md text-gray-600 space-y-2 mb-4">
-        <li class="bangla-font">✔️ ১ টি সিম্পল সুপারফাস্ট ই-কমার্স ওয়েবসাইট</li>
-        <li class="bangla-font">✔️ প্রোডাক্ট ম্যানেজমেন্ট</li>
-        <li class="bangla-font">✔️ ১০ টি প্রোডাক্ট হোস্টিং</li>
-        <li class="bangla-font">✔️ ৩ মাস টেকনিক্যাল সাপোর্ট</li>
-      </ul>
-
-      <p class="font-semibold mb-2 text-sm">Live Demos:</p>
-
-      <div class="flex flex-wrap gap-2 mb-4 text-xs">
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">অর্গানিক ফুড</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">গ্যাজেট</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">ফ্যাশন</span>
-      </div>
-
-      <a href="https://wa.link/lz8wge" target="_blank"
-        class="block text-center bg-green-500 text-white py-2 rounded">
-        WhatsApp
-      </a>
-
-    </div> -->
-
-    <!-- PLAN 2 -->
-    <!-- <div class="bg-white rounded-xl p-6 shadow border-t-4 border-green-500 transition-all hover:scale-105 cursor-pointer">
-
-      <div class="flex justify-between items-center mb-3">
-        <h3 class="bangla-font font-semibold text-lg">ই-কমার্স প্লান-২</h3>
-        <span class="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full">Popular</span>
-      </div>
-
-      <h2 class="text-green-600 text-2xl font-bold mb-4 bangla-font">২০,০০০ টাকা</h2>
-
-      <ul class="bangla-font text-md text-gray-600 space-y-2 mb-4">
-        <li class="bangla-font">✔️ ১ টি ফাংশনাল ওয়েবসাইট</li>
-        <li class="bangla-font">✔️ প্রোডাক্ট ম্যানেজমেন্ট</li>
-        <li class="bangla-font">✔️ ২০ টি প্রোডাক্ট</li>
-        <li class="bangla-font">✔️ ৬ মাস টেকনিক্যাল সাপোর্ট</li>
-      </ul>
-
-      <p class="font-semibold mb-2 text-sm">Live Demos:</p>
-
-      <div class="flex flex-wrap gap-2 mb-4 text-xs">
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">গ্যাজেট</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">ফ্যাশন</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">অর্গানিক</span>
-      </div>
-
-      <a href="https://wa.link/lz8wge" target="_blank"
-        class="block text-center bg-green-500 text-white py-2 rounded">
-        WhatsApp
-      </a>
-
-    </div> -->
-
-    <!-- PLAN 3 -->
-    <!-- <div class="bg-white rounded-xl p-6 shadow border-t-4 border-purple-500 transition-all hover:scale-105 cursor-pointer">
-
-      <div class="flex justify-between items-center mb-3">
-        <h3 class="bangla-font font-semibold text-lg">ই-কমার্স প্লান-৩</h3>
-        <span class="bg-purple-100 text-purple-600 text-xs px-3 py-1 rounded-full">Advanced</span>
-      </div>
-
-      <h2 class="text-purple-600 text-2xl font-bold mb-4 bangla-font">৩০,০০০ টাকা</h2>
-
-      <ul class="bangla-font text-md text-gray-600 space-y-2 mb-4">
-        <li class="bangla-font">✔️ ফাংশনাল ওয়েবসাইট</li>
-        <li class="bangla-font">✔️ ফুল কাস্টম ডিজাইন</li>
-        <li class="bangla-font">✔️ আনলিমিটেড প্রোডাক্ট</li>
-        <li class="bangla-font">✔️ ১২ মাস সাপোর্ট</li>
-      </ul>
-
-      <p class="font-semibold mb-2 text-sm">Live Demos:</p>
-
-      <div class="flex flex-wrap gap-2 mb-4 text-xs">
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">ফ্যাশন</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">গ্যাজেট</span>
-        <span class="bg-gray-200 px-2 py-1 rounded bangla-font">অর্গানিক</span>
-      </div>
-
-      <a href="https://wa.link/lz8wge" target="_blank"
-        class="block text-center bg-green-500 text-white py-2 rounded">
-        WhatsApp
-      </a>
-
-    </div> -->
-
-    
-
-    
-
-    
-
-    
-
-  </div>
-
-</section>
-
-
-<!-- PDF DOWNLOAD -->
-<section class="py-16 bg-white text-center">
-
-  <div class="max-w-3xl mx-auto bg-gray-100 p-6 rounded-xl shadow">
-
-     <h3 class="bangla-font mb-4 font-semibold"> আমাদের ওয়েব সাইটের ফিচার লিস্ট</h3>
-    <a href="images/Key Future.pdf" download="">
-    <button class="bg-red-500 text-white px-6 py-2 rounded cursor-pointer transition-all hover:bg-green-600 hover:scale-105"> <i class="fa-solid fa-arrow-down"></i> 
-      Download Now
-    </button>
-    </a>
-
-    <!-- Button -->
-<button onclick="openModal()" 
-class="bg-blue-500 text-white px-6 py-2 rounded cursor-pointer transition-all duration-300 hover:bg-green-600 hover:scale-105 bangla-font">
-  <i class="fa-regular fa-circle-play"></i>
-  সাইটের ফিচার দেখুন
-</button>
-
-<!-- Modal -->
-<div id="videoModal" 
-class="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center opacity-0 invisible transition-all duration-300 z-50">
-
-  <!-- Modal Content -->
-  <div id="modalContent" 
-  class="relative w-[90%] md:w-[700px] transform scale-75 transition-all duration-300">
-
-    <!-- Close Button -->
-    <button onclick="closeModal()" 
-    class="absolute -top-10 right-0 text-white text-3xl hover:text-red-400 transition">
-      &times;
-    </button>
-
-    <!-- Video -->
-    <iframe id="videoFrame" 
-    class="w-full h-[220px] md:h-[400px] rounded-lg shadow-lg"
-    src=""
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-    </iframe>
-
-  </div>
-</div>
-
-<!-- Script -->
-<script>
-  const modal = document.getElementById("videoModal");
-  const modalContent = document.getElementById("modalContent");
-  const frame = document.getElementById("videoFrame");
-
-  function openModal() {
-    modal.classList.remove("invisible", "opacity-0");
-    modal.classList.add("opacity-100");
-
-    modalContent.classList.remove("scale-75");
-    modalContent.classList.add("scale-100");
-
-    frame.src = "https://www.youtube.com/embed/QtDmKZna5h4?autoplay=1";
-  }
-
-  function closeModal() {
-    modal.classList.add("opacity-0");
-    modalContent.classList.add("scale-75");
-
-    setTimeout(() => {
-      modal.classList.add("invisible");
-      frame.src = "";
-    }, 300);
-  }
-
-  // বাইরে ক্লিক করলে close
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-
-  // ESC চাপলে close
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeModal();
-    }
-  });
-</script>
-    <!-- <a href="https://youtu.be/QtDmKZna5h4?si=QfxAZADovFEP6M0y">
+        // ESC চাপলে close
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            closeModal();
+          }
+        });
+      </script>
+      <!-- <a href="https://youtu.be/QtDmKZna5h4?si=QfxAZADovFEP6M0y">
     <button class="bg-blue-500 text-white px-6 py-2 rounded cursor-pointer transition-all hover:bg-green-600 hover:scale-105- bangla-font"> <i class="fa-regular fa-circle-play"></i>
       সাইটের ফিচার দেখুন
     </button>
     </a> -->
 
-  </div>
+    </div>
 
-</section>
+  </section>
 
 
 
-<!-- EXTRA PRICING -->
-<section class="bg-gray-100 py-20 px-6 ">
+  <!-- EXTRA PRICING -->
+  <section class="bg-gray-100 py-20 px-6 ">
 
-  <!-- TITLE -->
-  <div class="text-center mb-12">
-    <h2 class="text-3xl font-bold bangla-font mb-2">
-      বিজনেস, পার্সোনাল বা অন্যান্য প্রাইসিং
-    </h2>
-    <p class="text-gray-600 bangla-font">
-      নির্ভরযোগ্য, ফাংশনাল এবং সাশ্রয়ী সমাধান
-    </p>
-  </div>
-
-  <!-- GRID -->
-  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto ">
-
-    <!-- 🔵 CARD 1 -->
-    <div class="relative bg-white rounded-xl p-6 shadow border-l-4 border-blue-500 transition-all hover:scale-105 cursor-pointer">
-
-      <!-- icon -->
-      <div class="absolute -left-3 top-6 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm">১</div>
-
-      <h3 class="bangla-font text-lg font-semibold mb-2">নিউজ পোর্টাল</h3>
-      <p class="text-gray-500 text-md bangla-font mb-4">
-        ওয়ার্ডপ্রেস ভিত্তিক নিউজ ও ব্লগিং সলিউশন
+    <!-- TITLE -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold bangla-font mb-2">
+        বিজনেস, পার্সোনাল বা অন্যান্য প্রাইসিং
+      </h2>
+      <p class="text-gray-600 bangla-font">
+        নির্ভরযোগ্য, ফাংশনাল এবং সাশ্রয়ী সমাধান
       </p>
+    </div>
 
-      <ul class="bangla-font text-md text-gray-700 space-y-2 mb-6">
-        <li class="bangla-font">✔️ ফাংশনাল ওয়েবসাইট</li>
-        <li class="bangla-font">✔️ ওয়ার্ডপ্রেস প্যানেল</li>
-        <li class="bangla-font">✔️ ১০ টি পোস্টিং ও ডোমেইন</li>
-        <li class="bangla-font">✔️ ফেসবুক পেজ, লোগো, কাভার</li>
-        <li class="text-red-500 bangla-font">🔴 ১২ মাস টেকনিক্যাল সাপোর্ট</li>
-      </ul>
+    <!-- GRID -->
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto ">
 
-      <div class="flex justify-between items-center">
-        <h2 class="text-blue-600 text-xl font-bold bangla-font">২০,০০০ টাকা</h2>
+      <!-- 🔵 CARD 1 -->
+      <div
+        class="relative bg-white rounded-xl p-6 shadow border-l-4 border-blue-500 transition-all hover:scale-105 cursor-pointer">
 
-        <a href="https://wa.link/lz8wge" target="_blank"
-          class="bg-green-500 text-white px-4 py-2 rounded">
-          WhatsApp
-        </a>
+        <!-- icon -->
+        <div
+          class="absolute -left-3 top-6 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm">
+          ১</div>
+
+        <h3 class="bangla-font text-lg font-semibold mb-2">নিউজ পোর্টাল</h3>
+        <p class="text-gray-500 text-md bangla-font mb-4">
+          ওয়ার্ডপ্রেস ভিত্তিক নিউজ ও ব্লগিং সলিউশন
+        </p>
+
+        <ul class="bangla-font text-md text-gray-700 space-y-2 mb-6">
+          <li class="bangla-font">✔️ ফাংশনাল ওয়েবসাইট</li>
+          <li class="bangla-font">✔️ ওয়ার্ডপ্রেস প্যানেল</li>
+          <li class="bangla-font">✔️ ১০ টি পোস্টিং ও ডোমেইন</li>
+          <li class="bangla-font">✔️ ফেসবুক পেজ, লোগো, কাভার</li>
+          <li class="text-red-500 bangla-font">🔴 ১২ মাস টেকনিক্যাল সাপোর্ট</li>
+        </ul>
+
+        <div class="flex justify-between items-center">
+          <h2 class="text-blue-600 text-xl font-bold bangla-font">২০,০০০ টাকা</h2>
+
+          <a href="https://wa.link/lz8wge" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded">
+            WhatsApp
+          </a>
+        </div>
+
+      </div>
+
+      <!-- 🟠 CARD 2 -->
+      <div
+        class="relative bg-white rounded-xl p-6 shadow border-l-4 border-orange-500 transition-all hover:scale-105 cursor-pointer">
+
+        <!-- icon -->
+        <div
+          class="absolute -left-3 top-6 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm">
+          ২</div>
+
+        <h3 class="bangla-font text-lg font-semibold mb-2">বিজনেস</h3>
+        <p class="text-gray-500 text-md bangla-font mb-4">
+          কোম্পানির জন্য প্রিমিয়াম কর্পোরেট ওয়েবসাইট
+        </p>
+
+        <ul class="bangla-font text-md text-gray-700 space-y-2 mb-6">
+          <li class="bangla-font">✔️ ফাংশনাল ওয়েবসাইট</li>
+          <li class="bangla-font">✔️ ওয়ার্ডপ্রেস প্যানেল</li>
+          <li class="bangla-font">✔️ ১০ পেইজ কাস্টম ডিজাইন</li>
+          <li class="bangla-font">✔️ ফেসবুক পেজ, লোগো, কাভার</li>
+          <li class="text-red-500 bangla-font">🔴 ১২ মাস টেকনিক্যাল সাপোর্ট</li>
+        </ul>
+
+        <div class="flex justify-between items-center">
+          <h2 class="text-orange-500 text-xl font-bold bangla-font">২৫,০০০ টাকা</h2>
+
+          <a href="https://wa.link/lz8wge" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded">
+            WhatsApp
+          </a>
+        </div>
+
       </div>
 
     </div>
 
-    <!-- 🟠 CARD 2 -->
-    <div class="relative bg-white rounded-xl p-6 shadow border-l-4 border-orange-500 transition-all hover:scale-105 cursor-pointer">
-
-      <!-- icon -->
-      <div class="absolute -left-3 top-6 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm">২</div>
-
-      <h3 class="bangla-font text-lg font-semibold mb-2">বিজনেস</h3>
-      <p class="text-gray-500 text-md bangla-font mb-4">
-        কোম্পানির জন্য প্রিমিয়াম কর্পোরেট ওয়েবসাইট
-      </p>
-
-      <ul class="bangla-font text-md text-gray-700 space-y-2 mb-6">
-        <li class="bangla-font">✔️ ফাংশনাল ওয়েবসাইট</li>
-        <li class="bangla-font">✔️ ওয়ার্ডপ্রেস প্যানেল</li>
-        <li class="bangla-font">✔️ ১০ পেইজ কাস্টম ডিজাইন</li>
-        <li class="bangla-font">✔️ ফেসবুক পেজ, লোগো, কাভার</li>
-        <li class="text-red-500 bangla-font">🔴 ১২ মাস টেকনিক্যাল সাপোর্ট</li>
-      </ul>
-
-      <div class="flex justify-between items-center">
-        <h2 class="text-orange-500 text-xl font-bold bangla-font">২৫,০০০ টাকা</h2>
-
-        <a href="https://wa.link/lz8wge" target="_blank"
-          class="bg-green-500 text-white px-4 py-2 rounded">
-          WhatsApp
-        </a>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+  </section>
 
 
 
-    <div id="footer"></div>
-    <script src="main.js"></script>
+  <div id="footer"></div>
+  <script src="main.js"></script>
 
 </body>
 

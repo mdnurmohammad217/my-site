@@ -31,435 +31,1199 @@
 
     <div id="header"></div>
 
-    <!-- Top Section -->
+    
 
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <style>
-        .bangla-font {
-            font-family: 'Tiro Bangla', sans-serif;
-        }
-
-        /* 🔥 Animated Gradient */
-        .animated-bg {
-            background: linear-gradient(-45deg, #1e3a8a, #4f46e5, #0ea5e9, #1e40af);
-            background-size: 400% 400%;
-            animation: gradientMove 8s ease infinite;
-        }
-
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        /* 🔥 Glow Button */
-        .glow-btn {
-            position: relative;
-        }
-
-        .glow-btn::before {
-            content: "";
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(45deg, #00f5a0, #00d9f5, #00f5a0);
-            border-radius: 10px;
-            z-index: -1;
-            filter: blur(8px);
-            opacity: 0.7;
-        }
-    </style>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            AOS.init({ duration: 1000, once: true });
-        });
-    </script>
-
-    <!-- HERO -->
-    <section class="animated-bg text-white py-24 text-center relative overflow-hidden">
-
-        <h1 data-aos="fade-up" class="pt-4 text-4xl md:text-5xl font-bold bangla-font mb-4">
-            ই-কমার্স ওয়েবসাইট সুপারফাস্ট ও ফাংশনাল </br>না হলে বিজনেস করা ইমপসিবল
-        </h1>
-
-        <p data-aos="fade-up" class="max-w-2xl mx-auto text-gray-200 bangla-font">
-            বেশি সেল জেনারেট করতে এমন একটি ওয়েবসাইট ডেভেলপ করে নিন
-        </p>
-
-    </section>
+  
 
     
-    <!-- ecommerce option  -->
-<div class="max-w-[1200px] mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+ <!-- ✅ PASTE THIS SECTION INTO YOUR PAGE — NO IMAGE, LUXURY DARK GOLD THEME -->
+<!-- Requires: Tailwind CSS CDN (already added) -->
+<!-- bangla-font class from your existing CSS will work automatically -->
 
-    <!-- LEFT CONTENT -->
-    <div>
-        <h1 class="text-4xl font-bold mb-6 bangla-font">
-            ই-কমার্স ওয়েবসাইট
-        </h1>
+<style>
+  @keyframes float-up {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer-line {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  @keyframes count-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+  .fade-up { animation: float-up 0.7s ease forwards; }
+  .fade-up-2 { animation: float-up 0.7s 0.15s ease forwards; opacity: 0; }
+  .fade-up-3 { animation: float-up 0.7s 0.3s ease forwards; opacity: 0; }
+  .fade-up-4 { animation: float-up 0.7s 0.45s ease forwards; opacity: 0; }
+  .fade-up-5 { animation: float-up 0.7s 0.6s ease forwards; opacity: 0; }
 
-        <p class="text-2xl mb-6 bangla-font">
-            ১ সেকেন্ডে লোড নিয়ে আপনার হাজারো প্রোডাক্ট থাকা ওয়েবসাইট
+  .gold-shimmer-text {
+    background: linear-gradient(90deg, #c9a84c, #f5e07a, #c9a84c, #f5e07a);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer-line 4s linear infinite;
+  }
+
+  .stat-glow {
+    box-shadow: 0 0 30px rgba(201,168,76,0.08);
+  }
+
+  .feature-row:hover .feature-icon {
+    background: rgba(201,168,76,0.18);
+    border-color: rgba(201,168,76,0.5);
+  }
+
+  .cta-btn-gold {
+    background: linear-gradient(135deg, #c9a84c 0%, #a8873a 50%, #c9a84c 100%);
+    background-size: 200% auto;
+    transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.25);
+  }
+  .cta-btn-gold:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(201,168,76,0.38);
+  }
+  .cta-btn-gold:active { transform: scale(0.98); }
+
+  .feature-row {
+    transition: border-color 0.25s, background 0.25s;
+    cursor: default;
+  }
+  .feature-row:hover {
+    border-color: rgba(201,168,76,0.22) !important;
+    background: rgba(201,168,76,0.04) !important;
+  }
+
+  .top-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 15%; right: 15%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+    opacity: 0.6;
+  }
+</style>
+
+<!-- SECTION -->
+<section class="relative bg-[#0d0d0d] overflow-hidden">
+
+  <!-- GRID BG -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.07]"
+    style="background-image: linear-gradient(#c9a84c 1px, transparent 1px), linear-gradient(90deg, #c9a84c 1px, transparent 1px); background-size: 52px 52px;">
+  </div>
+
+  <!-- GLOW ORBS -->
+  <div class="absolute top-[-120px] left-[-100px] w-[500px] h-[500px] rounded-full pointer-events-none"
+    style="background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);">
+  </div>
+  <div class="absolute bottom-[-100px] right-[-80px] w-[400px] h-[400px] rounded-full pointer-events-none"
+    style="background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);">
+  </div>
+
+  <!-- INNER -->
+  <div class="relative z-10 max-w-[1200px] mx-auto px-6 py-20 md:py-28">
+
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <!-- ===== LEFT CONTENT ===== -->
+      <div>
+
+        <!-- TOP LABEL -->
+        <p class="text-[10px] tracking-[4px] uppercase mb-5 fade-up" style="color:#c9a84c; font-weight:500;">
+          Premium E-Commerce Solution
         </p>
 
-        <ul class="space-y-3 mb-6">
-            <li class="flex text-xl items-center gap-2 bangla-font">
-                <span class="text-green-500">✔</span>
-                প্রতি মাসে ১ থেকে ১০ লক্ষ ভিজিটর হ্যান্ডেল
-            </li>
-            <li class="flex text-xl items-center gap-2 bangla-font">
-                <span class="text-green-500">✔</span>
-                আনলিমিটেড প্রোডাক্ট আপলোড
-            </li>
-            <li class="flex text-xl items-center gap-2 bangla-font">
-                <span class="text-green-500">✔</span>
-                ইজি চেকআউট প্রসেস - ১/২ ক্লিকের মধ্যে
-            </li>
-            <li class="flex text-xl items-center gap-2 bangla-font">
-                <span class="text-green-500">✔</span>
-                স্পিড অপটিমাইজড
-            </li>
-            <li class="flex text-xl items-center gap-2 bangla-font">
-                <span class="text-green-500">✔</span>
-                ফ্রেন্ডলি UI
-            </li>
+        <!-- BADGE -->
+        <div class="inline-flex items-center gap-2 border rounded-full px-4 py-2 mb-7 fade-up-2"
+          style="background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.22);">
+          <span class="w-1.5 h-1.5 rounded-full" style="background:#c9a84c; animation: count-pulse 2s infinite;"></span>
+          <span class="text-[11px] tracking-widest uppercase bangla-font" style="color:#c9a84c;">লাইভ স্টোর রেডি</span>
+        </div>
+
+        <!-- MAIN HEADING -->
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-5 bangla-font fade-up-2">
+          <span class="text-white bangla-font">ই-কমার্স</span>
+          <span class="gold-shimmer-text bangla-font">ওয়েবসাইট</span>
+        </h1>
+
+        <!-- SUBHEADING -->
+        <p class="text-base md:text-lg leading-relaxed mb-10 bangla-font fade-up-3"
+          style="color: rgba(255,255,255,0.45); font-weight: 300;">
+          ১ সেকেন্ডে লোড নিয়ে আপনার হাজারো প্রোডাক্ট থাকা ওয়েবসাইট — যা বিক্রি করে, ঘুমের মধ্যেও।
+        </p>
+
+        <!-- FEATURES LIST -->
+        <ul class="space-y-3 mb-10 fade-up-3">
+
+          <li class="feature-row flex items-center gap-4 border rounded-xl px-4 py-3.5 top-shimmer relative"
+            style="background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.06);">
+            <div class="feature-icon w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 border transition-all duration-200"
+              style="background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.28);">
+              <svg class="w-4 h-4" fill="none" stroke="#c9a84c" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </div>
+            <span class="text-sm bangla-font" style="color:rgba(255,255,255,0.7);">প্রতি মাসে ১ থেকে ১০ লক্ষ ভিজিটর হ্যান্ডেল</span>
+          </li>
+
+          <li class="feature-row flex items-center gap-4 border rounded-xl px-4 py-3.5"
+            style="background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.06);">
+            <div class="feature-icon w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 border transition-all duration-200"
+              style="background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.28);">
+              <svg class="w-4 h-4" fill="none" stroke="#c9a84c" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </div>
+            <span class="text-sm bangla-font" style="color:rgba(255,255,255,0.7);">আনলিমিটেড প্রোডাক্ট আপলোড</span>
+          </li>
+
+          <li class="feature-row flex items-center gap-4 border rounded-xl px-4 py-3.5"
+            style="background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.06);">
+            <div class="feature-icon w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 border transition-all duration-200"
+              style="background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.28);">
+              <svg class="w-4 h-4" fill="none" stroke="#c9a84c" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </div>
+            <span class="text-sm bangla-font" style="color:rgba(255,255,255,0.7);">ইজি চেকআউট প্রসেস — ১/২ ক্লিকের মধ্যে</span>
+          </li>
+
+          <li class="feature-row flex items-center gap-4 border rounded-xl px-4 py-3.5"
+            style="background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.06);">
+            <div class="feature-icon w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 border transition-all duration-200"
+              style="background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.28);">
+              <svg class="w-4 h-4" fill="none" stroke="#c9a84c" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </div>
+            <span class="text-sm bangla-font" style="color:rgba(255,255,255,0.7);">স্পিড অপটিমাইজড — ১ সেকেন্ডের নিচে লোড</span>
+          </li>
+
+          <li class="feature-row flex items-center gap-4 border rounded-xl px-4 py-3.5"
+            style="background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.06);">
+            <div class="feature-icon w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 border transition-all duration-200"
+              style="background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.28);">
+              <svg class="w-4 h-4" fill="none" stroke="#c9a84c" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </div>
+            <span class="text-sm bangla-font" style="color:rgba(255,255,255,0.7);">ফ্রেন্ডলি UI — কাস্টমার যেন হারিয়ে না যায়</span>
+          </li>
+
         </ul>
 
-        <a href="https://wa.link/lz8wge"
-           class="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition">
-            WhatsApp
-        </a>
-    </div>
+        <!-- CTA BUTTONS -->
+        <div class="flex flex-wrap items-center gap-4 fade-up-4">
+          <a href="https://wa.link/lz8wge" target="_blank"
+            class="cta-btn-gold inline-flex items-center gap-2.5 text-[#0d0d0d] font-semibold text-sm tracking-wider uppercase px-7 py-4 rounded-full bangla-font">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.523 5.856L0 24l6.335-1.508A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.36-.214-3.727.977.996-3.635-.235-.374A9.818 9.818 0 1112 21.818z"/>
+            </svg>
+            WhatsApp এ কথা বলুন
+          </a>
 
-
-    <!-- RIGHT IMAGE (HOVER SCROLL EFFECT) -->
-    <div class="relative w-full bg-cover h-[600px] overflow-hidden rounded-xl border-4 border-[#FC8A34]">
-
-        <!-- IMAGE WRAPPER -->
-        <div class="absolute top-0 left-0 w-full transition-all duration-[2000ms] ease-linear hover:-translate-y-[55%]">
-
-            <img src="images/ecommerce-website.jpg"
-                 class="w-full block"
-                 alt="demo">
-
+          <a href="price.html"
+            class="inline-flex items-center gap-2 text-sm tracking-wider uppercase px-6 py-4 rounded-full border transition-all duration-200 bangla-font"
+            style="border-color: rgba(201,168,76,0.3); color: rgba(201,168,76,0.8);"
+            onmouseover="this.style.borderColor='rgba(201,168,76,0.6)'; this.style.background='rgba(201,168,76,0.06)';"
+            onmouseout="this.style.borderColor='rgba(201,168,76,0.3)'; this.style.background='transparent';">
+            প্যাকেজ দেখুন
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
         </div>
+
+      </div>
+
+      <!-- ===== RIGHT — LUXURY STATS PANEL (replaces image) ===== -->
+      <div class="fade-up-4">
+
+        <!-- MAIN PANEL -->
+        <div class="relative rounded-2xl border overflow-hidden stat-glow"
+          style="background: rgba(255,255,255,0.025); border-color: rgba(201,168,76,0.15);">
+
+          <!-- TOP GOLD LINE -->
+          <div class="h-px w-full" style="background: linear-gradient(90deg, transparent, #c9a84c, transparent);"></div>
+
+          <!-- HEADER -->
+          <div class="px-8 pt-8 pb-6 border-b" style="border-color: rgba(255,255,255,0.05);">
+            <div class="flex items-center justify-between mb-1">
+              <p class="text-[10px] tracking-[3px] uppercase" style="color:#c9a84c;">Live Performance</p>
+              <span class="flex items-center gap-1.5 text-[10px] tracking-wider" style="color: rgba(255,255,255,0.3);">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Real-time
+              </span>
+            </div>
+            <p class="text-2xl font-bold text-white bangla-font">আপনার স্টোরের সম্ভাবনা</p>
+          </div>
+
+          <!-- STATS GRID -->
+          <div class="grid grid-cols-2 gap-px" style="background: rgba(255,255,255,0.04);">
+
+            <div class="px-7 py-7" style="background:#0d0d0d;">
+              <p class="text-3xl font-bold mb-1" style="color:#c9a84c;">১০ লক্ষ+</p>
+              <p class="text-xs bangla-font" style="color:rgba(255,255,255,0.35);">মাসিক ভিজিটর হ্যান্ডেল</p>
+            </div>
+
+            <div class="px-7 py-7" style="background:#0d0d0d;">
+              <p class="text-3xl font-bold mb-1" style="color:#c9a84c;">&lt; ১s</p>
+              <p class="text-xs bangla-font" style="color:rgba(255,255,255,0.35);">পেজ লোড স্পিড</p>
+            </div>
+
+            <div class="px-7 py-7" style="background:#0d0d0d;">
+              <p class="text-3xl font-bold mb-1" style="color:#c9a84c;">∞</p>
+              <p class="text-xs bangla-font" style="color:rgba(255,255,255,0.35);">আনলিমিটেড প্রোডাক্ট</p>
+            </div>
+
+            <div class="px-7 py-7" style="background:#0d0d0d;">
+              <p class="text-3xl font-bold mb-1" style="color:#c9a84c;">২৪/৭</p>
+              <p class="text-xs bangla-font" style="color:rgba(255,255,255,0.35);">সাপোর্ট অ্যাভেইলেবল</p>
+            </div>
+
+          </div>
+
+          <!-- TECH STACK STRIP -->
+          <div class="px-8 py-5 border-t" style="border-color: rgba(255,255,255,0.05);">
+            <p class="text-[9px] tracking-[3px] uppercase mb-3" style="color:rgba(255,255,255,0.25);">Built With</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] tracking-wide px-3 py-1.5 rounded-full border"
+                style="background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.2); color:#c9a84c;">SSL Secured</span>
+              <span class="text-[10px] tracking-wide px-3 py-1.5 rounded-full border"
+                style="background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.2); color:#c9a84c;">SEO Ready</span>
+              <span class="text-[10px] tracking-wide px-3 py-1.5 rounded-full border"
+                style="background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.2); color:#c9a84c;">Mobile First</span>
+              <span class="text-[10px] tracking-wide px-3 py-1.5 rounded-full border"
+                style="background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.2); color:#c9a84c;">Bangla CMS</span>
+            </div>
+          </div>
+
+          <!-- BOTTOM GOLD LINE -->
+          <div class="h-px w-full" style="background: linear-gradient(90deg, transparent, #c9a84c, transparent);"></div>
+        </div>
+
+        <!-- MINI TRUST CARD BELOW PANEL -->
+        <div class="mt-4 rounded-xl border px-6 py-4 flex items-center justify-between"
+          style="background: rgba(255,255,255,0.015); border-color: rgba(255,255,255,0.05);">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center"
+              style="background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25);">
+              <svg class="w-4 h-4" fill="none" stroke="#c9a84c" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-2.185-.584-4.235-1.598-6A11.96 11.96 0 0112 2.964z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-medium text-white bangla-font">৪২০০+ বিশ্বস্ত ক্লায়েন্ট</p>
+              <p class="text-[10px] bangla-font" style="color:rgba(255,255,255,0.3);">সারা বাংলাদেশে</p>
+            </div>
+          </div>
+          <div class="flex -space-x-2">
+            <div class="w-7 h-7 rounded-full border-2 border-[#0d0d0d] flex items-center justify-center text-[9px] font-bold" style="background:#c9a84c; color:#0d0d0d;">A</div>
+            <div class="w-7 h-7 rounded-full border-2 border-[#0d0d0d] flex items-center justify-center text-[9px] font-bold" style="background:#a8873a; color:#0d0d0d;">R</div>
+            <div class="w-7 h-7 rounded-full border-2 border-[#0d0d0d] flex items-center justify-center text-[9px] font-bold" style="background:#7a6228; color:#f5e07a;">S</div>
+            <div class="w-7 h-7 rounded-full border-2 border-[#0d0d0d] flex items-center justify-center text-[9px]" style="background: rgba(201,168,76,0.15); color:#c9a84c;">+৪২</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- END RIGHT -->
+
     </div>
-
-</div>
-
-
-  <!-- Ecommerce Futures Card -->
-<section class="relative py-10 px-6 overflow-hidden">
-
-  <!-- ✅ GRID BACKGROUND -->
-  <div class="absolute inset-0 -z-10 
-    [background-image:linear-gradient(#e5e7eb_1px,transparent_1px),linear-gradient(90deg,#e5e7eb_1px,transparent_1px)]
-    [background-size:40px_40px]">
   </div>
-  <div class="space-y-4 my-7">
-    <h2 class="text-4xl font-semibold text-center">Special for You!</h2>
-    <p class="text-xl text-gray-500 text-center bangla-font">আমাদের বিশেষ পরিষেবাসমূহ যা আপনার ব্যবসাকে দ্রুত এগিয়ে নেবে</p>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-    
-    <!-- CARD -->
-    <div class="group bg-white/80 backdrop-blur-lg rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-teal-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-teal-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-cart-shopping"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Incomplete Order</h3>
-      <p class="text-gray-600 text-md bangla-font">ইনকমপ্লিট অর্ডার ধরুন, যা সেলস বাড়াবে 10x</p>
-    </div>
-
-    <div class="group bg-white/80 backdrop-blur-lg rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-blue-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-blue-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-user-shield"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Fraud Checker</h3>
-      <p class="text-gray-600 text-md bangla-font">ফ্রড কাস্টমার শনাক্ত করে ব্লক করা যায়</p>
-    </div>
-
-    <div class="group bg-white/80 backdrop-blur-lg rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-pink-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-pink-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-ban"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">IP Ban</h3>
-      <p class="text-gray-600 text-md bangla-font">ফ্রড ইউজারের আইপি ব্লক করুন</p>
-    </div>
-
-    <!-- baki card gula same vabe copy paste korba -->
-
-        <div class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-green-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-green-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-calculator"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Amount Adjust</h3>
-      <p class="text-gray-600 text-sm">অর্ডারের টাকা সহজেই অ্যাডজাস্ট করুন</p>
-    </div>
-
-    <!-- repeat same pattern -->
-
-    <div class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-purple-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-purple-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-file-lines"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Landing Page</h3>
-      <p class="text-gray-600 text-md bangla-font">প্রোডাক্টের জন্য কাস্টম ল্যান্ডিং পেজ তৈরি করুন</p>
-    </div>
-
-    <div class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-orange-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-orange-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-truck-fast"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Courier Entry</h3>
-      <p class="text-gray-600 text-md bangla-font">কুরিয়ার এন্ট্রি ও পার্সেল ম্যানেজ সহজেই</p>
-    </div>
-
-
-    <div class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-cyan-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-cyan-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-shoe-prints"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Foot Print</h3>
-      <p class="text-gray-600 text-md bangla-font">ইউজার অ্যাক্টিভিটি ট্র্যাক করুন</p>
-    </div>
-
-    <div class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-indigo-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-indigo-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-list-check"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Order Management</h3>
-      <p class="text-gray-600 text-md bangla-font">অর্ডার ম্যানেজ করা সহজ</p>
-    </div>
-
-    <div class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-emerald-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-code"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Pixel Setup</h3>
-      <p class="text-gray-600 text-md bangla-font">ফেসবুক / গুগল পিক্সেল সেটআপ করুন</p>
-    </div>
-
-    <div class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-amber-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-amber-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-boxes-stacked"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Stock</h3>
-      <p class="text-gray-600 text-md bangla-font">স্টক ম্যানেজ করুন সহজে</p>
-    </div>
-
-    <div class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-red-500 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-red-500 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-file-invoice"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Invoice</h3>
-      <p class="text-gray-600 text-md bangla-font">প্রফেশনাল ইনভয়েস তৈরি করুন</p>
-    </div>
-
-    <div class="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border-t-4 border-green-600 hover:-translate-y-1">
-      <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-green-600 text-white text-xl mb-4 group-hover:scale-110 transition">
-        <i class="fa-solid fa-star"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-1">Core Features</h3>
-      <p class="text-gray-600 text-md bangla-font">১০+ ফিচার ইনবিল্ট থাকবে</p>
-    </div>
-
-  </div>
-
-  <div class=" flex justify-center space-y-4 my-7">
-    <button class="px-6 py-2.5 rounded-md text-white text-xl cursor-pointer tracking-wider font-medium border-black/30 outline-0 bg-green-400"> <a href="https://wa.link/959hre">
-               <i class="fa-brands fa-whatsapp" style="color: rgb(255, 255, 255);"></i> WhatsApp</a>
-            </button>
-  </div>
-
 </section>
+<!-- ✅ END SECTION -->
 
 
 
-<!-- 🔥 Simple website & siteghor -->
-<section class=" bg-blue-950 py-20 px-6 text-white text-center">
 
-  <!-- 🎯 COUNTER -->
-  <div class="mb-6">
-    <span class="counter" id="counter">🔥 4200+</span>
-    <p class="text-gray-300">Trusted Projects</p>
+
+<style>
+  /* Custom styles that Tailwind can't handle */
+  .font-playfair { font-family: 'Playfair Display', serif; }
+  .font-dm { font-family: 'DM Sans', sans-serif; }
+
+  .card-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(circle at 30% 40%, var(--glow), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .card-glow:hover::after { opacity: 1; }
+
+  .top-line::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 20px; right: 20px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.4;
+    transition: opacity 0.3s;
+    border-radius: 999px;
+  }
+  .top-line:hover::before { opacity: 1; }
+
+  .gradient-title {
+    background: linear-gradient(135deg, #f0ece3 30%, #e8c96d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, #c9a84c, transparent);
+    border-radius: 2px;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeup { animation: fadeUp 0.6s ease both; }
+  .delay-1  { animation-delay: 0.05s; }
+  .delay-2  { animation-delay: 0.10s; }
+  .delay-3  { animation-delay: 0.15s; }
+  .delay-4  { animation-delay: 0.20s; }
+  .delay-5  { animation-delay: 0.25s; }
+  .delay-6  { animation-delay: 0.30s; }
+  .delay-7  { animation-delay: 0.35s; }
+  .delay-8  { animation-delay: 0.40s; }
+  .delay-9  { animation-delay: 0.45s; }
+  .delay-10 { animation-delay: 0.50s; }
+  .delay-11 { animation-delay: 0.55s; }
+  .delay-12 { animation-delay: 0.60s; }
+</style>
+
+<!-- ✅ ECOMMERCE FEATURES SECTION -->
+<section class="relative py-24 px-6 overflow-hidden bg-[#0b0c10] font-dm">
+
+  <!-- Grid BG -->
+  <div class="absolute inset-0 -z-10
+    [background-image:linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)]
+    [background-size:48px_48px]">
   </div>
 
-  <!-- TITLE -->
-  <h2 class="text-3xl font-bold bangla-font mb-12">
-    সাধারণ ওয়েবসাইট vs SITE GHOR ওয়েবসাইট
-  </h2>
+  <!-- Ambient Blobs -->
+  <div class="blob -z-10 w-[500px] h-[500px] bg-[rgba(201,168,76,0.07)] -top-28 -left-36"></div>
+  <div class="blob -z-10 w-[400px] h-[400px] bg-[rgba(80,120,255,0.05)] bottom-0 -right-24"></div>
+  <div class="blob -z-10 w-[300px] h-[300px] bg-[rgba(201,168,76,0.04)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
-  <!-- GRID -->
-  <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-
-    <!-- ❌ NORMAL -->
-    <div class="bg-[rgba(255,255,255,0.08)] backdrop-blur-md border border-gray-600 rounded-2xl p-8 hover:-translate-y-2 transition">
-
-      <div class="text-4xl mb-4 text-red-400">⚠️</div>
-
-      <h3 class="bangla-font text-xl mb-6 text-red-400">
-        সাধারণ ওয়েবসাইট
-      </h3>
-
-      <ul class="text-left space-y-3 bangla-font text-gray-200 text-sm">
-        <li class="bangla-font">❌ স্লো লোড হয়</li>
-        <li class="bangla-font">❌ কম কনভার্সন</li>
-        <li class="bangla-font">❌ কাস্টমার ধরে রাখা কঠিন</li>
-        <li class="bangla-font">❌ ম্যানুয়াল কাজ বেশি</li>
-        <li class="bangla-font">❌ SEO সাপোর্ট নেই</li>
-        <li class="bangla-font">❌ সিকিউরিটি কম</li>
-        <li class="bangla-font">❌ সাপোর্ট নেই</li>
-      </ul>
-
+  <!-- Header -->
+  <div class="relative z-10 text-center mb-16 animate-fadeup">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 bg-[rgba(201,168,76,0.12)] border border-[rgba(201,168,76,0.3)] text-[#e8c96d] text-[11px] font-medium tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-5">
+      <i class="fa-solid fa-sparkles text-[9px]"></i> Exclusive Features
     </div>
 
-    <!-- ✅ TOPPER -->
-    <div class=" bg-[rgba(255,255,255,0.08)] backdrop-blur-md border border-gray-600 rounded-2xl p-8 hover:-translate-y-2 transition">
+    <!-- Title -->
+    <h2 class="font-playfair font-bold text-5xl md:text-6xl leading-tight tracking-tight gradient-title mb-4">
+      Special for You!
+    </h2>
 
-      <div class="text-4xl mb-4 text-green-400">👑</div>
+    <!-- Gold Divider -->
+    <div class="gold-divider mx-auto mb-5"></div>
 
-      <h3 class="bangla-font text-xl mb-6 text-green-400">
-        SITE GHOR ওয়েবসাইট
-      </h3>
-
-      <ul class="text-left space-y-3 bangla-font text-gray-200 text-sm">
-        <li class="bangla-font">✔️ সুপারফাস্ট লোডিং</li>
-        <li class="bangla-font">✔️ বেশি কনভার্সন</li>
-        <li class="bangla-font">✔️ অটোমেটেড সিস্টেম</li>
-        <li class="bangla-font">✔️ SEO অপ্টিমাইজড</li>
-        <li class="bangla-font">✔️ ১ সেকেন্ড লোড স্পিড</li>
-        <li class="bangla-font">✔️ ৯৯.৯% আপটাইম</li>
-        <li class="bangla-font">✔️ ২৪/৭ সাপোর্ট</li>
-      </ul>
-
-    </div>
-
-  </div>
-
-  <!-- 🧠 AI CHAT CTA -->
-  <div class="mt-12">
-    <button class="bg-gradient-to-r from-green-500 to-cyan-500 px-8 py-3 rounded-xl shadow-lg hover:scale-105 transition bangla-font">
-      আমাদের সাথে যোগাযোগ করুন
-    </button>
-  </div>
-
-</section>
-
-
-    <!-- 🔥 WHY CHOOSE US -->
-<section class="py-20 px-6 relative bg-gray-100 overflow-hidden">
-
-  <!-- 🔲 GRID BACKGROUND -->
-  <div class="absolute inset-0 -z-10 
-    [background-image:linear-gradient(#e5e7eb_1px,transparent_1px),linear-gradient(90deg,#e5e7eb_1px,transparent_1px)]
-    [background-size:40px_40px]"></div>
-
-  <!-- TOP BADGE -->
-  <div class="text-center mb-6">
-    <span class="bg-green-100 text-green-600 px-4 py-1 rounded-full text-sm font-medium">
-      ⭐ Trusted by 4200+ Projects
-    </span>
-  </div>
-
-  <!-- TITLE -->
-  <h2 class="text-3xl md:text-4xl font-bold text-center bangla-font mb-4">
-    কেন আমাদের থেকে ওয়েবসাইট নিবেন ?
-  </h2>
-
-  <p class="text-center text-gray-600 max-w-2xl mx-auto bangla-font mb-12">
-    বেশি সেল জেনারেট করতে পারে এমন ফাংশনাল ওয়েবসাইট ডিজাইন করে থাকে আমাদের টিম।
-  </p>
-
-  <!-- CARDS -->
-  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-
-    <!-- CARD 1 -->
-    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-green-500">
-      <div class="w-12 h-12 bg-green-500 text-white flex items-center justify-center rounded-lg mb-4"><i class="fa-solid fa-shield-halved"></i></div>
-      <h3 class="font-semibold mb-2 bangla-font">বেশি সেল ও সিকিউরিটি</h3>
-      <p class="text-sm text-gray-600 bangla-font mb-3">
-        আমাদের তৈরি ওয়েবসাইট দ্রুত লোড হয় এবং সিকিউর থাকে।
-      </p>
-      <div class="flex gap-2 text-xs">
-        <span class="bg-green-100 text-green-600 px-2 py-1 rounded">Fast & SEO-Ready</span>
-        <span class="bg-green-100 text-green-600 px-2 py-1 rounded">SSL Secured</span>
-      </div>
-    </div>
-
-    <!-- CARD 2 -->
-    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
-      <div class="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-lg mb-4"><i class="fa-solid fa-headset"></i></div>
-      <h3 class="font-semibold mb-2 bangla-font">২৪ ঘন্টা সাপোর্ট</h3>
-      <p class="text-sm text-gray-600 bangla-font mb-3">
-        আমাদের টিম সবসময় সাপোর্ট দিতে প্রস্তুত।
-      </p>
-      <div class="flex gap-2 text-xs">
-        <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded">Dedicated WA Group</span>
-        <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded">Priority Support</span>
-      </div>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-pink-500">
-      <div class="w-12 h-12 bg-pink-500 text-white flex items-center justify-center rounded-lg mb-4"><i class="fa-solid fa-gift"></i></div>
-      <h3 class="font-semibold mb-2 bangla-font">প্যাকেজ ভিত্তিক</h3>
-      <p class="text-sm text-gray-600 bangla-font mb-3">
-        বাজেট অনুযায়ী বিভিন্ন প্যাকেজে ওয়েবসাইট তৈরি।
-      </p>
-      <div class="flex gap-2 text-xs">
-        <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded">8 Packages</span>
-        <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded">Flexible Budget</span>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- BOTTOM FEATURES -->
-  <div class="grid md:grid-cols-4 gap-4 max-w-5xl mx-auto mt-10 text-sm">
-
-    <div class="bg-white rounded-lg px-4 py-3 shadow flex items-center gap-2">
-      <span class="text-green-500">✔</span> High Conversion UI/UX
-    </div>
-
-    <div class="bg-white rounded-lg px-4 py-3 shadow flex items-center gap-2">
-      <span class="text-blue-500">✔</span> Speed Optimized & SEO
-    </div>
-
-    <div class="bg-white rounded-lg px-4 py-3 shadow flex items-center gap-2">
-      <span class="text-purple-500">✔</span> Server-grade Security
-    </div>
-
-    <div class="bg-white rounded-lg px-4 py-3 shadow flex items-center gap-2">
-      <span class="text-pink-500">✔</span> Bangla-first CMS
-    </div>
-
-  </div>
-
-  <!-- CTA -->
-  <div class="text-center mt-10">
-    <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg shadow"><a href="https://wa.me/+8801313133044" target="_blank">
-      WhatsApp এ কথা বলুন </a>
-    </button>
-
-    <p class="text-xs text-gray-500 mt-2 bangla-font">
-      ২৪/৭ সাপোর্ট – এখনই মেসেজ করুন
+    <!-- Subtitle -->
+    <p class="text-[rgba(240,236,227,0.5)] text-base max-w-md mx-auto leading-relaxed">
+      আমাদের বিশেষ পরিষেবাসমূহ যা আপনার ব্যবসাকে দ্রুত এগিয়ে নেবে
     </p>
   </div>
 
+  <!-- Cards Grid -->
+  <div class="relative z-10 max-w-[1100px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <!-- Card 1 — Teal -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-1"
+      style="--accent:#2dd4bf; --glow:rgba(45,212,191,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">01</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(45,212,191,0.12)] border border-[rgba(45,212,191,0.2)] text-[#2dd4bf] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Incomplete Order</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed bangla-font">ইনকমপ্লিট অর্ডার ধরুন, যা সেলস বাড়াবে 10x গুণ দ্রুত।</p>
+    </div>
+
+    <!-- Card 2 — Blue -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-2"
+      style="--accent:#60a5fa; --glow:rgba(96,165,250,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">02</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(96,165,250,0.12)] border border-[rgba(96,165,250,0.2)] text-[#60a5fa] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-user-shield"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Fraud Checker</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ফ্রড কাস্টমার শনাক্ত করে স্বয়ংক্রিয়ভাবে ব্লক করা যায়।</p>
+    </div>
+
+    <!-- Card 3 — Pink -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-3"
+      style="--accent:#f472b6; --glow:rgba(244,114,182,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">03</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(244,114,182,0.12)] border border-[rgba(244,114,182,0.2)] text-[#f472b6] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-ban"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">IP Ban</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ফ্রড ইউজারের আইপি তাৎক্ষণিকভাবে ব্লক করুন।</p>
+    </div>
+
+    <!-- Card 4 — Green -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-4"
+      style="--accent:#4ade80; --glow:rgba(74,222,128,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">04</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(74,222,128,0.12)] border border-[rgba(74,222,128,0.2)] text-[#4ade80] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-calculator"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Amount Adjust</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">অর্ডারের টাকা সহজেই অ্যাডজাস্ট করুন।</p>
+    </div>
+
+    <!-- Card 5 — Purple -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-5"
+      style="--accent:#a78bfa; --glow:rgba(167,139,250,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">05</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(167,139,250,0.12)] border border-[rgba(167,139,250,0.2)] text-[#a78bfa] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-file-lines"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Landing Page</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">প্রোডাক্টের জন্য কাস্টম ল্যান্ডিং পেজ তৈরি করুন।</p>
+    </div>
+
+    <!-- Card 6 — Orange -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-6"
+      style="--accent:#fb923c; --glow:rgba(251,146,60,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">06</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(251,146,60,0.12)] border border-[rgba(251,146,60,0.2)] text-[#fb923c] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-truck-fast"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Courier Entry</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">কুরিয়ার এন্ট্রি ও পার্সেল ম্যানেজ সহজেই করুন।</p>
+    </div>
+
+    <!-- Card 7 — Cyan -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-7"
+      style="--accent:#22d3ee; --glow:rgba(34,211,238,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">07</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(34,211,238,0.12)] border border-[rgba(34,211,238,0.2)] text-[#22d3ee] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-shoe-prints"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Foot Print</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ইউজারের প্রতিটি অ্যাক্টিভিটি রিয়েল-টাইমে ট্র্যাক করুন।</p>
+    </div>
+
+    <!-- Card 8 — Indigo -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-8"
+      style="--accent:#818cf8; --glow:rgba(129,140,248,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">08</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(129,140,248,0.12)] border border-[rgba(129,140,248,0.2)] text-[#818cf8] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-list-check"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Order Management</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">সব অর্ডার এক জায়গায় সহজে ম্যানেজ করুন।</p>
+    </div>
+
+    <!-- Card 9 — Emerald -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-9"
+      style="--accent:#34d399; --glow:rgba(52,211,153,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">09</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(52,211,153,0.12)] border border-[rgba(52,211,153,0.2)] text-[#34d399] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-code"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Pixel Setup</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ফেসবুক ও গুগল পিক্সেল দ্রুত সেটআপ করুন।</p>
+    </div>
+
+    <!-- Card 10 — Amber -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-10"
+      style="--accent:#fbbf24; --glow:rgba(251,191,36,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">10</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(251,191,36,0.12)] border border-[rgba(251,191,36,0.2)] text-[#fbbf24] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-boxes-stacked"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Stock</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">স্টক ম্যানেজ করুন সহজে, কোনো ঝামেলা ছাড়াই।</p>
+    </div>
+
+    <!-- Card 11 — Red -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-11"
+      style="--accent:#f87171; --glow:rgba(248,113,113,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">11</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(248,113,113,0.12)] border border-[rgba(248,113,113,0.2)] text-[#f87171] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-file-invoice"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Invoice</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">প্রফেশনাল ইনভয়েস তৈরি করুন মুহূর্তেই।</p>
+    </div>
+
+    <!-- Card 12 — Gold -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-12"
+      style="--accent:#c9a84c; --glow:rgba(201,168,76,0.1);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">12</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(201,168,76,0.12)] border border-[rgba(201,168,76,0.25)] text-[#c9a84c] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-star"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Core Features</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">১০+ ইনবিল্ট ফিচার একসাথে পাবেন এই প্ল্যাটফর্মে।</p>
+    </div>
+
+  </div>
+
+  <!-- CTA Button -->
+  <div class="relative z-10 flex justify-center mt-14">
+    <a href="https://wa.link/959hre" target="_blank"
+      class="inline-flex items-center gap-2.5 bg-gradient-to-br from-[#2db049] to-[#1a8c34]
+        text-white font-dm font-medium text-[15px] px-8 py-3.5 rounded-full
+        border border-white/15 tracking-wide
+        shadow-[0_4px_24px_rgba(45,176,73,0.35),inset_0_1px_0_rgba(255,255,255,0.15)]
+        transition-all duration-300
+        hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_8px_36px_rgba(45,176,73,0.5)]">
+      <i class="fa-brands fa-whatsapp text-lg"></i>
+      WhatsApp-এ যোগাযোগ করুন
+    </a>
+  </div>
+
 </section>
+
+
+
+
+<!-- ✅ PASTE THIS SECTION — LUXURY DARK GOLD COMPARISON -->
+<!-- Requires: Tailwind CSS CDN (already added) -->
+
+<style>
+  @keyframes float-up {
+    0% { opacity: 0; transform: translateY(24px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes gold-shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+  }
+  @keyframes border-glow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .cmp-fade-1 { animation: float-up 0.6s 0.05s ease forwards; opacity: 0; }
+  .cmp-fade-2 { animation: float-up 0.6s 0.15s ease forwards; opacity: 0; }
+  .cmp-fade-3 { animation: float-up 0.6s 0.28s ease forwards; opacity: 0; }
+  .cmp-fade-4 { animation: float-up 0.6s 0.4s ease forwards; opacity: 0; }
+
+  .gold-text-shine {
+    background: linear-gradient(90deg, #c9a84c, #f5e07a, #e8c96a, #c9a84c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gold-shimmer 5s linear infinite;
+  }
+
+  .card-bad {
+    background: rgba(255,255,255,0.018);
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: border-color 0.3s;
+  }
+  .card-bad:hover { border-color: rgba(255,80,80,0.2); }
+
+  .card-good {
+    background: rgba(201,168,76,0.04);
+    border: 1px solid rgba(201,168,76,0.22);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 60px rgba(201,168,76,0.07), inset 0 0 40px rgba(201,168,76,0.03);
+  }
+  .card-good:hover {
+    border-color: rgba(201,168,76,0.4);
+    box-shadow: 0 0 80px rgba(201,168,76,0.13), inset 0 0 40px rgba(201,168,76,0.05);
+  }
+
+  .top-gold-line {
+    background: linear-gradient(90deg, transparent, #c9a84c, #f5e07a, #c9a84c, transparent);
+    animation: border-glow 3s ease-in-out infinite;
+  }
+
+  .feature-li {
+    transition: background 0.2s, padding-left 0.2s;
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .feature-li:hover { background: rgba(255,255,255,0.03); }
+  .card-good .feature-li:hover { background: rgba(201,168,76,0.06); }
+
+  .cta-gold-btn {
+    background: linear-gradient(135deg, #c9a84c 0%, #a8873a 50%, #c9a84c 100%);
+    background-size: 200% auto;
+    box-shadow: 0 8px 40px rgba(201,168,76,0.28), 0 2px 0 rgba(255,255,255,0.08) inset;
+    transition: background-position 0.4s, transform 0.2s, box-shadow 0.3s;
+    color: #0d0d0d;
+  }
+  .cta-gold-btn:hover {
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(201,168,76,0.4);
+  }
+  .cta-gold-btn:active { transform: scale(0.98); }
+
+  .orb-gold {
+    background: radial-gradient(circle, rgba(201,168,76,0.09) 0%, transparent 70%);
+    animation: glow-pulse 6s ease-in-out infinite;
+  }
+  .orb-gold-2 {
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    animation: glow-pulse 8s 2s ease-in-out infinite;
+  }
+
+  .vs-divider {
+    background: linear-gradient(180deg, transparent, rgba(201,168,76,0.3), transparent);
+  }
+
+  .best-badge {
+    background: linear-gradient(135deg, #c9a84c, #a8873a);
+    box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    color: #0d0d0d;
+  }
+
+  .counter-pill {
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+</style>
+
+<section class="relative overflow-hidden bg-[#0a0a0a] py-28 px-6">
+
+  <!-- GOLD GLOW ORBS -->
+  <div class="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full orb-gold pointer-events-none"></div>
+  <div class="absolute bottom-[-60px] right-[-80px] w-[500px] h-[500px] rounded-full orb-gold-2 pointer-events-none"></div>
+
+  <!-- GRID PATTERN -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.055]"
+    style="background-image: linear-gradient(#c9a84c 1px, transparent 1px), linear-gradient(90deg, #c9a84c 1px, transparent 1px); background-size: 52px 52px;">
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
+
+    <!-- TOP LABEL -->
+    <p class="text-center text-[10px] tracking-[4px] uppercase mb-5 cmp-fade-1" style="color:#c9a84c;">
+      Side by Side Analysis
+    </p>
+
+    <!-- COUNTER BADGE -->
+    <div class="flex justify-center mb-8 cmp-fade-1">
+      <div class="counter-pill inline-flex items-center gap-3 px-6 py-3 rounded-full">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-2xl font-bold text-white">৪২০০+</span>
+        <span class="bangla-font text-sm" style="color:#c9a84c;">সফল প্রজেক্ট সম্পন্ন</span>
+      </div>
+    </div>
+
+    <!-- HEADING -->
+    <div class="text-center max-w-3xl mx-auto mb-20 cmp-fade-2">
+
+      <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-5 bangla-font">
+        <span class="text-white bangla-font">সাধারণ ওয়েবসাইট </span>
+        <span class="gold-text-shine">VS</span>
+        <br>
+        <span class="text-white bangla-font">আমাদের ওয়েবসাইট</span>
+      </h2>
+
+      <p class="bangla-font text-base" style="color:rgba(255,255,255,0.38);">
+        কেন হাজারো ব্যবসা <strong style="color:rgba(201,168,76,0.8);">SITE GHOR</strong> এর প্রিমিয়াম ওয়েবসাইট বেছে নিচ্ছে দেখুন।
+      </p>
+
+    </div>
+
+    <!-- COMPARISON CARDS -->
+    <div class="grid lg:grid-cols-[1fr_auto_1fr] gap-0 items-stretch cmp-fade-3">
+
+      <!-- BAD CARD -->
+      <div class="card-bad rounded-2xl lg:rounded-r-none p-8 md:p-10">
+
+        <!-- ICON -->
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-7 border"
+          style="background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2);">
+          <svg class="w-6 h-6" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
+          </svg>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-8 bangla-font" style="color:rgba(239,68,68,0.75);">সাধারণ ওয়েবসাইট</h3>
+
+        <ul class="space-y-1">
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.25);">
+              <svg class="w-3 h-3" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.45);">স্লো লোডিং স্পিড</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.25);">
+              <svg class="w-3 h-3" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.45);">কম সেলস ও কনভার্সন</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.25);">
+              <svg class="w-3 h-3" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.45);">ম্যানুয়াল কাজ বেশি</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.25);">
+              <svg class="w-3 h-3" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.45);">SEO অপ্টিমাইজড নয়</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.25);">
+              <svg class="w-3 h-3" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.45);">কম সিকিউরিটি</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.25);">
+              <svg class="w-3 h-3" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.45);">সাপোর্ট সীমিত</span>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- VS DIVIDER (desktop) -->
+      <div class="hidden lg:flex flex-col items-center justify-center px-4 relative">
+        <div class="vs-divider w-px flex-1"></div>
+        <div class="my-4 w-12 h-12 rounded-full flex items-center justify-center z-10 flex-shrink-0"
+          style="background:#0a0a0a; border:1px solid rgba(201,168,76,0.3);">
+          <span class="text-xs font-bold gold-text-shine" style="-webkit-text-fill-color:unset; background:none; color:#c9a84c;">VS</span>
+        </div>
+        <div class="vs-divider w-px flex-1"></div>
+      </div>
+
+      <!-- GOOD CARD -->
+      <div class="card-good rounded-2xl lg:rounded-l-none p-8 md:p-10 relative overflow-hidden">
+
+        <!-- TOP SHIMMER LINE -->
+        <div class="top-gold-line absolute top-0 left-0 right-0 h-px"></div>
+
+        <!-- BEST BADGE -->
+        <div class="absolute -top-0 right-7">
+          <div class="best-badge px-4 py-1.5 rounded-b-xl text-[10px] tracking-[2px] uppercase font-bold">
+            ★ Best Choice
+          </div>
+        </div>
+
+        <!-- ICON -->
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-7 border mt-4"
+          style="background: rgba(201,168,76,0.12); border-color: rgba(201,168,76,0.3);">
+          <svg class="w-6 h-6" fill="none" stroke="#c9a84c" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+          </svg>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-8 bangla-font text-white">আমাদের ওয়েবসাইট</h3>
+
+        <ul class="space-y-1">
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.35);">
+              <svg class="w-3 h-3" fill="none" stroke="#c9a84c" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.75);">সুপার ফাস্ট লোডিং</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.35);">
+              <svg class="w-3 h-3" fill="none" stroke="#c9a84c" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.75);">বেশি সেলস ও কনভার্সন</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.35);">
+              <svg class="w-3 h-3" fill="none" stroke="#c9a84c" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.75);">অটোমেটেড সিস্টেম</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.35);">
+              <svg class="w-3 h-3" fill="none" stroke="#c9a84c" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.75);">SEO Ready Structure</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.35);">
+              <svg class="w-3 h-3" fill="none" stroke="#c9a84c" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.75);">১ সেকেন্ডের নিচে লোড স্পিড</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.35);">
+              <svg class="w-3 h-3" fill="none" stroke="#c9a84c" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.75);">৯৯.৯% আপটাইম গ্যারান্টি</span>
+          </li>
+          <li class="feature-li flex items-center gap-4">
+            <span class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.35);">
+              <svg class="w-3 h-3" fill="none" stroke="#c9a84c" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+              </svg>
+            </span>
+            <span class="bangla-font text-sm" style="color:rgba(255,255,255,0.75);">২৪/৭ Dedicated Support</span>
+          </li>
+        </ul>
+
+        <!-- BOTTOM GOLD LINE -->
+        <div class="top-gold-line absolute bottom-0 left-0 right-0 h-px"></div>
+
+      </div>
+
+    </div>
+
+    <!-- BOTTOM STATS ROW -->
+    <div class="grid grid-cols-3 gap-4 mt-10 mb-16 cmp-fade-4">
+      <div class="rounded-xl px-6 py-5 text-center border"
+        style="background:rgba(201,168,76,0.04); border-color:rgba(201,168,76,0.14);">
+        <p class="text-2xl font-bold mb-1" style="color:#c9a84c;">৪২০০+</p>
+        <p class="text-[11px] tracking-wider bangla-font" style="color:rgba(255,255,255,0.3);">সফল প্রজেক্ট</p>
+      </div>
+      <div class="rounded-xl px-6 py-5 text-center border"
+        style="background:rgba(201,168,76,0.04); border-color:rgba(201,168,76,0.14);">
+        <p class="text-2xl font-bold mb-1" style="color:#c9a84c;">৯৯.৯%</p>
+        <p class="text-[11px] tracking-wider bangla-font" style="color:rgba(255,255,255,0.3);">আপটাইম গ্যারান্টি</p>
+      </div>
+      <div class="rounded-xl px-6 py-5 text-center border"
+        style="background:rgba(201,168,76,0.04); border-color:rgba(201,168,76,0.14);">
+        <p class="text-2xl font-bold mb-1" style="color:#c9a84c;">২৪/৭</p>
+        <p class="text-[11px] tracking-wider bangla-font" style="color:rgba(255,255,255,0.3);">ডেডিকেটেড সাপোর্ট</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center cmp-fade-4">
+      <a href="#contact"
+        class="cta-gold-btn inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-sm tracking-widest uppercase bangla-font">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+        </svg>
+        এখনই যোগাযোগ করুন
+      </a>
+      <p class="text-[11px] tracking-[2px] uppercase mt-4 bangla-font" style="color:rgba(255,255,255,0.2);">
+        ফ্রি কনসালটেশন · কোনো লুকানো চার্জ নেই
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- ✅ END SECTION -->
+
+
+<!-- 🔥 WHY CHOOSE US — LUXURY DARK SECTION -->
+<!-- ✅ WHY CHOOSE US — GOLD VERSION (Red → Gold swap) -->
+
+<section class="relative py-24 px-6 overflow-hidden bg-[#0d0d0d]">
+
+  <!-- SUBTLE GRID BACKGROUND -->
+  <div class="absolute inset-0 -z-10 opacity-20
+    [background-image:linear-gradient(#1a1400_1px,transparent_1px),linear-gradient(90deg,#1a1400_1px,transparent_1px)]
+    [background-size:48px_48px]">
+  </div>
+
+  <!-- GOLD GLOW BEHIND TITLE -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full -z-10 pointer-events-none blur-3xl"
+    style="background: rgba(201,168,76,0.08);"></div>
+
+  <!-- INNER WRAPPER -->
+  <div class="relative z-10 max-w-6xl mx-auto">
+
+    <!-- TOP LABEL -->
+    <p class="text-center text-[10px] tracking-[4px] uppercase mb-4 font-medium"
+      style="color:#c9a84c;">
+      Premium Web Service
+    </p>
+
+    <!-- BADGE -->
+    <div class="flex justify-center mb-8">
+      <span class="inline-flex items-center gap-2 text-[11px] tracking-widest uppercase px-5 py-2 rounded-full font-medium border"
+        style="background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.25); color:#c9a84c;">
+        <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:#c9a84c;"></span>
+        ৪২০০+ প্রজেক্টে বিশ্বস্ত
+      </span>
+    </div>
+
+    <!-- TITLE -->
+    <h2 class="text-center text-3xl md:text-5xl font-bold text-white leading-tight mb-4 bangla-font">
+      কেন আমাদের থেকে
+      <span class="bangla-font" style="color:#c9a84c;"> ওয়েবসাইট নিবেন?</span>
+    </h2>
+
+    <!-- SUBTITLE -->
+    <p class="text-center text-gray-500 max-w-xl mx-auto text-sm leading-relaxed mb-16 bangla-font">
+      বেশি সেল জেনারেট করতে পারে এমন ফাংশনাল ওয়েবসাইট ডিজাইন করে থাকে আমাদের অভিজ্ঞ টিম।
+    </p>
+
+    <!-- CARDS -->
+    <div class="grid md:grid-cols-3 gap-6 mb-10">
+
+      <!-- CARD 1 -->
+      <div class="group relative bg-white/[0.03] border border-white/[0.07] rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+        style="transition: border-color 0.3s, transform 0.3s;"
+        onmouseover="this.style.borderColor='rgba(201,168,76,0.45)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+        <div class="absolute top-0 left-6 right-6 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style="background: linear-gradient(90deg, transparent, #c9a84c, transparent);"></div>
+
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 border"
+          style="border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.08); color:#c9a84c;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-2.185-.584-4.235-1.598-6A11.96 11.96 0 0112 2.964z"/>
+          </svg>
+        </div>
+
+        <h3 class="text-white font-semibold text-lg mb-3 bangla-font">বেশি সেল ও সিকিউরিটি</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5 bangla-font">
+          আমাদের তৈরি ওয়েবসাইট দ্রুত লোড হয়, সিকিউর থাকে এবং বেশি সেল জেনারেট করে।
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] tracking-wider uppercase px-3 py-1.5 rounded-full border bangla-font"
+            style="background: rgba(201,168,76,0.08); color:#c9a84c; border-color: rgba(201,168,76,0.22);">Fast & SEO</span>
+          <span class="text-[10px] tracking-wider uppercase px-3 py-1.5 rounded-full border bangla-font"
+            style="background: rgba(201,168,76,0.08); color:#c9a84c; border-color: rgba(201,168,76,0.22);">SSL Secured</span>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="group relative bg-white/[0.03] border border-white/[0.07] rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+        onmouseover="this.style.borderColor='rgba(201,168,76,0.45)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+        <div class="absolute top-0 left-6 right-6 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style="background: linear-gradient(90deg, transparent, #c9a84c, transparent);"></div>
+
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 border"
+          style="border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.08); color:#c9a84c;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/>
+          </svg>
+        </div>
+
+        <h3 class="text-white font-semibold text-lg mb-3 bangla-font">২৪ ঘন্টা সাপোর্ট</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5 bangla-font">
+          আমাদের ডেডিকেটেড টিম সবসময় আপনার পাশে থেকে সাপোর্ট দিতে প্রস্তুত।
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] tracking-wider uppercase px-3 py-1.5 rounded-full border"
+            style="background: rgba(201,168,76,0.08); color:#c9a84c; border-color: rgba(201,168,76,0.22);">Dedicated WA</span>
+          <span class="text-[10px] tracking-wider uppercase px-3 py-1.5 rounded-full border"
+            style="background: rgba(201,168,76,0.08); color:#c9a84c; border-color: rgba(201,168,76,0.22);">Priority Support</span>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="group relative bg-white/[0.03] border border-white/[0.07] rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+        onmouseover="this.style.borderColor='rgba(201,168,76,0.45)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+        <div class="absolute top-0 left-6 right-6 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style="background: linear-gradient(90deg, transparent, #c9a84c, transparent);"></div>
+
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 border"
+          style="border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.08); color:#c9a84c;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/>
+          </svg>
+        </div>
+
+        <h3 class="text-white font-semibold text-lg mb-3 bangla-font">প্যাকেজ ভিত্তিক</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5 bangla-font">
+          বাজেট অনুযায়ী ৮টি বিভিন্ন প্যাকেজে আপনার স্বপ্নের ওয়েবসাইট তৈরি করুন।
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[10px] tracking-wider uppercase px-3 py-1.5 rounded-full border"
+            style="background: rgba(201,168,76,0.08); color:#c9a84c; border-color: rgba(201,168,76,0.22);">8 প্যাকেজ</span>
+          <span class="text-[10px] tracking-wider uppercase px-3 py-1.5 rounded-full border"
+            style="background: rgba(201,168,76,0.08); color:#c9a84c; border-color: rgba(201,168,76,0.22);">Flexible Budget</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="h-px mb-10" style="background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);"></div>
+
+    <!-- FEATURE PILLS -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-14">
+
+      <div class="flex items-center gap-3 bg-white/[0.02] border border-white/[0.05] rounded-xl px-4 py-3 transition-colors duration-200"
+        onmouseover="this.style.borderColor='rgba(201,168,76,0.25)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 border"
+          style="background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.3);">
+          <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+        </div>
+        <span class="text-gray-400 text-xs">High Conversion UI/UX</span>
+      </div>
+
+      <div class="flex items-center gap-3 bg-white/[0.02] border border-white/[0.05] rounded-xl px-4 py-3 transition-colors duration-200"
+        onmouseover="this.style.borderColor='rgba(201,168,76,0.25)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 border"
+          style="background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.3);">
+          <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+        </div>
+        <span class="text-gray-400 text-xs">Speed Optimized & SEO</span>
+      </div>
+
+      <div class="flex items-center gap-3 bg-white/[0.02] border border-white/[0.05] rounded-xl px-4 py-3 transition-colors duration-200"
+        onmouseover="this.style.borderColor='rgba(201,168,76,0.25)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 border"
+          style="background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.3);">
+          <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+        </div>
+        <span class="text-gray-400 text-xs">Server-grade Security</span>
+      </div>
+
+      <div class="flex items-center gap-3 bg-white/[0.02] border border-white/[0.05] rounded-xl px-4 py-3 transition-colors duration-200"
+        onmouseover="this.style.borderColor='rgba(201,168,76,0.25)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
+        <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 border"
+          style="background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.3);">
+          <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+          </svg>
+        </div>
+        <span class="text-gray-400 text-xs bangla-font">Bangla-first CMS</span>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <a href="https://wa.me/+8801313133044" target="_blank"
+        class="inline-flex items-center gap-3 text-[#0d0d0d] text-sm font-semibold tracking-widest uppercase px-8 py-4 rounded-full transition-all duration-200 bangla-font active:scale-[0.98]"
+        style="background: linear-gradient(135deg, #c9a84c, #a8873a); box-shadow: 0 8px 32px rgba(201,168,76,0.25);"
+        onmouseover="this.style.boxShadow='0 12px 40px rgba(201,168,76,0.4)'; this.style.transform='translateY(-2px)'"
+        onmouseout="this.style.boxShadow='0 8px 32px rgba(201,168,76,0.25)'; this.style.transform='translateY(0)'">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.523 5.856L0 24l6.335-1.508A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.36-.214-3.727.977.996-3.635-.235-.374A9.818 9.818 0 1112 21.818z"/>
+        </svg>
+        WhatsApp এ কথা বলুন
+      </a>
+      <p class="text-[11px] text-gray-600 tracking-[2px] uppercase mt-4 bangla-font">
+        ২৪/৭ সাপোর্ট · এখনই মেসেজ করুন
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- ✅ END -->
+<!-- 🔥 END SECTION -->
+
 
 
     <div id="footer"></div>
