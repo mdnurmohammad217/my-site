@@ -25,387 +25,432 @@
 <body>
     <div id="header"></div>
 
-  <style>
-    :root {
-      --gold-light:  #f5d17a;
-      --gold:        #d4a832;
-      --gold-deep:   #a07820;
-      --gold-bright: #ffe39a;
-      --bg-dark:     #0b0900;
-      --bg-card:     #110e00;
-      --text-light:  #fef6e4;
-      --text-muted:  #c9a85c;
-    }
+ 
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
 
-    body {
-      background: var(--bg-dark);
-      font-family: 'Hind Siliguri', sans-serif;
+<style>
+  /* ══════════════════════════════════════════
+     সব CSS শুধু .csx-section এর ভেতরে scoped
+     body, html, * কোনো global selector নেই
+     অন্য section এর design নষ্ট হবে না
+  ══════════════════════════════════════════ */
 
-    }
+  .csx-section {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 20px;
+    background: #0b0900;
+    font-family: 'Hind Siliguri', sans-serif;
+  }
 
-    /* ─── Noise / grain overlay ─── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.5;
-    }
+  /* grain overlay — শুধু section এর ভেতরে */
+  .csx-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.45;
+  }
 
-    section {
-      position: relative;
-      overflow: hidden;
-      padding: 100px 20px;
-      z-index: 1;
-    }
+  /* ── Decorative orbs ── */
+  .csx-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .csx-orb-1 { width: 340px; height: 340px; background: radial-gradient(circle, #c8860a55, transparent 70%); top: -60px; left: -80px; }
+  .csx-orb-2 { width: 260px; height: 260px; background: radial-gradient(circle, #d4a83228, transparent 70%); bottom: 20px; right: -50px; }
+  .csx-orb-3 { width: 200px; height: 200px; background: radial-gradient(circle, #f5d17a18, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
-    /* ─── Decorative orbs ─── */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      pointer-events: none;
-    }
-    .orb-1 { width: 340px; height: 340px; background: radial-gradient(circle, #c8860a55, transparent 70%); top: -60px; left: -80px; }
-    .orb-2 { width: 260px; height: 260px; background: radial-gradient(circle, #d4a83228, transparent 70%); bottom: 20px; right: -50px; }
-    .orb-3 { width: 200px; height: 200px; background: radial-gradient(circle, #f5d17a18, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .csx-inner {
+    position: relative;
+    z-index: 1;
+  }
 
-    /* ─── Decorative horizontal rule ─── */
-    .divider-line {
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 0 auto 14px;
-      max-width: 300px;
-      opacity: 0.6;
-    }
+  /* ── Badge ── */
+  .csx-badge-wrap { display: flex; justify-content: center; margin-bottom: 28px; }
+  .csx-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 22px;
+    border: 1px solid #c8860a66;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #1a1200cc, #2a1d00cc);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f5d17a;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+  }
+  .csx-badge-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #d4a832;
+    animation: csx-pulse-dot 2s ease-in-out infinite;
+  }
 
-    /* ─── Badge ─── */
-    .badge-wrap { display: flex; justify-content: center; margin-bottom: 32px; }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 22px;
-      border: 1px solid #c8860a66;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #1a1200cc, #2a1d00cc);
-      backdrop-filter: blur(12px);
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-    }
-    .badge-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 8px var(--gold);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { box-shadow: 0 0 6px var(--gold); }
-      50%       { box-shadow: 0 0 16px var(--gold-light); }
-    }
+  /* ── Heading ── */
+  .csx-heading-wrap { text-align: center; margin-bottom: 60px; }
+  .csx-heading-wrap h2 {
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffe39a 10%, #d4a832 50%, #a07820 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+  }
+  .csx-heading-rule {
+    margin: 0 auto 16px;
+    width: 80px; height: 2px;
+    background: linear-gradient(90deg, transparent, #d4a832, transparent);
+  }
+  .csx-heading-wrap p {
+    color: #c9a85c;
+    font-size: 1rem;
+    max-width: 460px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .csx-ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; margin-bottom: 16px;
+  }
+  .csx-ornament span { color: #d4a832; font-size: 1.1rem; opacity: 0.7; }
+  .csx-ornament hr { width: 50px; border: none; height: 1px; background: #d4a832; opacity: 0.3; margin: 0; }
 
-    /* ─── Heading ─── */
-    .heading-wrap { text-align: center; margin-bottom: 70px; }
-    .heading-wrap h2 {
-      
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--gold-bright) 10%, var(--gold) 50%, var(--gold-deep) 90%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-    .heading-rule {
-      margin: 18px auto 20px;
-      width: 80px; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-    .heading-wrap p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 480px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
+  /* ── Grid ── */
+  .csx-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 940px;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+    .csx-grid { grid-template-columns: 1fr 1fr; }
+    .csx-card-full { grid-column: 1 / -1; }
+  }
 
-    /* ─── Grid ─── */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    @media (min-width: 768px) {
-      .cards-grid { grid-template-columns: 1fr 1fr; }
-      .card-full  { grid-column: 1 / -1; }
-    }
+  /* ── Card ── */
+  .csx-card-outer {
+    position: relative;
+    border-radius: 28px;
+    padding: 1px;
+    background: linear-gradient(135deg, #d4a83288, #7a5c1a55, #d4a83244);
+    box-shadow: 0 8px 40px #00000066, 0 0 0 1px #c8860a22;
+    transition: transform 0.4s cubic-bezier(.22,1,.36,1), box-shadow 0.4s;
+  }
+  .csx-card-outer:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px #00000099, 0 0 30px #d4a83222;
+  }
+  .csx-card-inner {
+    position: relative;
+    border-radius: 27px;
+    background: linear-gradient(145deg, #181100, #0e0b00);
+    overflow: hidden;
+    padding: 32px 28px;
+  }
+  .csx-card-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top left, #d4a83210, transparent 60%);
+    pointer-events: none;
+  }
 
-    /* ─── Card base ─── */
-    .card-outer {
-      position: relative;
-      border-radius: 28px;
-      padding: 1px;
-      background: linear-gradient(135deg, #d4a83288, #7a5c1a55, #d4a83244);
-      box-shadow: 0 8px 40px #00000066, 0 0 0 1px #c8860a22;
-      transition: transform 0.4s cubic-bezier(.22,1,.36,1), box-shadow 0.4s;
-    }
-    .card-outer:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px #00000099, 0 0 30px #d4a83222;
-    }
-    .card-inner {
-      position: relative;
-      border-radius: 27px;
-      background: linear-gradient(145deg, #181100, #0e0b00);
-      overflow: hidden;
-      padding: 34px 30px;
-    }
+  /* ── Icon box ── */
+  .csx-card-header { display: flex; align-items: center; gap: 18px; }
+  .csx-icon-box {
+    flex-shrink: 0;
+    width: 66px; height: 66px;
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .csx-icon-box svg { width: 28px; height: 28px; }
 
-    /* inner shimmer */
-    .card-inner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at top left, #d4a83210, transparent 60%);
-      pointer-events: none;
-    }
+  /* ── Icon infinite float + glow animations ── */
+  @keyframes csx-icon-float {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50%       { transform: translateY(-5px) scale(1.07); }
+  }
+  @keyframes csx-glow-green {
+    0%, 100% { box-shadow: 0 0 12px #22c55e33; }
+    50%       { box-shadow: 0 0 30px #22c55e77, 0 0 55px #22c55e22; }
+  }
+  @keyframes csx-glow-blue {
+    0%, 100% { box-shadow: 0 0 12px #6366f133; }
+    50%       { box-shadow: 0 0 30px #6366f177, 0 0 55px #6366f122; }
+  }
+  @keyframes csx-glow-red {
+    0%, 100% { box-shadow: 0 0 12px #ef444433; }
+    50%       { box-shadow: 0 0 30px #ef444477, 0 0 55px #ef444422; }
+  }
+  @keyframes csx-pulse-dot {
+    0%, 100% { box-shadow: 0 0 6px #d4a832; }
+    50%       { box-shadow: 0 0 18px #f5d17a; }
+  }
 
-    /* ─── Card type colours ─── */
-    .card-primary .card-icon-bg  { background: linear-gradient(135deg, #2a5c2a, #1a3d1a); box-shadow: 0 0 20px #22c55e33; }
-    .card-primary .card-icon-bg svg { color: #6ee7a0; }
-    .card-primary .line-accent   { background: linear-gradient(90deg, #22c55e, transparent); }
+  .csx-icon-green {
+    background: linear-gradient(135deg, #2a5c2a, #1a3d1a);
+    animation: csx-icon-float 3s ease-in-out infinite,
+               csx-glow-green 3s ease-in-out infinite;
+  }
+  .csx-icon-green svg { color: #6ee7a0; }
 
-    .card-support .card-icon-bg  { background: linear-gradient(135deg, #1a2a5c, #0d1a3d); box-shadow: 0 0 20px #6366f133; }
-    .card-support .card-icon-bg svg { color: #a5b4fc; }
-    .card-support .line-accent   { background: linear-gradient(90deg, #6366f1, transparent); }
+  .csx-icon-blue {
+    background: linear-gradient(135deg, #1a2a5c, #0d1a3d);
+    animation: csx-icon-float 3.4s ease-in-out infinite,
+               csx-glow-blue 3.4s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+  .csx-icon-blue svg { color: #a5b4fc; }
 
-    .card-emergency .card-icon-bg { background: linear-gradient(135deg, #5c1a1a, #3d0d0d); box-shadow: 0 0 20px #ef444433; }
-    .card-emergency .card-icon-bg svg { color: #fca5a5; }
-    .card-emergency .line-accent  { background: linear-gradient(90deg, #ef4444, transparent); }
+  .csx-icon-red {
+    background: linear-gradient(135deg, #5c1a1a, #3d0d0d);
+    animation: csx-icon-float 2.8s ease-in-out infinite,
+               csx-glow-red 2.8s ease-in-out infinite;
+    animation-delay: 0.25s;
+  }
+  .csx-icon-red svg { color: #fca5a5; }
 
-    /* ─── Card content ─── */
-    .card-header { display: flex; align-items: center; gap: 18px; }
+  /* ── Card text ── */
+  .csx-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.63rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #c9a85c;
+    margin-bottom: 4px;
+  }
+  .csx-number {
+    
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #ffe39a;
+    letter-spacing: 0.04em;
+  }
 
-    .card-icon-bg {
-      flex-shrink: 0;
-      width: 68px; height: 68px;
-      border-radius: 20px;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .card-icon-bg svg { width: 30px; height: 30px; }
+  /* ── Divider lines ── */
+  .csx-line { height: 1px; margin: 20px 0; opacity: 0.4; }
+  .csx-line-green  { background: linear-gradient(90deg, #22c55e, transparent); }
+  .csx-line-blue   { background: linear-gradient(90deg, #6366f1, transparent); }
+  .csx-line-red    { background: linear-gradient(90deg, #ef4444, transparent); }
 
-    .card-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-    .card-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.7rem;
-      font-weight: 700;
-      color: var(--gold-bright);
-      letter-spacing: 0.04em;
-    }
+  /* ── Corner ornament ── */
+  .csx-corner {
+    position: absolute;
+    top: 18px; right: 20px;
+    opacity: 0.05;
+    pointer-events: none;
+    color: #f5d17a;
+  }
+  .csx-corner svg { width: 78px; height: 78px; }
 
-    .line-accent {
-      height: 1px;
-      margin: 22px 0;
-      opacity: 0.4;
-    }
+  /* ── Buttons ── */
+  .csx-btn-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .csx-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: 14px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .csx-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .csx-btn-call {
+    background: linear-gradient(135deg, #a07820, #d4a832);
+    color: #0b0900;
+    box-shadow: 0 4px 20px #d4a83244;
+  }
+  .csx-btn-call:hover {
+    background: linear-gradient(135deg, #d4a832, #ffe39a);
+    box-shadow: 0 6px 30px #d4a83266;
+    transform: translateY(-1px);
+  }
+  .csx-btn-wa {
+    background: rgba(255,255,255,0.05);
+    color: #f5d17a;
+    border: 1px solid #d4a83240;
+  }
+  .csx-btn-wa:hover {
+    background: rgba(212,168,50,0.1);
+    border-color: #d4a832;
+    box-shadow: 0 0 14px #d4a83222;
+  }
 
-    /* ─── Buttons ─── */
-    .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 22px;
-      border-radius: 14px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.95rem;
-    }
-    .btn-call {
-      background: linear-gradient(135deg, var(--gold-deep), var(--gold));
-      color: #0b0900;
-      box-shadow: 0 4px 20px #d4a83244;
-    }
-    .btn-call:hover {
-      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
-      box-shadow: 0 6px 30px #d4a83266;
-      transform: translateY(-1px);
-    }
-    .btn-wa {
-      background: #ffffff0d;
-      color: var(--gold-light);
-      border: 1px solid #d4a83240;
-    }
-    .btn-wa:hover {
-      background: #d4a83215;
-      border-color: var(--gold);
-      box-shadow: 0 0 14px #d4a83222;
-    }
-    .btn svg { width: 17px; height: 17px; }
+  /* ── Emergency pulse tag ── */
+  .csx-emergency-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(212,168,50,0.08);
+    border: 1px solid #d4a83240;
+    border-radius: 999px;
+    padding: 3px 12px;
+    margin-bottom: 8px;
+  }
+  .csx-red-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #ef4444;
+    display: inline-block;
+    animation: csx-red-pulse 1.2s ease-in-out infinite;
+  }
+  @keyframes csx-red-pulse {
+    0%, 100% { box-shadow: 0 0 4px #ef4444; }
+    50%       { box-shadow: 0 0 12px #ef4444, 0 0 20px #ef444444; }
+  }
+  .csx-emergency-tag .csx-etag-text {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f87171;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+  }
+</style>
 
-    /* ─── Corner ornament ─── */
-    .corner-ornament {
-      position: absolute;
-      top: 18px; right: 22px;
-      opacity: 0.06;
-      pointer-events: none;
-    }
-    .corner-ornament svg { width: 80px; height: 80px; color: var(--gold-light); }
+<!-- ════════════════════════════════════ -->
+<!--         CONTACT SECTION            -->
+<!-- ════════════════════════════════════ -->
+<section class="csx-section">
+  <div class="csx-orb csx-orb-1"></div>
+  <div class="csx-orb csx-orb-2"></div>
+  <div class="csx-orb csx-orb-3"></div>
 
-    /* ─── Gold rule between badge & heading ─── */
-    .ornament-line {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-    .ornament-line span { color: var(--gold); font-size: 1.2rem; opacity: 0.7; }
-    .ornament-line hr { width: 50px; border: none; height: 1px; background: var(--gold); opacity: 0.3; }
-  </style>
+  <div class="csx-inner">
 
-<section>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-
-  <!-- Badge -->
-  <div class="badge-wrap">
-    <div class="badge">
-      <span class="badge-dot"></span>
-      Direct Contact
-    </div>
-  </div>
-
-  <!-- Heading -->
-  <div class="heading-wrap">
-    <div class="ornament-line">
-      <hr/><span>✦</span><hr/>
-    </div>
-    <h2 class="bangla-font">সরাসরি যোগাযোগ</h2>
-    <div class="heading-rule"></div>
-    <p class="bangla-font">দ্রুত সহায়তার জন্য নিচের যেকোনো নম্বরে কল বা WhatsApp করুন</p>
-  </div>
-
-  <!-- Cards -->
-  <div class="cards-grid">
-
-    <!-- Card 1 – Primary -->
-    <div class="card-outer card-primary">
-      <div class="card-inner">
-        <div class="corner-ornament">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.05 11.05 0 003.47.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h3.5a1 1 0 011 1 11.05 11.05 0 00.55 3.47 1 1 0 01-.24 1.01l-2.19 2.31z"/></svg>
-        </div>
-        <div class="card-header">
-          <div class="card-icon-bg">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.05 11.05 0 003.47.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h3.5a1 1 0 011 1 11.05 11.05 0 00.55 3.47 1 1 0 01-.24 1.01l-2.19 2.31z"/></svg>
-          </div>
-          <div>
-            <div class="card-label">Primary Helpline</div>
-            <div class="card-number">+880 1313-133044</div>
-          </div>
-        </div>
-        <div class="line-accent"></div>
-        <div class="btn-group">
-          <a href="tel:+8801313133044" class="btn btn-call">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.05 11.05 0 003.47.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h3.5a1 1 0 011 1 11.05 11.05 0 00.55 3.47 1 1 0 01-.24 1.01l-2.19 2.31z"/></svg>
-            Call Now
-          </a>
-          <a href="https://wa.me/8801313133044" target="_blank" class="btn btn-wa">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.82 11.82 0 0012.09 0C5.5 0 .15 5.34.15 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.95 11.95 0 005.79 1.47h.01c6.58 0 11.94-5.35 11.94-11.94a11.85 11.85 0 00-3.52-8.4zM12.1 21.8a9.8 9.8 0 01-5-1.37l-.36-.21-3.74.98 1-3.64-.23-.38a9.78 9.78 0 01-1.5-5.23c0-5.42 4.41-9.83 9.84-9.83 2.63 0 5.09 1.02 6.95 2.88a9.78 9.78 0 012.88 6.95c0 5.43-4.41 9.85-9.84 9.85zm5.39-7.34c-.29-.15-1.72-.85-1.98-.94-.27-.1-.47-.15-.67.15-.2.29-.77.94-.95 1.13-.17.2-.35.22-.64.08-.29-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.44.13-.58.13-.13.29-.35.44-.52.14-.17.19-.29.29-.49.1-.19.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.08c.14.2 2.1 3.2 5.08 4.48.71.31 1.27.49 1.71.63.72.23 1.38.2 1.89.12.58-.09 1.72-.7 1.97-1.37.24-.67.24-1.24.17-1.37-.08-.12-.27-.19-.56-.34z"/></svg>
-            WhatsApp
-          </a>
-        </div>
+    <!-- Badge -->
+    <div class="csx-badge-wrap">
+      <div class="csx-badge">
+        <span class="csx-badge-dot"></span>
+        Direct Contact
       </div>
     </div>
 
-    <!-- Card 2 – Support -->
-    <div class="card-outer card-support">
-      <div class="card-inner">
-        <div class="corner-ornament">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a5 5 0 00-5 5v1H6a2 2 0 00-2 2v7a2 2 0 002 2h1v1a5 5 0 0010 0v-1h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm-3 6V6a3 3 0 116 0v1H9z"/></svg>
-        </div>
-        <div class="card-header">
-          <div class="card-icon-bg">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a5 5 0 00-5 5v1H6a2 2 0 00-2 2v7a2 2 0 002 2h1v1a5 5 0 0010 0v-1h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm-3 6V6a3 3 0 116 0v1H9z"/></svg>
-          </div>
-          <div>
-            <div class="card-label">Support Line</div>
-            <div class="card-number">+880 1313-133044</div>
-          </div>
-        </div>
-        <div class="line-accent"></div>
-        <div class="btn-group">
-          <a href="tel:+8801313133044" class="btn btn-call">Call Now</a>
-          <a href="https://wa.me/8801313133044" target="_blank" class="btn btn-wa">WhatsApp</a>
-        </div>
+    <!-- Heading -->
+    <div class="csx-heading-wrap">
+      <div class="csx-ornament">
+        <hr/><span>✦</span><hr/>
       </div>
+      <h2 class="bangla-font">সরাসরি যোগাযোগ</h2>
+      <div class="csx-heading-rule"></div>
+      <p class="bangla-font">দ্রুত সহায়তার জন্য নিচের যেকোনো নম্বরে কল বা WhatsApp করুন</p>
     </div>
 
-    <!-- Card 3 – Emergency (full width) -->
-    <div class="card-outer card-emergency card-full">
-      <div class="card-inner" style="display:flex; flex-direction:column; gap:0;">
-        <div class="corner-ornament" style="opacity:0.05;">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:100px;height:100px;"><path d="M12 2a7 7 0 00-7 7v3.59L3.29 14.3A1 1 0 004 16h16a1 1 0 00.71-1.7L19 12.59V9a7 7 0 00-7-7zm0 20a3 3 0 002.83-2H9.17A3 3 0 0012 22z"/></svg>
-        </div>
+    <!-- Cards -->
+    <div class="csx-grid">
 
-        <div style="display:flex; flex-direction:column; gap:24px;">
-          <!-- top row -->
-          <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
-            <div class="card-icon-bg" style="background:linear-gradient(135deg,#5c1a1a,#3d0d0d); box-shadow:0 0 20px #ef444433;">
-              <svg viewBox="0 0 24 24" fill="currentColor" style="color:#fca5a5;width:30px;height:30px;"><path d="M12 2a7 7 0 00-7 7v3.59L3.29 14.3A1 1 0 004 16h16a1 1 0 00.71-1.7L19 12.59V9a7 7 0 00-7-7zm0 20a3 3 0 002.83-2H9.17A3 3 0 0012 22z"/></svg>
+      <!-- Card 1 – Primary -->
+      <div class="csx-card-outer">
+        <div class="csx-card-inner">
+          <div class="csx-corner">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.05 11.05 0 003.47.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h3.5a1 1 0 011 1 11.05 11.05 0 00.55 3.47 1 1 0 01-.24 1.01l-2.19 2.31z"/></svg>
+          </div>
+          <div class="csx-card-header">
+            <div class="csx-icon-box csx-icon-green">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.05 11.05 0 003.47.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h3.5a1 1 0 011 1 11.05 11.05 0 00.55 3.47 1 1 0 01-.24 1.01l-2.19 2.31z"/></svg>
             </div>
             <div>
-              <!-- small gold tag -->
-              <div style="display:inline-flex;align-items:center;gap:6px;background:#d4a83218;border:1px solid #d4a83240;border-radius:999px;padding:3px 12px;margin-bottom:8px;">
-                <span style="width:6px;height:6px;border-radius:50%;background:#ef4444;box-shadow:0 0 6px #ef4444;display:inline-block;animation:pulse-dot 1.2s ease-in-out infinite;"></span>
-                <span style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#f87171;font-family:'Cormorant Garamond',serif;font-weight:600;">Emergency</span>
-              </div>
-              <div class="card-label">Emergency Line</div>
-              <div class="card-number">+880 1404-800362</div>
+              <div class="csx-label">Primary Helpline</div>
+              <div class="csx-number">+880 1313-133044</div>
             </div>
           </div>
-
-          <div class="line-accent" style="background:linear-gradient(90deg,#ef4444,transparent);"></div>
-
-          <div class="btn-group">
-            <a href="tel:+8801404800362" class="btn btn-call">
-              <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px;"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.05 11.05 0 003.47.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h3.5a1 1 0 011 1 11.05 11.05 0 00.55 3.47 1 1 0 01-.24 1.01l-2.19 2.31z"/></svg>
+          <div class="csx-line csx-line-green"></div>
+          <div class="csx-btn-group">
+            <a href="tel:+8801313133044" class="csx-btn csx-btn-call">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.05 11.05 0 003.47.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h3.5a1 1 0 011 1 11.05 11.05 0 00.55 3.47 1 1 0 01-.24 1.01l-2.19 2.31z"/></svg>
               Call Now
             </a>
-            <a href="https://wa.me/8801404800362" target="_blank" class="btn btn-wa">
-              <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px;"><path d="M20.52 3.48A11.82 11.82 0 0012.09 0C5.5 0 .15 5.34.15 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.95 11.95 0 005.79 1.47h.01c6.58 0 11.94-5.35 11.94-11.94a11.85 11.85 0 00-3.52-8.4zM12.1 21.8a9.8 9.8 0 01-5-1.37l-.36-.21-3.74.98 1-3.64-.23-.38a9.78 9.78 0 01-1.5-5.23c0-5.42 4.41-9.83 9.84-9.83 2.63 0 5.09 1.02 6.95 2.88a9.78 9.78 0 012.88 6.95c0 5.43-4.41 9.85-9.84 9.85zm5.39-7.34c-.29-.15-1.72-.85-1.98-.94-.27-.1-.47-.15-.67.15-.2.29-.77.94-.95 1.13-.17.2-.35.22-.64.08-.29-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.44.13-.58.13-.13.29-.35.44-.52.14-.17.19-.29.29-.49.1-.19.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.08c.14.2 2.1 3.2 5.08 4.48.71.31 1.27.49 1.71.63.72.23 1.38.2 1.89.12.58-.09 1.72-.7 1.97-1.37.24-.67.24-1.24.17-1.37-.08-.12-.27-.19-.56-.34z"/></svg>
+            <a href="https://wa.me/8801313133044" target="_blank" class="csx-btn csx-btn-wa">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.82 11.82 0 0012.09 0C5.5 0 .15 5.34.15 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.95 11.95 0 005.79 1.47h.01c6.58 0 11.94-5.35 11.94-11.94a11.85 11.85 0 00-3.52-8.4zM12.1 21.8a9.8 9.8 0 01-5-1.37l-.36-.21-3.74.98 1-3.64-.23-.38a9.78 9.78 0 01-1.5-5.23c0-5.42 4.41-9.83 9.84-9.83 2.63 0 5.09 1.02 6.95 2.88a9.78 9.78 0 012.88 6.95c0 5.43-4.41 9.85-9.84 9.85zm5.39-7.34c-.29-.15-1.72-.85-1.98-.94-.27-.1-.47-.15-.67.15-.2.29-.77.94-.95 1.13-.17.2-.35.22-.64.08-.29-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.44.13-.58.13-.13.29-.35.44-.52.14-.17.19-.29.29-.49.1-.19.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.08c.14.2 2.1 3.2 5.08 4.48.71.31 1.27.49 1.71.63.72.23 1.38.2 1.89.12.58-.09 1.72-.7 1.97-1.37.24-.67.24-1.24.17-1.37-.08-.12-.27-.19-.56-.34z"/></svg>
               WhatsApp
             </a>
           </div>
         </div>
       </div>
-    </div>
 
+      <!-- Card 2 – Support -->
+      <div class="csx-card-outer">
+        <div class="csx-card-inner">
+          <div class="csx-corner">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a5 5 0 00-5 5v1H6a2 2 0 00-2 2v7a2 2 0 002 2h1v1a5 5 0 0010 0v-1h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm-3 6V6a3 3 0 116 0v1H9z"/></svg>
+          </div>
+          <div class="csx-card-header">
+            <div class="csx-icon-box csx-icon-blue">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a5 5 0 00-5 5v1H6a2 2 0 00-2 2v7a2 2 0 002 2h1v1a5 5 0 0010 0v-1h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm-3 6V6a3 3 0 116 0v1H9z"/></svg>
+            </div>
+            <div>
+              <div class="csx-label">Support Line</div>
+              <div class="csx-number">+880 1313-133044</div>
+            </div>
+          </div>
+          <div class="csx-line csx-line-blue"></div>
+          <div class="csx-btn-group">
+            <a href="tel:+8801313133044" class="csx-btn csx-btn-call">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.05 11.05 0 003.47.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h3.5a1 1 0 011 1 11.05 11.05 0 00.55 3.47 1 1 0 01-.24 1.01l-2.19 2.31z"/></svg>
+              Call Now
+            </a>
+            <a href="https://wa.me/8801313133044" target="_blank" class="csx-btn csx-btn-wa">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.82 11.82 0 0012.09 0C5.5 0 .15 5.34.15 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.95 11.95 0 005.79 1.47h.01c6.58 0 11.94-5.35 11.94-11.94a11.85 11.85 0 00-3.52-8.4zM12.1 21.8a9.8 9.8 0 01-5-1.37l-.36-.21-3.74.98 1-3.64-.23-.38a9.78 9.78 0 01-1.5-5.23c0-5.42 4.41-9.83 9.84-9.83 2.63 0 5.09 1.02 6.95 2.88a9.78 9.78 0 012.88 6.95c0 5.43-4.41 9.85-9.84 9.85zm5.39-7.34c-.29-.15-1.72-.85-1.98-.94-.27-.1-.47-.15-.67.15-.2.29-.77.94-.95 1.13-.17.2-.35.22-.64.08-.29-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.44.13-.58.13-.13.29-.35.44-.52.14-.17.19-.29.29-.49.1-.19.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.08c.14.2 2.1 3.2 5.08 4.48.71.31 1.27.49 1.71.63.72.23 1.38.2 1.89.12.58-.09 1.72-.7 1.97-1.37.24-.67.24-1.24.17-1.37-.08-.12-.27-.19-.56-.34z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 – Emergency (full width) -->
+      <div class="csx-card-outer csx-card-full">
+        <div class="csx-card-inner">
+          <div class="csx-corner" style="opacity:0.04;">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:96px;height:96px;"><path d="M12 2a7 7 0 00-7 7v3.59L3.29 14.3A1 1 0 004 16h16a1 1 0 00.71-1.7L19 12.59V9a7 7 0 00-7-7zm0 20a3 3 0 002.83-2H9.17A3 3 0 0012 22z"/></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+              <div class="csx-icon-box csx-icon-red">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 00-7 7v3.59L3.29 14.3A1 1 0 004 16h16a1 1 0 00.71-1.7L19 12.59V9a7 7 0 00-7-7zm0 20a3 3 0 002.83-2H9.17A3 3 0 0012 22z"/></svg>
+              </div>
+              <div>
+                <div class="csx-emergency-tag">
+                  <span class="csx-red-dot"></span>
+                  <span class="csx-etag-text">Emergency</span>
+                </div>
+                <div class="csx-label">Emergency Line</div>
+                <div class="csx-number">+880 1404-800362</div>
+              </div>
+            </div>
+            <div class="csx-line csx-line-red"></div>
+            <div class="csx-btn-group">
+              <a href="tel:+8801404800362" class="csx-btn csx-btn-call">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.05 11.05 0 003.47.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h3.5a1 1 0 011 1 11.05 11.05 0 00.55 3.47 1 1 0 01-.24 1.01l-2.19 2.31z"/></svg>
+                Call Now
+              </a>
+              <a href="https://wa.me/8801404800362" target="_blank" class="csx-btn csx-btn-wa">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.82 11.82 0 0012.09 0C5.5 0 .15 5.34.15 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.95 11.95 0 005.79 1.47h.01c6.58 0 11.94-5.35 11.94-11.94a11.85 11.85 0 00-3.52-8.4zM12.1 21.8a9.8 9.8 0 01-5-1.37l-.36-.21-3.74.98 1-3.64-.23-.38a9.78 9.78 0 01-1.5-5.23c0-5.42 4.41-9.83 9.84-9.83 2.63 0 5.09 1.02 6.95 2.88a9.78 9.78 0 012.88 6.95c0 5.43-4.41 9.85-9.84 9.85zm5.39-7.34c-.29-.15-1.72-.85-1.98-.94-.27-.1-.47-.15-.67.15-.2.29-.77.94-.95 1.13-.17.2-.35.22-.64.08-.29-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.44.13-.58.13-.13.29-.35.44-.52.14-.17.19-.29.29-.49.1-.19.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.08c.14.2 2.1 3.2 5.08 4.48.71.31 1.27.49 1.71.63.72.23 1.38.2 1.89.12.58-.09 1.72-.7 1.97-1.37.24-.67.24-1.24.17-1.37-.08-.12-.27-.19-.56-.34z"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
