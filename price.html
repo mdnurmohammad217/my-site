@@ -194,6 +194,311 @@ content: '';
 
 
 
+<style>
+  /* Custom styles that Tailwind can't handle */
+  .font-playfair { font-family: 'Playfair Display', serif; }
+  .font-dm { font-family: 'DM Sans', sans-serif; }
+
+  .card-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(circle at 30% 40%, var(--glow), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .card-glow:hover::after { opacity: 1; }
+
+  .top-line::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 20px; right: 20px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.4;
+    transition: opacity 0.3s;
+    border-radius: 999px;
+  }
+  .top-line:hover::before { opacity: 1; }
+
+  .gradient-title {
+    background: linear-gradient(135deg, #f0ece3 30%, #e8c96d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, #c9a84c, transparent);
+    border-radius: 2px;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeup { animation: fadeUp 0.6s ease both; }
+  .delay-1  { animation-delay: 0.05s; }
+  .delay-2  { animation-delay: 0.10s; }
+  .delay-3  { animation-delay: 0.15s; }
+  .delay-4  { animation-delay: 0.20s; }
+  .delay-5  { animation-delay: 0.25s; }
+  .delay-6  { animation-delay: 0.30s; }
+  .delay-7  { animation-delay: 0.35s; }
+  .delay-8  { animation-delay: 0.40s; }
+  .delay-9  { animation-delay: 0.45s; }
+  .delay-10 { animation-delay: 0.50s; }
+  .delay-11 { animation-delay: 0.55s; }
+  .delay-12 { animation-delay: 0.60s; }
+</style>
+
+<!-- ✅ ECOMMERCE FEATURES SECTION -->
+<section class="relative py-24 px-6 overflow-hidden bg-[#0b0c10] font-dm">
+
+  <!-- Grid BG -->
+  <div class="absolute inset-0 -z-10
+    [background-image:linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)]
+    [background-size:48px_48px]">
+  </div>
+
+  <!-- Ambient Blobs -->
+  <div class="blob -z-10 w-[500px] h-[500px] bg-[rgba(201,168,76,0.07)] -top-28 -left-36"></div>
+  <div class="blob -z-10 w-[400px] h-[400px] bg-[rgba(80,120,255,0.05)] bottom-0 -right-24"></div>
+  <div class="blob -z-10 w-[300px] h-[300px] bg-[rgba(201,168,76,0.04)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+  <!-- Header -->
+  <div class="relative z-10 text-center mb-16 animate-fadeup">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 bg-[rgba(201,168,76,0.12)] border border-[rgba(201,168,76,0.3)] text-[#e8c96d] text-[11px] font-medium tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-5">
+      <i class="fa-solid fa-sparkles text-[9px]"></i> Exclusive Features
+    </div>
+
+    <!-- Title -->
+    <h2 class="font-playfair font-bold text-5xl md:text-6xl leading-tight tracking-tight gradient-title mb-4">
+      Special for You!
+    </h2>
+
+    <!-- Gold Divider -->
+    <div class="gold-divider mx-auto mb-5"></div>
+
+    <!-- Subtitle -->
+    <p class="text-[rgba(240,236,227,0.5)] text-base max-w-md mx-auto leading-relaxed">
+      আমাদের বিশেষ পরিষেবাসমূহ যা আপনার ব্যবসাকে দ্রুত এগিয়ে নেবে
+    </p>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="relative z-10 max-w-[1100px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <!-- Card 1 — Teal -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-1"
+      style="--accent:#2dd4bf; --glow:rgba(45,212,191,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">01</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(45,212,191,0.12)] border border-[rgba(45,212,191,0.2)] text-[#2dd4bf] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Incomplete Order</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ইনকমপ্লিট অর্ডার ধরুন, যা সেলস বাড়াবে 10x গুণ দ্রুত।</p>
+    </div>
+
+    <!-- Card 2 — Blue -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-2"
+      style="--accent:#60a5fa; --glow:rgba(96,165,250,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">02</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(96,165,250,0.12)] border border-[rgba(96,165,250,0.2)] text-[#60a5fa] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-user-shield"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Fraud Checker</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ফ্রড কাস্টমার শনাক্ত করে স্বয়ংক্রিয়ভাবে ব্লক করা যায়।</p>
+    </div>
+
+    <!-- Card 3 — Pink -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-3"
+      style="--accent:#f472b6; --glow:rgba(244,114,182,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">03</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(244,114,182,0.12)] border border-[rgba(244,114,182,0.2)] text-[#f472b6] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-ban"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">IP Ban</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ফ্রড ইউজারের আইপি তাৎক্ষণিকভাবে ব্লক করুন।</p>
+    </div>
+
+    <!-- Card 4 — Green -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-4"
+      style="--accent:#4ade80; --glow:rgba(74,222,128,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">04</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(74,222,128,0.12)] border border-[rgba(74,222,128,0.2)] text-[#4ade80] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-calculator"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Amount Adjust</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">অর্ডারের টাকা সহজেই অ্যাডজাস্ট করুন।</p>
+    </div>
+
+    <!-- Card 5 — Purple -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-5"
+      style="--accent:#a78bfa; --glow:rgba(167,139,250,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">05</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(167,139,250,0.12)] border border-[rgba(167,139,250,0.2)] text-[#a78bfa] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-file-lines"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Landing Page</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">প্রোডাক্টের জন্য কাস্টম ল্যান্ডিং পেজ তৈরি করুন।</p>
+    </div>
+
+    <!-- Card 6 — Orange -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-6"
+      style="--accent:#fb923c; --glow:rgba(251,146,60,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">06</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(251,146,60,0.12)] border border-[rgba(251,146,60,0.2)] text-[#fb923c] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-truck-fast"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Courier Entry</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">কুরিয়ার এন্ট্রি ও পার্সেল ম্যানেজ সহজেই করুন।</p>
+    </div>
+
+    <!-- Card 7 — Cyan -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-7"
+      style="--accent:#22d3ee; --glow:rgba(34,211,238,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">07</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(34,211,238,0.12)] border border-[rgba(34,211,238,0.2)] text-[#22d3ee] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-shoe-prints"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Foot Print</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ইউজারের প্রতিটি অ্যাক্টিভিটি রিয়েল-টাইমে ট্র্যাক করুন।</p>
+    </div>
+
+    <!-- Card 8 — Indigo -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-8"
+      style="--accent:#818cf8; --glow:rgba(129,140,248,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">08</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(129,140,248,0.12)] border border-[rgba(129,140,248,0.2)] text-[#818cf8] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-list-check"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Order Management</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">সব অর্ডার এক জায়গায় সহজে ম্যানেজ করুন।</p>
+    </div>
+
+    <!-- Card 9 — Emerald -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-9"
+      style="--accent:#34d399; --glow:rgba(52,211,153,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">09</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(52,211,153,0.12)] border border-[rgba(52,211,153,0.2)] text-[#34d399] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-code"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Pixel Setup</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">ফেসবুক ও গুগল পিক্সেল দ্রুত সেটআপ করুন।</p>
+    </div>
+
+    <!-- Card 10 — Amber -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-10"
+      style="--accent:#fbbf24; --glow:rgba(251,191,36,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">10</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(251,191,36,0.12)] border border-[rgba(251,191,36,0.2)] text-[#fbbf24] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-boxes-stacked"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Stock</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">স্টক ম্যানেজ করুন সহজে, কোনো ঝামেলা ছাড়াই।</p>
+    </div>
+
+    <!-- Card 11 — Red -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-11"
+      style="--accent:#f87171; --glow:rgba(248,113,113,0.08);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">11</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(248,113,113,0.12)] border border-[rgba(248,113,113,0.2)] text-[#f87171] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-file-invoice"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Invoice</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">প্রফেশনাল ইনভয়েস তৈরি করুন মুহূর্তেই।</p>
+    </div>
+
+    <!-- Card 12 — Gold -->
+    <div class="card-glow top-line group relative bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-[20px] p-7 overflow-hidden
+      transition-all duration-300 ease-out cursor-default
+      hover:-translate-y-1.5 hover:border-[rgba(201,168,76,0.35)] hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+      animate-fadeup delay-12"
+      style="--accent:#c9a84c; --glow:rgba(201,168,76,0.1);">
+      <span class="absolute top-5 right-5 text-[11px] text-white/10 font-playfair tracking-wide">12</span>
+      <div class="w-12 h-12 flex items-center justify-center rounded-[14px] bg-[rgba(201,168,76,0.12)] border border-[rgba(201,168,76,0.25)] text-[#c9a84c] text-lg mb-5
+        transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+        <i class="fa-solid fa-star"></i>
+      </div>
+      <h3 class="text-[#f0ece3] font-medium text-[15px] mb-2">Core Features</h3>
+      <p class="text-[rgba(240,236,227,0.5)] text-[13.5px] leading-relaxed">১০+ ইনবিল্ট ফিচার একসাথে পাবেন এই প্ল্যাটফর্মে।</p>
+    </div>
+
+  </div>
+
+  <!-- CTA Button -->
+  <div class="relative z-10 flex justify-center mt-14">
+    <a href="https://wa.link/959hre" target="_blank"
+      class="inline-flex items-center gap-2.5 bg-gradient-to-br from-[#2db049] to-[#1a8c34]
+        text-white font-dm font-medium text-[15px] px-8 py-3.5 rounded-full
+        border border-white/15 tracking-wide
+        shadow-[0_4px_24px_rgba(45,176,73,0.35),inset_0_1px_0_rgba(255,255,255,0.15)]
+        transition-all duration-300
+        hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_8px_36px_rgba(45,176,73,0.5)]">
+      <i class="fa-brands fa-whatsapp text-lg"></i>
+      WhatsApp-এ যোগাযোগ করুন
+    </a>
+  </div>
+
+</section>
+
+
 
 
 
