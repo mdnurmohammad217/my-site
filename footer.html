@@ -31,148 +31,538 @@
 <body>
 
 
-  <section class="bg-[#03001A] text-gray-300 pt-16 pb-6">
 
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
 
-      <!-- LEFT INFO -->
-      <div>
-        <img class="w-[150px] mb-4" src="images/mainwihtlogo.png" alt="">
+/* ═══════════════════════════════
+   SHARED VARS
+═══════════════════════════════ */
+.lux-footer, .lux-chat-wrap {
+  --gold:     #c9972a;
+  --gold-lt:  #f0c84a;
+  --gold-br:  #fce89a;
+  --gold-dp:  #8a6318;
+  --gold-dim: #5a4010;
+  --muted:    #b89040;
+  --bg:       #060400;
+  --bg2:      #0d0900;
+  --bg3:      #141000;
+  --text:     #d4b878;
+  --text-soft:#9a7830;
+}
 
-        <p class="mb-3 text-sm">Gawsia, Rupganj, Narayanganj,<br>Dhaka, Bangladesh</p>
+/* ═══════════════════════════════
+   FOOTER
+═══════════════════════════════ */
+.lux-footer {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  padding: 80px 24px 0;
+  font-family: 'Hind Siliguri', sans-serif;
+}
 
-        <p class="mb-2 text-sm">
-          <span class="bangla-font">ফোন:</span>
-          <a href="tel:01313133044" class="text-blue-400">+880 1313133044</a>
-        </p>
+/* grain */
+.lux-footer::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+}
 
-        <p class="mb-4 text-sm">
-          <span class="bangla-font">ইমেইল:</span>
-          <a href="#" class="text-blue-400">info@siteghor.com</a>
-        </p>
+/* top gold glow */
+.lux-footer::after {
+  content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:70%; height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  pointer-events:none; z-index:1;
+}
 
-        <!-- SOCIAL -->
-        <div class="flex gap-3 mt-4">
-          <a href="#"
-            class="w-10 h-10 flex items-center justify-center bg-blue-600 rounded-lg hover:scale-110 transition"><i
-              class="fab fa-facebook-f"></i></a>
-          <a href="#"
-            class="w-10 h-10 flex items-center justify-center bg-sky-500 rounded-lg hover:scale-110 transition"><i
-              class="fab fa-twitter"></i></a>
-          <a href="#"
-            class="w-10 h-10 flex items-center justify-center bg-red-600 rounded-lg hover:scale-110 transition"><i
-              class="fab fa-youtube"></i></a>
-          <a href="#"
-            class="w-10 h-10 flex items-center justify-center bg-green-500 rounded-lg hover:scale-110 transition"><i
-              class="fab fa-whatsapp"></i></a>
-        </div>
+/* orbs */
+.lf-orb { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:0; }
+.lf-orb-1 { width:350px; height:350px; background:radial-gradient(circle,#c9972a1a,transparent 70%); top:-80px; left:-60px; }
+.lf-orb-2 { width:250px; height:250px; background:radial-gradient(circle,#c9972a12,transparent 70%); bottom:60px; right:-40px; }
+
+/* ── grid ── */
+.lf-grid {
+  position:relative; z-index:2;
+  max-width:1200px; margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+  gap:48px;
+}
+@media(max-width:1024px){ .lf-grid{ grid-template-columns:1fr 1fr; gap:36px; } }
+@media(max-width:600px) { .lf-grid{ grid-template-columns:1fr; gap:28px; } }
+
+/* ── logo area ── */
+.lf-logo img { width:140px; margin-bottom:20px; filter:brightness(1.1); }
+
+.lf-address {
+  font-size:0.85rem; color:var(--text-soft); line-height:1.8; margin-bottom:14px;
+}
+.lf-contact-link {
+  display:flex; align-items:center; gap:8px;
+  font-size:0.85rem; color:var(--text-soft); margin-bottom:8px; text-decoration:none;
+  transition:color .3s;
+}
+.lf-contact-link:hover { color:var(--gold-lt); }
+.lf-contact-link i { color:var(--gold); width:16px; }
+.lf-contact-link span.bangla-font { color:var(--muted); margin-right:4px; }
+
+/* social icons */
+.lf-socials { display:flex; gap:10px; margin-top:22px; }
+.lf-social {
+  width:38px; height:38px;
+  border-radius:12px;
+  border:1px solid #c9972a33;
+  background: #c9972a0c;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold-lt); font-size:0.9rem;
+  text-decoration:none;
+  transition:all .3s cubic-bezier(.22,1,.36,1);
+  position:relative; overflow:hidden;
+}
+.lf-social::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, var(--gold-dp), var(--gold));
+  opacity:0; transition:opacity .3s;
+}
+.lf-social:hover::before { opacity:1; }
+.lf-social:hover { border-color:var(--gold); transform:translateY(-3px); box-shadow:0 6px 20px #c9972a33; color:#060400; }
+.lf-social i { position:relative; z-index:1; }
+
+/* ── col headings ── */
+.lf-col-title {
+  
+  font-size:1.05rem; font-weight:600;
+  text-transform:uppercase;
+  color:var(--gold-lt);
+  margin-bottom:20px;
+  display:flex; align-items:center; gap:10px;
+}
+.lf-col-title::after {
+  content:''; flex:1; height:1px;
+  background:linear-gradient(90deg,var(--gold-dim),transparent);
+}
+
+/* ── nav links ── */
+.lf-nav { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.lf-nav a {
+  display:flex; align-items:center; gap:8px;
+  font-size:0.88rem; color:var(--text-soft); text-decoration:none;
+  transition:all .3s; padding:2px 0;
+}
+.lf-nav a::before {
+  content:'◆'; font-size:0.4rem; color:var(--gold-dim);
+  transition:color .3s, transform .3s;
+}
+.lf-nav a:hover { color:var(--gold-lt); padding-left:6px; }
+.lf-nav a:hover::before { color:var(--gold); transform:scale(1.4); }
+
+/* ── facebook card ── */
+.lf-fb-card {
+  border-radius:16px;
+  padding:1px;
+  background:linear-gradient(135deg,#c9972a66,#5a4010,#c9972a44);
+  margin-bottom:20px;
+}
+.lf-fb-card-inner {
+  border-radius:15px;
+  background:linear-gradient(145deg,#181000,#0e0900);
+  padding:14px;
+  display:flex; align-items:center; gap:12px;
+}
+.lf-fb-avatar {
+  width:46px; height:46px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#1877f2,#0d5dbf);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; color:#fff; flex-shrink:0;
+  box-shadow:0 0 16px #1877f233;
+}
+.lf-fb-name {
+  font-weight:700; color:#e8d5a0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem; letter-spacing:0.04em;
+}
+.lf-fb-verified { color:#60a5fa; font-size:0.8rem; }
+.lf-fb-follow {
+  display:inline-block; margin-top:4px;
+  padding:3px 12px; border-radius:8px;
+  font-size:0.72rem; font-weight:600; letter-spacing:0.06em;
+  background:linear-gradient(135deg,var(--gold-dp),var(--gold));
+  color:#060400; cursor:pointer; border:none;
+  transition:all .3s;
+}
+.lf-fb-follow:hover { background:linear-gradient(135deg,var(--gold),var(--gold-lt)); }
+.lf-fb-stats { font-size:0.75rem; color:var(--text-soft); margin-top:2px; }
+.lf-fb-stats strong { color:var(--gold-lt); }
+
+/* dmca */
+.lf-dmca img { width:100px; opacity:.7; filter:grayscale(.3) brightness(.9); transition:opacity .3s; }
+.lf-dmca img:hover { opacity:1; }
+
+/* ── bottom bar ── */
+.lf-bottom {
+  position:relative; z-index:2;
+  max-width:1200px; margin:0 auto;
+  border-top:1px solid #c9972a1a;
+  margin-top:56px;
+  padding:20px 0 24px;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;
+}
+.lf-bottom-copy {
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.82rem; letter-spacing:0.06em;
+  color:var(--text-soft);
+}
+.lf-bottom-copy span { color:var(--gold); }
+.lf-bottom-ornament {
+  display:flex; align-items:center; gap:8px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.65rem; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--gold-dim);
+}
+.lf-bottom-ornament::before, .lf-bottom-ornament::after {
+  content:''; display:block; width:40px; height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-dim));
+}
+.lf-bottom-ornament::after { background:linear-gradient(90deg,var(--gold-dim),transparent); }
+
+
+/* ═══════════════════════════════
+   WHATSAPP CHAT WIDGET
+═══════════════════════════════ */
+.lux-chat-wrap {
+  position:fixed; bottom:28px; right:28px; z-index:9999;
+  font-family:'Hind Siliguri',sans-serif;
+}
+
+/* ── toggle button ── */
+.lc-toggle-btn {
+  position:relative;
+  width:62px; height:62px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#128c7e,#25d366);
+  border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 30px #25d36655, 0 0 0 0 #25d36644;
+  transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s;
+  outline:none;
+  margin-left:auto;
+}
+.lc-toggle-btn:hover { transform:scale(1.1) rotate(-5deg); box-shadow:0 8px 40px #25d36677; }
+.lc-toggle-btn:active { transform:scale(.95); }
+
+/* ripple rings */
+.lc-ring {
+  position:absolute; inset:0; border-radius:50%;
+  background:rgba(37,211,102,0.35);
+  animation:lc-ripple 2.2s ease-out infinite;
+}
+.lc-ring:nth-child(2) { animation-delay:.7s; background:rgba(37,211,102,0.2); }
+@keyframes lc-ripple {
+  0%   { transform:scale(1); opacity:1; }
+  100% { transform:scale(2.2); opacity:0; }
+}
+
+/* icon morph (open ↔ close) */
+.lc-icon { position:relative; width:28px; height:28px; transition:transform .4s cubic-bezier(.34,1.56,.64,1); }
+.lc-icon-wa, .lc-icon-x {
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  transition:opacity .3s, transform .3s;
+}
+.lc-icon-x { opacity:0; transform:rotate(-90deg) scale(.5); color:#fff; font-size:1.3rem; font-weight:700; }
+.lux-chat-wrap.open .lc-icon-wa { opacity:0; transform:rotate(90deg) scale(.5); }
+.lux-chat-wrap.open .lc-icon-x  { opacity:1; transform:rotate(0) scale(1); }
+.lux-chat-wrap.open .lc-ring    { display:none; }
+
+/* tooltip */
+.lc-tooltip {
+  position:absolute; right:72px; bottom:50%; transform:translateY(50%);
+  background:linear-gradient(135deg,#181000ee,#0e0900ee);
+  border:1px solid #c9972a44;
+  color:var(--gold-lt);
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.78rem; letter-spacing:0.08em;
+  padding:6px 14px; border-radius:10px;
+  white-space:nowrap;
+  pointer-events:none;
+  opacity:0; transform:translateY(50%) translateX(6px);
+  transition:opacity .3s, transform .3s;
+  backdrop-filter:blur(10px);
+}
+.lc-tooltip::after {
+  content:''; position:absolute; right:-5px; top:50%; transform:translateY(-50%);
+  border:5px solid transparent;
+  border-left-color:#c9972a44;
+}
+.lux-chat-wrap:not(.open) .lc-toggle-btn:hover ~ .lc-tooltip,
+.lux-chat-wrap:not(.open) .lc-tooltip-trigger:hover .lc-tooltip {
+  opacity:1; transform:translateY(50%) translateX(0);
+}
+/* simpler approach — show tooltip on wrap hover when closed */
+.lux-chat-wrap:not(.open):hover .lc-tooltip { opacity:1; transform:translateY(50%) translateX(0); }
+
+/* ── popup panel ── */
+.lc-panel {
+  position:absolute; bottom:78px; right:0;
+  width:320px;
+  border-radius:24px;
+  padding:1.5px;
+  background:linear-gradient(135deg,#c9972a88,#5a401055,#c9972a55);
+  box-shadow:0 20px 70px #00000099, 0 0 0 1px #c9972a18;
+  transform-origin:bottom right;
+  transform:scale(.85) translateY(16px);
+  opacity:0;
+  pointer-events:none;
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1), opacity .3s;
+}
+.lux-chat-wrap.open .lc-panel {
+  transform:scale(1) translateY(0);
+  opacity:1;
+  pointer-events:all;
+}
+
+.lc-panel-inner {
+  border-radius:22px;
+  background:linear-gradient(160deg,#181000,#0c0900);
+  overflow:hidden;
+}
+
+/* panel header */
+.lc-header {
+  padding:20px 20px 16px;
+  background:linear-gradient(135deg,#1a1100,#111000);
+  border-bottom:1px solid #c9972a18;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.lc-header-left { display:flex; align-items:center; gap:12px; }
+.lc-header-logo {
+  width:42px; height:42px; border-radius:50%;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; color:#fff;
+  box-shadow:0 0 16px #25d36644;
+}
+.lc-header-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem; font-weight:600; color:var(--gold-lt);
+  letter-spacing:0.04em;
+}
+.lc-header-sub {
+  font-size:0.72rem; color:var(--text-soft);
+  display:flex; align-items:center; gap:5px; margin-top:2px;
+}
+.lc-online-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:#25d366;
+  box-shadow:0 0 6px #25d366;
+  animation:lc-blink 2s ease-in-out infinite;
+}
+@keyframes lc-blink { 0%,100%{opacity:1;} 50%{opacity:.4;} }
+
+.lc-close {
+  width:32px; height:32px; border-radius:50%;
+  border:1px solid #c9972a33; background:#c9972a0c;
+  color:var(--muted); font-size:0.95rem;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:all .3s;
+}
+.lc-close:hover { background:#c9972a20; color:var(--gold-lt); border-color:var(--gold); }
+
+/* greeting bubble */
+.lc-bubble {
+  margin:16px 16px 6px;
+  background:#c9972a18;
+  border:1px solid #c9972a22;
+  border-radius:14px 14px 14px 4px;
+  padding:12px 14px;
+  font-size:0.82rem;
+  color:var(--text);
+  line-height:1.6;
+}
+.lc-bubble strong { color:var(--gold-lt); font-family:'Cormorant Garamond',serif; font-size:0.9rem; }
+
+/* members label */
+.lc-members-label {
+  padding:8px 18px 4px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--text-soft);
+  display:flex; align-items:center; gap:8px;
+}
+.lc-members-label::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,#c9972a22,transparent); }
+
+/* member list */
+.lc-members { padding:4px 10px 16px; display:flex; flex-direction:column; gap:4px; }
+
+.lc-member {
+  display:flex; align-items:center; gap:12px;
+  padding:10px 10px;
+  border-radius:14px;
+  text-decoration:none;
+  transition:all .3s cubic-bezier(.22,1,.36,1);
+  border:1px solid transparent;
+}
+.lc-member:hover {
+  background:#c9972a0d;
+  border-color:#c9972a22;
+  transform:translateX(4px);
+}
+
+/* avatar */
+.lc-avatar {
+  position:relative; flex-shrink:0;
+  width:44px; height:44px; border-radius:50%;
+  border:1.5px solid #c9972a44;
+  overflow:visible;
+}
+.lc-avatar img { width:100%; height:100%; border-radius:50%; object-fit:cover; }
+.lc-avatar-placeholder {
+  width:100%; height:100%; border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-dp),var(--gold-dim));
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem; font-weight:700; color:var(--gold-br);
+  letter-spacing:.02em;
+}
+.lc-status {
+  position:absolute; bottom:1px; right:1px;
+  width:11px; height:11px; border-radius:50%;
+  background:#25d366; border:2px solid #0c0900;
+  box-shadow:0 0 6px #25d366;
+}
+
+/* member info */
+.lc-member-info { flex:1; }
+.lc-member-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem; font-weight:600; color:var(--gold-lt);
+  letter-spacing:0.03em;
+}
+.lc-member-role { font-size:0.72rem; color:var(--text-soft); margin-top:1px; }
+
+/* action icons */
+.lc-actions { display:flex; gap:8px; }
+.lc-action-btn {
+  width:30px; height:30px; border-radius:9px;
+  border:1px solid #c9972a22; background:#c9972a08;
+  display:flex; align-items:center; justify-content:center;
+  transition:all .3s; color:var(--muted); font-size:0.8rem;
+}
+.lc-action-btn.wa  { color:#25d366; }
+.lc-action-btn.tel { color:#60a5fa; }
+.lc-action-btn:hover { transform:scale(1.15); border-color:var(--gold); background:#c9972a18; }
+
+/* panel footer */
+.lc-panel-footer {
+  padding:12px 18px;
+  border-top:1px solid #c9972a14;
+  text-align:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--gold-dim);
+}
+</style>
+
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<section class="lux-footer">
+  <div class="lf-orb lf-orb-1"></div>
+  <div class="lf-orb lf-orb-2"></div>
+
+  <div class="lf-grid">
+
+    <!-- ── COL 1 : Brand ── -->
+    <div class="lf-logo">
+      <img src="images/mainwihtlogo.png" alt="Site Ghor">
+
+      <p class="lf-address bangla-font">
+        Gawsia, Rupganj, Narayanganj,<br>Dhaka, Bangladesh
+      </p>
+
+      <a href="tel:01313133044" class="lf-contact-link">
+        <i class="fa-solid fa-phone"></i>
+        <span class="bangla-font">ফোন:</span> +880 1313133044
+      </a>
+      <a href="mailto:info@siteghor.com" class="lf-contact-link">
+        <i class="fa-solid fa-envelope"></i>
+        <span class="bangla-font">ইমেইল:</span> info@siteghor.com
+      </a>
+
+      <div class="lf-socials">
+        <a href="#" class="lf-social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="lf-social"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="lf-social"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.link/2liz89" target="_blank" class="lf-social"><i class="fab fa-whatsapp"></i></a>
       </div>
+    </div>
 
+    <!-- ── COL 2 : Pages ── -->
+    <div>
+      <h4 class="lf-col-title bangla-font">গুরুত্বপূর্ণ পেজ</h4>
+      <ul class="lf-nav">
+        <li><a href="#" class="bangla-font">ব্লগ</a></li>
+        <li><a href="#" class="bangla-font">আমাদের সম্পর্কে</a></li>
+        <li><a href="#" class="bangla-font">যোগাযোগ</a></li>
+        <li><a href="#" class="bangla-font">গোপনীয়তা</a></li>
+        <li><a href="#" class="bangla-font">শর্তাবলী</a></li>
+      </ul>
+    </div>
 
-      <!-- IMPORTANT PAGES -->
-      <div>
-        <h3 class="text-white font-semibold mb-4 bangla-font">গুরুত্বপূর্ণ পেজসমূহ</h3>
-        <ul class="space-y-2 text-sm">
+    <!-- ── COL 3 : Services ── -->
+    <div>
+      <h4 class="lf-col-title bangla-font">সেবা সমূহ</h4>
+      <ul class="lf-nav">
+        <li><a href="#" class="bangla-font">ওয়েব ডিজাইন ও ডেভেলপমেন্ট</a></li>
+        <li><a href="#" class="bangla-font">ল্যান্ডিং পেজ</a></li>
+        <li><a href="#" class="bangla-font">ওয়েবসাইট মেইনটেনেন্স</a></li>
+        <li><a href="#" class="bangla-font">সার্চ ইঞ্জিন অপ্টিমাইজেশন</a></li>
+        <li><a href="#" class="bangla-font">রেডি ওয়েবসাইট</a></li>
+      </ul>
+    </div>
 
-          <li>
-            <a href="#" class="bangla-font hover:text-blue-400 transition">› ব্লগ</a>
-          </li>
+    <!-- ── COL 4 : Facebook + DMCA ── -->
+    <div>
+      <h4 class="lf-col-title bangla-font">যোগাযোগের তথ্য</h4>
 
-          <li>
-            <a href="#" class="bangla-font hover:text-blue-400 transition">› আমাদের সম্পর্কে</a>
-          </li>
-
-          <li>
-            <a href="#" class="bangla-font hover:text-blue-400 transition">› যোগাযোগ</a>
-          </li>
-
-          <li>
-            <a href="#" class="bangla-font hover:text-blue-400 transition">› গোপনীয়তা</a>
-          </li>
-
-          <li>
-            <a href="#" class="bangla-font hover:text-blue-400 transition">› শর্তাবলী</a>
-          </li>
-
-        </ul>
-      </div>
-
-
-      <!-- SERVICES -->
-      <div>
-        <h3 class="text-white font-semibold mb-4 bangla-font">সেবা সমূহ</h3>
-        <ul class="space-y-2 text-sm">
-
-          <li>
-            <a href="#" class="bangla-font hover:text-blue-400 transition">› ওয়েব ডিজাইন ও ডেভেলপমেন্ট</a>
-          </li>
-
-          <li>
-            <a href="#" class="bangla-font hover:text-blue-400 transition">› ল্যান্ডিং পেজ</a>
-          </li>
-
-          <li>
-            <a href="#" class="bangla-font hover:text-blue-400 transition">› ওয়েবসাইট মেইনটেনেন্স</a>
-          </li>
-
-          <li>
-            <a href="#" class="bangla-font hover:text-blue-400 transition">› সার্চ ইঞ্জিন অপ্টিমাইজেশন</a>
-          </li>
-
-          <li>
-            <a href="#" class="bangla-font hover:text-blue-400 transition">› রেডি ওয়েবসাইট</a>
-          </li>
-
-        </ul>
-      </div>
-
-
-
-      <!-- FACEBOOK BOX -->
-      <div>
-        <h3 class="text-white font-semibold mb-4 bangla-font">যোগাযোগের তথ্য</h3>
-
-        <!-- FACEBOOK STYLE CARD -->
-        <div class="bg-white  rounded-xl p-2 flex items-center gap-2 shadow-md">
-
-          <!-- ICON -->
-          <div class="w-10 h-10 bg-blue-600 text-white flex items-center justify-center rounded-full text-2xl">
-            <i class="fab fa-facebook-f"></i>
-          </div>
-
-          <!-- TEXT -->
-          <div class="flex-1">
-            <div class="flex items-center gap-2">
-              <h4 class="font-semibold text-gray-800">Site Ghor</h4>
-              <span class="text-blue-500 text-sm">✔</span>
-              <button class="ml-2 text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-md hover:bg-blue-200 transition">
-                Follow
-              </button>
+      <div class="lf-fb-card">
+        <div class="lf-fb-card-inner">
+          <div class="lf-fb-avatar"><i class="fab fa-facebook-f"></i></div>
+          <div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span class="lf-fb-name">Site Ghor</span>
+              <span class="lf-fb-verified">✔</span>
+              <button class="lf-fb-follow">Follow</button>
             </div>
-
-            <p class="text-[14px] text-gray-600 mt-1">
-              <span class="font-semibold text-black">10K</span> followers
-              <span class="mx-[4px]">•</span>
-              <span class="font-semibold text-black">1.1K</span> following
-            </p>
+            <div class="lf-fb-stats">
+              <strong>10K</strong> followers &nbsp;·&nbsp; <strong>1.1K</strong> following
+            </div>
           </div>
-
-
-
         </div>
-
-        <img class="mt-4" src="images/dmca.png" alt="dmca">
       </div>
 
-
+      <div class="lf-dmca">
+        <img src="images/dmca.png" alt="DMCA Protected">
+      </div>
     </div>
 
-    <!-- BOTTOM -->
-    <div class="border-t border-gray-700 mt-10 pt-4 text-center text-sm text-gray-400">
-      ©Siteghor 2026 – All Rights Reserved
-    </div>
+  </div>
 
-  </section>
+  <!-- bottom bar -->
+  <div class="lf-bottom">
+    <p class="lf-bottom-copy">©<span>Siteghor</span> 2026 — All Rights Reserved</p>
+    <div class="lf-bottom-ornament">Made with ◆ in Bangladesh</div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     WHATSAPP CHAT WIDGET (right side)
+══════════════════════════════════ -->
 
 
   <section>
@@ -218,7 +608,7 @@
     </style>
 
     <!-- FLOAT BUTTON -->
-    <div class="fixed bottom-6 left-6 z-50">
+    <div class="fixed bottom-6 right-6 z-50">
 <!-- bottom-6 right-6 -->
       <!-- Tooltip -->
       <div
@@ -240,7 +630,7 @@
     </div>
 
     <!-- POPUP -->
-    <div id="chatBox" class="hidden fixed bottom-24 left-6 w-80 glass rounded-2xl shadow-2xl p-4 animate-fade">
+    <div id="chatBox" class="hidden fixed bottom-24 right-6 w-80 glass rounded-2xl shadow-2xl p-4 animate-fade">
 
       <!-- Header -->
       <div class="flex justify-between items-center mb-3">
@@ -351,7 +741,10 @@
 
   </section>
 
-  
+
+ 
+
+
  
 
 </body>

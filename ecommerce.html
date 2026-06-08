@@ -649,6 +649,527 @@
 
 
 
+<!-- E-COMMERCE PRICING PLANS -->
+  <style>
+    @keyframes ec-fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ec-gold-shimmer {
+      0% {
+        background-position: -200% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    @keyframes ec-glow-pulse {
+
+      0%,
+      100% {
+        opacity: .5;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.07);
+      }
+    }
+
+    .ec-f1 {
+      animation: ec-fade-up .6s .05s ease both;
+    }
+
+    .ec-f2 {
+      animation: ec-fade-up .6s .18s ease both;
+    }
+
+    .ec-f3 {
+      animation: ec-fade-up .6s .30s ease both;
+    }
+
+    .ec-shine {
+      background: linear-gradient(90deg, #c9a84c, #f5e07a, #e8c96a, #c9a84c);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: ec-gold-shimmer 5s linear infinite;
+    }
+
+    /* plain card */
+    .ec-card {
+      background: rgba(255, 255, 255, .025);
+      border: 1px solid rgba(201, 168, 76, .16);
+      border-radius: 24px;
+      transition: border-color .3s, transform .35s, box-shadow .35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ec-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .ec-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201, 168, 76, .4);
+      box-shadow: 0 20px 60px rgba(201, 168, 76, .09);
+    }
+
+    .ec-card:hover::before {
+      opacity: 1;
+    }
+
+    /* featured card */
+    .ec-card-featured {
+      background: rgba(201, 168, 76, .05);
+      border: 1px solid rgba(201, 168, 76, .38);
+      border-radius: 24px;
+      box-shadow: 0 0 80px rgba(201, 168, 76, .1), inset 0 0 40px rgba(201, 168, 76, .04);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow .35s, border-color .35s;
+    }
+
+    .ec-card-featured:hover {
+      box-shadow: 0 0 100px rgba(201, 168, 76, .18);
+      border-color: rgba(201, 168, 76, .6);
+    }
+
+    .ec-top-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a84c, #f5e07a, #c9a84c, transparent);
+      animation: ec-glow-pulse 3s ease-in-out infinite;
+    }
+
+    .ec-tag {
+      display: inline-block;
+      font-size: 14px;
+
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      background: rgba(201, 168, 76, .08);
+      color: #c9a84c;
+      border: 1px solid rgba(201, 168, 76, .22);
+      transition: background .2s;
+    }
+
+    .ec-tag:hover {
+      background: rgba(201, 168, 76, .18);
+    }
+
+    .ec-btn-outline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 52px;
+      border-radius: 14px;
+      border: 1px solid rgba(201, 168, 76, .3);
+      background: rgba(201, 168, 76, .07);
+      color: #c9a84c;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      transition: background .25s, border-color .25s, transform .2s;
+      text-decoration: none;
+    }
+
+    .ec-btn-outline:hover {
+      background: rgba(201, 168, 76, .16);
+      border-color: rgba(201, 168, 76, .5);
+      transform: translateY(-1px);
+    }
+
+    .ec-btn-gold {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #c9a84c, #a8873a);
+      color: #0a0a0a;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 28px rgba(201, 168, 76, .3);
+      transition: box-shadow .25s, transform .2s;
+      text-decoration: none;
+    }
+
+    .ec-btn-gold:hover {
+      box-shadow: 0 10px 36px rgba(201, 168, 76, .45);
+      transform: translateY(-2px);
+    }
+
+    .ec-check {
+      color: #c9a84c;
+      flex-shrink: 0;
+    }
+
+    .ec-best-badge {
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #c9a84c, #a8873a);
+      color: #0a0a0a;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 800;
+      padding: 6px 20px;
+      border-radius: 0 0 14px 14px;
+      box-shadow: 0 4px 16px rgba(201, 168, 76, .35);
+      white-space: nowrap;
+    }
+  </style>
+
+  <section class="relative overflow-hidden bg-[#0a0a0a] py-28 px-6">
+
+    <!-- GRID -->
+    <div class="absolute inset-0 pointer-events-none opacity-[0.05]"
+      style="background-image:linear-gradient(#c9a84c 1px,transparent 1px),linear-gradient(90deg,#c9a84c 1px,transparent 1px);background-size:52px 52px;">
+    </div>
+
+    <!-- ORBS -->
+    <div class="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+      style="background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%); animation:ec-glow-pulse 7s ease-in-out infinite;">
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto">
+
+      <!-- HEADING -->
+      <div class="text-center mb-20 ec-f1">
+        <p class="text-[10px] tracking-[4px] uppercase mb-5 font-medium" style="color:#c9a84c;">Pricing Plans</p>
+
+        <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border mb-8"
+          style="background:rgba(201,168,76,.07); border-color:rgba(201,168,76,.22);">
+          <svg class="w-4 h-4" fill="#c9a84c" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+          <span class="text-sm font-medium bangla-font" style="color:#c9a84c;">আপনার জন্য সেরা প্যাকেজ</span>
+        </div>
+
+        <!-- <h2 class="text-4xl md:text-6xl font-bold leading-tight bangla-font">
+          <span class="text-white bangla-font">আপনার জন্য </span>
+          <span class="ec-shine bangla-font">সেরা প্যাকেজ</span>
+        </h2> -->
+
+        <p class="mt-5 text-sm leading-relaxed bangla-font max-w-2xl mx-auto" style="color:rgba(255,255,255,.35);">
+          আপনার ব্যবসার প্রয়োজন অনুযায়ী সেরা ই-কমার্স প্যাকেজ নির্বাচন করুন।
+        </p>
+      </div>
+
+      <!-- CARDS -->
+      <div class="grid md:grid-cols-3 gap-6 items-stretch ec-f2">
+
+        <!-- PLAN 1 — Basic -->
+        <div class="ec-card p-8 flex flex-col">
+          <div>
+            <span class="ec-tag mb-6 inline-block">Basic</span>
+            <h3 class="text-xl font-bold text-white mt-5 mb-1 bangla-font">ল্যান্ডিং পেজ প্যাকেজ</h3>
+            <p class="text-xs mb-6 bangla-font" style="color:rgba(255,255,255,.3);">ছোট ব্যবসার জন্য আদর্শ</p>
+
+            <div class="mb-8 pb-6" style="border-bottom:1px solid rgba(255,255,255,.06);">
+              <span class="text-4xl font-black bangla-font" style="color:#c9a84c;">৪,৫০০</span>
+              <span class="text-sm bangla-font ml-1" style="color:rgba(255,255,255,.35);">টাকা</span>
+            </div>
+
+            <ul class="space-y-3.5 mb-7">
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.6);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ১ টি সুপারফাস্ট ই-কমার্স ল্যান্ডিং পেজ
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.6);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ওকমার্স সিএমএস
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.6);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ১০ জিবি হোস্টিং + ডোমেইন ( ১ বছর মেয়াদী) , আপনার নামে কেনা হবে এবং একসেস আপনার কাছেই থাকবে।
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.6);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ৩ মাস টেকনিক্যাল সাপোর্ট
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.6);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ল্যান্ডিং পেজ থেকে একটি প্রোডাক্ট সেল করা যায়, যাদের প্রোডাক্ট একটি তাদের জন্য ল্যান্ডিং পেজ
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-4 text-yellow-500 font-bold animate-pulse text-md">
+              Live Demo:
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-8">
+              <a href="#"><span class="ec-tag bangla-font">মধু</span></a>
+              <a href="#"><span class="ec-tag bangla-font">মধু কম্বো</span></a>
+              <a href="#"><span class="ec-tag bangla-font">আম</span></a>
+              <a href="#"><span class="ec-tag bangla-font">খেজুর</span></a>
+              <a href="#"><span class="ec-tag bangla-font">খেজুর গুড়</span></a>
+              <a href="#"><span class="ec-tag bangla-font">লাল চাউল</span></a>
+              <a href="#"><span class="ec-tag bangla-font">খাঁটি ঘি</span></a>
+              <a href="#"><span class="ec-tag bangla-font">টি শার্ট কম্বো</span></a>
+              <a href="#"><span class="ec-tag bangla-font">পলো শার্ট</span></a>
+              <a href="#"><span class="ec-tag bangla-font">শার্ট</span></a>
+              <a href="#"><span class="ec-tag bangla-font">অর্গানিক ফুড</span></a>
+              <a href="#"><span class="ec-tag bangla-font">গ্যাজেট</span></a>
+              <a href="#"><span class="ec-tag bangla-font">ফ্যাশন</span></a>
+            </div>
+          </div>
+
+          <div class="mt-auto">
+            <a href="https://wa.link/lz8wge" target="_blank" class="ec-btn-outline">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.523 5.856L0 24l6.335-1.508A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.36-.214-3.727.977.996-3.635-.235-.374A9.818 9.818 0 1112 21.818z" />
+              </svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- PLAN 2 — FEATURED -->
+        <div class="ec-card-featured p-8 flex flex-col" style="transform:scale(1.04);">
+          <div class="ec-top-line"></div>
+          <div class="ec-best-badge">🔥 Most Popular</div>
+
+          <div class="mt-4">
+            <span class="ec-tag mb-6 inline-block">Popular</span>
+            <h3 class="text-xl font-bold text-white mt-5 mb-1 bangla-font">ই-কমার্স প্লান</h3>
+            <p class="text-xs mb-6 bangla-font" style="color:rgba(201,168,76,.5);">সবচেয়ে বেশি বেছে নেওয়া প্যাকেজ</p>
+
+            <div class="mb-8 pb-6" style="border-bottom:1px solid rgba(201,168,76,.15);">
+              <span class="text-5xl font-black bangla-font ec-shine">২০,০০০</span>
+              <span class="text-sm bangla-font ml-1" style="color:rgba(255,255,255,.35);">টাকা</span>
+            </div>
+
+            <ul class="space-y-3.5 mb-7">
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.75);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ১ টি ফাংশনাল ওয়েবসাইট
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.75);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ওকমার্স সিএমএস
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.75);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                20 জিবি হোস্টিং + ডোমেইন ( ১ বছর মেয়াদী) , আপনার নামে কেনা হবে এবং একসেস আপনার কাছেই থাকবে।
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.75);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                অপটিমাইজ ফেসবুক পেইজ, লোগো, কাভার ফটো
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.75);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ৬ মাস টেকনিক্যাল সাপোর্ট
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-4 text-yellow-500 font-bold animate-pulse text-md">
+              Live Demo:
+            </div>
+            <div class="flex flex-wrap gap-2 mb-8">
+              <a href="#"><span class="ec-tag bangla-font">গ্যাজেট</span></a>
+              <a href="#"><span class="ec-tag bangla-font">গ্যাজেট ২</span></a>
+              <a href="#"><span class="ec-tag bangla-font">গ্যাজেট ৩</span></a>
+              <a href="#"><span class="ec-tag bangla-font">অর্গানিক ফুড</span></a>
+              <a href="#"><span class="ec-tag bangla-font">অর্গানিক ফুড ২</span></a>
+
+              <a href="#"><span class="ec-tag bangla-font">ফ্যাশন</span></a>
+              <a href="#"><span class="ec-tag bangla-font">ফ্যাশন</span></a>
+              <a href="#"><span class="ec-tag bangla-font">ফ্যাশন ২</span></a>
+              <a href="#"><span class="ec-tag bangla-font">ফ্যাশন</span></a>
+              <a href="#"><span class="ec-tag bangla-font">ফ্যাশন ২</span></a>
+              <a href="#"><span class="ec-tag bangla-font">ফ্যাশন ৩</span></a>
+              <a href="#"><span class="ec-tag bangla-font">ফ্যাশন ৪</span></a>
+              <a href="#"><span class="ec-tag bangla-font">ফ্যাশন ৫</span></a>
+              
+            </div>
+          </div>
+
+          <div class="mt-auto">
+            <a href="https://wa.link/lz8wge" target="_blank" class="ec-btn-gold">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.523 5.856L0 24l6.335-1.508A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.36-.214-3.727.977.996-3.635-.235-.374A9.818 9.818 0 1112 21.818z" />
+              </svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- PLAN 3 — Advanced -->
+        <div class="ec-card p-8 flex flex-col">
+          <div>
+            <span class="ec-tag mb-6 inline-block">Advanced</span>
+            <h3 class="text-xl font-bold text-white mt-5 mb-1 bangla-font">ই-কমার্স প্লান-৩</h3>
+            <p class="text-xs mb-6 bangla-font" style="color:rgba(255,255,255,.3);">বড় ব্যবসার জন্য পূর্ণ সমাধান</p>
+
+            <div class="mb-8 pb-6" style="border-bottom:1px solid rgba(255,255,255,.06);">
+              <span class="text-4xl font-black bangla-font" style="color:#c9a84c;">৩০,০০০</span>
+              <span class="text-sm bangla-font ml-1" style="color:rgba(255,255,255,.35);">টাকা</span>
+            </div>
+
+            <ul class="space-y-3.5 mb-7">
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.6);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ফাংশনাল ওয়েবসাইট
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.6);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                50 জিবি হোস্টিং + ডোমেইন ( ১ বছর মেয়াদী) , আপনার নামে কেনা হবে এবং একসেস আপনার কাছেই থাকবে।
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.6);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ফুল কাস্টম ডিজাইন
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.6);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                আনলিমিটেড প্রোডাক্ট
+              </li>
+              <li class="flex items-start gap-3 text-sm bangla-font" style="color:rgba(255,255,255,.6);">
+                <svg class="ec-check w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                ১২ মাস সাপোর্ট
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-4 text-yellow-500 font-bold animate-pulse text-md">
+              Live Demo:
+            </div>
+            <div class="flex flex-wrap gap-2 mb-8">
+              <a href="#"><span class="ec-tag bangla-font">গ্যাজেট</span></a>
+              <a href="#"><span class="ec-tag bangla-font">গ্যাজেট ২</span></a>
+              <a href="#"><span class="ec-tag bangla-font">গ্যাজেট ৩</span></a>
+              <a href="#"><span class="ec-tag bangla-font">অর্গানিক ফুড</span></a>
+              <a href="#"><span class="ec-tag bangla-font">অর্গানিক ফুড ২</span></a>
+            </div>
+          </div>
+
+          <div class="mt-auto">
+            <a href="https://wa.link/lz8wge" target="_blank" class="ec-btn-outline">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.523 5.856L0 24l6.335-1.508A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.36-.214-3.727.977.996-3.635-.235-.374A9.818 9.818 0 1112 21.818z" />
+              </svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TRUST ROW -->
+      <div class="flex flex-wrap items-center justify-center gap-8 mt-16 ec-f3"
+        style="border-top:1px solid rgba(255,255,255,.05); padding-top:40px;">
+        <div class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,.3);">
+          <svg class="w-4 h-4" fill="#c9a84c" viewBox="0 0 24 24">
+            <path
+              d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-2.185-.584-4.235-1.598-6A11.96 11.96 0 0112 2.964z"
+              stroke="none" />
+          </svg>
+          কোনো লুকানো চার্জ নেই
+        </div>
+        <div class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,.3);">
+          <svg class="w-4 h-4" fill="#c9a84c" viewBox="0 0 24 24">
+            <path
+              d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-2.185-.584-4.235-1.598-6A11.96 11.96 0 0112 2.964z"
+              stroke="none" />
+          </svg>
+          ৪২০০+ সফল প্রজেক্ট
+        </div>
+        <div class="flex items-center gap-2 text-xs" style="color:rgba(255,255,255,.3);">
+          <svg class="w-4 h-4" fill="#c9a84c" viewBox="0 0 24 24">
+            <path
+              d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-2.185-.584-4.235-1.598-6A11.96 11.96 0 0112 2.964z"
+              stroke="none" />
+          </svg>
+          ২৪/৭ সাপোর্ট গ্যারান্টি
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 
 <!-- ✅ PASTE THIS SECTION — LUXURY DARK GOLD COMPARISON -->
 <!-- Requires: Tailwind CSS CDN (already added) -->
