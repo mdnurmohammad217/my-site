@@ -59,6 +59,8 @@ function initMenu() {
 
 
 
+
+
 //FaQ Section code
     const faqs = [
         {
