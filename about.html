@@ -25,157 +25,858 @@
 <body>
     <div id="header"></div>
 
-    <!-- Top Section -->
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
 
-    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap" rel="stylesheet">
+/* ═══════════════════════════
+   VARS
+═══════════════════════════ */
+.abu {
+  --gold:     #c9972a;
+  --gold-lt:  #f0c84a;
+  --gold-br:  #fce89a;
+  --gold-dp:  #8a6318;
+  --gold-dim: #4a3810;
+  --muted:    #a87f30;
+  --bg:       #060400;
+  --bg2:      #0e0900;
+  --text:     #d4b878;
+  --soft:     #8a6a28;
+  font-family: 'Hind Siliguri', sans-serif;
+}
 
-    <style>
-        .bangla-font {
-            font-family: 'Tiro Bangla', sans-serif;
-        }
+/* ═══════════════════════════
+   SECTION BASE
+═══════════════════════════ */
+.abu {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-        /* 🔥 Animated Gradient */
-        .animated-bg {
-            background: linear-gradient(-45deg, #1e3a8a, #4f46e5, #0ea5e9, #1e40af);
-            background-size: 400% 400%;
-            animation: gradientMove 8s ease infinite;
-        }
+/* ── grain ── */
+.abu::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.042'/%3E%3C/svg%3E");
+}
 
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
+/* ── ambient orbs ── */
+.abu-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(110px); pointer-events: none; z-index: 0;
+}
+.abu-orb-1 { width: 700px; height: 700px; top: -200px; left: -150px;
+  background: radial-gradient(circle, #c9972a1c, transparent 70%); }
+.abu-orb-2 { width: 400px; height: 400px; bottom: -80px; right: -100px;
+  background: radial-gradient(circle, #f0c84a10, transparent 70%); }
+.abu-orb-3 { width: 300px; height: 300px; top: 40%; left: 55%;
+  background: radial-gradient(circle, #c9972a0e, transparent 70%); }
 
-            50% {
-                background-position: 100% 50%;
-            }
+/* ── grid overlay ── */
+.abu-grid {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(#c9972a07 1px, transparent 1px),
+    linear-gradient(90deg, #c9972a07 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 30%, black 40%, transparent 100%);
+}
 
-            100% {
-                background-position: 0% 50%;
-            }
-        }
+/* ── decorative corner lines ── */
+.abu-corner {
+  position: absolute; width: 60px; height: 60px;
+  z-index: 2; pointer-events: none;
+}
+.abu-corner-tl { top: 28px; left: 28px;
+  border-top: 1.5px solid #c9972a55; border-left: 1.5px solid #c9972a55; }
+.abu-corner-tr { top: 28px; right: 28px;
+  border-top: 1.5px solid #c9972a55; border-right: 1.5px solid #c9972a55; }
+.abu-corner-bl { bottom: 28px; left: 28px;
+  border-bottom: 1.5px solid #c9972a33; border-left: 1.5px solid #c9972a33; }
+.abu-corner-br { bottom: 28px; right: 28px;
+  border-bottom: 1.5px solid #c9972a33; border-right: 1.5px solid #c9972a33; }
 
-        /* 🔥 Glow Button */
-        .glow-btn {
-            position: relative;
-        }
+/* ── vertical line ── */
+.abu-vline {
+  position: absolute; top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(180deg, transparent 5%, #c9972a33 30%, #c9972a44 50%, #c9972a22 70%, transparent 95%);
+  pointer-events: none; z-index: 1;
+}
+.abu-vline-l { left: clamp(40px, 7vw, 110px); }
+.abu-vline-r { right: clamp(40px, 7vw, 110px); }
+.abu-vline::before {
+  content: '◆'; position: absolute;
+  left: 50%; transform: translateX(-50%);
+  top: 30%; color: var(--gold); font-size: 0.45rem; opacity: .5;
+}
+.abu-vline::after {
+  content: '◆'; position: absolute;
+  left: 50%; transform: translateX(-50%);
+  bottom: 30%; color: var(--gold); font-size: 0.45rem; opacity: .3;
+}
 
-        .glow-btn::before {
-            content: "";
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(45deg, #00f5a0, #00d9f5, #00f5a0);
-            border-radius: 10px;
-            z-index: -1;
-            filter: blur(8px);
-            opacity: 0.7;
-        }
-    </style>
+/* ═══════════════════════════
+   BREADCRUMB
+═══════════════════════════ */
+.abu-breadcrumb {
+  position: relative; z-index: 10;
+  padding: 28px clamp(40px, 8vw, 120px);
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--soft);
+  animation: abu-up 0.8s ease both;
+}
+.abu-breadcrumb a { color: var(--soft); text-decoration: none; transition: color .3s; }
+.abu-breadcrumb a:hover { color: var(--gold-lt); }
+.abu-breadcrumb-sep { color: var(--gold); opacity: .5; }
+.abu-breadcrumb-active { color: var(--muted); }
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            AOS.init({ duration: 1000, once: true });
-        });
-    </script>
+/* ═══════════════════════════
+   HERO CONTENT
+═══════════════════════════ */
+.abu-hero {
+  position: relative; z-index: 10;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px clamp(40px, 8vw, 120px) 60px;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .abu-hero { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .abu-vline { display: none; }
+  .abu-corner { display: none; }
+}
 
-    <!-- HERO -->
-    <section class="animated-bg text-white py-24 pt-28 text-center relative overflow-hidden">
+/* ── LEFT COLUMN ── */
+.abu-left { display: flex; flex-direction: column; gap: 0; }
 
-        <h1 data-aos="fade-up" class="text-4xl md:text-5xl font-bold mb-4">
-            SITE GHOR ABOUT - US
-        </h1>
+/* eyebrow */
+.abu-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 7px 20px;
+  border: 1px solid #c9972a44;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #c9972a14, #f0c84a06);
+  margin-bottom: 28px;
+  width: fit-content;
+  animation: abu-up 0.9s 0.1s ease both;
+}
+@media(max-width:900px){ .abu-eyebrow { margin: 0 auto 28px; } }
+.abu-eyebrow-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--gold-lt); box-shadow: 0 0 10px var(--gold-lt);
+  animation: abu-dot 2s ease-in-out infinite;
+}
+@keyframes abu-dot { 0%,100%{box-shadow:0 0 6px var(--gold);} 50%{box-shadow:0 0 18px var(--gold-lt);} }
+.abu-eyebrow span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.7rem; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--gold-lt);
+}
 
-       
+/* small italic tag */
+.abu-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 1rem;
+  color: var(--muted); letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  animation: abu-up 0.9s 0.15s ease both;
+}
 
-    </section>
+/* main heading */
+.abu-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--gold-br) 0%, var(--gold-lt) 30%, var(--gold) 65%, var(--gold-dp) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
+  animation: abu-up 0.9s 0.2s ease both;
+}
 
-<!-- ceo + section  -->
+/* bangla subheading */
+.abu-h1-bn {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #fdf6e3, var(--gold-br), var(--gold-lt));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.3; margin-bottom: 28px;
+  animation: abu-up 0.9s 0.28s ease both;
+}
 
-<section class="bg-[#020617] py-20 overflow-hidden">
+/* ornament */
+.abu-rule {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 28px;
+  animation: abu-up 0.9s 0.35s ease both;
+}
+@media(max-width:900px){ .abu-rule { justify-content: center; } }
+.abu-rule hr { width: 60px; border: none; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: .5; }
+.abu-rule-mid {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.65rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--soft);
+}
 
-  <div class="max-w-7xl mx-auto px-4">
+/* description */
+.abu-desc {
+  font-size: 1rem; line-height: 1.85;
+  color: var(--text); max-width: 480px;
+  margin-bottom: 36px;
+  animation: abu-up 0.9s 0.42s ease both;
+}
+@media(max-width:900px){ .abu-desc { margin: 0 auto 36px; } }
 
-    <!-- Title -->
-    <h2 class="text-4xl font-bold text-center text-white mb-20">
-      Message From CEO
-      <span class="block w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-3 rounded-full"></span>
-    </h2>
+/* CTA row */
+.abu-cta {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  animation: abu-up 0.9s 0.5s ease both;
+}
+@media(max-width:900px){ .abu-cta { justify-content: center; } }
 
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
+.abu-btn-primary {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 14px 30px; border-radius: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 700; letter-spacing: 0.06em;
+  color: #060400; text-decoration: none; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dp), var(--gold), var(--gold-lt));
+  box-shadow: 0 4px 28px #c9972a55, inset 0 1px 0 #ffffff44;
+  position: relative; overflow: hidden;
+  transition: all .35s cubic-bezier(.22,1,.36,1);
+}
+.abu-btn-primary::before {
+  content: ''; position: absolute; top: -50%; left: -70%;
+  width: 50%; height: 220%;
+  background: linear-gradient(90deg, transparent, #ffffff44, transparent);
+  transform: skewX(-20deg); transition: left .55s;
+}
+.abu-btn-primary:hover::before { left: 140%; }
+.abu-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 44px #c9972a77;
+}
 
-      <!-- LEFT SIDE -->
-      <div class="relative flex justify-center">
+.abu-btn-ghost {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 13px 28px; border-radius: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 700; letter-spacing: 0.06em;
+  color: var(--gold-lt); text-decoration: none; cursor: pointer;
+  background: transparent; border: 1px solid #c9972a55;
+  transition: all .35s cubic-bezier(.22,1,.36,1);
+}
+.abu-btn-ghost:hover {
+  background: #c9972a14; border-color: var(--gold-lt);
+  box-shadow: 0 0 28px #c9972a28;
+  transform: translateY(-3px);
+}
 
-        <!-- Glow Ring -->
-        <div class="absolute w-72 h-72 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 blur-3xl opacity-40 animate-pulse"></div>
+/* ═══════════════════════════
+   RIGHT COLUMN
+═══════════════════════════ */
+.abu-right {
+  display: flex; flex-direction: column; gap: 20px;
+  animation: abu-right-in 1s 0.3s ease both;
+}
+@keyframes abu-right-in {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
 
-        <!-- Rotating Border -->
-        <div class="relative p-[4px] rounded-full bg-gradient-to-tr from-cyan-400 via-blue-500 to-purple-500 animate-spin-slow">
+/* ── big card (visual) ── */
+.abu-visual-card {
+  border-radius: 28px; padding: 1.5px;
+  background: linear-gradient(145deg, #c9972a99, #5a401044, #c9972a55, #f0c84a44);
+  box-shadow: 0 16px 70px #00000088, 0 0 0 1px #c9972a18;
+  position: relative;
+}
+.abu-visual-inner {
+  border-radius: 26px;
+  background: linear-gradient(150deg, #181200, #0c0900);
+  padding: 36px 32px;
+  position: relative; overflow: hidden;
+  min-height: 280px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+/* inner glow */
+.abu-visual-inner::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at top right, #c9972a18, transparent 60%);
+  pointer-events: none;
+}
 
-          <!-- Image -->
-          <img src="images/team/ceo.png"
-               class="w-80 h-80 object-cover rounded-full border-4 border-[#020617]">
+/* large decorative quote */
+.abu-quote-icon {
+  position: absolute; top: 20px; left: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem; font-weight: 900; line-height: 1;
+  background: linear-gradient(180deg, #c9972a22, transparent);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  pointer-events: none;
+  user-select: none;
+}
 
-        </div>
+.abu-quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 1.2rem;
+  color: var(--text); line-height: 1.65;
+  position: relative; z-index: 1;
+  margin-bottom: 20px;
+}
+.abu-quote-author {
+  display: flex; align-items: center; gap: 12px;
+  position: relative; z-index: 1;
+}
+.abu-author-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dp), var(--gold-dim));
+  border: 1.5px solid #c9972a44;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 700; color: var(--gold-br);
+}
+.abu-author-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem; font-weight: 700;
+  color: var(--gold-lt); letter-spacing: 0.04em;
+}
+.abu-author-role { font-size: 0.7rem; color: var(--soft); margin-top: 1px; }
 
-        <!-- Floating Badge -->
-        <div class="absolute -bottom-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-white text-sm shadow-lg">
-          🔥 3200+ Projects
-        </div>
+/* ── small cards row ── */
+.abu-cards-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
 
+.abu-mini-card {
+  border-radius: 20px; padding: 1.5px;
+  background: linear-gradient(135deg, #c9972a66, #5a401033, #c9972a44);
+  box-shadow: 0 6px 30px #00000055;
+  transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s;
+}
+.abu-mini-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 50px #00000077, 0 0 20px #c9972a18;
+}
+.abu-mini-inner {
+  border-radius: 18px;
+  background: linear-gradient(150deg, #161100, #0a0800);
+  padding: 22px 18px;
+  position: relative; overflow: hidden;
+}
+.abu-mini-inner::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at top left, #c9972a10, transparent 55%);
+  pointer-events: none;
+}
+
+.abu-mini-icon {
+  width: 42px; height: 42px; border-radius: 13px;
+  background: linear-gradient(135deg, #2a1e00, #1a1300);
+  border: 1px solid #c9972a33;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: var(--gold-lt);
+  margin-bottom: 14px;
+  box-shadow: 0 0 14px #c9972a1a;
+}
+.abu-mini-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem; font-weight: 900;
+  background: linear-gradient(135deg, var(--gold-br), var(--gold-lt), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; line-height: 1; margin-bottom: 4px;
+}
+.abu-mini-label {
+  font-size: 0.78rem; color: var(--soft); line-height: 1.4;
+}
+.abu-mini-label span { display: block; font-size: 0.65rem; color: var(--gold-dim);
+  font-family: 'Cormorant Garamond', serif; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; }
+
+/* ── trust badges ── */
+.abu-trust {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  padding: 16px 0 0;
+  border-top: 1px solid #c9972a14;
+  animation: abu-up 0.9s 0.6s ease both;
+}
+.abu-trust-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 999px;
+  border: 1px solid #c9972a2a; background: #c9972a08;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.72rem; letter-spacing: 0.08em;
+  color: var(--muted);
+  transition: all .3s;
+}
+.abu-trust-pill:hover { border-color: var(--gold); color: var(--gold-lt); background: #c9972a14; }
+.abu-trust-pill i { font-size: 0.75rem; color: var(--gold); }
+
+/* ── scroll line ── */
+.abu-scroll {
+  position: absolute; bottom: 28px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  z-index: 10; opacity: .5;
+  animation: abu-up 1s 1s ease both;
+}
+.abu-scroll span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.6rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--muted);
+}
+.abu-scroll-line {
+  width: 1px; height: 44px;
+  background: linear-gradient(180deg, #c9972a88, transparent);
+  animation: abu-scroll-drop 1.8s ease-in-out infinite;
+}
+@keyframes abu-scroll-drop {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+}
+
+/* ── animations ── */
+@keyframes abu-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── responsive ── */
+@media(max-width:600px){
+  .abu-cards-row { grid-template-columns: 1fr 1fr; }
+  .abu-hero { padding: 20px 20px 60px; }
+  .abu-breadcrumb { padding: 20px; }
+}
+</style>
+
+
+<!-- ABOUT US — HERO SECTION-->
+<section class="abu">
+
+  <!-- backgrounds -->
+  <div class="abu-grid"></div>
+  <div class="abu-orb abu-orb-1"></div>
+  <div class="abu-orb abu-orb-2"></div>
+  <div class="abu-orb abu-orb-3"></div>
+
+  <!-- corner frames -->
+  <div class="abu-corner abu-corner-tl"></div>
+  <div class="abu-corner abu-corner-tr"></div>
+  <div class="abu-corner abu-corner-bl"></div>
+  <div class="abu-corner abu-corner-br"></div>
+
+  <!-- vertical lines -->
+  <div class="abu-vline abu-vline-l"></div>
+  <div class="abu-vline abu-vline-r"></div>
+
+  <!-- breadcrumb -->
+  <div class="abu-breadcrumb">
+    <a href="#">Home</a>
+    <span class="abu-breadcrumb-sep">◆</span>
+    <span class="abu-breadcrumb-active bangla-font">আমাদের সম্পর্কে</span>
+  </div>
+
+  <!-- hero content -->
+  <div class="abu-hero">
+
+    <!-- ══ LEFT ══ -->
+    <div class="abu-left">
+
+      <!-- eyebrow -->
+      <div class="abu-eyebrow">
+        <span class="abu-eyebrow-dot"></span>
+        <span>Our Story · Since 2020</span>
       </div>
 
-      <!-- RIGHT SIDE -->
-      <div class="relative">
+      <!-- italic tag -->
+      <p class="abu-tag">Who We Are</p>
 
-        <!-- Background Glow -->
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/10 blur-3xl rounded-3xl"></div>
+      <!-- headings -->
+      <h1 class="abu-h1">Site Ghor</h1>
+      <p class="abu-h1-bn bangla-font">আমরা যারা এবং কী করি</p>
 
-        <!-- Card -->
-        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-2xl">
-
-          <!-- Quote -->
-          <div class="text-cyan-400 text-5xl mb-6">❝</div>
-
-          <!-- Text -->
-          <p class="text-gray-300 text-lg leading-relaxed mb-8 bangla-font">
-            প্রযুক্তিগত বিষয়গুলো সামলাতে গিয়ে আপনার ব্যবসার আসল জায়গায় ফোকাস হারাচ্ছেন?
-            আমরা আছি আপনার পাশে। আপনার ব্যবসার সম্পূর্ণ টেক সলিউশন আমরা ম্যানেজ করবো, 
-            আপনি শুধু আপনার গ্রোথে ফোকাস করুন।
-          </p>
-
-          <!-- Info -->
-          <div class="mb-6">
-            <h3 class="text-xl font-bold text-white bangla-font"> নুর মোহাম্মাদ</h3>
-            <p class="text-gray-400 text-sm">Founder & CEO, Site Ghor Limited</p>
-          </div>
-
-          <!-- Buttons -->
-          <div class="flex gap-4 flex-wrap">
-
-            <a href="contact.html" class="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold shadow-lg hover:scale-105 transition">
-              <i class="fa-solid fa-handshake text-white"></i> Meeting
-            </a>
-
-            <a href="https://wa.link/e4cxbt" class="px-6 py-3 rounded-xl border border-white/20 text-white hover:bg-white/10 transition">
-              <i class="fa-brands fa-whatsapp" style="color: rgb(0, 200, 5);"></i> WhatsApp
-            </a>
-
-          </div>
-
+      <!-- ornament -->
+      <div class="abu-rule">
+        <hr/>
+        <div class="abu-rule-mid">
+          <span>◆</span>
+          <span>Digital Excellence</span>
+          <span>◆</span>
         </div>
+        <hr/>
+      </div>
 
+      <!-- description -->
+      <p class="abu-desc bangla-font">
+        আমরা একটি প্রফেশনাল ওয়েব ডিজাইন ও ডেভেলপমেন্ট প্রতিষ্ঠান। 
+        ২০২০ সাল থেকে আমরা বাংলাদেশের উদ্যোক্তাদের জন্য আকর্ষণীয় 
+        ল্যান্ডিং পেজ, ই-কমার্স সাইট এবং কর্পোরেট ওয়েবসাইট তৈরি করে আসছি। 
+        আমাদের লক্ষ্য — আপনার ব্যবসাকে অনলাইনে সফলভাবে উপস্থাপন করা।
+      </p>
+
+      <!-- CTAs -->
+      <div class="abu-cta">
+        <a href="#team" class="abu-btn-primary">
+          <i class="fa-solid fa-users" style="font-size:.95rem;"></i>
+          <span class="bangla-font">আমাদের টিম দেখুন</span>
+        </a>
+        <a href="#contact" class="abu-btn-ghost">
+          <i class="fa-solid fa-envelope" style="font-size:.9rem;"></i>
+          <span class="bangla-font">যোগাযোগ করুন</span>
+        </a>
+      </div>
+
+      <!-- trust pills -->
+      <div class="abu-trust">
+        <div class="abu-trust-pill"><i class="fa-solid fa-shield-halved"></i> Trusted Service</div>
+        <div class="abu-trust-pill"><i class="fa-solid fa-bolt"></i> Fast Delivery</div>
+        <div class="abu-trust-pill"><i class="fa-solid fa-headset"></i> 24/7 Support</div>
+        <div class="abu-trust-pill"><i class="fa-solid fa-star"></i> 5★ Rated</div>
       </div>
 
     </div>
 
+    <!-- ══ RIGHT ══ -->
+    <div class="abu-right">
+
+      <!-- quote card -->
+      <div class="abu-visual-card">
+        <div class="abu-visual-inner">
+          <div class="abu-quote-icon">"</div>
+          <p class="abu-quote-text bangla-font">
+            "আমাদের প্রতিটি প্রজেক্টে আমরা শুধু কোড লিখি না — 
+            আমরা আপনার স্বপ্নকে ডিজিটাল বাস্তবতায় রূপ দিই।"
+          </p>
+          <div class="abu-quote-author">
+            <div class="abu-author-avatar">N</div>
+            <div>
+              <div class="abu-author-name">Nurmohammad</div>
+              <div class="abu-author-role">CEO &amp; Founder, Site Ghor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- stats mini cards -->
+      <div class="abu-cards-row">
+
+        <div class="abu-mini-card">
+          <div class="abu-mini-inner">
+            <div class="abu-mini-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="abu-mini-num">500+</div>
+            <div class="abu-mini-label bangla-font">সফল প্রজেক্ট
+              <span>Projects Done</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="abu-mini-card">
+          <div class="abu-mini-inner">
+            <div class="abu-mini-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="abu-mini-num">300+</div>
+            <div class="abu-mini-label bangla-font">সন্তুষ্ট ক্লায়েন্ট
+              <span>Happy Clients</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="abu-mini-card">
+          <div class="abu-mini-inner">
+            <div class="abu-mini-icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <div class="abu-mini-num">5+</div>
+            <div class="abu-mini-label bangla-font">বছরের অভিজ্ঞতা
+              <span>Years Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="abu-mini-card">
+          <div class="abu-mini-inner">
+            <div class="abu-mini-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="abu-mini-num">4.9★</div>
+            <div class="abu-mini-label bangla-font">গড় রেটিং
+              <span>Average Rating</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- scroll indicator -->
+  <div class="abu-scroll">
+    <span>Scroll</span>
+    <div class="abu-scroll-line"></div>
   </div>
 
 </section>
+ 
 
+<!-- ceo + section  -->
+
+<section class="ceo-section">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap');
+
+    .ceo-section {
+      background: #0a0900;
+      padding: 80px 24px;
+      overflow: hidden;
+      position: relative;
+    }
+    .ceo-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+    }
+    .ceo-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+    }
+    .ceo-inner { max-width: 1100px; margin: 0 auto; }
+
+    .ceo-title-wrap { text-align: center; margin-bottom: 64px; }
+    .ceo-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #1a1200; border: 1px solid #3a2e00;
+      border-radius: 30px; padding: 5px 16px; margin-bottom: 16px;
+    }
+    .ceo-eyebrow span {
+      font-size: 11px; color: #c9a96e;
+      letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600;
+    }
+    .ceo-main-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700; color: #f0e6cc; letter-spacing: -0.5px;
+    }
+    .ceo-main-title em { font-style: normal; color: #c9a96e; }
+    .ceo-title-line {
+      width: 60px; height: 2px;
+      background: #c9a96e;
+      margin: 14px auto 0; border-radius: 2px;
+    }
+
+    .ceo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .ceo-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .ceo-left { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+    .ceo-img-frame { position: relative; width: 260px; height: 260px; }
+    .ceo-ring-outer {
+      position: absolute; inset: -6px; border-radius: 50%;
+      border: 1px solid rgba(201,169,110,0.3);
+      animation: ceoRotate 8s linear infinite;
+    }
+    .ceo-ring-mid {
+      position: absolute; inset: -14px; border-radius: 50%;
+      border: 1px dashed rgba(201,169,110,0.12);
+      animation: ceoRotate 14s linear infinite reverse;
+    }
+    @keyframes ceoRotate { to { transform: rotate(360deg); } }
+    .ceo-img-border {
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      border: 2.5px solid #c9a96e;
+      overflow: hidden;
+      position: relative; z-index: 1;
+    }
+    .ceo-img-border img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .ceo-stat-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .ceo-stat-chip {
+      background: #111000; border: 1px solid #2a2000;
+      border-radius: 12px; padding: 10px 18px; text-align: center;
+    }
+    .ceo-stat-num { font-size: 20px; font-weight: 700; color: #c9a96e; }
+    .ceo-stat-lbl {
+      font-size: 10px; color: #5a4e28;
+      letter-spacing: 0.6px; text-transform: uppercase; margin-top: 3px;
+    }
+
+    .ceo-card {
+      background: #0f0c00;
+      border: 1px solid #2a2000;
+      border-radius: 24px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ceo-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: #c9a96e;
+    }
+
+    .ceo-quote-mark {
+      font-size: 72px; line-height: 1;
+      color: #2a2000;
+      font-family: Georgia, serif;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+      margin-top: -12px;
+    }
+    .ceo-quote-text {
+      font-size: 15px; line-height: 1.9;
+      color: #a89060;
+      margin-bottom: 28px;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .ceo-card-divider { height: 1px; background: #1e1800; margin-bottom: 24px; }
+
+    .ceo-info-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 14px;
+      margin-bottom: 28px;
+    }
+    .ceo-name {
+      font-size: 20px; font-weight: 700;
+      color: #f0e6cc;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .ceo-designation { font-size: 12px; color: #5a4e28; margin-top: 4px; }
+
+    .ceo-avail-badge {
+      display: flex; align-items: center; gap: 7px;
+      background: #1a1200; border: 1px solid #3a2e00;
+      border-radius: 10px; padding: 8px 14px;
+    }
+    .ceo-avail-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; }
+    .ceo-avail-txt { font-size: 11px; color: #7a6a40; }
+
+    .ceo-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .ceo-btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 12px;
+      background: #c9a96e; color: #0a0900;
+      font-size: 13px; font-weight: 700;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.15s;
+      border: none; cursor: pointer;
+    }
+    .ceo-btn-primary:hover { background: #d4b47e; transform: scale(1.03); }
+    .ceo-btn-wa {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 12px;
+      background: transparent; color: #22c55e;
+      font-size: 13px; font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #1a3a1a;
+      transition: background 0.18s, transform 0.15s;
+      cursor: pointer;
+    }
+    .ceo-btn-wa:hover { background: #0a1f0a; transform: scale(1.03); }
+    .ceo-btn-icon { font-size: 16px; }
+  </style>
+
+  <div class="ceo-inner">
+
+    <div class="ceo-title-wrap">
+      <div class="ceo-eyebrow"><span>Leadership</span></div>
+      <h2 class="ceo-main-title">Message From <em>Our CEO</em></h2>
+      <div class="ceo-title-line"></div>
+    </div>
+
+    <div class="ceo-grid">
+
+      <!-- LEFT -->
+      <div class="ceo-left">
+        <div class="ceo-img-frame">
+          <div class="ceo-ring-outer"></div>
+          <div class="ceo-ring-mid"></div>
+          <div class="ceo-img-border">
+            <img src="images/team/ceo.png" alt="CEO Nurmohammad">
+          </div>
+        </div>
+        <div class="ceo-stat-row">
+          <div class="ceo-stat-chip">
+            <div class="ceo-stat-num">3200+</div>
+            <div class="ceo-stat-lbl">Projects Done</div>
+          </div>
+          <div class="ceo-stat-chip">
+            <div class="ceo-stat-num">8+</div>
+            <div class="ceo-stat-lbl">Years Exp.</div>
+          </div>
+          <div class="ceo-stat-chip">
+            <div class="ceo-stat-num">500+</div>
+            <div class="ceo-stat-lbl">Happy Clients</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="ceo-right">
+        <div class="ceo-card">
+          <span class="ceo-quote-mark">"</span>
+          <p class="ceo-quote-text">
+            প্রযুক্তিগত বিষয়গুলো সামলাতে গিয়ে আপনার ব্যবসার আসল জায়গায় ফোকাস হারাচ্ছেন?
+            আমরা আছি আপনার পাশে। আপনার ব্যবসার সম্পূর্ণ টেক সলিউশন আমরা ম্যানেজ করবো,
+            আপনি শুধু আপনার গ্রোথে ফোকাস করুন।
+          </p>
+          <div class="ceo-card-divider"></div>
+          <div class="ceo-info-row">
+            <div>
+              <div class="ceo-name">নুর মোহাম্মাদ</div>
+              <div class="ceo-designation">Founder & CEO, Site Ghor Limited</div>
+            </div>
+            <div class="ceo-avail-badge">
+              <span class="ceo-avail-dot"></span>
+              <span class="ceo-avail-txt">Available now</span>
+            </div>
+          </div>
+          <div class="ceo-btns">
+            <a href="contact.html" class="ceo-btn-primary">
+              <i class="fa-solid fa-handshake ceo-btn-icon"></i> Book a Meeting
+            </a>
+            <a href="https://wa.link/e4cxbt" target="_blank" class="ceo-btn-wa">
+              <i class="fa-brands fa-whatsapp ceo-btn-icon"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
 
 
  <!-- আমাদের অর্জন -->
@@ -273,6 +974,892 @@
         }
     </style>
 
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:wght@300;400;600&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+
+/* ══════════════════════════
+   ACHIEVEMENT SECTION
+══════════════════════════ */
+.ach-section {
+  position: relative;
+  background: #060400;
+  padding: 100px 24px;
+  overflow: hidden;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+/* grain */
+.ach-section::after {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* orbs */
+.ach-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(100px); pointer-events: none; z-index: 0;
+}
+.ach-orb-1 { width:500px;height:500px;top:-100px;left:-100px;
+  background:radial-gradient(circle,#c9972a1a,transparent 70%); }
+.ach-orb-2 { width:350px;height:350px;bottom:-60px;right:-80px;
+  background:radial-gradient(circle,#b200a712,transparent 70%); }
+.ach-orb-3 { width:280px;height:280px;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,#c9972a0c,transparent 70%); }
+
+/* ── top label ── */
+.ach-inner { position:relative;z-index:2;max-width:1100px;margin:0 auto; }
+
+.ach-badge {
+  display:inline-flex;align-items:center;gap:9px;
+  padding:7px 22px;
+  border:1px solid #c9972a44;border-radius:999px;
+  background:#c9972a0e;
+  margin-bottom:28px;
+}
+.ach-badge-dot {
+  width:7px;height:7px;border-radius:50%;
+  background:#f0c84a;box-shadow:0 0 10px #f0c84a;
+  animation:ach-dot-pulse 2s ease-in-out infinite;
+}
+@keyframes ach-dot-pulse{0%,100%{box-shadow:0 0 6px #c9972a;}50%{box-shadow:0 0 18px #f0c84a;}}
+.ach-badge span {
+  font-family:'Cormorant Garamond',serif;
+  font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:#f0c84a;
+}
+
+/* ── heading ── */
+.ach-heading {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.6rem,4vw,2.8rem);font-weight:900;
+  line-height:1.2;margin-bottom:12px;
+  color:#fdf6e3;
+}
+.ach-heading .gold {
+  background:linear-gradient(135deg,#fce89a,#f0c84a,#c9972a);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.ach-rule {
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  margin:18px auto 60px;
+}
+.ach-rule hr{width:60px;border:none;height:1px;
+  background:linear-gradient(90deg,transparent,#c9972a,transparent);opacity:.5;}
+.ach-rule span{color:#c9972a;font-size:.8rem;opacity:.65;}
+
+/* ══════════════════════════
+   MAIN CARD WRAPPER
+══════════════════════════ */
+.ach-card-outer {
+  position:relative;
+  border-radius:32px;
+  padding:2px;
+  /* animated conic border */
+  background:conic-gradient(from 0deg,
+    #c9972a,#f0c84a,#fce89a,#c9972a,
+    #b200a744,#ff589844,
+    #c9972a,#f0c84a,#c9972a);
+  background-size:300% 300%;
+  animation:ach-border-spin 5s linear infinite;
+  box-shadow:0 20px 80px #00000088, 0 0 40px #c9972a18;
+}
+@keyframes ach-border-spin{
+  0%  {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* smooth conic border trick */
+.ach-card-outer::before {
+  content:'';
+  position:absolute;inset:0;border-radius:32px;
+  background:conic-gradient(from var(--a,0deg),
+    transparent 40%,
+    #f0c84a88 50%,
+    #c9972a 55%,
+    #fce89a88 60%,
+    transparent 70%);
+  animation:ach-conic-rotate 4s linear infinite;
+  z-index:0;
+}
+@keyframes ach-conic-rotate{
+  to{--a:360deg;}
+}
+/* CSS Houdini fallback */
+@property --a { syntax:'<angle>'; initial-value:0deg; inherits:false; }
+
+.ach-card-inner {
+  position:relative;z-index:1;
+  border-radius:30px;
+  background:linear-gradient(145deg,#141000,#0a0800);
+  overflow:hidden;
+  padding:0;
+}
+
+/* inner glow */
+.ach-card-inner::before {
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at top center,#c9972a14,transparent 55%);
+}
+
+/* top separator line inside card */
+.ach-card-inner::after {
+  content:'';
+  position:absolute;top:0;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,#c9972a66,transparent);
+}
+
+/* ══════════════════════════
+   STATS GRID
+══════════════════════════ */
+.ach-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  position:relative;
+}
+@media(max-width:768px){ .ach-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:420px){ .ach-grid{grid-template-columns:1fr;} }
+
+/* dividers between cells */
+.ach-stat:not(:last-child)::after {
+  content:'';
+  position:absolute;top:15%;right:0;bottom:15%;
+  width:1px;
+  background:linear-gradient(180deg,transparent,#c9972a33,transparent);
+}
+@media(max-width:768px){
+  .ach-stat:nth-child(2)::after { display:none; }
+  .ach-stat:nth-child(1),
+  .ach-stat:nth-child(2) {
+    border-bottom:1px solid #c9972a18;
+  }
+}
+@media(max-width:420px){
+  .ach-stat::after { display:none !important; }
+  .ach-stat { border-bottom:1px solid #c9972a14; }
+}
+
+/* ── individual stat ── */
+.ach-stat {
+  position:relative;
+  padding:44px 28px;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:0;
+  overflow:hidden;
+  transition:background .4s;
+  cursor:default;
+}
+.ach-stat:hover { background:#c9972a06; }
+
+/* hover shimmer sweep */
+.ach-stat::before {
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 30%,#c9972a08 50%,transparent 70%);
+  transform:translateX(-100%);
+  transition:transform .6s ease;
+}
+.ach-stat:hover::before { transform:translateX(100%); }
+
+/* icon box */
+.ach-icon-box {
+  width:56px;height:56px;border-radius:18px;
+  background:linear-gradient(135deg,#201800,#160f00);
+  border:1px solid #c9972a33;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;
+  margin-bottom:18px;
+  box-shadow:0 0 18px #c9972a18;
+  position:relative;z-index:1;
+  transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;
+}
+.ach-stat:hover .ach-icon-box {
+  transform:translateY(-4px) scale(1.08);
+  box-shadow:0 8px 28px #c9972a33;
+}
+
+/* number */
+.ach-num {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;
+  line-height:1;margin-bottom:8px;
+  position:relative;z-index:1;
+  background:linear-gradient(135deg,#fce89a,#f0c84a,#c9972a);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+
+  /* count-up animation */
+  opacity:0;transform:translateY(16px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.ach-stat.visible .ach-num { opacity:1;transform:translateY(0); }
+
+/* label */
+.ach-label {
+  font-size:.88rem;color:#a87f30;line-height:1.5;
+  position:relative;z-index:1;
+  opacity:0;transform:translateY(10px);
+  transition:opacity .5s .15s ease,transform .5s .15s ease;
+}
+.ach-stat.visible .ach-label { opacity:1;transform:translateY(0); }
+
+/* sub label */
+.ach-sub {
+  font-family:'Cormorant Garamond',serif;
+  font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#5a3e10;margin-top:4px;
+  position:relative;z-index:1;
+  opacity:0;transition:opacity .5s .25s ease;
+}
+.ach-stat.visible .ach-sub { opacity:1; }
+
+/* ── unique accent colors per stat ── */
+.ach-stat-1 .ach-icon-box { color:#60a5fa; border-color:#3b82f633; box-shadow:0 0 18px #3b82f618; }
+.ach-stat-1 .ach-num      { background:linear-gradient(135deg,#93c5fd,#3b82f6,#1d4ed8);
+  -webkit-background-clip:text;background-clip:text; }
+.ach-stat-1:hover .ach-icon-box { box-shadow:0 8px 28px #3b82f633; }
+
+.ach-stat-2 .ach-icon-box { color:#d946ef; border-color:#b200a733; box-shadow:0 0 18px #b200a718; }
+.ach-stat-2 .ach-num      { background:linear-gradient(135deg,#e879f9,#b200a7,#7e0076);
+  -webkit-background-clip:text;background-clip:text; }
+.ach-stat-2:hover .ach-icon-box { box-shadow:0 8px 28px #b200a733; }
+
+.ach-stat-3 .ach-icon-box { color:#fb923c; border-color:#f9731633; box-shadow:0 0 18px #f9731618; }
+.ach-stat-3 .ach-num      { background:linear-gradient(135deg,#fdba74,#f97316,#c2410c);
+  -webkit-background-clip:text;background-clip:text; }
+.ach-stat-3:hover .ach-icon-box { box-shadow:0 8px 28px #f9731633; }
+
+.ach-stat-4 .ach-icon-box { color:#a855f7; border-color:#9333ea33; box-shadow:0 0 18px #9333ea18; }
+.ach-stat-4 .ach-num      { background:linear-gradient(135deg,#d8b4fe,#a855f7,#7e22ce);
+  -webkit-background-clip:text;background-clip:text; }
+.ach-stat-4:hover .ach-icon-box { box-shadow:0 8px 28px #9333ea33; }
+
+/* ── bottom bar ── */
+.ach-bottom {
+  display:flex;align-items:center;justify-content:center;
+  padding:18px 28px;
+  border-top:1px solid #c9972a14;
+  gap:24px;flex-wrap:wrap;
+}
+.ach-bottom-pill {
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#5a3e10;
+}
+.ach-bottom-pill i { color:#c9972a;font-size:.75rem; }
+.ach-bottom-sep { color:#c9972a33;font-size:.6rem; }
+
+/* ── entrance animation (section heading) ── */
+.ach-heading-wrap {
+  text-align:center;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+.ach-heading-wrap.visible { opacity:1;transform:translateY(0); }
+
+.ach-card-outer {
+  opacity:0;transform:translateY(30px) scale(.98);
+  transition:opacity .7s .2s ease,transform .7s .2s cubic-bezier(.22,1,.36,1);
+}
+.ach-card-outer.visible { opacity:1;transform:translateY(0) scale(1); }
+
+/* stagger each stat */
+.ach-stat:nth-child(1) .ach-num { transition-delay:.0s; }
+.ach-stat:nth-child(2) .ach-num { transition-delay:.1s; }
+.ach-stat:nth-child(3) .ach-num { transition-delay:.2s; }
+.ach-stat:nth-child(4) .ach-num { transition-delay:.3s; }
+.ach-stat:nth-child(1) .ach-label { transition-delay:.15s; }
+.ach-stat:nth-child(2) .ach-label { transition-delay:.25s; }
+.ach-stat:nth-child(3) .ach-label { transition-delay:.35s; }
+.ach-stat:nth-child(4) .ach-label { transition-delay:.45s; }
+</style>
+
+
+<!-- আমাদের অর্জন — ACHIEVEMENT SECTION
+═ -->
+<section class="ach-section">
+  <div class="ach-orb ach-orb-1"></div>
+  <div class="ach-orb ach-orb-2"></div>
+  <div class="ach-orb ach-orb-3"></div>
+
+  <div class="ach-inner">
+
+    <!-- heading block -->
+    <div class="ach-heading-wrap" id="achHeadingWrap" style="text-align:center;">
+
+      <div class="ach-badge" style="margin:0 auto 28px;">
+        <span class="ach-badge-dot"></span>
+        <span>Our Achievements</span>
+      </div>
+
+      <h2 class="ach-heading bangla-font">
+        স্বপ্ন থেকে <span class="gold">সাফল্য</span> —<br>আমাদের অর্জনের গল্প
+      </h2>
+
+      <div class="ach-rule">
+        <hr/><span>◆</span><hr/>
+      </div>
+
+    </div>
+
+    <!-- card -->
+    <div class="ach-card-outer" id="achCardOuter">
+      <div class="ach-card-inner">
+
+        <!-- stats grid -->
+        <div class="ach-grid">
+
+          <!-- stat 1 -->
+          <div class="ach-stat ach-stat-1" id="achStat0">
+            <div class="ach-icon-box">
+              <i class="fa-regular fa-building"></i>
+            </div>
+            <div class="ach-num" data-target="8" data-suffix="+">0+</div>
+            <div class="ach-label bangla-font">বছরের অভিজ্ঞতা</div>
+            <div class="ach-sub">Years Experience</div>
+          </div>
+
+          <!-- stat 2 -->
+          <div class="ach-stat ach-stat-2" id="achStat1">
+            <div class="ach-icon-box">
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+            <div class="ach-num" data-target="4200" data-suffix="+">0+</div>
+            <div class="ach-label bangla-font">সফল ওয়েবসাইট</div>
+            <div class="ach-sub">Websites Delivered</div>
+          </div>
+
+          <!-- stat 3 -->
+          <div class="ach-stat ach-stat-3" id="achStat2">
+            <div class="ach-icon-box">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <div class="ach-num" data-target="0" data-static="24/7">24/7</div>
+            <div class="ach-label bangla-font">সাপোর্ট সেবা</div>
+            <div class="ach-sub">Always Available</div>
+          </div>
+
+          <!-- stat 4 -->
+          <div class="ach-stat ach-stat-4" id="achStat3">
+            <div class="ach-icon-box">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="ach-num" data-target="100" data-suffix="%">0%</div>
+            <div class="ach-label bangla-font">গ্রাহক সন্তুষ্টি</div>
+            <div class="ach-sub">Client Satisfaction</div>
+          </div>
+
+        </div>
+
+        <!-- bottom bar -->
+        <div class="ach-bottom">
+          <span class="ach-bottom-pill"><i class="fa-solid fa-shield-halved"></i> Trusted Since 2020</span>
+          <span class="ach-bottom-sep">◆</span>
+          <span class="ach-bottom-pill"><i class="fa-solid fa-bolt"></i> Fast Delivery</span>
+          <span class="ach-bottom-sep">◆</span>
+          <span class="ach-bottom-pill"><i class="fa-solid fa-star"></i> 5★ Rated</span>
+          <span class="ach-bottom-sep">◆</span>
+          <span class="ach-bottom-pill"><i class="fa-solid fa-location-dot"></i> Bangladesh</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+/* ── Intersection Observer → trigger animations ── */
+const achObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+
+      /* if it's the card, trigger stats too */
+      if (entry.target.id === 'achCardOuter') {
+        document.querySelectorAll('.ach-stat').forEach((el, i) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+            /* count-up */
+            const numEl = el.querySelector('.ach-num');
+            if (numEl.dataset.static) return; /* skip 24/7 */
+            const target = parseInt(numEl.dataset.target);
+            const suffix = numEl.dataset.suffix || '';
+            if (target === 0) return;
+            achCountUp(numEl, target, suffix);
+          }, i * 120);
+        });
+      }
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('#achHeadingWrap, #achCardOuter').forEach(el => achObserver.observe(el));
+
+/* ── smooth count-up ── */
+function achCountUp(el, target, suffix) {
+  const duration = 1800;
+  const start = performance.now();
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    /* ease-out cubic */
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(eased * target);
+    el.textContent = current.toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+</script>
+
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:wght@300;400;600&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+
+/* ══════════════════════════════════
+   VARS
+══════════════════════════════════ */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.ach2 {
+  --gold:    #c9972a;
+  --gold-lt: #f0c84a;
+  --gold-br: #fce89a;
+  --gold-dp: #8a6318;
+  --bg:      #060400;
+  --bg-card: #100d00;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+/* ══════════════════════════════════
+   SECTION
+══════════════════════════════════ */
+.ach2 {
+  position: relative;
+  background: var(--bg);
+  padding: 110px 24px;
+  overflow: hidden;
+}
+.ach2::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* orbs */
+.ach2-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(110px); pointer-events: none;
+}
+.ach2-orb-1 { width: 500px; height: 500px; top: -120px; left: -120px;
+  background: radial-gradient(circle, #c9972a18, transparent 70%); }
+.ach2-orb-2 { width: 380px; height: 380px; bottom: -80px; right: -80px;
+  background: radial-gradient(circle, #b200a710, transparent 70%); }
+
+/* ══════════════════════════════════
+   HEADING AREA
+══════════════════════════════════ */
+.ach2-head {
+  position: relative; z-index: 2;
+  text-align: center;
+  max-width: 700px; margin: 0 auto 56px;
+}
+
+.ach2-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 20px;
+  border: 1px solid #c9972a33;
+  border-radius: 999px;
+  background: #c9972a0c;
+  margin-bottom: 22px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .7rem; letter-spacing: .24em; text-transform: uppercase;
+  color: #f0c84a;
+}
+.ach2-eyebrow-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #f0c84a; box-shadow: 0 0 8px #f0c84a;
+  animation: ach2-pulse 2s ease-in-out infinite;
+}
+@keyframes ach2-pulse {
+  0%,100% { box-shadow: 0 0 5px #c9972a; }
+  50%      { box-shadow: 0 0 14px #f0c84a; }
+}
+
+.ach2-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  font-weight: 900; color: #fdf6e3;
+  line-height: 1.2; margin-bottom: 14px;
+}
+.ach2-title .ach2-gold {
+  background: linear-gradient(135deg, #fce89a, #f0c84a, #c9972a);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ach2-rule {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.ach2-rule hr { width: 50px; border: none; height: 1px;
+  background: linear-gradient(90deg, transparent, #c9972a55, transparent); }
+.ach2-rule span { color: #c9972a; font-size: .75rem; opacity: .6; }
+
+/* ══════════════════════════════════
+   CARD — CONIC BORDER
+══════════════════════════════════ */
+.ach2-card-wrap {
+  position: relative; z-index: 2;
+  max-width: 1000px; margin: 0 auto;
+  border-radius: 28px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--border-angle),
+    #c9972a 0%,
+    #f0c84a 15%,
+    #fce89a 25%,
+    #ffffff44 30%,
+    #06040000 45%,
+    #06040000 55%,
+    #ffffff22 60%,
+    #ffa20566 70%,
+    #b41cdd44 78%,
+    #ff589833 86%,
+    #c9972a 100%
+  );
+  animation: ach2-spin 4s linear infinite;
+  box-shadow:
+    0 0 0 1px #c9972a0a,
+    0 20px 80px #00000077,
+    0 0 50px #c9972a0c;
+}
+@keyframes ach2-spin {
+  to { --border-angle: 360deg; }
+}
+
+.ach2-card-inner {
+  border-radius: 26px;
+  background: linear-gradient(145deg, #131000, #0a0800);
+  overflow: hidden;
+  position: relative;
+}
+/* top inner glow line */
+.ach2-card-inner::before {
+  content: ''; position: absolute;
+  top: 0; left: 8%; right: 8%; height: 1px;
+  background: linear-gradient(90deg, transparent, #c9972a55, transparent);
+}
+/* subtle inner radial */
+.ach2-card-inner::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, #c9972a0e, transparent 55%);
+}
+
+/* ══════════════════════════════════
+   STATS GRID
+══════════════════════════════════ */
+.ach2-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative; z-index: 1;
+}
+@media (max-width: 700px) { .ach2-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 380px) { .ach2-grid { grid-template-columns: 1fr; } }
+
+/* vertical dividers */
+.ach2-stat::after {
+  content: ''; position: absolute;
+  top: 18%; right: 0; bottom: 18%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, #c9972a2a, transparent);
+}
+.ach2-stat:last-child::after { display: none; }
+@media (max-width: 700px) {
+  .ach2-stat:nth-child(2)::after,
+  .ach2-stat:last-child::after { display: none; }
+  .ach2-stat:nth-child(1),
+  .ach2-stat:nth-child(2) {
+    border-bottom: 1px solid #c9972a14;
+  }
+}
+
+/* ── individual stat ── */
+.ach2-stat {
+  position: relative;
+  padding: 44px 24px 40px;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+
+  /* NO transform on hover — prevents lag */
+  transition: background .35s;
+}
+.ach2-stat:hover { background: #c9972a07; }
+
+/* icon wrapper */
+.ach2-icon {
+  width: 54px; height: 54px;
+  border-radius: 16px;
+  border: 1px solid #c9972a22;
+  background: #181000;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  /* only the icon box transitions, not the whole cell */
+  transition: border-color .35s, box-shadow .35s;
+}
+
+/* number */
+.ach2-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+  font-weight: 900; line-height: 1;
+  margin-bottom: 8px;
+  transition: none; /* no transition on number */
+}
+
+/* label */
+.ach2-lbl {
+  font-size: .86rem; color: #8a6a28;
+  line-height: 1.4;
+}
+.ach2-lbl-en {
+  display: block; margin-top: 3px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .6rem; letter-spacing: .14em; text-transform: uppercase;
+  color: #4a3810;
+}
+
+/* ── per-stat colors ── */
+/* stat 1 — blue */
+.ach2-s1 .ach2-icon { color: #60a5fa; }
+.ach2-s1 .ach2-num {
+  background: linear-gradient(135deg, #93c5fd, #3b82f6, #1d4ed8);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ach2-s1:hover .ach2-icon { border-color: #3b82f644; box-shadow: 0 0 20px #3b82f620; }
+
+/* stat 2 — magenta */
+.ach2-s2 .ach2-icon { color: #d946ef; }
+.ach2-s2 .ach2-num {
+  background: linear-gradient(135deg, #e879f9, #b200a7, #7e0076);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ach2-s2:hover .ach2-icon { border-color: #b200a744; box-shadow: 0 0 20px #b200a720; }
+
+/* stat 3 — orange */
+.ach2-s3 .ach2-icon { color: #fb923c; }
+.ach2-s3 .ach2-num {
+  background: linear-gradient(135deg, #fdba74, #f97316, #c2410c);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ach2-s3:hover .ach2-icon { border-color: #f9731644; box-shadow: 0 0 20px #f9731620; }
+
+/* stat 4 — purple */
+.ach2-s4 .ach2-icon { color: #a855f7; }
+.ach2-s4 .ach2-num {
+  background: linear-gradient(135deg, #d8b4fe, #a855f7, #7e22ce);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ach2-s4:hover .ach2-icon { border-color: #9333ea44; box-shadow: 0 0 20px #9333ea20; }
+
+/* ══════════════════════════════════
+   BOTTOM BAR
+══════════════════════════════════ */
+.ach2-footer {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 6px 20px;
+  padding: 16px 24px;
+  border-top: 1px solid #c9972a12;
+  position: relative; z-index: 1;
+}
+.ach2-fp {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: #5a3e10;
+}
+.ach2-fp i { color: #c9972a; font-size: .7rem; }
+.ach2-fsep { color: #c9972a22; font-size: .5rem; }
+
+/* ══════════════════════════════════
+   SCROLL-IN ANIMATION (clean)
+══════════════════════════════════ */
+.ach2-head,
+.ach2-card-wrap {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1);
+}
+.ach2-card-wrap { transition-delay: .15s; }
+.ach2-head.in, .ach2-card-wrap.in {
+  opacity: 1; transform: translateY(0);
+}
+
+/* num count-in */
+.ach2-num {
+  opacity: 0; transform: translateY(12px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.ach2-stat.in .ach2-num { opacity: 1; transform: translateY(0); }
+.ach2-stat:nth-child(1) .ach2-num { transition-delay: .05s; }
+.ach2-stat:nth-child(2) .ach2-num { transition-delay: .15s; }
+.ach2-stat:nth-child(3) .ach2-num { transition-delay: .25s; }
+.ach2-stat:nth-child(4) .ach2-num { transition-delay: .35s; }
+
+.ach2-lbl {
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.ach2-stat.in .ach2-lbl { opacity: 1; transform: translateY(0); }
+.ach2-stat:nth-child(1) .ach2-lbl { transition-delay: .12s; }
+.ach2-stat:nth-child(2) .ach2-lbl { transition-delay: .22s; }
+.ach2-stat:nth-child(3) .ach2-lbl { transition-delay: .32s; }
+.ach2-stat:nth-child(4) .ach2-lbl { transition-delay: .42s; }
+</style>
+
+
+<!-- SECTION -->
+<section class="ach2">
+  <div class="ach2-orb ach2-orb-1"></div>
+  <div class="ach2-orb ach2-orb-2"></div>
+
+  <!-- heading -->
+  <div class="ach2-head" id="ach2Head">
+    <div class="ach2-eyebrow">
+      <span class="ach2-eyebrow-dot"></span>
+      Our Achievements
+    </div>
+    <h2 class="ach2-title bangla-font">
+      স্বপ্ন থেকে <span class="ach2-gold">সাফল্য</span> —<br>আমাদের অর্জনের গল্প
+    </h2>
+    <div class="ach2-rule" style="margin-top:14px;">
+      <hr/><span>◆</span><hr/>
+    </div>
+  </div>
+
+  <!-- card -->
+  <div class="ach2-card-wrap" id="ach2Card">
+    <div class="ach2-card-inner">
+
+      <div class="ach2-grid">
+
+        <!-- 1 -->
+        <div class="ach2-stat ach2-s1" id="ach2St0">
+          <div class="ach2-icon"><i class="fa-regular fa-building"></i></div>
+          <div class="ach2-num" data-to="8" data-suffix="+">8+</div>
+          <div class="ach2-lbl bangla-font">বছরের অভিজ্ঞতা
+            <span class="ach2-lbl-en">Years Experience</span>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="ach2-stat ach2-s2" id="ach2St1">
+          <div class="ach2-icon"><i class="fa-solid fa-earth-americas"></i></div>
+          <div class="ach2-num" data-to="4200" data-suffix="+">4200+</div>
+          <div class="ach2-lbl bangla-font">সফল ওয়েবসাইট
+            <span class="ach2-lbl-en">Websites Delivered</span>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="ach2-stat ach2-s3" id="ach2St2">
+          <div class="ach2-icon"><i class="fa-solid fa-headset"></i></div>
+          <div class="ach2-num" data-static>24/7</div>
+          <div class="ach2-lbl bangla-font">সাপোর্ট সেবা
+            <span class="ach2-lbl-en">Always Available</span>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="ach2-stat ach2-s4" id="ach2St3">
+          <div class="ach2-icon"><i class="fa-solid fa-heart"></i></div>
+          <div class="ach2-num" data-to="100" data-suffix="%">100%</div>
+          <div class="ach2-lbl bangla-font">গ্রাহক সন্তুষ্টি
+            <span class="ach2-lbl-en">Client Satisfaction</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- footer -->
+      <div class="ach2-footer">
+        <span class="ach2-fp"><i class="fa-solid fa-shield-halved"></i>Trusted Since 2020</span>
+        <span class="ach2-fsep">◆</span>
+        <span class="ach2-fp"><i class="fa-solid fa-bolt"></i>Fast Delivery</span>
+        <span class="ach2-fsep">◆</span>
+        <span class="ach2-fp"><i class="fa-solid fa-star"></i>5★ Rated</span>
+        <span class="ach2-fsep">◆</span>
+        <span class="ach2-fp"><i class="fa-solid fa-location-dot"></i>Bangladesh</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  /* ── helpers ── */
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function countUp(el, to, suffix, delay) {
+    setTimeout(() => {
+      const dur = 1600;
+      const start = performance.now();
+      function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = Math.round(easeOutCubic(p) * to) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }, delay);
+  }
+
+  /* ── observe ── */
+  let counted = false;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const el = entry.target;
+
+      /* heading */
+      if (el.id === 'ach2Head') { el.classList.add('in'); return; }
+
+      /* card */
+      if (el.id === 'ach2Card') {
+        el.classList.add('in');
+
+        /* trigger stat fade-in */
+        document.querySelectorAll('.ach2-stat').forEach((s, i) => {
+          setTimeout(() => s.classList.add('in'), i * 100);
+        });
+
+        /* count-up (once) */
+        if (!counted) {
+          counted = true;
+          document.querySelectorAll('.ach2-num:not([data-static])').forEach((n, i) => {
+            const to     = parseInt(n.dataset.to);
+            const suffix = n.dataset.suffix || '';
+            countUp(n, to, suffix, i * 120);
+          });
+        }
+        return;
+      }
+    });
+  }, { threshold: 0.25 });
+
+  io.observe(document.getElementById('ach2Head'));
+  io.observe(document.getElementById('ach2Card'));
+})();
+</script>
 
 
  <!-- WHY US -->
@@ -498,159 +2085,466 @@
 
 
 
+<section class="sv-section">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
+
+    .sv-section {
+      background: #0a0900;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+    .sv-section::before,
+    .sv-section::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+    }
+    .sv-section::before { top: 0; }
+    .sv-section::after  { bottom: 0; }
+
+    .sv-inner { max-width: 1100px; margin: 0 auto; }
+
+    .sv-head { text-align: center; margin-bottom: 56px; }
+    .sv-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: #1a1200; border: 1px solid #3a2e00;
+      border-radius: 30px; padding: 5px 16px; margin-bottom: 14px;
+    }
+    .sv-eyebrow span {
+      font-size: 11px; color: #c9a96e;
+      letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600;
+    }
+    .sv-title {
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 700; color: #f0e6cc;
+      line-height: 1.45;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .sv-title em {
+      font-style: normal; color: #c9a96e;
+      background: #1a1200; border: 1px solid #3a2e00;
+      border-radius: 30px; padding: 2px 14px;
+    }
+    .sv-gold-line {
+      width: 56px; height: 2px;
+      background: #c9a96e;
+      margin: 14px auto 0; border-radius: 2px;
+    }
+
+    .sv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 860px) { .sv-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .sv-grid { grid-template-columns: 1fr; } }
+
+    .sv-wrap {
+      position: relative;
+      border-radius: 20px;
+      padding: 2px;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .sv-wrap:hover { transform: translateY(-7px) scale(1.02); }
+
+    .sv-wrap::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(
+        transparent 0deg,
+        var(--ac) 15deg,
+        var(--ac2, var(--ac)) 35deg,
+        transparent 80deg
+      );
+      transform: translate(-50%, -50%);
+      animation: svSpin 6s linear infinite;
+      will-change: transform;
+    }
+    @keyframes svSpin {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .sv-card {
+      position: relative;
+      z-index: 1;
+      background: #0f0c00;
+      border-radius: 18px;
+      padding: 28px 24px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sv-icon-box {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      position: relative; overflow: hidden;
+    }
+    .sv-icon-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--ac);
+      opacity: 0.15; border-radius: 14px;
+    }
+    .sv-icon-box i { font-size: 24px; color: var(--ac); position: relative; z-index: 1; }
+
+    .sv-num {
+      position: absolute; top: 20px; right: 20px;
+      font-size: 11px; font-weight: 700;
+      color: var(--ac); opacity: 0.35; letter-spacing: 1px;
+    }
+
+    .sv-card-title { font-size: 16px; font-weight: 700; color: #f0e6cc; }
+    .sv-card-text {
+      font-size: 13px; color: #7a6a40;
+      line-height: 1.75; flex-grow: 1;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    .sv-card-footer { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+    .sv-pill {
+      font-size: 10px; color: var(--ac);
+      border: 1px solid var(--ac);
+      border-radius: 20px; padding: 3px 10px;
+      opacity: 0.75; background: transparent;
+    }
+  </style>
+
+  <div class="sv-inner">
+
+    <div class="sv-head">
+      <div class="sv-eyebrow"><span>Our Services</span></div>
+      <h2 class="sv-title">আপনি কি আপনার ডিজিটাল <em>সফলতার</em> জন্য প্রস্তুত?</h2>
+      <div class="sv-gold-line"></div>
+    </div>
+
+    <div class="sv-grid">
+
+      <!-- 1. eCommerce -->
+      <div class="sv-wrap" style="--ac:#f97316; --ac2:#facc15;">
+        <div class="sv-card">
+          <span class="sv-num">01</span>
+          <div class="sv-icon-box"><i class="fa-solid fa-store"></i></div>
+          <div>
+            <div class="sv-card-title">eCommerce Solution</div>
+            <p class="sv-card-text">দারাজ, ইভ্যালি, আলি-এক্সপ্রেস বা এ্যামাজনের মতো ফাংশনালিটির ই-কমার্স ওয়েবসাইট ডেভেলপমেন্ট নিয়ে কাজ করার জন্য আমাদের নিজস্ব ৩০ জন ডেভেলপার রয়েছে। দক্ষতা ও সততার সাথে আমরা সার্ভিস দিয়ে থাকি।</p>
+          </div>
+          <div class="sv-card-footer"><span class="sv-pill">30+ Developers</span></div>
+        </div>
+      </div>
+
+      <!-- 2. Web Development -->
+      <div class="sv-wrap" style="--ac:#3b82f6; --ac2:#06b6d4;">
+        <div class="sv-card">
+          <span class="sv-num">02</span>
+          <div class="sv-icon-box"><i class="fa-solid fa-globe"></i></div>
+          <div>
+            <div class="sv-card-title">Web Development</div>
+            <p class="sv-card-text">সব ধরনের কর্পোরেট লেভেলের ওয়েবসাইট ডেভেলপমেন্ট সার্ভিস দিয়ে থাকি আমরা। নিরাপদ ও ফাস্টেষ্ট ওয়েবসাইটের জন্য বাংলাদেশ সরকার সহ বসুন্ধরা, আকিজ, বেঙ্গলের মতো বড় প্রতিষ্ঠান আমাদের উপর আস্থা রাখছে।</p>
+          </div>
+          <div class="sv-card-footer"><span class="sv-pill">Corporate Level</span></div>
+        </div>
+      </div>
+
+      <!-- 3. Digital Marketing -->
+      <div class="sv-wrap" style="--ac:#ec4899; --ac2:#f59e0b;">
+        <div class="sv-card">
+          <span class="sv-num">03</span>
+          <div class="sv-icon-box"><i class="fa-solid fa-bullhorn"></i></div>
+          <div>
+            <div class="sv-card-title">Digital Marketing</div>
+            <p class="sv-card-text">আমাদের সুদক্ষ টিম আপনার বিজনেসকে রিসার্চ করে অডিয়েন্স টার্গেট করবে। আপনার প্রোডাক্ট বা সার্ভিসের সেল জেনারেট নিশ্চিত করবে আমাদের এই টিম।</p>
+          </div>
+          <div class="sv-card-footer"><span class="sv-pill">Targeted Ads</span></div>
+        </div>
+      </div>
+
+      <!-- 4. Domain Hosting -->
+      <div class="sv-wrap" style="--ac:#0ea5e9; --ac2:#6366f1;">
+        <div class="sv-card">
+          <span class="sv-num">04</span>
+          <div class="sv-icon-box"><i class="fa-solid fa-server"></i></div>
+          <div>
+            <div class="sv-card-title">Domain &amp; Hosting</div>
+            <p class="sv-card-text">আমরা বিটিসিএল সহ সব ধরনের ডোমেইন রেজিষ্ট্রেশন এবং ওয়েব হোস্টিং প্রোভাইড করে থাকি। আপনার ডাটা থাকবে নিরাপদ ও সাইটের লোড ব্যালান্সিং করা হবে।</p>
+          </div>
+          <div class="sv-card-footer"><span class="sv-pill">99.9% Uptime</span></div>
+        </div>
+      </div>
+
+      <!-- 5. Graphics UI/UX -->
+      <div class="sv-wrap" style="--ac:#22c55e; --ac2:#10b981;">
+        <div class="sv-card">
+          <span class="sv-num">05</span>
+          <div class="sv-icon-box"><i class="fa-solid fa-paintbrush"></i></div>
+          <div>
+            <div class="sv-card-title">Graphics &amp; UI/UX</div>
+            <p class="sv-card-text">ওয়েবসাইটের ফ্রন্টলুক, লোগো ডিজাইন, এ্যাপসের ডিজাইন সহ সব ধরনের এনিমেশন কন্টেন্ট নিয়ে কাজ করে আমাদের ক্রিয়েটিভ টিম।</p>
+          </div>
+          <div class="sv-card-footer"><span class="sv-pill">Creative Studio</span></div>
+        </div>
+      </div>
+
+      <!-- 6. Mobile Apps -->
+      <div class="sv-wrap" style="--ac:#a855f7; --ac2:#ec4899;">
+        <div class="sv-card">
+          <span class="sv-num">06</span>
+          <div class="sv-icon-box"><i class="fa-solid fa-mobile-button"></i></div>
+          <div>
+            <div class="sv-card-title">Mobile Apps</div>
+            <p class="sv-card-text">সব ধরনের ওয়েব ভিউ মোবাইল এ্যাপস সহ নেটিভ এ্যাপস ডেভেলপ করি আমরা। প্লেস্টোরে এ্যাপস পাবলিশড করে দিয়ে থাকি।</p>
+          </div>
+          <div class="sv-card-footer"><span class="sv-pill">iOS &amp; Android</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+
 
 <!-- Team Section -->
-    <section class="team-section">
-        
-        <span class=" my-2 flex justify-center text-4xl"><i class="fa-solid fa-users text-pink-600 my-3" ></i></span>
-        <h2 class="text-4xl font-bold text-center bangla-font">
-            আমাদের
-            <span class="text-pink-600 bangla-font">টিম</span>
-        </h2>
-        <p class="text-center text-gray-500 mt-2 bangla-font">
-            আমাদের সাফল্যের পেছনের অসাধারণ মানুষগুলো
-        </p>
+<section class="ts2-section">
 
-        <div class="grid grid-cols-2 md:grid-cols-5 items-center justify-center gap-6 my-12 mx-6">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
 
-            <div class="md:max-w-80 bg-black text-white rounded-2xl">
-                <div class="relative -mt-px overflow-hidden rounded-2xl">
-                    <img src="images/team/ceo.png" alt=""
-                        class="h-[270px] w-full rounded-2xl hover:scale-105 transition-all duration-300 object-cover object-top">
-                    <div
-                        class="absolute bottom-0 z-10 h-60 w-full bg-gradient-to-t pointer-events-none from-black to-transparent">
-                    </div>
-                </div>
-                <div class="px-4 pb-6 text-center">
-                    <p class="mt-4 text-lg">Nurmohammad</p>
-                    <p
-                        class="text-sm font-medium bg-gradient-to-r from-[#8B5CF6] via-[#9938CA] to-[#E0724A] text-transparent bg-clip-text">
-                        Founder & CEO</p>
-                </div>
-            </div>
+    .ts2-section {
+      background: #0a0900;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+    .ts2-section::before,
+    .ts2-section::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+    }
+    .ts2-section::before { top: 0; }
+    .ts2-section::after  { bottom: 0; }
 
-            <div class="max-w-80 bg-black text-white rounded-2xl">
-                <div class="relative -mt-px overflow-hidden rounded-2xl">
-                    <img src="images/team/nurojjaman.png" alt=""
-                        class="h-[270px] w-full rounded-2xl hover:scale-105 transition-all duration-300 object-cover object-top">
-                    <div
-                        class="absolute bottom-0 z-10 h-60 w-full bg-gradient-to-t pointer-events-none from-black to-transparent">
-                    </div>
-                </div>
-                <div class="px-4 pb-6 text-center">
-                    <p class="mt-4 text-lg">Nurojjaman</p>
-                    <p
-                        class="text-sm font-medium bg-gradient-to-r from-[#8B5CF6] via-[#9938CA] to-[#E0724A] text-transparent bg-clip-text">
-                        Web Developer</p>
-                </div>
-            </div>
+    .ts2-inner { max-width: 1200px; margin: 0 auto; }
 
-            <div class="max-w-80 bg-black text-white rounded-2xl">
-                <div class="relative -mt-px overflow-hidden rounded-2xl">
-                    <img src="images/team/tuhin.png" alt=""
-                        class="h-[270px] w-full rounded-2xl hover:scale-105 transition-all duration-300 object-cover object-top">
-                    <div
-                        class="absolute bottom-0 z-10 h-60 w-full bg-gradient-to-t pointer-events-none from-black to-transparent">
-                    </div>
-                </div>
-                <div class="px-4 pb-6 text-center">
-                    <p class="mt-4 text-lg">Tuhin</p>
-                    <p
-                        class="text-sm font-medium bg-gradient-to-r from-[#8B5CF6] via-[#9938CA] to-[#E0724A] text-transparent bg-clip-text">
-                        Expart Web Designer</p>
-                </div>
-            </div>
+    .ts2-head { text-align: center; margin-bottom: 56px; }
+    .ts2-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: #1a1200; border: 1px solid #3a2e00;
+      border-radius: 30px; padding: 5px 16px; margin-bottom: 14px;
+    }
+    .ts2-eyebrow i    { font-size: 14px; color: #c9a96e; }
+    .ts2-eyebrow span { font-size: 11px; color: #c9a96e; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; }
+    .ts2-title {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700; color: #f0e6cc;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .ts2-title em { font-style: normal; color: #c9a96e; }
+    .ts2-gold-line  { width: 56px; height: 2px; background: #c9a96e; margin: 14px auto 0; border-radius: 2px; }
+    .ts2-sub { font-size: 14px; color: #5a4e28; margin-top: 10px; font-family: 'Hind Siliguri', sans-serif; }
 
-            <div class="max-w-80 bg-black text-white rounded-2xl">
-                <div class="relative -mt-px overflow-hidden rounded-2xl">
-                    <img src="images/team/badsa.png" alt=""
-                        class="h-[270px] w-full rounded-2xl hover:scale-105 transition-all duration-300 object-cover object-top">
-                    <div
-                        class="absolute bottom-0 z-10 h-60 w-full bg-gradient-to-t pointer-events-none from-black to-transparent">
-                    </div>
-                </div>
-                <div class="px-4 pb-6 text-center">
-                    <p class="mt-4 text-lg">Badsha</p>
-                    <p
-                        class="text-sm font-medium bg-gradient-to-r from-[#8B5CF6] via-[#9938CA] to-[#E0724A] text-transparent bg-clip-text">
-                        Digital Markater</p>
-                </div>
-            </div>
+    .ts2-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
 
-            <div class="max-w-80 bg-black text-white rounded-2xl">
-                <div class="relative -mt-px overflow-hidden rounded-2xl">
-                    <img src="images/team/tanvir.png" alt=""
-                        class="h-[270px] w-full rounded-2xl hover:scale-105 transition-all duration-300 object-cover object-top">
-                    <div
-                        class="absolute bottom-0 z-10 h-60 w-full bg-gradient-to-t pointer-events-none from-black to-transparent">
-                    </div>
-                </div>
-                <div class="px-4 pb-6 text-center">
-                    <p class="mt-4 text-lg">Tanvir</p>
-                    <p
-                        class="text-sm font-medium bg-gradient-to-r from-[#8B5CF6] via-[#9938CA] to-[#E0724A] text-transparent bg-clip-text">
-                        Digital Markater</p>
-                </div>
-            </div>
+    .tm2 {
+      background: #0f0c00;
+      border: 1px solid #2a2000;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+      position: relative;
+    }
+    .tm2:hover { transform: translateY(-6px); border-color: #c9a96e; }
+    .tm2::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: #c9a96e;
+      opacity: 0; transition: opacity 0.22s;
+    }
+    .tm2:hover::before { opacity: 1; }
 
-            <div class="max-w-80 bg-black text-white rounded-2xl">
-                <div class="relative -mt-px overflow-hidden rounded-2xl">
-                    <img src="images/team/riba.png" alt=""
-                        class="h-[270px] w-full rounded-2xl hover:scale-105 transition-all duration-300 object-cover object-top">
-                    <div
-                        class="absolute bottom-0 z-10 h-60 w-full bg-gradient-to-t pointer-events-none from-black to-transparent">
-                    </div>
-                </div>
-                <div class="px-4 pb-6 text-center">
-                    <p class="mt-4 text-lg">Riva Akter</p>
-                    <p
-                        class="text-sm font-medium bg-gradient-to-r from-[#8B5CF6] via-[#9938CA] to-[#E0724A] text-transparent bg-clip-text">
-                        Digital Markater</p>
-                </div>
-            </div>
+    .tm2-ceo { border-color: #c9a96e; }
+    .tm2-ceo::before { opacity: 1; }
 
-            <div class="max-w-80 bg-black text-white rounded-2xl">
-                <div class="relative -mt-px overflow-hidden rounded-2xl">
-                    <img src="images/team/papti.png" alt=""
-                        class="h-[270px] w-full rounded-2xl hover:scale-105 transition-all duration-300 object-cover object-top">
-                    <div
-                        class="absolute bottom-0 z-10 h-60 w-full bg-gradient-to-t pointer-events-none from-black to-transparent">
-                    </div>
-                </div>
-                <div class="px-4 pb-6 text-center">
-                    <p class="mt-4 text-lg">Prapti Das</p>
-                    <p
-                        class="text-sm font-medium bg-gradient-to-r from-[#8B5CF6] via-[#9938CA] to-[#E0724A] text-transparent bg-clip-text">
-                        Digital Markater</p>
-                </div>
-            </div>
+    .tm2-img { position: relative; overflow: hidden; height: 220px; }
+    .tm2-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      transition: transform 0.4s ease;
+    }
+    .tm2:hover .tm2-img img { transform: scale(1.06); }
+    .tm2-fade {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to top, #0f0c00, transparent);
+      pointer-events: none;
+    }
 
-            <div class="max-w-80 bg-black text-white rounded-2xl">
-                <div class="relative -mt-px overflow-hidden rounded-2xl">
-                    <img src="images/team/maruf.png" alt=""
-                        class="h-[270px] w-full rounded-2xl hover:scale-105 transition-all duration-300 object-cover object-top">
-                    <div
-                        class="absolute bottom-0 z-10 h-60 w-full bg-gradient-to-t pointer-events-none from-black to-transparent">
-                    </div>
-                </div>
-                <div class="px-4 pb-6 text-center">
-                    <p class="mt-4 text-lg">Maruf Khan</p>
-                    <p
-                        class="text-sm font-medium bg-gradient-to-r from-[#8B5CF6] via-[#9938CA] to-[#E0724A] text-transparent bg-clip-text">
-                        Web Developer</p>
-                </div>
-            </div>
+    .tm2-ceo-tag {
+      position: absolute; top: 12px; left: 12px; z-index: 2;
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(10,9,0,0.85);
+      border: 1px solid #c9a96e;
+      border-radius: 20px; padding: 4px 10px;
+    }
+    .tm2-ceo-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; }
+    .tm2-ceo-lbl { font-size: 10px; color: #c9a96e; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
 
+    .tm2-body { padding: 14px 16px 18px; text-align: center; }
+    .tm2-name { font-size: 14px; font-weight: 600; color: #f0e6cc; margin-bottom: 6px; }
+    .tm2-role {
+      font-size: 11px; color: #c9a96e;
+      background: #1a1200; border: 1px solid #3a2e00;
+      border-radius: 20px; padding: 3px 10px;
+      display: inline-block;
+    }
 
+    @media (max-width: 768px) {
+      .ts2-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .ts2-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .ts2-section { padding: 60px 14px; }
+    }
+  </style>
 
+  <div class="ts2-inner">
+
+    <div class="ts2-head">
+      <div class="ts2-eyebrow">
+        <i class="fa-solid fa-users"></i>
+        <span>Our Team</span>
+      </div>
+      <h2 class="ts2-title">আমাদের <em>টিম</em></h2>
+      <div class="ts2-gold-line"></div>
+      <p class="ts2-sub">আমাদের সাফল্যের পেছনের অসাধারণ মানুষগুলো</p>
+    </div>
+
+    <div class="ts2-grid">
+
+      <!-- CEO -->
+      <div class="tm2 tm2-ceo">
+        <div class="tm2-img">
+          <img src="images/team/ceo.png" alt="Nurmohammad">
+          <div class="tm2-fade"></div>
+          <div class="tm2-ceo-tag">
+            <span class="tm2-ceo-dot"></span>
+            <span class="tm2-ceo-lbl">CEO</span>
+          </div>
         </div>
+        <div class="tm2-body">
+          <div class="tm2-name">Nurmohammad</div>
+          <div class="tm2-role">Founder & CEO</div>
+        </div>
+      </div>
 
+      <!-- Nurojjaman -->
+      <div class="tm2">
+        <div class="tm2-img">
+          <img src="images/team/nurojjaman.png" alt="Nurojjaman">
+          <div class="tm2-fade"></div>
+        </div>
+        <div class="tm2-body">
+          <div class="tm2-name">Nurojjaman</div>
+          <div class="tm2-role">Web Developer</div>
+        </div>
+      </div>
 
-    </section>
+      <!-- Tuhin -->
+      <div class="tm2">
+        <div class="tm2-img">
+          <img src="images/team/tuhin.png" alt="Tuhin">
+          <div class="tm2-fade"></div>
+        </div>
+        <div class="tm2-body">
+          <div class="tm2-name">Tuhin</div>
+          <div class="tm2-role">Expert Web Designer</div>
+        </div>
+      </div>
 
+      <!-- Badsha -->
+      <div class="tm2">
+        <div class="tm2-img">
+          <img src="images/team/badsa.png" alt="Badsha">
+          <div class="tm2-fade"></div>
+        </div>
+        <div class="tm2-body">
+          <div class="tm2-name">Badsha</div>
+          <div class="tm2-role">Digital Marketer</div>
+        </div>
+      </div>
 
+      <!-- Tanvir -->
+      <div class="tm2">
+        <div class="tm2-img">
+          <img src="images/team/tanvir.png" alt="Tanvir">
+          <div class="tm2-fade"></div>
+        </div>
+        <div class="tm2-body">
+          <div class="tm2-name">Tanvir</div>
+          <div class="tm2-role">Digital Marketer</div>
+        </div>
+      </div>
 
+      <!-- Riva Akter -->
+      <div class="tm2">
+        <div class="tm2-img">
+          <img src="images/team/riba.png" alt="Riva Akter">
+          <div class="tm2-fade"></div>
+        </div>
+        <div class="tm2-body">
+          <div class="tm2-name">Riva Akter</div>
+          <div class="tm2-role">Digital Marketer</div>
+        </div>
+      </div>
 
+      <!-- Prapti Das -->
+      <div class="tm2">
+        <div class="tm2-img">
+          <img src="images/team/papti.png" alt="Prapti Das">
+          <div class="tm2-fade"></div>
+        </div>
+        <div class="tm2-body">
+          <div class="tm2-name">Prapti Das</div>
+          <div class="tm2-role">Digital Marketer</div>
+        </div>
+      </div>
+
+      <!-- Maruf Khan -->
+      <div class="tm2">
+        <div class="tm2-img">
+          <img src="images/team/maruf.png" alt="Maruf Khan">
+          <div class="tm2-fade"></div>
+        </div>
+        <div class="tm2-body">
+          <div class="tm2-name">Maruf Khan</div>
+          <div class="tm2-role">Web Developer</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
 
 
     <div id="footer"></div>
