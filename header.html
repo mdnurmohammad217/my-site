@@ -38,80 +38,253 @@
 </nav> -->
 
 
-<header class="bg-white/80  fixed top-0 w-full z-9999 text-white flex flex-col items-center border-b border-white/30 backdrop-blur-3xl">
-<nav class="flex flex-col items-center w-full" >
-        <div class="flex items-center justify-between p-3 md:px-16 lg:px-10 xl:px-10 md:py-2 w-full">
-            <a href="index.html">
-                <img class="w-[150px]" src="images/mainlogo.png" alt="mainlogo">
-            </a>
 
-            <div id="menu" class="max-md:w-0 max-md:fixed max-md:top-0 max-md:z-10 max-md:left-0 max-md:transition-all max-md:duration-300 max-md:overflow-hidden max-md:h-screen max-md:bg-white/90 max-md:backdrop-blur max-md:flex-col max-md:justify-center flex items-center gap-4 text-sm">
-                <a href="index.html" class="menu-item font-bold text-black text-[16px] hover:text-orange-600 hover:scale-105 transition-all bangla-font">হোম</a>
-                <a href="ecommerce.html" class="menu-item text-black text-[16px] hover:text-orange-600 hover:scale-105 transition-all bangla-font">ই-কমার্স</a>
-                <a href="landing.html" class="menu-item text-black text-[16px] hover:text-orange-600  hover:scale-105 transition-all bangla-font">ল্যান্ডিং পেজ</a>
-                <a href="price.html" class="menu-item text-black text-[16px] hover:text-orange-600 hover:scale-105 transition-all bangla-font">প্রাইসিং</a>
-                <!-- <a href="team.html" class="menu-item text-black text-[16px] hover:text-orange-600 hover:scale-105 transition-all bangla-font">ব্লগ</a> -->
-                <a href="about.html" class="menu-item text-black text-[16px] hover:text-orange-600 hover:scale-105 transition-all bangla-font">আমাদের সম্পর্কে</a>
-                <a href="contact.html" class="menu-item text-black text-[16px] hover:text-orange-600 hover:scale-105 transition-all mr-6 bangla-font">যোগাযোগ</a>
 
-                <button id="close-menu" class="md:hidden bg-gray-900 hover:bg-gray-800 text-white p-2 rounded-md aspect-square font-medium transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 6 6 18" /><path d="m6 6 12 12" />
-                    </svg>
-                </button>
 
-                <div class='p-[0.5px] rounded-md bg-linear-to-r from-white to-[red]/0'>
-                    <button class="hidden md:flex items-center gap-2 bg-green-500 text-white hover:bg-gradient-to-l from-green-700 to-green-600 text-gray-800 font-medium px-4 py-2.5 rounded-md text-sm transition cursor-pointer group">
-                         <i class="fa-brands fa-whatsapp"></i>
-                            <div class="relative overflow-hidden">
-                            <span class="block transition-transform duration-200 group-hover:-translate-y-full">
-                                <a href="https://wa.link/5tbsrj">
-                                    Whatsapp
-                                </a>
-                               
-                            </span>
-                            <span class="absolute top-0 left-0 block transition-transform duration-200 group-hover:translate-y-0 translate-y-full">
-                                <a href="https://wa.link/5tbsrj">
-                                    Whatsapp
-                                </a>
-                            </span>
-                        </div>
-                    </button>
-                </div>
 
-                <div class='p-[0.5px] rounded-md bg-linear-to-r from-white to-[#999999]/0'>
-                    <button class="hidden md:flex items-center gap-2 text-white bg-linear-to-r from-purple-700 to-orange-600 hover:bg-pink-600 font-medium px-4 py-2.5 rounded-md text-sm transition cursor-pointer group">
-                       <i class="fa-regular fa-calendar-check"></i>
-                            <div class="relative overflow-hidden">
-                            <span class="block transition-transform duration-200 group-hover:-translate-y-full">
 
-                                <a href="contact.html">
-                                     Book a Meeting
-                                </a>
-                               
-                            </span>
-                            <span class="absolute top-0 left-0 block transition-transform duration-200 group-hover:translate-y-0 translate-y-full">
-                                <a href="contact.html">
-                                     Get Started
-                                </a>
-                            </span>
-                        </div>
-                    </button>
-                </div>
+<header class="lx-header" id="lxHeader">
 
-            </div>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
 
-            <button id="open-menu" class="md:hidden bg-gray-900 hover:bg-gray-800 text-gray-50 p-2 rounded-md aspect-square font-medium transition">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 12h16" /><path d="M4 18h16" /><path d="M4 6h16" />
-                </svg>
-            </button>
+    .lx-header {
+      background: rgba(10,9,0,0.97);
+      border-bottom: 1px solid #2a2000;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      width: 100%;
+      z-index: 9999;
+      font-family: 'Hind Siliguri', sans-serif;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .lx-header::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a96e 40%, #c9a96e 60%, transparent);
+    }
 
-            
-        </div>
-    </nav>
+    .lx-nav {
+      max-width: 1300px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 28px; gap: 16px;
+    }
 
+    .lx-logo img { width: 150px; display: block; }
+
+    .lx-links { display: flex; align-items: center; gap: 2px; }
+    .lx-link {
+      font-size: 18px; font-weight: 500; color: #a89060;
+      text-decoration: none; padding: 7px 12px; border-radius: 8px;
+      transition: color 0.15s, background 0.15s; white-space: nowrap;
+    }
+    .lx-link:hover { color: #f0e6cc; background: #1a1200; }
+    .lx-link.active { color: #c9a96e; background: #1a1200; }
+
+    .lx-actions { display: flex; align-items: center; gap: 10px; }
+
+    .lx-btn-wa {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 18px; border-radius: 10px;
+      background: transparent; color: #22c55e;
+      font-size: 13px; font-weight: 600;
+      border: 1px solid #1a3a1a; text-decoration: none;
+      transition: background 0.15s, transform 0.15s; white-space: nowrap;
+    }
+    .lx-btn-wa:hover { background: #0a1f0a; transform: translateY(-1px); }
+
+    .lx-btn-meet {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 18px; border-radius: 10px;
+      background: #c9a96e; color: #0a0900;
+      font-size: 13px; font-weight: 700;
+      border: none; text-decoration: none; cursor: pointer;
+      transition: background 0.15s, transform 0.15s; white-space: nowrap;
+    }
+    .lx-btn-meet:hover { background: #d4b47e; transform: translateY(-1px); }
+
+    .lx-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      width: 40px; height: 40px; border-radius: 10px;
+      background: #1a1200; border: 1px solid #3a2e00;
+      cursor: pointer; flex-shrink: 0;
+    }
+    .lx-hamburger span {
+      display: block; width: 18px; height: 1.5px; background: #c9a96e;
+      transition: all 0.25s ease; transform-origin: center;
+    }
+
+    /* overlay */
+    .lx-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.65); z-index: 10000;
+      opacity: 0; transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .lx-overlay.open { opacity: 1; pointer-events: all; }
+
+    /* mobile drawer */
+    .lx-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: 290px;
+      background: #0f0c00;
+      border-left: 1px solid #2a2000;
+      z-index: 10001;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .lx-drawer::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: #c9a96e;
+    }
+    .lx-drawer.open { transform: translateX(0); }
+
+    .lx-drawer-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 20px; border-bottom: 1px solid #1e1800;
+    }
+    .lx-drawer-logo { display: flex; align-items: center; }
+    .lx-drawer-logo img { width: 130px; }
+    .lx-drawer-close {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: #1a1200; border: 1px solid #3a2e00;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .lx-drawer-close:hover { background: #2a2000; }
+    .lx-drawer-close i { color: #c9a96e; font-size: 15px; }
+
+    .lx-drawer-links {
+      flex: 1; padding: 20px 16px;
+      display: flex; flex-direction: column; gap: 4px;
+      overflow-y: auto;
+    }
+    .lx-drawer-link {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 14px; border-radius: 12px;
+      color: #a89060; font-size: 15px; font-weight: 500;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      border: 1px solid transparent;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .lx-drawer-link:hover { background: #1a1200; border-color: #2a2000; color: #f0e6cc; }
+    .lx-drawer-link.active { background: #1a1200; border-color: #3a2e00; color: #c9a96e; }
+    .lx-drawer-link i { font-size: 17px; width: 20px; text-align: center; flex-shrink: 0; }
+    .lx-drawer-divider { height: 1px; background: #1e1800; margin: 6px 0; }
+
+    .lx-drawer-btns {
+      padding: 16px; display: flex; flex-direction: column; gap: 10px;
+      border-top: 1px solid #1e1800;
+    }
+    .lx-drawer-btn-wa {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px; border-radius: 12px;
+      background: transparent; color: #22c55e;
+      font-size: 14px; font-weight: 600;
+      border: 1px solid #1a3a1a; text-decoration: none;
+      transition: background 0.15s;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .lx-drawer-btn-wa:hover { background: #0a1f0a; }
+    .lx-drawer-btn-meet {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px; border-radius: 12px;
+      background: #c9a96e; color: #0a0900;
+      font-size: 14px; font-weight: 700;
+      border: none; text-decoration: none; cursor: pointer;
+      transition: background 0.15s;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .lx-drawer-btn-meet:hover { background: #d4b47e; }
+
+    @media (max-width: 960px) {
+      .lx-links, .lx-actions { display: none; }
+      .lx-hamburger { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .lx-nav { padding: 10px 16px; }
+    }
+  </style>
+
+  <nav class="lx-nav">
+
+    <!-- Logo -->
+    <a href="index.html" class="lx-logo">
+      <img src="images/mainlogo.png" alt="Site Ghor Logo">
+    </a>
+
+    <!-- Desktop Links -->
+    <div class="lx-links">
+      <a href="index.html"     class="lx-link active bangla-font">হোম</a>
+      <a href="ecommerce.html" class="lx-link bangla-font">ই-কমার্স</a>
+      <a href="landing.html"   class="lx-link bangla-font">ল্যান্ডিং পেজ</a>
+      <a href="price.html"     class="lx-link bangla-font">প্রাইসিং</a>
+      <a href="about.html"     class="lx-link bangla-font">আমাদের সম্পর্কে</a>
+      <a href="contact.html"   class="lx-link bangla-font">যোগাযোগ</a>
+    </div>
+
+    <!-- Desktop Buttons -->
+    <div class="lx-actions">
+      <a href="https://wa.link/5tbsrj" target="_blank" class="lx-btn-wa">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="contact.html" class="lx-btn-meet">
+        <i class="fa-regular fa-calendar-check"></i> Book a Meeting
+      </a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="lx-hamburger" id="lxHamburger" onclick="lxOpenMenu()" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </nav>
 </header>
+
+<!-- Overlay -->
+<div class="lx-overlay" id="lxOverlay" onclick="lxCloseMenu()"></div>
+
+<!-- Mobile Drawer -->
+<div class="lx-drawer" id="lxDrawer">
+
+  <div class="lx-drawer-head">
+    <div class="lx-drawer-logo">
+      <img src="images/mainlogo.png" alt="Site Ghor Logo">
+    </div>
+    <div class="lx-drawer-close" onclick="lxCloseMenu()" aria-label="Close menu">
+      <i class="ti ti-x"></i>
+    </div>
+  </div>
+
+  <div class="lx-drawer-links">
+    <a href="index.html"     class="lx-drawer-link active"><i class="ti ti-home" aria-hidden="true"></i> হোম</a>
+    <a href="ecommerce.html" class="lx-drawer-link"><i class="ti ti-shopping-cart" aria-hidden="true"></i> ই-কমার্স</a>
+    <a href="landing.html"   class="lx-drawer-link"><i class="ti ti-layout" aria-hidden="true"></i> ল্যান্ডিং পেজ</a>
+    <a href="price.html"     class="lx-drawer-link"><i class="ti ti-tag" aria-hidden="true"></i> প্রাইসিং</a>
+    <div class="lx-drawer-divider"></div>
+    <a href="about.html"     class="lx-drawer-link"><i class="ti ti-info-circle" aria-hidden="true"></i> আমাদের সম্পর্কে</a>
+    <a href="contact.html"   class="lx-drawer-link"><i class="ti ti-message" aria-hidden="true"></i> যোগাযোগ</a>
+  </div>
+
+  <div class="lx-drawer-btns">
+    <a href="https://wa.link/5tbsrj" target="_blank" class="lx-drawer-btn-wa">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp করুন
+    </a>
+    <a href="contact.html" class="lx-drawer-btn-meet">
+      <i class="fa-regular fa-calendar-check"></i> Book a Meeting
+    </a>
+  </div>
+
+</div>
+
+
 
 
 <!-- nice header ++ -->
