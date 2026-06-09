@@ -192,6 +192,397 @@
 
 
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:wght@400;600&family=Hind+Siliguri:wght@400;600;700&display=swap');
+
+/* ══════════════════════
+   SECTION
+══════════════════════ */
+.sg-ach {
+  position: relative;
+  background: #07050000;
+  background-color: #070500;
+  padding: 110px 20px;
+  overflow: hidden;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+/* grain — single pseudo, no extra DOM */
+.sg-ach::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* ambient glow — opacity only, no filter animate */
+.sg-ach-g1, .sg-ach-g2 {
+  position: absolute; border-radius: 50%; pointer-events: none; z-index: 0;
+  will-change: opacity;
+}
+.sg-ach-g1 {
+  width: 600px; height: 600px; top: -140px; left: -140px;
+  background: radial-gradient(circle, #c9972a16 0%, transparent 65%);
+}
+.sg-ach-g2 {
+  width: 400px; height: 400px; bottom: -80px; right: -80px;
+  background: radial-gradient(circle, #b200a710 0%, transparent 65%);
+}
+
+/* ══════════════════════
+   HEADING
+══════════════════════ */
+.sg-ach-head {
+  position: relative; z-index: 2;
+  text-align: center;
+  max-width: 640px; margin: 0 auto 52px;
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .65s ease, transform .65s cubic-bezier(.22,1,.36,1);
+  will-change: opacity, transform;
+}
+.sg-ach-head.on { opacity: 1; transform: translateY(0); }
+
+.sg-ach-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 18px;
+  border: 1px solid #c9972a33; border-radius: 999px;
+  background: #c9972a0a;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+  color: #f0c84a; margin-bottom: 20px;
+}
+.sg-ach-pill-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #f0c84a; box-shadow: 0 0 8px #f0c84a;
+  animation: sgdot 2.2s ease-in-out infinite;
+}
+@keyframes sgdot {
+  0%,100% { box-shadow: 0 0 5px #c9972a; }
+  50%      { box-shadow: 0 0 14px #f0c84a; }
+}
+
+.sg-ach-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.65rem, 3.8vw, 2.6rem);
+  font-weight: 900; color: #fdf6e3;
+  line-height: 1.2; margin-bottom: 16px;
+}
+.sg-ach-title .g {
+  background: linear-gradient(135deg, #fce89a, #f0c84a, #c9972a);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sg-ach-rule {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.sg-ach-rule hr { width: 44px; border: none; height: 1px;
+  background: linear-gradient(90deg, transparent, #c9972a44, transparent); }
+.sg-ach-rule span { color: #c9972a; font-size: .7rem; opacity: .55; }
+
+/* ══════════════════════
+   CONIC BORDER CARD
+══════════════════════ */
+
+/* The rotating gradient lives in a pseudo-element
+   so only the pseudo repaints — the card never moves */
+.sg-ach-card {
+  position: relative; z-index: 2;
+  max-width: 980px; margin: 0 auto;
+  border-radius: 26px;
+  padding: 2px;
+  background: transparent; /* overridden by pseudo */
+  opacity: 0; transform: translateY(26px);
+  transition: opacity .7s .12s ease, transform .7s .12s cubic-bezier(.22,1,.36,1);
+  will-change: opacity, transform;
+}
+.sg-ach-card.on { opacity: 1; transform: translateY(0); }
+
+/* spinning conic — only transform: rotate on this layer */
+.sg-ach-card::before {
+  content: '';
+  position: absolute; inset: -2px;
+  border-radius: 28px;
+  background: conic-gradient(
+    from 0deg,
+    #c9972a    0deg,
+    #f5d17a   40deg,
+    #fff9ee   70deg,
+    #ffffff11 90deg,
+    #07050000 130deg,
+    #07050000 210deg,
+    #ffffff11 240deg,
+    #ffa20555 270deg,
+    #c940e844 300deg,
+    #c9972a   360deg
+  );
+  animation: sg-spin 5s linear infinite;
+  will-change: transform;
+}
+@keyframes sg-spin { to { transform: rotate(360deg); } }
+
+/* mask so only the 2px border shows */
+.sg-ach-card::after {
+  content: '';
+  position: absolute; inset: 2px;
+  border-radius: 24px;
+  background: #0d0a01;
+  z-index: 0;
+}
+
+/* actual content sits above the mask */
+.sg-ach-body {
+  position: relative; z-index: 1;
+  border-radius: 24px;
+  background: linear-gradient(160deg, #131000 0%, #0a0800 100%);
+  overflow: hidden;
+}
+.sg-ach-body::before {
+  content: '';
+  position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+  background: linear-gradient(90deg, transparent, #c9972a44, transparent);
+}
+.sg-ach-body::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% -10%, #c9972a0d, transparent 55%);
+}
+
+/* ══════════════════════
+   STATS GRID
+══════════════════════ */
+.sg-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative; z-index: 1;
+}
+@media (max-width: 680px) { .sg-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 360px) { .sg-grid { grid-template-columns: 1fr; } }
+
+/* dividers */
+.sg-stat + .sg-stat {
+  border-left: 1px solid #c9972a14;
+}
+@media (max-width: 680px) {
+  .sg-stat:nth-child(2n+1) { border-left: none; }
+  .sg-stat:nth-child(1), .sg-stat:nth-child(2) {
+    border-bottom: 1px solid #c9972a14;
+  }
+}
+
+/* ── stat cell ── */
+.sg-stat {
+  padding: 44px 20px 40px;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  /* NO transform — background only */
+  transition: background .3s ease;
+  cursor: default;
+}
+.sg-stat:hover { background: rgba(201,151,42,.05); }
+
+/* icon */
+.sg-ico {
+  width: 52px; height: 52px; border-radius: 15px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; margin-bottom: 18px;
+  background: #181100;
+  border: 1px solid transparent;
+  /* only color/shadow on hover, no layout change */
+  transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+/* number */
+.sg-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  font-weight: 900; line-height: 1; margin-bottom: 10px;
+}
+
+/* label */
+.sg-lbl { font-size: .85rem; color: #8a6a28; line-height: 1.5; }
+.sg-lbl em {
+  display: block; font-style: normal;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .6rem; letter-spacing: .14em; text-transform: uppercase;
+  color: #4a3810; margin-top: 3px;
+}
+
+/* scroll-in per stat */
+.sg-stat {
+  opacity: 0; transform: translateY(18px);
+  transition:
+    opacity .5s ease,
+    transform .5s cubic-bezier(.22,1,.36,1),
+    background .3s ease;
+  will-change: opacity, transform;
+}
+.sg-stat.on { opacity: 1; transform: translateY(0); }
+.sg-stat:nth-child(1) { transition-delay: .05s; }
+.sg-stat:nth-child(2) { transition-delay: .13s; }
+.sg-stat:nth-child(3) { transition-delay: .21s; }
+.sg-stat:nth-child(4) { transition-delay: .29s; }
+
+/* color schemes */
+.sg-s1 .sg-ico { color: #60a5fa; }
+.sg-s1 .sg-num { background: linear-gradient(135deg,#93c5fd,#3b82f6,#1d4ed8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.sg-s1:hover .sg-ico { border-color: #3b82f633; box-shadow: 0 0 18px #3b82f61a; }
+
+.sg-s2 .sg-ico { color: #d946ef; }
+.sg-s2 .sg-num { background: linear-gradient(135deg,#e879f9,#b200a7,#7e0076);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.sg-s2:hover .sg-ico { border-color: #b200a733; box-shadow: 0 0 18px #b200a71a; }
+
+.sg-s3 .sg-ico { color: #fb923c; }
+.sg-s3 .sg-num { background: linear-gradient(135deg,#fdba74,#f97316,#c2410c);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.sg-s3:hover .sg-ico { border-color: #f9731633; box-shadow: 0 0 18px #f973161a; }
+
+.sg-s4 .sg-ico { color: #a855f7; }
+.sg-s4 .sg-num { background: linear-gradient(135deg,#d8b4fe,#a855f7,#7e22ce);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.sg-s4:hover .sg-ico { border-color: #9333ea33; box-shadow: 0 0 18px #9333ea1a; }
+
+/* ══════════════════════
+   BOTTOM BAR
+══════════════════════ */
+.sg-bar {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 5px 18px;
+  padding: 15px 20px;
+  border-top: 1px solid #c9972a10;
+  position: relative; z-index: 1;
+}
+.sg-bar-item {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .64rem; letter-spacing: .14em; text-transform: uppercase;
+  color: #4a3810;
+}
+.sg-bar-item i { color: #c9972a; font-size: .65rem; }
+.sg-bar-sep { color: #c9972a18; font-size: .4rem; }
+</style>
+
+
+<section class="sg-ach">
+  <div class="sg-ach-g1"></div>
+  <div class="sg-ach-g2"></div>
+
+  <!-- heading -->
+  <div class="sg-ach-head" id="sgHead">
+    <div class="sg-ach-pill">
+      <span class="sg-ach-pill-dot"></span>
+      Our Achievements
+    </div>
+    <h2 class="sg-ach-title bangla-font">
+      স্বপ্ন থেকে <span class="g">সাফল্য</span> —<br>আমাদের অর্জনের গল্প
+    </h2>
+    <div class="sg-ach-rule">
+      <hr/><span>◆</span><hr/>
+    </div>
+  </div>
+
+  <!-- card -->
+  <div class="sg-ach-card" id="sgCard">
+    <div class="sg-ach-body">
+
+      <div class="sg-grid">
+
+        <div class="sg-stat sg-s1" id="sgS0">
+          <div class="sg-ico"><i class="fa-regular fa-building"></i></div>
+          <div class="sg-num" data-to="8" data-sfx="+">8+</div>
+          <div class="sg-lbl bangla-font">বছরের অভিজ্ঞতা<em>Years Experience</em></div>
+        </div>
+
+        <div class="sg-stat sg-s2" id="sgS1">
+          <div class="sg-ico"><i class="fa-solid fa-earth-americas"></i></div>
+          <div class="sg-num" data-to="4200" data-sfx="+">4200+</div>
+          <div class="sg-lbl bangla-font">সফল ওয়েবসাইট<em>Websites Delivered</em></div>
+        </div>
+
+        <div class="sg-stat sg-s3" id="sgS2">
+          <div class="sg-ico"><i class="fa-solid fa-headset"></i></div>
+          <div class="sg-num">24/7</div>
+          <div class="sg-lbl bangla-font">সাপোর্ট সেবা<em>Always Available</em></div>
+        </div>
+
+        <div class="sg-stat sg-s4" id="sgS3">
+          <div class="sg-ico"><i class="fa-solid fa-heart"></i></div>
+          <div class="sg-num" data-to="100" data-sfx="%">100%</div>
+          <div class="sg-lbl bangla-font">গ্রাহক সন্তুষ্টি<em>Client Satisfaction</em></div>
+        </div>
+
+      </div>
+
+      <div class="sg-bar">
+        <span class="sg-bar-item"><i class="fa-solid fa-shield-halved"></i>Trusted Since 2020</span>
+        <span class="sg-bar-sep">◆</span>
+        <span class="sg-bar-item"><i class="fa-solid fa-bolt"></i>Fast Delivery</span>
+        <span class="sg-bar-sep">◆</span>
+        <span class="sg-bar-item"><i class="fa-solid fa-star"></i>5★ Rated</span>
+        <span class="sg-bar-sep">◆</span>
+        <span class="sg-bar-item"><i class="fa-solid fa-location-dot"></i>Bangladesh</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ease out quart */
+  function easeOut(t){ return 1 - Math.pow(1-t, 4); }
+
+  /* count-up */
+  function countUp(el, to, sfx){
+    var dur = 1500, s = performance.now();
+    (function tick(now){
+      var p = Math.min((now-s)/dur, 1), v = Math.round(easeOut(p)*to);
+      el.textContent = (to>=1000 ? v.toLocaleString() : v) + sfx;
+      if(p < 1) requestAnimationFrame(tick);
+    })(s);
+  }
+
+  var done = false;
+
+  function activate(root){
+    var els = root.querySelectorAll ? root.querySelectorAll : null;
+    if(!root || root.classList.contains('on')) return;
+    root.classList.add('on');
+
+    if(root.id === 'sgCard'){
+      /* fade in stats */
+      root.querySelectorAll('.sg-stat').forEach(function(s,i){
+        setTimeout(function(){ s.classList.add('on'); }, i*90);
+      });
+      /* count-up once */
+      if(!done){
+        done = true;
+        root.querySelectorAll('.sg-num[data-to]').forEach(function(n,i){
+          setTimeout(function(){
+            countUp(n, +n.dataset.to, n.dataset.sfx||'');
+          }, i*120);
+        });
+      }
+    }
+  }
+
+  /* IntersectionObserver */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) activate(e.target);
+    });
+  }, { threshold: 0.18 });
+
+  ['sgHead','sgCard'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) io.observe(el);
+  });
+
+})();
+</script>
+
 
 
 <script src="main.js"></script>

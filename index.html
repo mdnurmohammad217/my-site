@@ -33,6 +33,1120 @@
 
 
 
+<!-- ══ ADD TO <head> ONCE ══ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+:root {
+  --gold:        #C8A84B;
+  --gold-light:  #E2C97E;
+  --gold-dim:    rgba(200,168,75,0.13);
+  --gold-border: rgba(200,168,75,0.22);
+  --ink:         #08090C;
+  --surface:     #0E0F14;
+  --surface-2:   #13151C;
+  --w:           #F5F1E8;
+  --wm:          rgba(245,241,232,0.48);
+  --wf:          rgba(245,241,232,0.07);
+}
+
+.hs *, .hs *::before, .hs *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.hs { font-family: 'Outfit', sans-serif; color: var(--w); }
+
+/* ══ HERO ══ */
+.hs-hero {
+  position: relative;
+  min-height: 100svh;
+  background: var(--ink);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px 90px;
+}
+
+/* fine gold grid */
+.hs-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,168,75,0.038) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,168,75,0.038) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+  z-index: 0;
+}
+/* top radial glow */
+.hs-hero::after {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 780px; height: 500px;
+  background: radial-gradient(ellipse, rgba(200,168,75,0.09) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hs-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── BADGE ── */
+.hs-badge {
+  position: relative; z-index: 2;
+  margin-top: 130px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(200,168,75,0.08);
+  border: 1px solid var(--gold-border);
+  padding: 7px 18px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  backdrop-filter: blur(8px);
+  animation: hs-down 0.7s ease both;
+}
+.hs-ping { position: relative; width: 8px; height: 8px; flex-shrink: 0; }
+.hs-ping span { display: block; position: absolute; inset: 0; border-radius: 50%; }
+.hs-ping .ring { background: var(--gold); opacity: .7; animation: hs-ping 1.5s cubic-bezier(0,0,.2,1) infinite; }
+.hs-ping .dot  { background: var(--gold-light); width: 6px; height: 6px; top: 1px; left: 1px; }
+@keyframes hs-ping { 75%,100% { transform: scale(2.2); opacity: 0; } }
+
+/* ── HEADLINE ── */
+.hs-headline {
+  position: relative; z-index: 2;
+  text-align: center;
+  margin-top: 26px;
+  animation: hs-up 0.8s 0.1s ease both;
+}
+.hs-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 7vw, 90px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  color: var(--w);
+}
+.hs-h1 em {
+  font-style: italic;
+  font-weight: 700;
+  background: linear-gradient(140deg, var(--gold-light) 20%, var(--gold) 60%, #9a7225 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hs-h1-sub {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(14px, 2vw, 22px);
+  font-weight: 300;
+  color: var(--wm);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+.hs-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 20px auto 0;
+}
+.hs-rule-line { height: 1px; width: 64px; background: linear-gradient(to right, transparent, var(--gold)); }
+.hs-rule-line.r { transform: scaleX(-1); }
+.hs-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+/* ── SUBTEXT ── */
+.hs-sub {
+  position: relative; z-index: 2;
+  font-size: 15px;
+  color: var(--wm);
+  text-align: center;
+  max-width: 460px;
+  line-height: 1.8;
+  margin-top: 20px;
+  animation: hs-up 0.8s 0.2s ease both;
+}
+
+/* ── CTAS ── */
+.hs-ctas {
+  position: relative; z-index: 2;
+  display: flex;
+  gap: 12px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: hs-up 0.8s 0.3s ease both;
+}
+.hs-btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 30px;
+  border-radius: 3px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(200,168,75,0.32), inset 0 1px 0 rgba(255,255,255,0.25);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.hs-btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(200,168,75,0.48); }
+.hs-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--w);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 30px;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 1px solid rgba(245,241,232,0.16);
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+.hs-btn-outline:hover { border-color: var(--gold-border); background: var(--gold-dim); transform: translateY(-2px); }
+.hs-btn-outline .wa { color: #25D366; font-size: 16px; }
+
+/* ── LOGOS ── */
+.hs-logos {
+  position: relative; z-index: 2;
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: hs-up 0.8s 0.45s ease both;
+}
+.hs-logos-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245,241,232,0.28);
+}
+.hs-logos-row {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0.3;
+  filter: grayscale(1) brightness(1.8);
+  transition: opacity 0.3s;
+}
+.hs-logos-row:hover { opacity: 0.5; }
+
+/* ══ CORE SECTION ══ */
+.hs-core {
+  position: relative;
+  background: var(--surface);
+  padding: 100px 20px;
+  overflow: hidden;
+}
+.hs-core::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(200,168,75,0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,168,75,0.028) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+/* top separator line */
+.hs-core::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+}
+
+.hs-core-inner {
+  position: relative; z-index: 1;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+@media (max-width: 880px) {
+  .hs-core-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+
+.hs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.hs-eyebrow::before, .hs-eyebrow::after {
+  content: '';
+  display: block;
+  width: 20px; height: 1px;
+  background: var(--gold); opacity: 0.55;
+}
+
+.hs-core-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 600;
+  line-height: 1.18;
+  color: var(--w);
+  margin-bottom: 18px;
+}
+.hs-core-h2 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hs-core-h2 .muted { color: var(--wm); font-style: normal; font-weight: 400; }
+
+.hs-core-p {
+  font-size: 15px;
+  color: var(--wm);
+  line-height: 1.82;
+  max-width: 420px;
+}
+.hs-core-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-radius: 3px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(200,168,75,0.28);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.hs-core-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,168,75,0.44); }
+
+/* ── CARD ── */
+.hs-card {
+  background: var(--surface-2);
+  border: 1px solid var(--gold-border);
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.hs-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 32px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(200,168,75,0.32);
+}
+.hs-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 22px; right: 22px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  opacity: 0.55;
+}
+.hs-card::after {
+  content: '';
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(200,168,75,0.07), transparent 70%);
+  pointer-events: none;
+}
+
+.hs-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+.hs-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-light);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+.hs-card-badge .pulse {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px rgba(74,222,128,0.6);
+  animation: hs-ping 1.5s infinite;
+}
+.hs-card-tag { font-size: 10px; color: var(--wm); letter-spacing: 0.08em; }
+
+/* tiles */
+.hs-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+.hs-tile {
+  background: var(--wf);
+  border: 1px solid rgba(245,241,232,0.06);
+  border-radius: 14px;
+  padding: 18px 14px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.hs-tile:hover { background: var(--gold-dim); border-color: var(--gold-border); transform: translateY(-2px); }
+.hs-tile-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin: 0 auto 11px;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.3s;
+}
+.hs-tile:hover .hs-tile-icon { transform: scale(1.1); }
+.hs-tile h3 { font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; color: var(--w); }
+
+/* footer pills */
+.hs-card-footer {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(245,241,232,0.07);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.hs-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: var(--wf);
+  border: 1px solid rgba(245,241,232,0.07);
+  border-radius: 10px;
+  padding: 9px 10px;
+  font-size: 11.5px;
+  color: var(--wm);
+  transition: border-color 0.25s, color 0.25s;
+}
+.hs-pill:hover { border-color: var(--gold-border); color: var(--w); }
+.hs-card-note {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 10px;
+  color: rgba(245,241,232,0.22);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes hs-down { from { opacity:0; transform:translateY(-14px); } to { opacity:1; transform:none; } }
+@keyframes hs-up   { from { opacity:0; transform:translateY(22px);  } to { opacity:1; transform:none; } }
+</style>
+
+
+<div class="hs">
+
+<!-- ══ ADD TO <head> ONCE ══ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════
+   TOKENS
+══════════════════════════════════ */
+:root {
+  --gold:         #C9A84C;
+  --gold-2:       #E8C96D;
+  --gold-3:       #8A6520;
+  --gold-glow:    rgba(201,168,76,0.18);
+  --gold-dim:     rgba(201,168,76,0.10);
+  --gold-border:  rgba(201,168,76,0.20);
+  --black:        #06070A;
+  --ink:          #0B0D12;
+  --w:            #F4EFE4;
+  --wm:           rgba(244,239,228,0.50);
+  --wf:           rgba(244,239,228,0.07);
+}
+
+/* ══════════════════════════════════
+   BASE
+══════════════════════════════════ */
+.hs2, .hs2 *, .hs2 *::before, .hs2 *::after {
+  box-sizing: border-box; margin: 0; padding: 0;
+}
+.hs2 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--w);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══════════════════════════════════
+   HERO WRAPPER
+══════════════════════════════════ */
+.hs2-hero {
+  position: relative;
+  min-height: 100svh;
+  background: var(--black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 20px 100px;
+}
+
+/* ── Background layers ── */
+/* 1. Noise grain texture */
+.hs2-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 2. Fine gold crosshatch */
+.hs2-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 3. Radial vignette  — fades grid at edges */
+.hs2-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 100% 40% at 50% 100%, rgba(6,7,10,0.9) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Side blobs */
+.hs2-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ══════════════════════════════════
+   CONTENT STACK (z:2+)
+══════════════════════════════════ */
+.hs2-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 860px;
+}
+
+/* ── AWARD BADGE ── */
+.hs2-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px 6px 10px;
+  border-radius: 100px;
+  border: 1px solid var(--gold-border);
+  background: rgba(201,168,76,0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  margin-bottom: 36px;
+  animation: hs2-down 0.7s ease both;
+}
+
+/* Pulsing dot */
+.hs2-dot {
+  position: relative;
+  width: 8px; height: 8px;
+  flex-shrink: 0;
+}
+.hs2-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: .65;
+  animation: hs2-ping 1.6s cubic-bezier(0,0,.2,1) infinite;
+}
+.hs2-dot::after {
+  content: '';
+  position: absolute;
+  top: 1px; left: 1px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold-2);
+}
+@keyframes hs2-ping {
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* ── HEADLINE ── */
+.hs2-headline {
+  text-align: center;
+  animation: hs2-up 0.85s 0.08s ease both;
+}
+
+.hs2-h1-top {
+  display: block;
+  font-size: clamp(36px, 6.5vw, 80px);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  color: rgba(244,239,228,0.7);
+}
+
+.hs2-h1-em {
+  display: block;
+  font-size: clamp(52px, 9vw, 112px);
+  font-weight: 700;
+  /* font-style: italic; */
+  line-height: 0.95;
+  /* letter-spacing: -0.02em; */
+  background: linear-gradient(
+    148deg,
+    #f0dfa0 0%,
+    var(--gold-2) 30%,
+    var(--gold) 55%,
+    var(--gold-3) 85%,
+    #6a4d12 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+   line-height: 1.5; /* বাড়িয়ে দেখুন */
+  padding-top: 4px; /* প্রয়োজন হলে */
+  padding-right: 15px; /* প্রয়োজন হলে */
+  overflow: visible;
+  /* Subtle text-shadow trick using filter */
+  filter: drop-shadow(0 2px 24px rgba(201,168,76,0.25));
+}
+
+/* Serif sub — company type */
+.hs2-company {
+  /* display: block; */
+  font-size: clamp(13px, 1.8vw, 20px);
+  font-weight: 300;
+  color: var(--wm);
+  text-transform: uppercase;
+  margin-top: 18px;
+}
+
+/* Ornamental divider */
+.hs2-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px auto;
+}
+.hs2-orn-line {
+  height: 1px;
+  width: 72px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,0.55));
+}
+.hs2-orn-line.r { transform: scaleX(-1); }
+.hs2-orn-center {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hs2-orn-diamond {
+  width: 5px; height: 5px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+.hs2-orn-diamond.sm {
+  width: 3px; height: 3px;
+  background: var(--gold-border);
+}
+
+/* ── SUBTEXT ── */
+.hs2-sub {
+  font-size: clamp(13.5px, 1.6vw, 16px);
+  color: var(--wm);
+  text-align: center;
+  max-width: 500px;
+  line-height: 1.85;
+  animation: hs2-up 0.85s 0.18s ease both;
+}
+
+/* ── STAT ROW ── */
+.hs2-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 32px;
+  background: rgba(244,239,228,0.04);
+  border: 1px solid var(--gold-border);
+  border-radius: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  animation: hs2-up 0.85s 0.26s ease both;
+}
+.hs2-stat {
+  flex: 1;
+  text-align: center;
+  padding: 16px 20px;
+  position: relative;
+}
+.hs2-stat + .hs2-stat::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 20%; bottom: 20%;
+  width: 1px;
+  background: var(--gold-border);
+}
+.hs2-stat-num {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 600;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--gold-2), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hs2-stat-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--wm);
+  margin-top: 4px;
+}
+
+/* ── CTA BUTTONS ── */
+.hs2-ctas {
+  display: flex;
+  gap: 12px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: hs2-up 0.85s 0.34s ease both;
+}
+
+.hs2-btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  background: linear-gradient(135deg, #f0dfa0 0%, var(--gold-2) 35%, var(--gold) 70%);
+  box-shadow:
+    0 4px 20px rgba(201,168,76,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(.22,.9,.36,1), box-shadow 0.3s ease;
+}
+/* shimmer sweep */
+.hs2-btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+.hs2-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(201,168,76,0.5); }
+.hs2-btn-primary:hover::after { left: 160%; }
+
+.hs2-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--w);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid rgba(244,239,228,0.15);
+  transition: border-color 0.3s, background 0.3s, transform 0.3s cubic-bezier(.22,.9,.36,1);
+}
+.hs2-btn-ghost:hover {
+  border-color: rgba(201,168,76,0.45);
+  background: var(--gold-dim);
+  transform: translateY(-3px);
+}
+.hs2-btn-ghost .wa { color: #25D366; font-size: 17px; }
+
+/* ── LOGOS ── */
+.hs2-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 64px;
+  animation: hs2-up 0.85s 0.48s ease both;
+}
+.hs2-logos-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(244,239,228,0.25);
+}
+.hs2-logos-label::before,
+.hs2-logos-label::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: rgba(201,168,76,0.2);
+}
+.hs2-logos-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0.28;
+  filter: grayscale(1) brightness(1.8);
+  transition: opacity 0.4s;
+}
+.hs2-logos-row:hover { opacity: 0.5; }
+
+/* ══════════════════════════════════
+   BOTTOM SCROLL HINT
+══════════════════════════════════ */
+.hs2-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: hs2-up 1s 0.7s ease both;
+}
+.hs2-scroll span {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244,239,228,0.25);
+}
+.hs2-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
+  animation: hs2-scrollpulse 2s ease infinite;
+}
+@keyframes hs2-scrollpulse {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  40%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  80%  { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+/* ══════════════════════════════════
+   KEYFRAMES
+══════════════════════════════════ */
+@keyframes hs2-down {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes hs2-up {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media (max-width: 640px) {
+  .hs2-hero { padding: 120px 16px 90px; }
+  .hs2-stats { flex-direction: column; border-radius: 12px; }
+  .hs2-stat + .hs2-stat::before {
+    top: 0; bottom: auto;
+    left: 20%; right: 20%;
+    width: auto; height: 1px;
+  }
+  .hs2-ctas { flex-direction: column; align-items: stretch; }
+  .hs2-btn-primary, .hs2-btn-ghost { text-align: center; justify-content: center; }
+  .hs2-logos-row { gap: 24px; }
+  .hs2-ornament { margin: 18px auto; }
+}
+@media (max-width: 400px) {
+  .hs2-badge { font-size: 9.5px; padding: 5px 14px 5px 9px; }
+}
+</style>
+
+<!--Main Hero Section-->
+<div class="hs2">
+<main class="hs2-hero">
+
+  <!-- Layers -->
+  <div class="hs2-grid"></div>
+  <div class="hs2-vignette"></div>
+  <div class="hs2-blob" style="width:560px;height:560px;background:rgba(201,168,76,0.07);top:-160px;left:-200px;"></div>
+  <div class="hs2-blob" style="width:440px;height:440px;background:rgba(70,90,230,0.05);bottom:-60px;right:-160px;"></div>
+  <div class="hs2-blob" style="width:300px;height:300px;background:rgba(201,168,76,0.04);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+
+  <div class="hs2-inner">
+
+    <!-- ── BADGE ── -->
+    <div class="hs2-badge">
+      <span class="hs2-dot"></span>
+      Award Winning IT Company
+    </div>
+
+    <!-- ── HEADLINE ── -->
+    <div class="hs2-headline">
+      <span class="hs2-h1-top bangla-font">দেশের সবচেয়ে</span>
+      <span class="hs2-h1-em bangla-font">এক্সপার্ট ই-কমার্স</span>
+      <span class="hs2-company bangla-font">ওয়েবসাইট ডেভেলপার কোম্পানী</span>
+    </div>
+
+    <!-- ── ORNAMENT ── -->
+    <div class="hs2-ornament">
+      <div class="hs2-orn-line"></div>
+      <div class="hs2-orn-center">
+        <div class="hs2-orn-diamond sm"></div>
+        <div class="hs2-orn-diamond"></div>
+        <div class="hs2-orn-diamond sm"></div>
+      </div>
+      <div class="hs2-orn-line r"></div>
+    </div>
+
+    <!-- ── SUB ── -->
+    <p class="hs2-sub">
+      হাই-পারফরম্যান্স, কনভার্সন-অপ্টিমাইজড ই-কমার্স সলিউশন — আপনার বিজনেসকে পরবর্তী স্তরে নিয়ে যেতে।
+    </p>
+
+    <!-- ── STATS ── -->
+    <div class="hs2-stats">
+      <div class="hs2-stat">
+        <span class="hs2-stat-num">500+</span>
+        <span class="hs2-stat-label">ক্লায়েন্ট</span>
+      </div>
+      <div class="hs2-stat">
+        <span class="hs2-stat-num">98%</span>
+        <span class="hs2-stat-label">সন্তুষ্ট</span>
+      </div>
+      <div class="hs2-stat">
+        <span class="hs2-stat-num">5★</span>
+        <span class="hs2-stat-label">রেটিং</span>
+      </div>
+      <div class="hs2-stat">
+        <span class="hs2-stat-num">7yr</span>
+        <span class="hs2-stat-label">অভিজ্ঞতা</span>
+      </div>
+    </div>
+
+    <!-- ── CTAs ── -->
+    <div class="hs2-ctas">
+      <a href="contact.html" class="hs2-btn-primary">
+        <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i>
+        যোগাযোগ করুন
+      </a>
+      <a href="https://wa.link/959hre" class="hs2-btn-ghost">
+        <i class="fa-brands fa-whatsapp wa"></i>
+        WhatsApp
+      </a>
+    </div>
+
+    <!-- ── LOGOS ── -->
+    <div class="hs2-logos">
+      <span class="hs2-logos-label">Trusted Technologies</span>
+      <div class="hs2-logos-row">
+        <svg width="84" height="24" viewBox="0 0 101 29" fill="none">
+          <path d="M5.17.098C3.114.945.854 3.338.14 6.34c-.904 3.804 2.858 5.413 3.167 4.885.363-.62-.674-.83-.888-2.803-.276-2.55.929-5.398 2.445-6.648.282-.232.269.09.269.689 0 1.069-.06 10.666-.06 12.67 0 2.71-.114 3.565-.319 4.411-.207.857-.54 1.436-.287 1.66.282.249 1.485-.345 2.181-1.301.836-1.147 1.128-2.525 1.18-4.021.064-1.804.061-4.665.064-6.298.003-1.497.026-5.88-.027-8.516C7.853.42 6.03-.257 5.17.098m73.015 12.684c-.066 1.41-.383 2.51-.776 3.287-.762 1.504-2.343 1.971-3.014-.19-.366-1.18-.383-3.147-.12-4.792.268-1.675 1.015-2.94 2.253-2.826 1.22.113 1.792 1.66 1.657 4.521m-20.578 8.742c-.017 2.341-.391 4.394-1.195 4.99-1.139.846-2.67.212-2.353-1.497.28-1.512 1.607-3.055 3.55-4.942 0 0 .005.43-.002 1.45m-.311-8.755c-.07 1.283-.408 2.572-.777 3.3-.762 1.505-2.354 1.975-3.014-.19-.45-1.48-.343-3.394-.12-4.6.29-1.566.992-3.018 2.253-3.018 1.226 0 1.83 1.323 1.658 4.508m-11.922-.02c-.074 1.36-.344 2.495-.777 3.32-.782 1.494-2.33 1.968-3.013-.19-.492-1.557-.325-3.679-.12-4.825.304-1.701 1.065-2.907 2.253-2.793 1.22.117 1.813 1.66 1.657 4.488" fill="currentColor"/>
+        </svg>
+        <svg width="70" height="26" viewBox="0 0 100 33" fill="none">
+          <path d="M0 0h21.597v10.903H10.8zm0 10.903h10.799l10.798 10.902H0zm0 10.902h10.799v10.903zM33.783 8.601h8.73v2.801h-5.426v3.892h5.426v2.74h-5.426v4.983h-3.304zm10.525 4.49h3.12v2.08q.246-1.072 1-1.648a2.74 2.74 0 0 1 1.714-.597q.49 0 .816.082v2.925a9 9 0 0 0-.939-.062q-1.284-.001-1.937.844-.653.824-.653 2.472v3.83h-3.12v-9.926zm11.576 10.194q-1.427 0-2.488-.68a4.4 4.4 0 0 1-1.591-1.854q-.551-1.194-.552-2.697.001-1.484.572-2.677a4.46 4.46 0 0 1 1.632-1.874q1.08-.68 2.468-.68 1.04 0 1.856.453.816.454 1.224 1.236V13.09h3.1v9.926h-3.1v-1.4q-.408.74-1.265 1.215a3.8 3.8 0 0 1-1.856.453m.898-2.616q1.121 0 1.734-.741.612-.742.612-1.874 0-1.112-.612-1.854-.613-.741-1.734-.741-1.061 0-1.713.72-.633.722-.633 1.875t.633 1.894q.653.721 1.713.721" fill="currentColor"/>
+        </svg>
+        <svg width="76" height="18" viewBox="0 0 103 22" fill="none">
+          <path d="M42.427 4.361v13.083h-2.266V7.178h-.03l-4.05 10.266h-1.51L30.43 7.178h-.03v10.266h-2.086V4.361h3.264l3.747 9.691h.06l3.959-9.69zm1.874 1c0-.364.12-.667.393-.909a1.35 1.35 0 0 1 .936-.363c.393 0 .726.12.967.363.242.242.393.545.393.909 0 .363-.12.666-.393.908a1.37 1.37 0 0 1-.967.364c-.393 0-.695-.122-.936-.364-.242-.272-.393-.575-.393-.908m2.447 2.695v9.388h-2.206V8.056zm6.679 7.783c.332 0 .695-.06 1.088-.242a4.8 4.8 0 0 0 1.088-.606v2.06a3.9 3.9 0 0 1-1.21.454c-.453.09-.936.151-1.48.151-1.39 0-2.508-.424-3.354-1.302-.876-.878-1.3-1.999-1.3-3.331 0-1.514.454-2.756 1.33-3.725s2.115-1.454 3.747-1.454c.423 0 .846.06 1.24.151.422.091.755.243.996.364v2.12a4.4 4.4 0 0 0-1.027-.576c-.363-.12-.725-.212-1.088-.212-.876 0-1.571.273-2.115.848-.544.576-.786 1.333-.786 2.302 0 .939.272 1.696.786 2.21.513.516 1.209.788 2.085.788m8.43-7.935c.182 0 .333 0 .484.03q.227.046.363.092v2.24a1.4 1.4 0 0 0-.514-.242 3 3 0 0 0-.816-.12c-.544 0-.997.242-1.36.696-.362.454-.574 1.15-.574 2.12v4.724h-2.206V8.056h2.206V9.54h.03c.212-.515.514-.909.907-1.212a2.66 2.66 0 0 1 1.48-.423m.968 4.998c0-1.545.453-2.787 1.3-3.695q1.314-1.363 3.626-1.363c1.45 0 2.598.424 3.414 1.302s1.24 2.06 1.24 3.544c0 1.514-.454 2.725-1.3 3.634-.877.908-2.055 1.363-3.566 1.363q-2.175 0-3.445-1.272c-.846-.879-1.27-2.06-1.27-3.513m2.296-.091c0 .969.212 1.726.665 2.24.454.516 1.088.788 1.904.788.786 0 1.42-.242 1.843-.787.424-.515.635-1.272.635-2.302 0-1-.212-1.756-.635-2.302-.423-.514-1.057-.787-1.813-.787-.816 0-1.42.273-1.873.818-.514.575-.725 1.332-.725 2.332m10.577-2.272c0 .303.09.576.302.757s.635.394 1.33.667c.876.363 1.51.757 1.843 1.18.363.455.544.97.544 1.606 0 .878-.332 1.575-1.027 2.12-.665.545-1.602.787-2.75.787-.393 0-.816-.06-1.3-.151a5.2 5.2 0 0 1-1.208-.363V14.96c.392.273.846.515 1.3.666.452.152.875.243 1.268.243.484 0 .877-.061 1.088-.212.242-.152.363-.364.363-.697 0-.303-.121-.545-.363-.787-.242-.212-.725-.455-1.39-.727-.816-.333-1.39-.727-1.722-1.151s-.514-.97-.514-1.635q0-1.273.997-2.09c.665-.545 1.541-.818 2.599-.818.332 0 .695.03 1.088.121s.755.182 1.027.273v2.15a6.5 6.5 0 0 0-1.027-.515 3.2 3.2 0 0 0-1.148-.212c-.424 0-.756.091-.968.242-.211.213-.332.424-.332.727M10.335 0H0v10.358h10.335zm11.423 0H11.423v10.358h10.335zM10.335 11.448H0v10.357h10.335zm11.423 0H11.423v10.357h10.335z" fill="currentColor"/>
+        </svg>
+      </div>
+    </div>
+
+  </div><!-- /hs2-inner -->
+
+  <!-- ── SCROLL INDICATOR ── -->
+  <div class="hs2-scroll">
+    <div class="hs2-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+
+</main>
+</div>
+
+<!-- ════════════════════════════════
+       ECOMMERCE CORE
+════════════════════════════════ -->
+<section class="hs-core">
+
+  <div class="hs-blob" style="width:420px;height:420px;background:rgba(200,168,75,0.05);top:-60px;right:-110px;z-index:0;"></div>
+  <div class="hs-blob" style="width:340px;height:340px;background:rgba(60,80,200,0.04);bottom:-40px;left:-80px;z-index:0;"></div>
+
+  <div class="hs-core-inner">
+
+    <!-- LEFT -->
+    <div>
+      <div class="hs-eyebrow">Why Us</div>
+      <h2 class="hs-core-h2 bangla-font">
+        <em class="bangla-font">সুপারফাস্ট</em> ই-কমার্স<br>
+        ওয়েবসাইট ছাড়া<br>
+        <span class="muted bangla-font">অনলাইন বিজনেস অসম্পূর্ণ</span>
+      </h2>
+      <p class="hs-core-p bangla-font">
+        আজকের প্রতিযোগিতামূলক বাজারে টিকে থাকতে হলে দরকার একটি হাই-পারফরম্যান্স ওয়েবসাইট। আমরা এমন ওয়েবসাইট তৈরি করি, যা শুধু দ্রুত নয়—বরং কনভার্সন-ফোকাসড, ইউজার-ফ্রেন্ডলি এবং সেল বাড়ানোর জন্য अप्टिमाइजड।
+      </p>
+      <a href="#" class="hs-core-cta">
+        Live Demo &amp; Price
+        <i class="fa-solid fa-arrow-right" style="font-size:9px;"></i>
+      </a>
+    </div>
+
+    <!-- RIGHT CARD -->
+    <div class="hs-card">
+      <div class="hs-card-head">
+        <div class="hs-card-badge">
+          <span class="pulse"></span>
+          Commerce Core
+        </div>
+        <span class="hs-card-tag">Lightning Stack</span>
+      </div>
+
+      <div class="hs-tiles">
+        <div class="hs-tile">
+          <div class="hs-tile-icon" style="background:rgba(99,102,241,0.14);">
+            <i class="fas fa-shopping-cart" style="color:#818cf8;"></i>
+          </div>
+          <h3>E-commerce</h3>
+        </div>
+        <div class="hs-tile">
+          <div class="hs-tile-icon" style="background:rgba(52,211,153,0.14);">
+            <i class="fas fa-rocket" style="color:#34d399;"></i>
+          </div>
+          <h3>Super Fast</h3>
+        </div>
+        <div class="hs-tile">
+          <div class="hs-tile-icon" style="background:rgba(232,120,240,0.12);">
+            <i class="fas fa-mobile-alt" style="color:#e879f9;"></i>
+          </div>
+          <h3>Mobile Ready</h3>
+        </div>
+        <div class="hs-tile">
+          <div class="hs-tile-icon" style="background:rgba(251,191,36,0.12);">
+            <i class="fas fa-credit-card" style="color:#fbbf24;"></i>
+          </div>
+          <h3>Payment Gateway</h3>
+        </div>
+      </div>
+
+      <div class="hs-card-footer">
+        <div class="hs-pill">
+          <i class="fas fa-shield-alt" style="color:#4ade80;font-size:12px;"></i>
+          SSL &amp; Security
+        </div>
+        <div class="hs-pill">
+          <i class="fas fa-search" style="color:#22d3ee;font-size:12px;"></i>
+          SEO Ready
+        </div>
+      </div>
+
+      <p class="hs-card-note">Optimized for speed · Progressive · Modern DX</p>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+
+
+
+
+
+
+
 
     <style>
         /* Custom styles that Tailwind can't handle */
@@ -827,445 +1941,13 @@
 
 
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:wght@300;400;600&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 
-/* ══════════════════════════
-   ACHIEVEMENT SECTION
-══════════════════════════ */
-.ach-section {
-  position: relative;
-  background: #060400;
-  padding: 100px 24px;
-  overflow: hidden;
-  font-family: 'Hind Siliguri', sans-serif;
-}
 
-/* grain */
-.ach-section::after {
-  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
-}
 
-/* orbs */
-.ach-orb {
-  position: absolute; border-radius: 50%;
-  filter: blur(100px); pointer-events: none; z-index: 0;
-}
-.ach-orb-1 { width:500px;height:500px;top:-100px;left:-100px;
-  background:radial-gradient(circle,#c9972a1a,transparent 70%); }
-.ach-orb-2 { width:350px;height:350px;bottom:-60px;right:-80px;
-  background:radial-gradient(circle,#b200a712,transparent 70%); }
-.ach-orb-3 { width:280px;height:280px;top:50%;left:50%;transform:translate(-50%,-50%);
-  background:radial-gradient(circle,#c9972a0c,transparent 70%); }
 
-/* ── top label ── */
-.ach-inner { position:relative;z-index:2;max-width:1100px;margin:0 auto; }
 
-.ach-badge {
-  display:inline-flex;align-items:center;gap:9px;
-  padding:7px 22px;
-  border:1px solid #c9972a44;border-radius:999px;
-  background:#c9972a0e;
-  margin-bottom:28px;
-}
-.ach-badge-dot {
-  width:7px;height:7px;border-radius:50%;
-  background:#f0c84a;box-shadow:0 0 10px #f0c84a;
-  animation:ach-dot-pulse 2s ease-in-out infinite;
-}
-@keyframes ach-dot-pulse{0%,100%{box-shadow:0 0 6px #c9972a;}50%{box-shadow:0 0 18px #f0c84a;}}
-.ach-badge span {
-  font-family:'Cormorant Garamond',serif;
-  font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:#f0c84a;
-}
 
-/* ── heading ── */
-.ach-heading {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.6rem,4vw,2.8rem);font-weight:900;
-  line-height:1.2;margin-bottom:12px;
-  color:#fdf6e3;
-}
-.ach-heading .gold {
-  background:linear-gradient(135deg,#fce89a,#f0c84a,#c9972a);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
 
-.ach-rule {
-  display:flex;align-items:center;justify-content:center;gap:14px;
-  margin:18px auto 60px;
-}
-.ach-rule hr{width:60px;border:none;height:1px;
-  background:linear-gradient(90deg,transparent,#c9972a,transparent);opacity:.5;}
-.ach-rule span{color:#c9972a;font-size:.8rem;opacity:.65;}
-
-/* ══════════════════════════
-   MAIN CARD WRAPPER
-══════════════════════════ */
-.ach-card-outer {
-  position:relative;
-  border-radius:32px;
-  padding:2px;
-  /* animated conic border */
-  background:conic-gradient(from 0deg,
-    #c9972a,#f0c84a,#fce89a,#c9972a,
-    #b200a744,#ff589844,
-    #c9972a,#f0c84a,#c9972a);
-  background-size:300% 300%;
-  animation:ach-border-spin 5s linear infinite;
-  box-shadow:0 20px 80px #00000088, 0 0 40px #c9972a18;
-}
-@keyframes ach-border-spin{
-  0%  {background-position:0% 50%;}
-  50% {background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
-/* smooth conic border trick */
-.ach-card-outer::before {
-  content:'';
-  position:absolute;inset:0;border-radius:32px;
-  background:conic-gradient(from var(--a,0deg),
-    transparent 40%,
-    #f0c84a88 50%,
-    #c9972a 55%,
-    #fce89a88 60%,
-    transparent 70%);
-  animation:ach-conic-rotate 4s linear infinite;
-  z-index:0;
-}
-@keyframes ach-conic-rotate{
-  to{--a:360deg;}
-}
-/* CSS Houdini fallback */
-@property --a { syntax:'<angle>'; initial-value:0deg; inherits:false; }
-
-.ach-card-inner {
-  position:relative;z-index:1;
-  border-radius:30px;
-  background:linear-gradient(145deg,#141000,#0a0800);
-  overflow:hidden;
-  padding:0;
-}
-
-/* inner glow */
-.ach-card-inner::before {
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse at top center,#c9972a14,transparent 55%);
-}
-
-/* top separator line inside card */
-.ach-card-inner::after {
-  content:'';
-  position:absolute;top:0;left:10%;right:10%;height:1px;
-  background:linear-gradient(90deg,transparent,#c9972a66,transparent);
-}
-
-/* ══════════════════════════
-   STATS GRID
-══════════════════════════ */
-.ach-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  position:relative;
-}
-@media(max-width:768px){ .ach-grid{grid-template-columns:repeat(2,1fr);} }
-@media(max-width:420px){ .ach-grid{grid-template-columns:1fr;} }
-
-/* dividers between cells */
-.ach-stat:not(:last-child)::after {
-  content:'';
-  position:absolute;top:15%;right:0;bottom:15%;
-  width:1px;
-  background:linear-gradient(180deg,transparent,#c9972a33,transparent);
-}
-@media(max-width:768px){
-  .ach-stat:nth-child(2)::after { display:none; }
-  .ach-stat:nth-child(1),
-  .ach-stat:nth-child(2) {
-    border-bottom:1px solid #c9972a18;
-  }
-}
-@media(max-width:420px){
-  .ach-stat::after { display:none !important; }
-  .ach-stat { border-bottom:1px solid #c9972a14; }
-}
-
-/* ── individual stat ── */
-.ach-stat {
-  position:relative;
-  padding:44px 28px;
-  text-align:center;
-  display:flex;flex-direction:column;align-items:center;gap:0;
-  overflow:hidden;
-  transition:background .4s;
-  cursor:default;
-}
-.ach-stat:hover { background:#c9972a06; }
-
-/* hover shimmer sweep */
-.ach-stat::before {
-  content:'';
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,transparent 30%,#c9972a08 50%,transparent 70%);
-  transform:translateX(-100%);
-  transition:transform .6s ease;
-}
-.ach-stat:hover::before { transform:translateX(100%); }
-
-/* icon box */
-.ach-icon-box {
-  width:56px;height:56px;border-radius:18px;
-  background:linear-gradient(135deg,#201800,#160f00);
-  border:1px solid #c9972a33;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;
-  margin-bottom:18px;
-  box-shadow:0 0 18px #c9972a18;
-  position:relative;z-index:1;
-  transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;
-}
-.ach-stat:hover .ach-icon-box {
-  transform:translateY(-4px) scale(1.08);
-  box-shadow:0 8px 28px #c9972a33;
-}
-
-/* number */
-.ach-num {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;
-  line-height:1;margin-bottom:8px;
-  position:relative;z-index:1;
-  background:linear-gradient(135deg,#fce89a,#f0c84a,#c9972a);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-
-  /* count-up animation */
-  opacity:0;transform:translateY(16px);
-  transition:opacity .6s ease,transform .6s ease;
-}
-.ach-stat.visible .ach-num { opacity:1;transform:translateY(0); }
-
-/* label */
-.ach-label {
-  font-size:.88rem;color:#a87f30;line-height:1.5;
-  position:relative;z-index:1;
-  opacity:0;transform:translateY(10px);
-  transition:opacity .5s .15s ease,transform .5s .15s ease;
-}
-.ach-stat.visible .ach-label { opacity:1;transform:translateY(0); }
-
-/* sub label */
-.ach-sub {
-  font-family:'Cormorant Garamond',serif;
-  font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
-  color:#5a3e10;margin-top:4px;
-  position:relative;z-index:1;
-  opacity:0;transition:opacity .5s .25s ease;
-}
-.ach-stat.visible .ach-sub { opacity:1; }
-
-/* ── unique accent colors per stat ── */
-.ach-stat-1 .ach-icon-box { color:#60a5fa; border-color:#3b82f633; box-shadow:0 0 18px #3b82f618; }
-.ach-stat-1 .ach-num      { background:linear-gradient(135deg,#93c5fd,#3b82f6,#1d4ed8);
-  -webkit-background-clip:text;background-clip:text; }
-.ach-stat-1:hover .ach-icon-box { box-shadow:0 8px 28px #3b82f633; }
-
-.ach-stat-2 .ach-icon-box { color:#d946ef; border-color:#b200a733; box-shadow:0 0 18px #b200a718; }
-.ach-stat-2 .ach-num      { background:linear-gradient(135deg,#e879f9,#b200a7,#7e0076);
-  -webkit-background-clip:text;background-clip:text; }
-.ach-stat-2:hover .ach-icon-box { box-shadow:0 8px 28px #b200a733; }
-
-.ach-stat-3 .ach-icon-box { color:#fb923c; border-color:#f9731633; box-shadow:0 0 18px #f9731618; }
-.ach-stat-3 .ach-num      { background:linear-gradient(135deg,#fdba74,#f97316,#c2410c);
-  -webkit-background-clip:text;background-clip:text; }
-.ach-stat-3:hover .ach-icon-box { box-shadow:0 8px 28px #f9731633; }
-
-.ach-stat-4 .ach-icon-box { color:#a855f7; border-color:#9333ea33; box-shadow:0 0 18px #9333ea18; }
-.ach-stat-4 .ach-num      { background:linear-gradient(135deg,#d8b4fe,#a855f7,#7e22ce);
-  -webkit-background-clip:text;background-clip:text; }
-.ach-stat-4:hover .ach-icon-box { box-shadow:0 8px 28px #9333ea33; }
-
-/* ── bottom bar ── */
-.ach-bottom {
-  display:flex;align-items:center;justify-content:center;
-  padding:18px 28px;
-  border-top:1px solid #c9972a14;
-  gap:24px;flex-wrap:wrap;
-}
-.ach-bottom-pill {
-  display:inline-flex;align-items:center;gap:7px;
-  font-family:'Cormorant Garamond',serif;
-  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
-  color:#5a3e10;
-}
-.ach-bottom-pill i { color:#c9972a;font-size:.75rem; }
-.ach-bottom-sep { color:#c9972a33;font-size:.6rem; }
-
-/* ── entrance animation (section heading) ── */
-.ach-heading-wrap {
-  text-align:center;
-  opacity:0;transform:translateY(20px);
-  transition:opacity .8s ease,transform .8s ease;
-}
-.ach-heading-wrap.visible { opacity:1;transform:translateY(0); }
-
-.ach-card-outer {
-  opacity:0;transform:translateY(30px) scale(.98);
-  transition:opacity .7s .2s ease,transform .7s .2s cubic-bezier(.22,1,.36,1);
-}
-.ach-card-outer.visible { opacity:1;transform:translateY(0) scale(1); }
-
-/* stagger each stat */
-.ach-stat:nth-child(1) .ach-num { transition-delay:.0s; }
-.ach-stat:nth-child(2) .ach-num { transition-delay:.1s; }
-.ach-stat:nth-child(3) .ach-num { transition-delay:.2s; }
-.ach-stat:nth-child(4) .ach-num { transition-delay:.3s; }
-.ach-stat:nth-child(1) .ach-label { transition-delay:.15s; }
-.ach-stat:nth-child(2) .ach-label { transition-delay:.25s; }
-.ach-stat:nth-child(3) .ach-label { transition-delay:.35s; }
-.ach-stat:nth-child(4) .ach-label { transition-delay:.45s; }
-</style>
-
-<!-- আমাদের অর্জন — ACHIEVEMENT SECTION
-═ -->
-<section class="ach-section">
-  <div class="ach-orb ach-orb-1"></div>
-  <div class="ach-orb ach-orb-2"></div>
-  <div class="ach-orb ach-orb-3"></div>
-
-  <div class="ach-inner">
-
-    <!-- heading block -->
-    <div class="ach-heading-wrap" id="achHeadingWrap" style="text-align:center;">
-
-      <div class="ach-badge" style="margin:0 auto 28px;">
-        <span class="ach-badge-dot"></span>
-        <span>Our Achievements</span>
-      </div>
-
-      <h2 class="ach-heading bangla-font">
-        স্বপ্ন থেকে <span class="gold">সাফল্য</span> —<br>আমাদের অর্জনের গল্প
-      </h2>
-
-      <div class="ach-rule">
-        <hr/><span>◆</span><hr/>
-      </div>
-
-    </div>
-
-    <!-- card -->
-    <div class="ach-card-outer" id="achCardOuter">
-      <div class="ach-card-inner">
-
-        <!-- stats grid -->
-        <div class="ach-grid">
-
-          <!-- stat 1 -->
-          <div class="ach-stat ach-stat-1" id="achStat0">
-            <div class="ach-icon-box">
-              <i class="fa-regular fa-building"></i>
-            </div>
-            <div class="ach-num" data-target="8" data-suffix="+">0+</div>
-            <div class="ach-label bangla-font">বছরের অভিজ্ঞতা</div>
-            <div class="ach-sub">Years Experience</div>
-          </div>
-
-          <!-- stat 2 -->
-          <div class="ach-stat ach-stat-2" id="achStat1">
-            <div class="ach-icon-box">
-              <i class="fa-solid fa-earth-americas"></i>
-            </div>
-            <div class="ach-num" data-target="4200" data-suffix="+">0+</div>
-            <div class="ach-label bangla-font">সফল ওয়েবসাইট</div>
-            <div class="ach-sub">Websites Delivered</div>
-          </div>
-
-          <!-- stat 3 -->
-          <div class="ach-stat ach-stat-3" id="achStat2">
-            <div class="ach-icon-box">
-              <i class="fa-solid fa-headset"></i>
-            </div>
-            <div class="ach-num" data-target="0" data-static="24/7">24/7</div>
-            <div class="ach-label bangla-font">সাপোর্ট সেবা</div>
-            <div class="ach-sub">Always Available</div>
-          </div>
-
-          <!-- stat 4 -->
-          <div class="ach-stat ach-stat-4" id="achStat3">
-            <div class="ach-icon-box">
-              <i class="fa-solid fa-heart"></i>
-            </div>
-            <div class="ach-num" data-target="100" data-suffix="%">0%</div>
-            <div class="ach-label bangla-font">গ্রাহক সন্তুষ্টি</div>
-            <div class="ach-sub">Client Satisfaction</div>
-          </div>
-
-        </div>
-
-        <!-- bottom bar -->
-        <div class="ach-bottom">
-          <span class="ach-bottom-pill"><i class="fa-solid fa-shield-halved"></i> Trusted Since 2020</span>
-          <span class="ach-bottom-sep">◆</span>
-          <span class="ach-bottom-pill"><i class="fa-solid fa-bolt"></i> Fast Delivery</span>
-          <span class="ach-bottom-sep">◆</span>
-          <span class="ach-bottom-pill"><i class="fa-solid fa-star"></i> 5★ Rated</span>
-          <span class="ach-bottom-sep">◆</span>
-          <span class="ach-bottom-pill"><i class="fa-solid fa-location-dot"></i> Bangladesh</span>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<script>
-/* ── Intersection Observer → trigger animations ── */
-const achObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-
-      /* if it's the card, trigger stats too */
-      if (entry.target.id === 'achCardOuter') {
-        document.querySelectorAll('.ach-stat').forEach((el, i) => {
-          setTimeout(() => {
-            el.classList.add('visible');
-            /* count-up */
-            const numEl = el.querySelector('.ach-num');
-            if (numEl.dataset.static) return; /* skip 24/7 */
-            const target = parseInt(numEl.dataset.target);
-            const suffix = numEl.dataset.suffix || '';
-            if (target === 0) return;
-            achCountUp(numEl, target, suffix);
-          }, i * 120);
-        });
-      }
-    }
-  });
-}, { threshold: 0.2 });
-
-document.querySelectorAll('#achHeadingWrap, #achCardOuter').forEach(el => achObserver.observe(el));
-
-/* ── smooth count-up ── */
-function achCountUp(el, target, suffix) {
-  const duration = 1800;
-  const start = performance.now();
-  function step(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    /* ease-out cubic */
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(eased * target);
-    el.textContent = current.toLocaleString() + suffix;
-    if (progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-</script>
 
 
 
@@ -1706,187 +2388,385 @@ function achCountUp(el, target, suffix) {
 
 
 
-    <!-- Clint Section -->
-    <section class=' clint-review py-10 px-4 sm:px-6 lg:px-8'>
-        <div class='w-full max-w-6xl mx-auto'>
-            <h1 class='text-neutral-900 font-medium text-4xl md:text-[40px] text-center bangla-font'>৩,০০০+ মানুষের
-                ভালোবাসায় অনুপ্রাণিত</h1>
-            <p class='text-neutral-800 text-sm/6 mt-4 max-w-96 text-center mx-auto bangla-font'>প্রতিটি রিভিউ শুধু একটি
-                মতামত নয় — বরং আমাদের প্রতিদিনের পরিশ্রম, নিষ্ঠা এবং ক্লায়েন্টদের জীবনে সত্যিকারের প্রভাব তৈরির একটি
-                জীবন্ত প্রমাণ।</p>
+ 
 
-            <div class='hidden md:flex justify-end gap-2 mt-4'>
-                <button id="prev-btn"
-                    class='h-10 w-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center cursor-pointer hover:bg-neutral-200 transition-all text-neutral-500'
-                    aria-label="Previous">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="m12 19-7-7 7-7" />
-                        <path d="M19 12H5" />
-                    </svg>
-                </button>
-                <button id="next-btn"
-                    class='h-10 w-10 rounded-lg bg-neutral-100 border border-neutral-200 flex items-center justify-center cursor-pointer hover:bg-neutral-200 transition-all text-neutral-500'
-                    aria-label="Next">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                    </svg>
-                </button>
+
+
+
+
+<!-- Clint Section -->
+<section class='clint-review py-16 px-4 sm:px-6 lg:px-8' style="background: #0a0a0a; position: relative; overflow: hidden;">
+
+    <!-- Background texture -->
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(176,140,60,0.08) 0%, transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(176,140,60,0.4),transparent);"></div>
+
+    <div class='w-full max-w-6xl mx-auto' style="position:relative;">
+
+        <!-- Header -->
+        <div style="text-align:center; margin-bottom: 48px;">
+            <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;">
+                <div style="height:1px;width:40px;background:linear-gradient(90deg,transparent,#B08C3C);"></div>
+                <span class="bangla-font" style="font-size:11px;letter-spacing:3px;color:#B08C3C;text-transform:uppercase;font-weight:500;">ক্লায়েন্ট রিভিউ</span>
+                <div style="height:1px;width:40px;background:linear-gradient(90deg,#B08C3C,transparent);"></div>
             </div>
-
-            <div id="testimonials"
-                class='mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-8 md:px-0 mt-12 md:mt-6'></div>
-
-            <div id="dots" class="hidden max-md:flex items-center justify-center mt-5 gap-2"></div>
+            <h1 class='bangla-font' style="color:#f0e6c8;font-size:clamp(28px,4vw,42px);font-weight:600;line-height:1.3;margin:0 0 14px;">৩,০০০+ মানুষের ভালোবাসায় অনুপ্রাণিত</h1>
+            <p class='bangla-font' style="color:#7a6a50;font-size:14px;line-height:1.8;max-width:420px;margin:0 auto;">প্রতিটি রিভিউ শুধু একটি মতামত নয় — বরং আমাদের প্রতিদিনের পরিশ্রম, নিষ্ঠা এবং ক্লায়েন্টদের জীবনে সত্যিকারের প্রভাব তৈরির একটি জীবন্ত প্রমাণ।</p>
         </div>
-    </section>
-    <script>
-        const testimonials = [
-            { id: 1, date: "Jun 10, 2026", text: 'তিনি শুধু একটি ওয়েবসাইট বানাননি, আমাদের সুন্দরভাবে বুঝে সেটাকে আধুনিক ও ইউজার-ফ্রেন্ডলি প্ল্যাটফর্মে রূপ দিয়েছেন। কাজ সময়মতো ডেলিভারি দিয়েছেন।', name: "রাশেদ মাহমুদ", role: "CEO, Digital Grow BD", img: "images/chatlogo.png" },
-            { id: 2, date: "Jun 10, 2026", text: 'ওনার কাজের ডিটেইলস দেখলে বুঝা যায় তিনি কতটা প্রফেশনাল। প্রজেক্ট শেষ হওয়ার পরও ছোটখাটো ইস্যুগুলো খুব দ্রুত সমাধান করে দিয়েছেন।', name: "তানজিলা ইসলাম", role: "Founder, TI Creative Studio", img: "images/chatlogo.png" },
-            { id: 3, date: "Jun 10, 2026", text: 'আমার রিকোয়ারমেন্ট খুব দ্রুত বুঝে নিয়েছেন এবং আগের সিস্টেমের সাথে সুন্দরভাবে ইন্টিগ্রেট করেছেন। UI/UX অনেক উন্নত হয়েছে এবং সাইটের স্পিডও বেড়েছে।', name: "নাঈম হাসান", role: "Frontend Developer, CodeNest", img: "images/chatlogo.png" },
-            { id: 4, date: "Jul 12, 2026", text: 'পুরো কাজের প্রসেস ছিল ঝামেলামুক্ত। যেকোনো প্রশ্নে দ্রুত রিপ্লাই দিয়েছেন এবং এক্সপেক্টেশনের থেকেও ভালো কাজ করেছেন।', name: "আরিফুল ইসলাম", role: "Owner, SmartShop BD", img: "images/chatlogo.png" },
-            { id: 5, date: "Jul 12, 2026", text: 'তিনি শুধু ওয়েবসাইট বানাননি, বরং এমন কিছু সাজেশন দিয়েছেন যা আমাদের ইউজার এক্সপেরিয়েন্স এবং সেলস দুইটাই বাড়াতে সাহায্য করেছে।', name: "ফারহানা আক্তার", role: "Marketing Manager", img: "images/chatlogo.png" }
-        ];
 
-        let index = 0, mobile = innerWidth < 768, timer;
+        <!-- Nav buttons desktop -->
+        <div class='hidden md:flex justify-end gap-2' style="margin-bottom:20px;">
+            <button id="prev-btn" aria-label="Previous" style="height:40px;width:40px;border-radius:8px;background:rgba(176,140,60,0.08);border:1px solid rgba(176,140,60,0.25);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#B08C3C;transition:all 0.25s;outline:none;" onmouseover="this.style.background='rgba(176,140,60,0.18)';this.style.borderColor='rgba(176,140,60,0.5)'" onmouseout="this.style.background='rgba(176,140,60,0.08)';this.style.borderColor='rgba(176,140,60,0.25)'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            </button>
+            <button id="next-btn" aria-label="Next" style="height:40px;width:40px;border-radius:8px;background:rgba(176,140,60,0.08);border:1px solid rgba(176,140,60,0.25);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#B08C3C;transition:all 0.25s;outline:none;" onmouseover="this.style.background='rgba(176,140,60,0.18)';this.style.borderColor='rgba(176,140,60,0.5)'" onmouseout="this.style.background='rgba(176,140,60,0.08)';this.style.borderColor='rgba(176,140,60,0.25)'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+        </div>
 
-        const render = () => {
-            const count = mobile ? 1 : 3;
-            document.getElementById('testimonials').innerHTML = testimonials.slice(index, index + count).map(t => `
-            <div class="bg-zinc-50 hover:-translate-y-1 transition duration-300 border border-zinc-200 rounded-2xl p-6 space-y-6">
-                <div class="flex items-start justify-between">
-                    <div class="flex">${'<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="#FF8F20"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>'.repeat(5)}</div>
-                    <p class="text-xs text-neutral-500">${t.date}</p>
+        <!-- Cards Grid -->
+        <div id="testimonials" class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-8 md:px-0'></div>
+
+        <!-- Dots mobile -->
+        <div id="dots" class="flex items-center justify-center mt-6 gap-2" style="display:none;"></div>
+
+    </div>
+
+    <!-- Bottom border -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(176,140,60,0.3),transparent);"></div>
+</section>
+
+<script>
+    const testimonials = [
+        { id: 1, date: "Jun 10, 2026", text: 'তিনি শুধু একটি ওয়েবসাইট বানাননি, আমাদের সুন্দরভাবে বুঝে সেটাকে আধুনিক ও ইউজার-ফ্রেন্ডলি প্ল্যাটফর্মে রূপ দিয়েছেন। কাজ সময়মতো ডেলিভারি দিয়েছেন।', name: "রাশেদ মাহমুদ", role: "CEO, Digital Grow BD", img: "images/chatlogo.png" },
+        { id: 2, date: "Jun 10, 2026", text: 'ওনার কাজের ডিটেইলস দেখলে বুঝা যায় তিনি কতটা প্রফেশনাল। প্রজেক্ট শেষ হওয়ার পরও ছোটখাটো ইস্যুগুলো খুব দ্রুত সমাধান করে দিয়েছেন।', name: "তানজিলা ইসলাম", role: "Founder, TI Creative Studio", img: "images/chatlogo.png" },
+        { id: 3, date: "Jun 10, 2026", text: 'আমার রিকোয়ারমেন্ট খুব দ্রুত বুঝে নিয়েছেন এবং আগের সিস্টেমের সাথে সুন্দরভাবে ইন্টিগ্রেট করেছেন। UI/UX অনেক উন্নত হয়েছে এবং সাইটের স্পিডও বেড়েছে।', name: "নাঈম হাসান", role: "Frontend Developer, CodeNest", img: "images/chatlogo.png" },
+        { id: 4, date: "Jul 12, 2026", text: 'পুরো কাজের প্রসেস ছিল ঝামেলামুক্ত। যেকোনো প্রশ্নে দ্রুত রিপ্লাই দিয়েছেন এবং এক্সপেক্টেশনের থেকেও ভালো কাজ করেছেন।', name: "আরিফুল ইসলাম", role: "Owner, SmartShop BD", img: "images/chatlogo.png" },
+        { id: 5, date: "Jul 12, 2026", text: 'তিনি শুধু ওয়েবসাইট বানাননি, বরং এমন কিছু সাজেশন দিয়েছেন যা আমাদের ইউজার এক্সপেরিয়েন্স এবং সেলস দুইটাই বাড়াতে সাহায্য করেছে।', name: "ফারহানা আক্তার", role: "Marketing Manager", img: "images/chatlogo.png" }
+    ];
+
+    let index = 0, mobile = innerWidth < 768, timer;
+
+    const goldStar = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#B08C3C"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>`;
+
+    const render = () => {
+        const count = mobile ? 1 : 3;
+        document.getElementById('testimonials').innerHTML = testimonials.slice(index, index + count).map(t => `
+            <div style="
+                background: linear-gradient(145deg, #111111, #0d0d0d);
+                border: 1px solid rgba(176,140,60,0.18);
+                border-radius: 16px;
+                padding: 28px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            "
+            onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(176,140,60,0.45)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(176,140,60,0.1)'"
+            onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(176,140,60,0.18)';this.style.boxShadow='none'"
+            >
+                <!-- top shine line -->
+                <div style="position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,rgba(176,140,60,0.35),transparent);"></div>
+
+                <!-- Quote mark -->
+                <div style="position:absolute;top:16px;right:20px;font-size:64px;line-height:1;color:rgba(176,140,60,0.06);font-family:Georgia,serif;pointer-events:none;user-select:none;">"</div>
+
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                    <div style="display:flex;gap:3px;">${goldStar.repeat(5)}</div>
+                    <span style="font-size:11px;color:#4a3f2a;letter-spacing:0.5px;">${t.date}</span>
                 </div>
-                <p class="text-sm/6 text-neutral-600 bangla-font">${t.text}</p>
-                <div class="flex items-center gap-4">
-                    <img src="${t.img}" alt="${t.name}" class="w-13 h-13 rounded-full object-cover">
+
+                <p class="bangla-font" style="font-size:13.5px;line-height:1.9;color:#8a7a60;flex:1;">${t.text}</p>
+
+                <div style="display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid rgba(176,140,60,0.1);">
+                    <div style="position:relative;flex-shrink:0;">
+                        <img src="${t.img}" alt="${t.name}" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid rgba(176,140,60,0.3);">
+                        <div style="position:absolute;inset:-2px;border-radius:50%;border:1px solid rgba(176,140,60,0.15);"></div>
+                    </div>
                     <div>
-                        <p class="text-sm text-neutral-700">${t.name}</p>
-                        <p class="text-xs font-medium text-neutral-500">${t.role}</p>
+                        <p class="bangla-font" style="font-size:13px;color:#d4b87a;font-weight:500;margin:0 0 2px;">${t.name}</p>
+                        <p style="font-size:11px;color:#4a3f2a;letter-spacing:0.3px;margin:0;">${t.role}</p>
                     </div>
                 </div>
             </div>
         `).join('');
 
-            document.getElementById('dots').innerHTML = testimonials.map((_, i) =>
-                `<button class="w-3 h-3 rounded-full transition ${i === index ? 'bg-neutral-800' : 'bg-neutral-300'}" onclick="index=${i};render()" aria-label="Slide ${i + 1}"></button>`
-            ).join('');
-        };
+        const dotsEl = document.getElementById('dots');
+        dotsEl.innerHTML = testimonials.map((_, i) =>
+            `<button onclick="index=${i};render()" aria-label="Slide ${i+1}" style="width:${i === index ? '24px' : '8px'};height:8px;border-radius:99px;border:none;cursor:pointer;transition:all 0.3s ease;background:${i === index ? 'linear-gradient(90deg,#B08C3C,#d4b87a)' : 'rgba(176,140,60,0.2)'};outline:none;padding:0;"></button>`
+        ).join('');
 
-        document.getElementById('prev-btn').onclick = () => { index = index - 3 < 0 ? Math.max(testimonials.length - 3, 0) : index - 3; render(); };
-        document.getElementById('next-btn').onclick = () => { index = index + 3 >= testimonials.length ? 0 : index + 3; render(); };
+        dotsEl.style.display = mobile ? 'flex' : 'none';
+    };
 
-        addEventListener('resize', () => {
-            const wasMobile = mobile;
-            mobile = innerWidth < 768;
-            if (mobile !== wasMobile) {
-                clearInterval(timer);
-                if (mobile) timer = setInterval(() => { index = (index + 1) % testimonials.length; render(); }, 3000);
-                render();
-            }
-        });
+    document.getElementById('prev-btn').onclick = () => { index = index - 3 < 0 ? Math.max(testimonials.length - 3, 0) : index - 3; render(); };
+    document.getElementById('next-btn').onclick = () => { index = index + 3 >= testimonials.length ? 0 : index + 3; render(); };
 
-        if (mobile) timer = setInterval(() => { index = (index + 1) % testimonials.length; render(); }, 3000);
-        render();
-    </script>
+    addEventListener('resize', () => {
+        const wasMobile = mobile;
+        mobile = innerWidth < 768;
+        if (mobile !== wasMobile) {
+            clearInterval(timer);
+            if (mobile) timer = setInterval(() => { index = (index + 1) % testimonials.length; render(); }, 3000);
+            render();
+        }
+    });
 
-    <!-- ceo + section  -->
+    if (mobile) timer = setInterval(() => { index = (index + 1) % testimonials.length; render(); }, 3000);
+    render();
+</script>
 
-    <section class="bg-[#020617] py-10 overflow-hidden">
 
-        <div class="max-w-7xl mx-auto px-4">
 
-            <!-- Title -->
-            <h2 class="text-4xl font-bold text-center text-white mb-10">
-                Message From CEO
-                <span
-                    class="block w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-3 rounded-full"></span>
-            </h2>
 
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+ <!-- ceo + section  -->
 
-                <!-- LEFT SIDE -->
-                <div class="relative flex justify-center">
+<section class="ceo-section">
 
-                    <!-- Glow Ring -->
-                    <div
-                        class="absolute w-72 h-72 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 blur-3xl opacity-40 animate-pulse">
-                    </div>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&display=swap');
 
-                    <!-- Rotating Border -->
-                    <div
-                        class="relative p-[4px] rounded-full bg-gradient-to-tr from-cyan-400 via-blue-500 to-purple-500 animate-spin-slow">
+    .ceo-section {
+      background: #0a0900;
+      padding: 80px 24px;
+      overflow: hidden;
+      position: relative;
+    }
+    .ceo-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+    }
+    .ceo-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+    }
+    .ceo-inner { max-width: 1100px; margin: 0 auto; }
 
-                        <!-- Image -->
-                        <img src="images/team/ceo.png"
-                            class="w-72 h-72 object-cover rounded-full border-4 border-[#020617]">
+    .ceo-title-wrap { text-align: center; margin-bottom: 64px; }
+    .ceo-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #1a1200; border: 1px solid #3a2e00;
+      border-radius: 30px; padding: 5px 16px; margin-bottom: 16px;
+    }
+    .ceo-eyebrow span {
+      font-size: 11px; color: #c9a96e;
+      letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600;
+    }
+    .ceo-main-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700; color: #f0e6cc; letter-spacing: -0.5px;
+    }
+    .ceo-main-title em { font-style: normal; color: #c9a96e; }
+    .ceo-title-line {
+      width: 60px; height: 2px;
+      background: #c9a96e;
+      margin: 14px auto 0; border-radius: 2px;
+    }
 
-                    </div>
+    .ceo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .ceo-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
 
-                    <!-- Floating Badge -->
-                    <div
-                        class="absolute -bottom-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-white text-sm shadow-lg">
-                        🔥 3200+ Projects
-                    </div>
+    .ceo-left { display: flex; flex-direction: column; align-items: center; gap: 24px; }
 
-                </div>
+    .ceo-img-frame { position: relative; width: 260px; height: 260px; }
+    .ceo-ring-outer {
+      position: absolute; inset: -6px; border-radius: 50%;
+      border: 1px solid rgba(201,169,110,0.3);
+      animation: ceoRotate 8s linear infinite;
+    }
+    .ceo-ring-mid {
+      position: absolute; inset: -14px; border-radius: 50%;
+      border: 1px dashed rgba(201,169,110,0.12);
+      animation: ceoRotate 14s linear infinite reverse;
+    }
+    @keyframes ceoRotate { to { transform: rotate(360deg); } }
+    .ceo-img-border {
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      border: 2.5px solid #c9a96e;
+      overflow: hidden;
+      position: relative; z-index: 1;
+    }
+    .ceo-img-border img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
 
-                <!-- RIGHT SIDE -->
-                <div class="relative">
+    .ceo-stat-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .ceo-stat-chip {
+      background: #111000; border: 1px solid #2a2000;
+      border-radius: 12px; padding: 10px 18px; text-align: center;
+    }
+    .ceo-stat-num { font-size: 20px; font-weight: 700; color: #c9a96e; }
+    .ceo-stat-lbl {
+      font-size: 10px; color: #5a4e28;
+      letter-spacing: 0.6px; text-transform: uppercase; margin-top: 3px;
+    }
 
-                    <!-- Background Glow -->
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/10 blur-3xl rounded-3xl">
-                    </div>
+    .ceo-card {
+      background: #0f0c00;
+      border: 1px solid #2a2000;
+      border-radius: 24px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ceo-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: #c9a96e;
+    }
 
-                    <!-- Card -->
-                    <div
-                        class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-2xl">
+    .ceo-quote-mark {
+      font-size: 72px; line-height: 1;
+      color: #2a2000;
+      font-family: Georgia, serif;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+      margin-top: -12px;
+    }
+    .ceo-quote-text {
+      font-size: 15px; line-height: 1.9;
+      color: #a89060;
+      margin-bottom: 28px;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .ceo-card-divider { height: 1px; background: #1e1800; margin-bottom: 24px; }
 
-                        <!-- Quote -->
-                        <div class="text-cyan-400 text-5xl mb-6">❝</div>
+    .ceo-info-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 14px;
+      margin-bottom: 28px;
+    }
+    .ceo-name {
+      font-size: 20px; font-weight: 700;
+      color: #f0e6cc;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .ceo-designation { font-size: 12px; color: #5a4e28; margin-top: 4px; }
 
-                        <!-- Text -->
-                        <p class="text-gray-300 text-lg leading-relaxed mb-8 bangla-font">
-                            প্রযুক্তিগত বিষয়গুলো সামলাতে গিয়ে আপনার ব্যবসার আসল জায়গায় ফোকাস হারাচ্ছেন?
-                            আমরা আছি আপনার পাশে। আপনার ব্যবসার সম্পূর্ণ টেক সলিউশন আমরা ম্যানেজ করবো,
-                            আপনি শুধু আপনার গ্রোথে ফোকাস করুন।
-                        </p>
+    .ceo-avail-badge {
+      display: flex; align-items: center; gap: 7px;
+      background: #1a1200; border: 1px solid #3a2e00;
+      border-radius: 10px; padding: 8px 14px;
+    }
+    .ceo-avail-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; }
+    .ceo-avail-txt { font-size: 11px; color: #7a6a40; }
 
-                        <!-- Info -->
-                        <div class="mb-6">
-                            <h3 class="text-xl font-bold text-white bangla-font"> নুর মোহাম্মাদ</h3>
-                            <p class="text-gray-400 text-sm">Founder & CEO, Site Ghor Limited</p>
-                        </div>
+    .ceo-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .ceo-btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 12px;
+      background: #c9a96e; color: #0a0900;
+      font-size: 13px; font-weight: 700;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.15s;
+      border: none; cursor: pointer;
+    }
+    .ceo-btn-primary:hover { background: #d4b47e; transform: scale(1.03); }
+    .ceo-btn-wa {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 12px;
+      background: transparent; color: #22c55e;
+      font-size: 13px; font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #1a3a1a;
+      transition: background 0.18s, transform 0.15s;
+      cursor: pointer;
+    }
+    .ceo-btn-wa:hover { background: #0a1f0a; transform: scale(1.03); }
+    .ceo-btn-icon { font-size: 16px; }
+  </style>
 
-                        <!-- Buttons -->
-                        <div class="flex gap-4 flex-wrap">
+  <div class="ceo-inner">
 
-                            <a href="contact.html"
-                                class="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold shadow-lg hover:scale-105 transition">
-                                <i class="fa-solid fa-handshake text-white"></i> Meeting
-                            </a>
+    <div class="ceo-title-wrap">
+      <div class="ceo-eyebrow"><span>Leadership</span></div>
+      <h2 class="ceo-main-title">Message From <em>Our CEO</em></h2>
+      <div class="ceo-title-line"></div>
+    </div>
 
-                            <a href="https://wa.link/e4cxbt"
-                                class="px-6 py-3 rounded-xl border border-white/20 text-white hover:bg-white/10 transition">
-                                <i class="fa-brands fa-whatsapp" style="color: rgb(0, 200, 5);"></i> WhatsApp
-                            </a>
+    <div class="ceo-grid">
 
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+      <!-- LEFT -->
+      <div class="ceo-left">
+        <div class="ceo-img-frame">
+          <div class="ceo-ring-outer"></div>
+          <div class="ceo-ring-mid"></div>
+          <div class="ceo-img-border">
+            <img src="images/team/ceo.png" alt="CEO Nurmohammad">
+          </div>
         </div>
+        <div class="ceo-stat-row">
+          <div class="ceo-stat-chip">
+            <div class="ceo-stat-num">3200+</div>
+            <div class="ceo-stat-lbl">Projects Done</div>
+          </div>
+          <div class="ceo-stat-chip">
+            <div class="ceo-stat-num">8+</div>
+            <div class="ceo-stat-lbl">Years Exp.</div>
+          </div>
+          <div class="ceo-stat-chip">
+            <div class="ceo-stat-num">500+</div>
+            <div class="ceo-stat-lbl">Happy Clients</div>
+          </div>
+        </div>
+      </div>
 
-    </section>
+      <!-- RIGHT -->
+      <div class="ceo-right">
+        <div class="ceo-card">
+          <span class="ceo-quote-mark">"</span>
+          <p class="ceo-quote-text">
+            প্রযুক্তিগত বিষয়গুলো সামলাতে গিয়ে আপনার ব্যবসার আসল জায়গায় ফোকাস হারাচ্ছেন?
+            আমরা আছি আপনার পাশে। আপনার ব্যবসার সম্পূর্ণ টেক সলিউশন আমরা ম্যানেজ করবো,
+            আপনি শুধু আপনার গ্রোথে ফোকাস করুন।
+          </p>
+          <div class="ceo-card-divider"></div>
+          <div class="ceo-info-row">
+            <div>
+              <div class="ceo-name">নুর মোহাম্মাদ</div>
+              <div class="ceo-designation">Founder & CEO, Site Ghor Limited</div>
+            </div>
+            <div class="ceo-avail-badge">
+              <span class="ceo-avail-dot"></span>
+              <span class="ceo-avail-txt">Available now</span>
+            </div>
+          </div>
+          <div class="ceo-btns">
+            <a href="contact.html" class="ceo-btn-primary">
+              <i class="fa-solid fa-handshake ceo-btn-icon"></i> Book a Meeting
+            </a>
+            <a href="https://wa.link/e4cxbt" target="_blank" class="ceo-btn-wa">
+              <i class="fa-brands fa-whatsapp ceo-btn-icon"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
 
 
 
