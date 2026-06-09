@@ -1145,9 +1145,6 @@
 
 
 
-
-
-
     <style>
         /* Custom styles that Tailwind can't handle */
         .font-playfair {
@@ -1840,109 +1837,115 @@
     </section>
 
 
-    <!-- আমাদের অর্জন -->
-    <section class="flex justify-center items-center bg-white py-16">
 
-        <div class="relative w-full max-w-6xl rounded-2xl overflow-hidden ph-border m-2">
+<!-- আমাদের অর্জন -->
+<style>
+    @keyframes goldRotate {
+        0%   { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
 
-            <!-- Content -->
-            <div class="relative z-5 bg-white m-[2px] rounded-2xl p-10 text-center">
+    .achievement-border-wrap {
+        isolation: isolate;
+        overflow: hidden;
+    }
 
-                <h2 class="text-2xl md:text-4xl font-bold mb-10 bangla-font">
-                    স্বপ্ন থেকে <span class="text-purple-500 bangla-font">সাফল্য</span> আমাদের অর্জনের গল্প
-                </h2>
+    /* Mobile: 2 columns already, no change needed */
+    @media (min-width: 640px) {
+        .achievement-grid {
+            grid-template-columns: repeat(4, 1fr) !important;
+        }
+        .achievement-grid .ach-item:nth-child(1),
+        .achievement-grid .ach-item:nth-child(2),
+        .achievement-grid .ach-item:nth-child(3) {
+            border-right: 1px solid rgba(176,140,60,0.12) !important;
+            border-bottom: none !important;
+        }
+        .achievement-grid .ach-item:nth-child(4) {
+            border-right: none !important;
+            border-bottom: none !important;
+        }
+        .achievement-grid .ach-item:nth-child(2) {
+            border-bottom: none !important;
+        }
+    }
+</style>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<section style="display:flex;justify-content:center;align-items:center;background:#0a0a0a;padding:70px 16px;position:relative;overflow:hidden;">
 
-                    <div class="space-x-3">
-                        <div class="text-4xl mb-2"><i class="fa-regular fa-building"
-                                style="color: rgb(3, 93, 237);"></i></div>
-                        <h3 class="text-4xl font-bold text-blue-500">8+</h3>
-                        <p class="text-gray-600 bangla-font">বছরের অভিজ্ঞতা</p>
+    <!-- bg glow -->
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(176,140,60,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(176,140,60,0.3),transparent);"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(176,140,60,0.2),transparent);"></div>
+
+    <div class="achievement-border-wrap" style="position:relative;width:100%;max-width:1150px;border-radius:20px;padding:2px;margin:0 8px;">
+
+        <!-- Rotating border -->
+        <div class="achievement-rotator" style="position:absolute;top:50%;left:50%;width:200vmax;height:200vmax;transform:translate(-50%,-50%);background:conic-gradient(from 0deg,transparent 0deg,transparent 60deg,#ffffff 90deg,
+  #ffa205 120deg,
+  #b41cdd 140deg,
+  #ff5898 160deg,transparent 200deg,transparent 360deg);border-radius:50%;animation:goldRotate 5s linear infinite;"></div>
+
+        <!-- Inner card -->
+        <div style="position:relative;z-index:2;background:linear-gradient(160deg,#111111,#0d0d0d);border-radius:18px;padding:32px 40px;text-align:center;overflow:hidden;">
+
+            <!-- inner top shine -->
+            <div style="position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(176,140,60,0.5),transparent);"></div>
+
+            <!-- Label -->
+            <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;">
+                <div style="height:1px;width:30px;background:linear-gradient(90deg,transparent,#B08C3C);"></div>
+                <span class="bangla-font" style="font-size:11px;letter-spacing:3px;color:#B08C3C;text-transform:uppercase;font-weight:500;">আমাদের অর্জন</span>
+                <div style="height:1px;width:30px;background:linear-gradient(90deg,#B08C3C,transparent);"></div>
+            </div>
+
+            <h2 class="bangla-font" style="font-size:clamp(22px,3.5vw,36px);font-weight:700;color:#f0e6c8;margin:0 0 48px;line-height:1.4;">
+                স্বপ্ন থেকে <span style="background:linear-gradient(135deg,#B08C3C,#d4b87a,#f0d48a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;" class="bangla-font">সাফল্য</span> — আমাদের অর্জনের গল্প
+            </h2>
+
+            <!-- Stats grid -->
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;" class="achievement-grid">
+
+                <!-- Item 1 -->
+                <div class="ach-item" style="padding:32px 20px;border-right:1px solid rgba(176,140,60,0.12);border-bottom:1px solid rgba(176,140,60,0.12);transition:background 0.3s;" onmouseover="this.style.background='rgba(176,140,60,0.04)'" onmouseout="this.style.background='transparent'">
+                    <div style="margin-bottom:14px;">
+                        <i class="fa-regular fa-building" style="font-size:28px;background:linear-gradient(135deg,#B08C3C,#d4b87a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"></i>
                     </div>
+                    <div style="font-size:clamp(32px,5vw,48px);font-weight:800;background:linear-gradient(135deg,#B08C3C,#d4b87a,#f0d48a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:10px;">8+</div>
+                    <p class="bangla-font" style="font-size:13px;color:#7a6a50;margin:0;letter-spacing:0.3px;">বছরের অভিজ্ঞতা</p>
+                </div>
 
-                    <div class="space-x-3">
-                        <div class="text-4xl mb-2"><i class="fa-solid fa-earth-americas" style="color: #b200a7"></i>
-                        </div>
-                        <h3 class="text-4xl font-bold text-[#b200a7]">4200+</h3>
-                        <p class="text-gray-600 bangla-font">সফল ওয়েবসাইট
-
-                        </p>
+                <!-- Item 2 -->
+                <div class="ach-item" style="padding:32px 20px;border-bottom:1px solid rgba(176,140,60,0.12);transition:background 0.3s;" onmouseover="this.style.background='rgba(176,140,60,0.04)'" onmouseout="this.style.background='transparent'">
+                    <div style="margin-bottom:14px;">
+                        <i class="fa-solid fa-earth-americas" style="font-size:28px;background:linear-gradient(135deg,#B08C3C,#d4b87a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"></i>
                     </div>
+                    <div style="font-size:clamp(32px,5vw,48px);font-weight:800;background:linear-gradient(135deg,#B08C3C,#d4b87a,#f0d48a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:10px;">4200+</div>
+                    <p class="bangla-font" style="font-size:13px;color:#7a6a50;margin:0;letter-spacing:0.3px;">সফল ওয়েবসাইট</p>
+                </div>
 
-                    <div class="space-x-3">
-                        <div class="text-4xl mb-2"><i class="fa-solid fa-headset" style="color: rgb(251, 146, 60);"></i>
-                        </div>
-                        <h3 class="text-4xl font-bold text-orange-400">24/7</h3>
-                        <p class="text-gray-600 bangla-font">সাপোর্ট সেবা</p>
+                <!-- Item 3 -->
+                <div class="ach-item" style="padding:32px 20px;border-right:1px solid rgba(176,140,60,0.12);transition:background 0.3s;" onmouseover="this.style.background='rgba(176,140,60,0.04)'" onmouseout="this.style.background='transparent'">
+                    <div style="margin-bottom:14px;">
+                        <i class="fa-solid fa-headset" style="font-size:28px;background:linear-gradient(135deg,#B08C3C,#d4b87a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"></i>
                     </div>
+                    <div style="font-size:clamp(32px,5vw,48px);font-weight:800;background:linear-gradient(135deg,#B08C3C,#d4b87a,#f0d48a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:10px;">24/7</div>
+                    <p class="bangla-font" style="font-size:13px;color:#7a6a50;margin:0;letter-spacing:0.3px;">সাপোর্ট সেবা</p>
+                </div>
 
-                    <div class="space-x-3">
-                        <div class="text-4xl mb-2"><i class="fa-solid fa-heart" style="color: rgb(187, 86, 234);"></i>
-                        </div>
-                        <h3 class="text-4xl font-bold text-purple-500">100%</h3>
-                        <p class="text-gray-600 bangla-font">গ্রাহক সন্তুষ্টি </p>
+                <!-- Item 4 -->
+                <div class="ach-item" style="padding:32px 20px;transition:background 0.3s;" onmouseover="this.style.background='rgba(176,140,60,0.04)'" onmouseout="this.style.background='transparent'">
+                    <div style="margin-bottom:14px;">
+                        <i class="fa-solid fa-heart" style="font-size:28px;background:linear-gradient(135deg,#B08C3C,#d4b87a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"></i>
                     </div>
-
+                    <div style="font-size:clamp(32px,5vw,48px);font-weight:800;background:linear-gradient(135deg,#B08C3C,#d4b87a,#f0d48a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:10px;">100%</div>
+                    <p class="bangla-font" style="font-size:13px;color:#7a6a50;margin:0;letter-spacing:0.3px;">গ্রাহক সন্তুষ্টি</p>
                 </div>
 
             </div>
-
         </div>
-
-    </section>
-    <style>
-        .ph-border {
-            position: relative;
-        }
-
-        .ph-border::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 150vmax;
-            height: 150vmax;
-
-            background: conic-gradient(from -31.62deg,
-                    #ffffff -43deg,
-                    #ffa205 20deg,
-                    #b41cdd 60deg,
-                    #ff5898 120deg,
-                    #ffffff 140deg,
-                    #ffffff 320deg,
-                    #ffa205 380deg);
-
-            transform: translate(-50%, -50%);
-            animation: phRotate 4s linear infinite;
-        }
-
-        /* IMPORTANT PART (border only visible) */
-        .ph-border::after {
-            content: "";
-            position: absolute;
-            inset: 2px;
-            background: #f3f4f6;
-            border-radius: 16px;
-            z-index: 1;
-        }
-
-        @keyframes phRotate {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
-    </style>
-
-
-
-
-
-
+    </div>
+</section>
 
 
 
@@ -2044,8 +2047,6 @@
         </div>
     </div>
 </section>
-
-
 
 
     <!-- Team Section -->
